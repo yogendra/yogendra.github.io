@@ -6,7 +6,7 @@ github_username: yogendra
 
 google_analytics: 
 
-theme: jekyll-theme-primer
+theme: architect
 encoding: UTF-8
 kramdown:
   input: GFM
