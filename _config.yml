@@ -1,8 +1,13 @@
 title: Yogi @ Git
+email: yogendra.rampuria@gmail.com
 description: My Code Thought!
 google_analytics: 
-show_downloads: true
-theme: jekyll-theme-slate
+twitter_username: yogendra
+github_username: yogendra
+show_downloads: false
+# theme: minima
+# markdown: kramdown
 
-gems:
+plugins:
   - jekyll-mentions
+  - jekyll-feed
