@@ -1,3 +1,6 @@
+destination: public
+source: jekyll
+
 title: Yogi @ Git
 email: yogendra.rampuria@gmail.com
 description: My Code Thought!
