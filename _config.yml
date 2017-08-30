@@ -1,16 +1,47 @@
-destination: public
-source: jekyll
-
 title: Yogi @ Git
 email: yogendra.rampuria@gmail.com
-description: My Code Thought!
-google_analytics: 
+description: My Code, Project, Thoughts and Everything Else!
 twitter_username: yogendra
 github_username: yogendra
+
+google_analytics: 
+
+theme: jekyll-theme-primer
+encoding: UTF-8
+kramdown:
+  input: GFM
+  hard_wrap: false
+future: true
+jailed: false
+gfm_quirks: paragraph_end
 show_downloads: false
-# theme: minima
-# markdown: kramdown
 
 plugins:
-  - jekyll-mentions
-  - jekyll-feed
+- jekyll-avatar
+- jekyll-coffeescript
+- jekyll-default-layout
+- jekyll-feed
+- jekyll-gist
+- jekyll-github-metadata
+- jekyll-include-cache
+- jekyll-mentions
+- jekyll-optional-front-matter
+- jekyll-paginate
+- jekyll-readme-index
+- jekyll-redirect-from
+- jekyll-relative-links
+- jekyll-seo-tag
+- jekyll-sitemap
+- jekyll-titles-from-headings
+- jemoji
+
+#  lsi: false
+#  safe: true
+#  source: [your repo's top level directory]
+#  incremental: false
+#  highlighter: rouge
+#  gist:
+#    noscript: false
+#  kramdown:
+#    math_engine: mathjax
+#    syntax_highlighter: rouge
