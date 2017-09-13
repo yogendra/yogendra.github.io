@@ -5,8 +5,7 @@ twitter_username: yogendra
 github_username: yogendra
 
 google_analytics: 
-
-theme: jekyll-theme-architect
+theme: minima
 encoding: UTF-8
 kramdown:
   input: GFM
