@@ -32,7 +32,6 @@ plugins:
 - jekyll-relative-links
 - jekyll-seo-tag
 - jekyll-sitemap
-# - jekyll-titles-from-headings
 - jemoji
 
 #  lsi: false
