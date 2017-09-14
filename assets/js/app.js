@@ -1,4 +1,7 @@
+---
+---
 $.when($.ready).then(function(){
+    // {{ site.url }}
     $("code.language-plantuml").each(function(){
         var code = $(this).text();
         var encoded = plantumlEncoder.encode(code);

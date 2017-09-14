@@ -6,12 +6,22 @@
         {
             "taskName": "serve",
             "type": "shell",
-            "command": "bundle exec jekyll serve"
+            "command": "bundle exec jekyll serve",
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
         },
         {
             "taskName": "build",
             "type": "shell",
-            "command": "bundle exec jekyll build"
+            "command": "bundle exec jekyll build",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }

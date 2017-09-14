@@ -4,8 +4,9 @@ description: My Code, Project, Thoughts and Everything Else!
 twitter_username: yogendra
 github_username: yogendra
 
-google_analytics: 
-theme: minima
+google_analytics: UA-21164716-3
+theme: jekyll-swiss
+theme_color: blue
 encoding: UTF-8
 kramdown:
   input: GFM
@@ -31,7 +32,7 @@ plugins:
 - jekyll-relative-links
 - jekyll-seo-tag
 - jekyll-sitemap
-- jekyll-titles-from-headings
+# - jekyll-titles-from-headings
 - jemoji
 
 #  lsi: false
