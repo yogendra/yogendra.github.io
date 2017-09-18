@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Chase Your Dreams</title>
+  <subtitle>Blog | Tutorials | Projects</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yogendra.me/"/>
+  <updated>2017-09-18T14:06:08.000Z</updated>
+  <id>http://yogendra.me/</id>
+  
+  <author>
+    <name>Yogendra Rampuria</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TEST NEW</title>
+    <link href="http://yogendra.me/2017/09/18/test-new/"/>
+    <id>http://yogendra.me/2017/09/18/test-new/</id>
+    <published>2017-09-18T09:34:12.000Z</published>
+    <updated>2017-09-18T14:06:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="This-is-a-Test"><a href="#This-is-a-Test" class="headerlink" title="This is a Test"></a>This is a Test</h1><p>I am testing mixed directory layout.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;This-is-a-Test&quot;&gt;&lt;a href=&quot;#This-is-a-Test&quot; class=&quot;headerlink&quot; title=&quot;This is a Test&quot;&gt;&lt;/a&gt;This is a Test&lt;/h1&gt;&lt;p&gt;I am testing mixed dir
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yogendra.me/categories/Technology/"/>
+    
+    
+      <category term="temp" scheme="http://yogendra.me/tags/temp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Diagrams In Hugo</title>
+    <link href="http://yogendra.me/2017/07/21/diagrams-in-hugo/"/>
+    <id>http://yogendra.me/2017/07/21/diagrams-in-hugo/</id>
+    <published>2017-07-21T09:34:12.000Z</published>
+    <updated>2017-09-09T13:10:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>I use a text to diagram tool called <a href="http://plantuml.org" target="_blank" rel="external">PlantUML</a>. It’s perfect!<br>Now, I want to use it with my hugo site, through a short code. So, I I type a<br>code like below, I should see out like as the image.<br><a id="more"></a><br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@startuml</div><div class="line">A -&gt; B : Hello</div><div class="line">A <span class="xml"><span class="tag">&lt;<span class="name">-</span> <span class="attr">B</span> <span class="attr">:</span> <span class="attr">Hi</span> <span class="attr">There</span>!</span></span></div><div class="line">@<span class="attr">enduml</span></div></pre></td></tr></table></figure></p>
+<p><strong>Update</strong>: I spend many hourse trying to work this out. Created a firebase function to process posting and converting and yada yada. But finally gave up on Hugo. Until there is a plugin support in the core, this will be a very challenging thing. </p>
+<p>During my (failed) research, I ran into <a href="https://hexo.io" target="_blank" rel="external">Hexo</a> and <a href="https://www.npmjs.com/package/hexo-filter-plantuml" target="_blank" rel="external">PlantUML filter plugin</a>. I saw a a <a href="https://www.npmjs.com/package/hexo-migrator-wordpress" target="_blank" rel="external">WordPress Migration</a> plugin. I decided to give it a go. </p>
+<p>In less than 20 minutes, I managed to install hexo, create a project, migrate wordpress items and got plantuml working.</p>
+<img src="/puml/608f8fa7a99dbd452e75ab34d62201f514e62548.png">
+<p>I guess I will have to wait for hugo to mature a bit more. I really liked the speed and simplicity of hugo. But lack of plugin support in processing really killed it!</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I use a text to diagram tool called &lt;a href=&quot;http://plantuml.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;PlantUML&lt;/a&gt;. It’s perfect!&lt;br&gt;Now, I want to use it with my hugo site, through a short code. So, I I type a&lt;br&gt;code like below, I should see out like as the image.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yogendra.me/categories/Technology/"/>
+    
+    
+      <category term="web" scheme="http://yogendra.me/tags/web/"/>
+    
+      <category term="blogging" scheme="http://yogendra.me/tags/blogging/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Migration Mania</title>
+    <link href="http://yogendra.me/2017/07/20/migration-mania/"/>
+    <id>http://yogendra.me/2017/07/20/migration-mania/</id>
+    <published>2017-07-20T14:13:49.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>I am embarking on this new journey to use <a href="https://www.staticgen.com/" target="_blank" rel="external">Statc Site Generator</a>.<br><a id="more"></a><br>So far, I have managed to setup:</p>
+<ul>
+<li><a href="http://gohugo.io" target="_blank" rel="external">Hugo</a> base project</li>
+<li><a href="http://www.github.com/yogendra/yogendra.me" target="_blank" rel="external">GitHub repository</a></li>
+<li><a href="http://travis-ci.org/yogendra/yogendra.me" target="_blank" rel="external">Travis CI</a> based build and deploy</li>
+</ul>
+<p>I have a shared hosting service (for many years now) so I want to use that to host my site. This added some (small) challenges in my journey. I will share my experience, so far and in future, in this post. One thing that I really like is how natural I find this. After all I am a <em>Programmer</em>.</p>
+<h2 id="How-can-you-use-my-work"><a href="#How-can-you-use-my-work" class="headerlink" title="How can you use my work?"></a>How can you use my work?</h2><p>You can fork my repository (link above) and follow the simple instruction on the <code>README.md</code> to start using. I will use my own repository for instructions here.</p>
+<p>Before you start, get these softwares and setup correctly</p>
+<ul>
+<li><a href="https://gohugo.io/getting-started/installing/" target="_blank" rel="external">Hugo</a></li>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank" rel="external">Git</a></li>
+<li><a href="https://github.com/travis-ci/travis.rb#installation" target="_blank" rel="external">Travis CI Client</a></li>
+<li><a href="https://firebase.google.com/docs/cli/" target="_blank" rel="external">Firebase CLI</a></li>
+<li><a href="https://github.com/kennethreitz/autoenv" target="_blank" rel="external">autoenv</a> <em>(Optional but Highly Recommended)</em></li>
+</ul>
+<p>I use <a href="https://github.com/kennethreitz/autoenv" target="_blank" rel="external">autoenv</a> to manager per-project shell environment. It executes <code>.env</code> file in the directory when you <code>cd</code> into it. This is optional but very useful.</p>
+<h2 id="Clone-and-Change"><a href="#Clone-and-Change" class="headerlink" title="Clone and Change"></a>Clone and Change</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:yogendra/yogendra.me.git</div><div class="line">cd yogendra.me</div><div class="line">git submodule update --init --recursive</div></pre></td></tr></table></figure>
+<p>Here are some changes that you should consider:</p>
+<ul>
+<li>You should probably delete <code>site/content/*</code> and  <code>site/static/*</code>  (or not). </li>
+<li>You <strong>should</strong> change information in <code>config.toml</code>, consider changing:<ul>
+<li>googleAnalytics</li>
+<li>baseUrl</li>
+<li>title</li>
+<li>author</li>
+<li>description</li>
+<li>githubUsername</li>
+<li>[menu.icon] links</li>
+</ul>
+</li>
+</ul>
+<h2 id="Run-and-Test"><a href="#Run-and-Test" class="headerlink" title="Run and Test"></a>Run and Test</h2><p>You can run development server using following command</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hugo server -s site -wDEF -b http://localhost:1313 --navigateToChanged --cleanDestinationDir -d dev</div></pre></td></tr></table></figure>
+<p>What the hell! Read instruction in  <code>hugo server --help</code> to understand what each of those switches mean. We are asking hugo to:</p>
+<ul>
+<li>-w : watch for changes</li>
+<li>-D : build draft</li>
+<li>-E : build expired pages</li>
+<li>-F : build future date page, </li>
+<li>-b : set base url to <code>http://localhost:1313</code></li>
+<li>–navigateToChanged : navigate browser to updated file</li>
+<li>–cleanDestinationDir: Delete all the files that might be there in destination dir</li>
+<li>-d : Destination dir to store files into</li>
+</ul>
+<p>You can add your own content using command like </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd site</div><div class="line">hugo new post/&lt;post-name.md&gt;</div></pre></td></tr></table></figure>
+<p>When you want to prepare actual deployment, you can use following command</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hugo -s site -d public</div></pre></td></tr></table></figure>
+<h2 id="Configure-Firebase"><a href="#Configure-Firebase" class="headerlink" title="Configure Firebase"></a>Configure Firebase</h2><p>I recommend using <a href="https://firebase.google.com" target="_blank" rel="external">Firebase</a>. Read the <a href="https://firebase.google.com/docs/hosting/" target="_blank" rel="external">hosting guide</a> and get familiar with the concept and commands.</p>
+<p>First, login to firebase from cli. This needs to be done only once. If you have already done this for any other prohect, you can skip this step</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firebase login</div></pre></td></tr></table></figure>
+<p>Now you need to initialize firebase setting for the project. This will run as a wizard. Follow onscreen instructions.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firebase init hosting</div></pre></td></tr></table></figure>
+<p>You may test your firebase configuration by deploying changes directly from your machine</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firebase deploy</div></pre></td></tr></table></figure>
+<p><strong>Important:</strong> <em>Choose “N” for “Configure as a single-page app (rewrite all urls to /index.html)?”. Also, don’t overwrite files under <code>public/</code></em></p>
+<h2 id="Configure-Travis-CI"><a href="#Configure-Travis-CI" class="headerlink" title="Configure Travis CI"></a>Configure Travis CI</h2><p><em>Based on <a href="https://docs.travis-ci.com/user/deployment/firebase/" target="_blank" rel="external">Travis CI - Firebase Deployment</a></em></p>
+<p>Create a new project on Travis CI website  website. Login to Travis CI via <code>travis</code> command.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">travis login</div></pre></td></tr></table></figure>
+<p>Get a deployment token from firebase, for using in travis ci build environment. </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firebase login:ci</div></pre></td></tr></table></figure>
+<p>This should generate a string that looks like <code>1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla</code>.<br>Use following command to encrypt this string and use in <code>.travis.yml</code>. </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">travis encrypt "1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla" --add</div></pre></td></tr></table></figure>
+<p>Replace <code>deploy</code> key in <code>.travis.yml</code> with folowing text. Remember to change <code>encrpted-firebase-token</code> with text from last command output</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  provider:</span> <span class="string">firebase</span></div><div class="line"><span class="attr">  token:</span></div><div class="line"><span class="attr">    secure:</span> <span class="string">"encrpted-firebase-token"</span></div><div class="line"><span class="attr">  on:</span></div><div class="line"><span class="attr">    branch:</span> <span class="string">master</span></div></pre></td></tr></table></figure>
+<p>That’s it! Don’t forget to checkin your changes.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I am embarking on this new journey to use &lt;a href=&quot;https://www.staticgen.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Statc Site Generator&lt;/a&gt;.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yogendra.me/categories/Technology/"/>
+    
+      <category term="DevOps" scheme="http://yogendra.me/categories/Technology/DevOps/"/>
+    
+    
+      <category term="web" scheme="http://yogendra.me/tags/web/"/>
+    
+      <category term="blog" scheme="http://yogendra.me/tags/blog/"/>
+    
+      <category term="cd/ci" scheme="http://yogendra.me/tags/cd-ci/"/>
+    
+      <category term="git" scheme="http://yogendra.me/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The New Begining</title>
+    <link href="http://yogendra.me/2017/07/19/the-new-begining/"/>
+    <id>http://yogendra.me/2017/07/19/the-new-begining/</id>
+    <published>2017-07-18T16:00:00.000Z</published>
+    <updated>2017-07-22T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>If its not working, try restarting it</p>
+<footer><strong>An Engineer</strong></footer></blockquote>
+<a id="more"></a>
+<div class="figure right" style="width:;"><img class="fig-img" src="the-new-begining.jpg" alt="The New Begining"><span class="caption">The New Begining</span></div>
+<p>This is my attempt to restart. This is my 4th attempt to blog. I started<br>blogging years ago. But something or the other always kept me from writing<br>regularly.</p>
+<p>Sometimes I was just lazy to write. But most of the times, I digressed into<br>updating my core, plugins, themes, etc. After all I am a programmer, and I get<br>more satisfaction in creating (read breaking) and fixing stuff.</p>
+<p>I don’t have any particular agenda for this site. Just get scraps of information<br>from all over the internet and put it in a way that I , and possibly others, can<br>understand.</p>
+<p><del>I will migrate date from my old site (someday).</del></p>
+<p><strong>Update</strong>: Migrated content. Hugo was my first choice for new platform. But Hexo made it to top.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;&lt;p&gt;If its not working, try restarting it&lt;/p&gt;
+&lt;footer&gt;&lt;strong&gt;An Engineer&lt;/strong&gt;&lt;/footer&gt;&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Top 30 SSH shenanigans</title>
+    <link href="http://yogendra.me/2016/11/09/top-30-ssh-shenanigans/"/>
+    <id>http://yogendra.me/2016/11/09/top-30-ssh-shenanigans/</id>
+    <published>2016-11-09T14:52:49.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Good list of commands to be SSH ‘Yoda’. I like the tunnels and screen the most in these. They have been so useful over the years, for development and troubleshooting.</p>
+<p>Click to <a href="https://www.blackmoreops.com/2016/11/08/top-30-ssh-shenanigans" target="_blank" rel="external">Original Post</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Good list of commands to be SSH ‘Yoda’. I like the tunnels and screen the most in these. They have been so useful over the years, for dev
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yogendra.me/categories/Technology/"/>
+    
+    
+      <category term="linux" scheme="http://yogendra.me/tags/linux/"/>
+    
+      <category term="remote" scheme="http://yogendra.me/tags/remote/"/>
+    
+      <category term="shell" scheme="http://yogendra.me/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>शुभ दीपावली</title>
+    <link href="http://yogendra.me/2016/10/30/%E0%A4%B6%E0%A5%81%E0%A4%AD-%E0%A4%A6%E0%A5%80%E0%A4%AA%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80/"/>
+    <id>http://yogendra.me/2016/10/30/शुभ-दीपावली/</id>
+    <published>2016-10-30T08:47:35.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>यह दिवाली आपकी…<br><a id="more"></a><br><div class="figure center" style="width:;"><img class="fig-img" src="Happy-Diwali-2016-generic.jpg" alt="दीपावली और नववर्ष की हार्दिक शुभकामनाए"><span class="caption">दीपावली और नववर्ष की हार्दिक शुभकामनाए</span></div><div style="clear:both;"></div></p>
+<p>यह दिवाली आपकी, जीवन बने खुशियों का सागर।<br>स्वस्थ तन-मन और धन से, भर उठे जीवन की गागर।<br>दीन, दीपक रोशनी के, समन्वय को दे दिशा हम।<br>बांटकर खुशियाँ करे हम, रोशनी मन की उजागर।</p>
+<p>दीप बनकर कालिमा का, तम हरें खुद को जलाकर<br>दीन की झोली भरें हम, हर्ष की लड़ीयाँ जलाकर।<br>दीपमाला की लड़ी से, प्रेरणा हमको मिले कि,<br>साथ में दीपक जले, ‘नोरत’ लगे नभ में प्रभाकर I</p>
+<p>~ नोरतन</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;यह दिवाली आपकी…&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Personal" scheme="http://yogendra.me/categories/Personal/"/>
+    
+    
+      <category term="greeting" scheme="http://yogendra.me/tags/greeting/"/>
+    
+      <category term="हिंदी" scheme="http://yogendra.me/tags/%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>​मैंने दहेज़ नहीं माँगा</title>
+    <link href="http://yogendra.me/2016/08/02/%E0%A4%AE%E0%A5%88%E0%A4%82%E0%A4%A8%E0%A5%87-%E0%A4%A6%E0%A4%B9%E0%A5%87%E0%A4%9C%E0%A4%BC-%E0%A4%A8%E0%A4%B9%E0%A5%80%E0%A4%82-%E0%A4%AE%E0%A4%BE%E0%A4%81%E0%A4%97%E0%A4%BE/"/>
+    <id>http://yogendra.me/2016/08/02/मैंने-दहेज़-नहीं-माँगा/</id>
+    <published>2016-08-02T04:48:59.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>साहब मैं थाने नहीं आउंगा,<br>अपने इस घर से कहीं नहीं जाउंगा,<br>माना पत्नी से थोडा मन मुटाव था,<br>सोच में अन्तर और विचारों में खिंचाव था,<br><strong>पर यकीन मानिए साहब ,“ मैंने दहेज़ नहीं माँगा ”</strong><br><a id="more"></a><br>मानता हूँ कानून आज पत्नी के पास है,<br>महिलाओं का समाज में हो रहा विकास है।<br>चाहत मेरी भी बस ये थी कि माँ बाप का सम्मान हो,<br>उन्हें भी समझे माता पिता, न कभी उनका अपमान हो।<br>पर अब क्या फायदा, जब टूट ही गया हर रिश्ते का धागा,<br><strong>यकीन मानिए साहब,“ मैंने दहेज़ नहीं माँगा ”</strong></p>
+<p>परिवार के साथ रहना इसे पसंन्द नहीं,<br>कहती यहाँ कोई रस, कोई आनन्द नही,<br>मुझे ले चलो इस घर से दूर, किसी किराए के आशियाने में,<br>कुछ नहीं रखा माँ बाप पर प्यार बरसाने में,<br>हाँ छोड़ दो, छोड़ दो इस माँ बाप के प्यार को,<br>नहीं मांने तो याद रखोगे मेरी मार को,<br>बस बूढ़े माता पिता का ही मोह, न छोड़ पाया मैं अभागा,<br><strong>यकींन मानिए साहब,“ मैंने दहेज़ नहीं माँगा ”</strong></p>
+<p>फिर शुरू हुआ वाद विवाद माँ बाप से अलग होने का,<br>शायद समय आ गया था, चैन और सुकून खोने का,<br>एक दिन साफ़ मैंने पत्नी को मना कर दिया,<br>न रहुगा माँ बाप के बिना ये उसके दिमाग में भर दिया।<br>बस मुझसे लड़ कर मोहतरमा मायके जा पहुंची,<br>2 दिन बाद ही पत्नी के घर से मुझे धमकी आ पहुंची,<br>माँ बाप से हो जा अलग, नहीं सबक सीखा देगे,<br>क्या होता है दहेज़ कानून तुझे इसका असर दिखा देगें।<br>परिणाम जानते हुए भी हर धमकी को गले में टांगा,<br><strong>यकींन माँनिये साहब ,“ मैंने दहेज़ नहीं माँगा ”</strong></p>
+<p>जो कहा था बीवी ने, आखिरकार वो कर दिखाया,<br>झगड़ा किसी और बात पर था, पर उसने दहेज़ का नाटक रचाया।<br>बस पुलिस थाने से एक दिन मुझे फ़ोन आया,<br>क्यों बे, पत्नी से दहेज़ मांगता है, ये कह के मुझे धमकाया।<br>माता पिता भाई बहिन जीजा सभी के रिपोर्ट में नाम थे,<br>घर में सब हैरान, सब परेशान थे,<br>अब अकेले बैठ कर सोचता हूँ, वो क्यों ज़िन्दगी में आई थी,<br>मैंने भी तो उसके प्रति हर ज़िम्मेदारी निभाई थी।<br>आखिरकार तमका मिला हमे दहेज़ लोभी होने का,<br>कोई फायदा न हुआ मीठे मीठे सपने सजोने का।<br>बुलाने पर थाने आया हूँ, छूप कर कहीं नहीं भागा,<br><strong>लेकिन  यकींन  मानिए  साहब ,“ मैंने दहेज़ नहीं माँगा ”</strong></p>
+<p><strong><em>झूठे दहेज के मुकदमों के कारण ,पुरुष के दर्द से ओतप्रोत एक मार्मिक  कृति, दहेज  की  ये  कविता  कई  घरो  की  हकीकत  है</em></strong></p>
+<p><em>- Forward on WhatsApp</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;साहब मैं थाने नहीं आउंगा,&lt;br&gt;अपने इस घर से कहीं नहीं जाउंगा,&lt;br&gt;माना पत्नी से थोडा मन मुटाव था,&lt;br&gt;सोच में अन्तर और विचारों में खिंचाव था,&lt;br&gt;&lt;strong&gt;पर यकीन मानिए साहब ,“ मैंने दहेज़ नहीं माँगा ”&lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Inspirational" scheme="http://yogendra.me/categories/Inspirational/"/>
+    
+    
+      <category term="हिंदी" scheme="http://yogendra.me/tags/%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vagrant Docker Basebox for VMWare + Vagrant</title>
+    <link href="http://yogendra.me/2016/02/05/vagrant-docker-basebox-for-vmware-vagrant/"/>
+    <id>http://yogendra.me/2016/02/05/vagrant-docker-basebox-for-vmware-vagrant/</id>
+    <published>2016-02-05T15:03:42.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Docker VMWare is a base box with all goodness. See full information on <a href="https://github.com/yogendra/docker-vmware" target="_blank" rel="external">Github</a><br><a id="more"></a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Docker VMWare is a base box with all goodness. See full information on &lt;a href=&quot;https://github.com/yogendra/docker-vmware&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Projects" scheme="http://yogendra.me/categories/Projects/"/>
+    
+    
+      <category term="vagrant" scheme="http://yogendra.me/tags/vagrant/"/>
+    
+      <category term="docker" scheme="http://yogendra.me/tags/docker/"/>
+    
+      <category term="vm" scheme="http://yogendra.me/tags/vm/"/>
+    
+      <category term="vmware" scheme="http://yogendra.me/tags/vmware/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Parenting Lessons !!</title>
+    <link href="http://yogendra.me/2015/12/22/parenting-lessons/"/>
+    <id>http://yogendra.me/2015/12/22/parenting-lessons/</id>
+    <published>2015-12-22T07:58:23.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Lets connet with our little ones. Hope this helps you, as much as it helped me.<br><a id="more"></a><br><div class="figure " style="width:;"><img class="fig-img" src="disconnecting-words-versus-connecting-words-for-better-parenting-1450666296.jpg" alt="Parenting Lessons"><span class="caption">Parenting Lessons</span></div></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Lets connet with our little ones. Hope this helps you, as much as it helped me.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Personal" scheme="http://yogendra.me/categories/Personal/"/>
+    
+    
+      <category term="parenting" scheme="http://yogendra.me/tags/parenting/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>... And My Heart Skipped A Beat</title>
+    <link href="http://yogendra.me/2015/04/29/and-my-heart-skipped-a-beat/"/>
+    <id>http://yogendra.me/2015/04/29/and-my-heart-skipped-a-beat/</id>
+    <published>2015-04-29T11:02:56.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>27th April 2015, Monday - A date that has become even more special. Its Srishti’s (my niece) birthday. She turned 4. Everyone who knows me, know it well, how special she is to me. But God had his own plans to take this to a whole new level.<br>test<br><a id="more"></a></p>
+<p>On this day, I woke up a Son, Brother, Husband, Brother In Law and Uncle. And Ashu woke up as Daughter, Sister, Wife, Sister In Law and Aunty. But, in a miraculous moment, I became a Father, she became a Mother and we both became Parents. We are blessed with a lovely <strong>DAUGHTER</strong>. It still feels like a dream. And if it is one,  I wish I never wake up.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;27th April 2015, Monday - A date that has become even more special. Its Srishti’s (my niece) birthday. She turned 4. Everyone who knows me, know it well, how special she is to me. But God had his own plans to take this to a whole new level.&lt;br&gt;test&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Personal" scheme="http://yogendra.me/categories/Personal/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>40 Ways to Stay Creative</title>
+    <link href="http://yogendra.me/2015/04/25/40-ways-to-stay-creative/"/>
+    <id>http://yogendra.me/2015/04/25/40-ways-to-stay-creative/</id>
+    <published>2015-04-25T08:00:58.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>We all need some ways to stay creative, isn’t it?<br><a id="more"></a></p>
+<div class="figure center" style="width:;"><img class="fig-img" src="wpid-wp-1429948789215.jpeg" alt="40 Ways to Stay Creative"><span class="caption">40 Ways to Stay Creative</span></div><div style="clear:both;"></div>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;We all need some ways to stay creative, isn’t it?&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Productivity" scheme="http://yogendra.me/categories/Productivity/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Data Structure Operation</title>
+    <link href="http://yogendra.me/2015/04/13/data-structure-operation/"/>
+    <id>http://yogendra.me/2015/04/13/data-structure-operation/</id>
+    <published>2015-04-12T16:58:00.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>I always find myself pondering about this</p>
+<a id="more"></a>
+<div class="figure ceter" style="width:;"><a class="fancybox" href="wpid-wp-1428857835183.png" title="Data Structure Operations" data-fancybox-group=""><img class="fig-img" src="wpid-wp-1428857835183.png" alt="Data Structure Operations"></a><span class="caption">Data Structure Operations</span></div><div style="clear:both;"></div>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I always find myself pondering about this&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yogendra.me/categories/Technology/"/>
+    
+      <category term="Programming" scheme="http://yogendra.me/categories/Technology/Programming/"/>
+    
+    
+      <category term="data strucrures" scheme="http://yogendra.me/tags/data-strucrures/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Operation Raahat</title>
+    <link href="http://yogendra.me/2015/04/11/operation-raahat/"/>
+    <id>http://yogendra.me/2015/04/11/operation-raahat/</id>
+    <published>2015-04-11T05:10:58.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>In the past six months, a war for political dominance between the two sects of Muslims—Sunni and Zaidi Shia has intensified in Yemen, the Arab country in southwest Asia that has been imploding since 2011.<br><a id="more"></a><br>Saudi Arabia has been trying to thwart the attempt by the Iran-backed Zaidi Shia group to take control of the country.</p>
+<p>In February, however, Yemeni president Abdrabbuh Mansour Hadi fled the capital Sana’a when the rebel Shia group—also known as Houthis—strengthened their presence in the city.</p>
+<p>Due to the worsening condition of the country, the Indian govt on March 31, decided to send Gen V.K. Singh, one of its senior ministers and former Chief of The Indian Army, to oversee the mission and ensure safe return of its citizens.The operation was called as ‘ Rahat’ - which means relief in Hindi</p>
+<h2 id="Here-are-a-few-facts-about-Operation-Rahat-that-every-Indian-should-know-about"><a href="#Here-are-a-few-facts-about-Operation-Rahat-that-every-Indian-should-know-about" class="headerlink" title="Here are a few facts about Operation Rahat, that every Indian should know about :"></a>Here are a few facts about Operation Rahat, that every Indian should know about :</h2><ol>
+<li><p>Saudi Arabia is attacking Yemen, but from the air. Their soldiers are afraid of setting foot on land fearing for their lives.</p>
+</li>
+<li><p>Pakistani Army &amp; Air force form the bulk of Saudi force in Yemen, but Paksitani soldiers are afraid of landing in the cities due to the fear of being killed by Shia Militia.</p>
+</li>
+<li><p>Pakistani Ambassador to Yemen Dr Irfan Yousuf Shami escaped with all his staff, leaving behind hundreds of stranded Pakistani nationals.</p>
+</li>
+<li><p>What made the situation more complex was the fact that the airport and airspace in Yemen, is under the control of Saudi Arabia.</p>
+</li>
+<li><p>PM Modi called up Saudi King Salman for his co-operation in rescuing Indians from Yemen. Since the PM shares a good relationship with the Saudi King, the King assured his complete support. PM Modi requested the Saudi King to stop the air strike for some time and also allow Indian planes to fly out of Yemen, so that Indians could be evacuated from the strife torn country.</p>
+</li>
+<li><p>The Indian national carrier, Air India, carried 488 people through three special flights from Sana’a to India on April 5. A day later, Air India is reported to have evacuated 574 people from Sana’a to Djibouti, described as the single largest evacuation by air in a day. The Indian Airforce had dispatched its C-17s on April 2, and brought back 358 Indians.</p>
+</li>
+<li><p>GOI decided to take sea route to rescue the expatriates stranded in Aden, a port city, after the government’s plans to airlift them did not materialize due to attack on Sana’a airport.</p>
+</li>
+<li><p>Two merchant vessels and two warships — destroyer Mumbai and stealth frigate Tarkash — also left for Yemen, to help ferry other stranded expatriates back home. The government had also pressed into service INS Sumitra to ensure the safety and security of the passengers from pirates.</p>
+</li>
+<li><p>India’s shipping corporation also sent two passenger ships—Kavaratti and Corals— to assist the navy. In all, India sent five ships to Yemen. Small boats were used to transport Indians from Yemen’s port city Aden onto the naval vessels that could not enter the ports due to heavy firing.</p>
+</li>
+<li><p>Eyewitnesses state that, in such a hostile atmosphere, unarmed Gen VK Singh toured the cities &amp; villages in Yemen, collecting Indians &amp; anybody else who asked him for help. He did sit in a car or a Helicopter. He actually got on the ground &amp; walked on the roads, in the streets &amp; commanded the operation.</p>
+</li>
+<li><p>Because of the stunning rescue work done by India, 26 nations reached out for help in evacuating their citizens. Countries like USA, Germany, France were amongst those which sought help.</p>
+</li>
+<li><p>Most aircrafts and ships landed in Mumbai and the southern Indian city of Kochi. The evacuees were then transported to their hometowns by Indian Railways. The railways offered free tickets for their onward journeys. In addition, state governments have offered financial support to many evacuees.</p>
+</li>
+</ol>
+<p>Its a matter of shame for the nation, that no leading newspaper or media channel finds this historic mission worthy enough to cover frontpages or be on prime time. Its up to social media now, to let truth prevail.</p>
+<p>‪Jai Hind</p>
+<p><em>Posted from WordPress for Android</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In the past six months, a war for political dominance between the two sects of Muslims—Sunni and Zaidi Shia has intensified in Yemen, the Arab country in southwest Asia that has been imploding since 2011.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Inspirational" scheme="http://yogendra.me/categories/Inspirational/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>राजस्थान दिवस री बधाई हो सा</title>
+    <link href="http://yogendra.me/2015/03/30/%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A4%BE%E0%A4%A8-%E0%A4%A6%E0%A4%BF%E0%A4%B5%E0%A4%B8-%E0%A4%B0%E0%A5%80-%E0%A4%AC%E0%A4%A7%E0%A4%BE%E0%A4%88-%E0%A4%B9%E0%A5%8B-%E0%A4%B8%E0%A4%BE/"/>
+    <id>http://yogendra.me/2015/03/30/राजस्थान-दिवस-री-बधाई-हो-सा/</id>
+    <published>2015-03-30T13:14:40.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>राजस्थान दिवस री बधाई हो सा<br><a id="more"></a><br><div class="figure center" style="width:;"><img class="fig-img" src="wpid-wp-1427721175288.jpeg" alt="राजस्थान दिवस री बधाई हो सा"><span class="caption">राजस्थान दिवस री बधाई हो सा</span></div><div style="clear:both;"></div></p>
+<p><em>Posted from WordPress for Android</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;राजस्थान दिवस री बधाई हो सा&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Inspirational" scheme="http://yogendra.me/categories/Inspirational/"/>
+    
+    
+      <category term="greeting" scheme="http://yogendra.me/tags/greeting/"/>
+    
+      <category term="हिंदी" scheme="http://yogendra.me/tags/%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>An Old Photo</title>
+    <link href="http://yogendra.me/2015/03/30/an-old-photo/"/>
+    <id>http://yogendra.me/2015/03/30/an-old-photo/</id>
+    <published>2015-03-29T17:24:18.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Lol<br><a id="more"></a></p>
+<p><div class="figure center" style="width:;"><img class="fig-img" src="wpid-wp-1427649711247.jpeg" alt="“An Old Photo”}</p>"><span class="caption">“An Old Photo”}</span></div></p><div style="clear:both;"></div>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Lol&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Jokes" scheme="http://yogendra.me/categories/Jokes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux Performance Observability Tools</title>
+    <link href="http://yogendra.me/2015/03/29/linux-performance-observability-tools/"/>
+    <id>http://yogendra.me/2015/03/29/linux-performance-observability-tools/</id>
+    <published>2015-03-29T13:04:29.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>I use linux for all production deployments (Obviously). Here is a quick one image run down for all optimizations.<br><a id="more"></a></p>
+<div class="figure center" style="width:;"><a class="fancybox" href="wpid-wp-1427634161742.png" title="Linux Performance Monitoring Tools" data-fancybox-group=""><img class="fig-img" src="wpid-wp-1427634161742.png" alt="Linux Performance Monitoring Tools"></a><span class="caption">Linux Performance Monitoring Tools</span></div><div style="clear:both;"></div>
+<p>Source: <a href="http://www.linux.com/news/enterprise/systems-management/785426-a-template-for-monitoring-linux-performance-tools-like-from-netflix" target="_blank" rel="external">linux.com</a></p>
+<p><span class="post_sig">Posted from WordPress for Android</span></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I use linux for all production deployments (Obviously). Here is a quick one image run down for all optimizations.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yogendra.me/categories/Technology/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Some Golden Thoughts Of Thiruvalluvar</title>
+    <link href="http://yogendra.me/2015/03/10/some-golden-thoughts-of-thiruvalluvar/"/>
+    <id>http://yogendra.me/2015/03/10/some-golden-thoughts-of-thiruvalluvar/</id>
+    <published>2015-03-09T23:22:52.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Tirukkural by Tiruvalluvar (A Tamil - poet/writer) was written more than 5000 yrs ago. It’s one of the ancient science on Human behavior, which has not changed dispite of modern education &amp; technology<br><a id="more"></a></p>
+<ol>
+<li><p>If your child lies to you often, it is because you over-react too harshly to their inappropriate behavior.</p>
+</li>
+<li><p>If your child is not taught to confide in you about their mistakes, you’ve lost them. </p>
+</li>
+<li><p>If your child had poor self-esteem, it is because you advice them more than you encourage them.</p>
+</li>
+<li><p>If your child does not stand up for themselves, it is because from a young age you have disciplined them regularly in public.</p>
+</li>
+<li><p>If your child takes things that do not belong to them, it is because when you buy them things, you don’t let them chose what they want.</p>
+</li>
+<li><p>If your child is cowardly, it is because you help them too quickly.</p>
+</li>
+<li><p>If your child does not respect other people’s feelings, it is because instead of speaking to your child, you order and command them.</p>
+</li>
+<li><p>If your child is too quick to anger, it is because you give too much attention to misbehavior and you give little attention to good behavior.</p>
+</li>
+<li><p>If your child is excessively jealous, it is because you only congratulate them when they successfully complete something and not when they improve at something even if they don’t successfully complete it.</p>
+</li>
+<li><p>If your child intentionally disturbs you, it is because you are not physically affectionate enough.</p>
+</li>
+<li><p>If your child is openly defiant, it is because you openly threaten to do something but don’t follow through.</p>
+</li>
+<li><p>If your child is secretive, it is because they don’t trust that you won’t blow things out of proportion.</p>
+</li>
+<li><p>If your child talks back to you, it is because they watch you do it to others and think its normal behavior.</p>
+</li>
+<li><p>If your child doesn’t listen to you but listens to others, it is because you are too quick to jump to conclusions.</p>
+</li>
+<li><p>If your child rebels it is because they know you care more about what others think than what is right.</p>
+</li>
+</ol>
+<p>Please forward this to all. It MAY GUIDE OUR MODERN PARENTS.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Tirukkural by Tiruvalluvar (A Tamil - poet/writer) was written more than 5000 yrs ago. It’s one of the ancient science on Human behavior, which has not changed dispite of modern education &amp;amp; technology&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Personal" scheme="http://yogendra.me/categories/Personal/"/>
+    
+    
+      <category term="Self Help" scheme="http://yogendra.me/tags/Self-Help/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>पैसे नहीं रिश्ते बनाओ</title>
+    <link href="http://yogendra.me/2015/01/03/%E0%A4%AA%E0%A5%88%E0%A4%B8%E0%A5%87-%E0%A4%A8%E0%A4%B9%E0%A5%80%E0%A4%82-%E0%A4%B0%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%A4%E0%A5%87-%E0%A4%AC%E0%A4%A8%E0%A4%BE%E0%A4%93/"/>
+    <id>http://yogendra.me/2015/01/03/पैसे-नहीं-रिश्ते-बनाओ/</id>
+    <published>2015-01-03T04:08:48.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>बात बहुत पुरानी है। आठ-दस साल पहले की। मैं अपने एक मित्र का पासपोर्ट बनवाने के लिए दिल्ली के पासपोर्ट ऑफिस गया था। उन दिनों इंटरनेट पर फार्म भरने की सुविधा नहीं थी। पासपोर्ट दफ्तर में दलालों का बोलबाला था और खुलेआम दलाल पैसे लेकर पासपोर्ट के फार्म बेचने से लेकर उसे भरवाने, जमा करवाने और पासपोर्ट बनवाने का काम करते थे।</p>
+<a id="more"></a>
+<p>मेरे मित्र को किसी कारण से पासपोर्ट की जल्दी थी, लेकिन दलालों के दलदल में फंसना नहीं चाहते थे। हम पासपोर्ट दफ्तर पहुंच गए, लाइन में लग कर हमने पासपोर्ट का तत्काल फार्म भी ले लिया। पूरा फार्म भर लिया। इस चक्कर में कई घंटे निकल चुके थे, और अब हमें किसी तरह पासपोर्ट की फीस जमा करानी थी। हम लाइन में खड़े हुए लेकिन जैसे ही हमारा नंबर आया बाबू ने खिड़की बंद कर दी और कहा कि समय खत्म हो चुका है अब कल आइएगा। मैंने उससे मिन्नतें की, उससे कहा कि आज पूरा दिन हमने खर्च किया है और बस अब केवल फीस जमा कराने की बात रह गई है, कृपया फीस ले लीजिए। बाबू बिगड़ गया। कहने लगा, “आपने पूरा दिन खर्च कर दिया तो उसके लिए वो जिम्मेदार है क्या? अरे सरकार ज्यादा लोगों को बहाल करे। मैं तो सुबह से अपना काम ही कर रहा हूं।”</p>
+<p>मैने बहुत अनुरोध किया पर वो नहीं माना। उसने कहा कि बस दो बजे तक का समय होता है, दो बज गए। अब कुछ नहीं हो सकता। मैं समझ रहा था कि सुबह से दलालों का काम वो कर रहा था, लेकिन जैसे ही बिना दलाल वाला काम आया उसने बहाने शुरू कर दिए हैं। पर हम भी अड़े हुए थे कि बिना अपने पद का इस्तेमाल किए और बिना उपर से पैसे खिलाए इस काम को अंजाम देना है।</p>
+<p>मैं ये भी समझ गया था कि अब कल अगर आए तो कल का भी पूरा दिन निकल ही जाएगा, क्योंकि दलाल हर खिड़की को घेर कर खड़े रहते हैं, और आम आदमी वहां तक पहुंचने में बिलबिला उठता है। खैर, मेरा मित्र बहुत मायूस हुआ और उसने कहा कि चलो अब कल आएंगे। मैंने उसे रोका। कहा कि रुको एक और कोशिश करता हूं। बाबू अपना थैला लेकर उठ चुका था। मैंने कुछ कहा नहीं, चुपचाप उसके-पीछे हो लिया। वो उसी दफ्तर में तीसरी या चौथी मंजिल पर बनी एक कैंटीन में गया, वहां उसने अपने थैले से लंच बॉक्स निकाला और धीरे-धीरे अकेला खाने लगा।</p>
+<p>मैं उसके सामने की बेंच पर जाकर बैठ गया। उसने मेरी ओर देखा और बुरा सा मुंह बनाया। मैं उसकी ओर देख कर मुस्कुराया। उससे मैंने पूछा कि रोज घर से खाना लाते हो? उसने अनमने से कहा कि हां, रोज घर से लाता हूं। मैंने कहा कि तुम्हारे पास तो बहुत काम है, रोज बहुत से नए-नए लोगों से मिलते होगे? वो पता नहीं क्या समझा और कहने लगा कि हां मैं तो एक से एक बड़े अधिकारियों से मिलता हूं। कई आईएएस, आईपीएस, विधायक और न जाने कौन-कौन रोज यहां आते हैं। मेरी कुर्सी के सामने बड़े-बड़े लोग इंतजार करते हैं।</p>
+<p>मैंने बहुत गौर से देखा, ऐसा कहते हुए उसके चेहरे पर अहं का भाव था। मैं चुपचाप उसे सुनता रहा। फिर मैंने उससे पूछा कि एक रोटी तुम्हारी प्लेट से मैं भी खा लूं? वो समझ नहीं पाया कि मैं क्या कह रहा हूं। उसने बस हां में सिर हिला दिया। मैंने एक रोटी उसकी प्लेट से उठा ली, और सब्जी के साथ खाने लगा। वो चुपचाप मुझे देखता रहा। मैंने उसके खाने की तारीफ की, और कहा कि तुम्हारी पत्नी बहुत ही स्वादिष्ट खाना पकाती है। वो चुप रहा।</p>
+<p>मैंने फिर उसे कुरेदा। तुम बहुत महत्वपूर्ण सीट पर बैठे हो। बड़े-बड़े लोग तुम्हारे पास आते हैं। तो क्या तुम अपनी कुर्सी की इज्जत करते हो? अब वो चौंका। उसने मेरी ओर देख कर पूछा कि इज्जत? मतलब? मैंने कहा कि तुम बहुत भाग्यशाली हो, तुम्हें इतनी महत्वपूर्ण जिम्मेदारी मिली है, तुम न जाने कितने बड़े-बड़े अफसरों से डील करते हो, लेकिन तुम अपने पद की इज्जत नहीं करते। उसने मुझसे पूछा कि ऐसा कैसे कहा आपने? मैंने कहा कि जो काम दिया गया है उसकी इज्जत करते तो तुम इस तरह रुखे व्यवहार वाले नहीं होते। देखो तुम्हारा कोई दोस्त भी नहीं है। तुम दफ्तर की कैंटीन में अकेले खाना खाते हो, अपनी कुर्सी पर भी मायूस होकर बैठे रहते हो, लोगों का होता हुआ काम पूरा करने की जगह अटकाने की कोशिश करते हो।</p>
+<p>मान लो कोई एकदम दो बजे ही तुम्हारे काउंटर पर पहुंचा तो तुमने इस बात का लिहाज तक नहीं किया कि वो सुबह से लाइऩ में खड़ा रहा होगा, और तुमने फटाक से खिड़की बंद कर दी। जब मैंने तुमसे अनुरोध किया तो तुमने कहा कि सरकार से कहो कि ज्यादा लोगों को बहाल करे। मान लो मैं सरकार से कह कर और लोग बहाल करा लूं, तो तुम्हारी अहमियत घट नहीं जाएगी? हो सकता है तुमसे ये काम ही ले लिया जाए। फिर तुम कैसे आईएएस, आईपीए और विधायकों से मिलोगे?</p>
+<p>भगवान ने तुम्हें मौका दिया है रिश्ते बनाने के लिए। लेकिन अपना दुर्भाग्य देखो, तुम इसका लाभ उठाने की जगह रिश्ते बिगाड़ रहे हो। मेरा क्या है, कल भी आ जाउंगा, परसों भी आ जाउंगा। ऐसा तो है नहीं कि आज नहीं काम हुआ तो कभी नहीं होगा। तुम नहीं करोगे कोई और बाबू कल करेगा। पर तुम्हारे पास तो मौका था किसी को अपना अहसानमंद बनाने का। तुम उससे चूक गए। वो खाना छोड़ कर मेरी बातें सुनने लगा था।</p>
+<p>मैंने कहा कि पैसे तो बहुत कमा लोगे, लेकिन रिश्ते नहीं कमाए तो सब बेकार है। क्या करोगे पैसों का? अपना व्यवहार ठीक नहीं रखोगे तो तुम्हारे घर वाले भी तुमसे दुखी रहेंगे। यार दोस्त तो नहीं हैं, ये तो मैं देख ही चुका हूं। मुझे देखो, अपने दफ्तर में कभी अकेला खाना नहीं खाता। यहां भी भूख लगी तो तुम्हारे साथ खाना खाने आ गया। अरे अकेला खाना भी कोई ज़िंदगी है? मेरी बात सुन कर वो रुंआसा हो गया। उसने कहा कि आपने बात सही कही है साहब। मैं अकेला हूं। पत्नी झगड़ा कर मायके चली गई है। बच्चे भी मुझे पसंद नहीं करते। मां है, वो भी कुछ ज्यादा बात नहीं करती। सुबह चार-पांच रोटी बना कर दे देती है, और मैं तनहा खाना खाता हूं। रात में घर जाने का भी मन नहीं करता। समझ में नहीं आता कि गड़बड़ी कहां है?</p>
+<p>मैंने हौले से कहा कि खुद को लोगों से जोड़ो। किसी की मदद कर सकते तो तो करो। देखो मैं यहां अपने दोस्त के पासपोर्ट के लिए आया हूं। मेरे पास तो पासपोर्ट है। मैंने दोस्त की खातिर तुम्हारी मिन्नतें कीं। निस्वार्थ भाव से। इसलिए मेरे पास दोस्त हैं, तुम्हारे पास नहीं हैं। वो उठा और उसने मुझसे कहा कि आप मेरी खिड़की पर पहुंचो। मैं आज ही फार्म जमा करुंगा। मैं नीचे गया, उसने फार्म जमा कर लिया, फीस ले ली। और हफ्ते भर में पासपोर्ट बन गया। बाबू ने मुझसे मेरा नंबर मांगा, मैंने अपना मोबाइल नंबर उसे दे दिया और चला आया। नववर्ष पर मेरे पास बहुत से फोन आए। मैंने करीब-करीब सारे नंबर उठाए। उसी में एक नंबर से फोन आया, “कुमार स्कन्द बजाज बोल रहा हूं साहब”। मैं एकदम नहीं पहचान सका। उसने कहा कि कई साल पहले आप हमारे पास अपने किसी दोस्त के पासपोर्ट के लिए आए थे, और आपने मेरे साथ रोटी भी खाई थी।</p>
+<p>आपने कहा था कि पैसे की जगह रिश्ते बनाओ। मुझे एकदम याद आ गया। मैंने कहा हां जी बजाज साहब कैसे हैं? उसने खुश होकर कहा, “साहब आप उस दिन चले गए, फिर मैं बहुत सोचता रहा। मुझे लगा कि पैसे तो सचमुच बहुत लोग दे जाते हैं, लेकिन साथ खाना खाने वाला कोई नहीं मिलता। सब अपने में व्यस्त हैं। मैं साहब अगले ही दिन पत्नी के मायके गया, बहुत मिन्नतें कर उसे घर लाया। वो मान ही नहीं रही थी। वो खाना खाने बैठी तो मैंने उसकी प्लेट से एक रोटी उठा ली, कहा कि साथ खिलाओगी? वो हैरान थी। रोने लगी। मेरे साथ चली आई। बच्चे भी साथ चले आए।</p>
+<p>साहब अब मैं पैसे नहीं कमाता। रिश्ते कमाता हूं। जो आता है उसका काम कर देता हूं। साहब आज आपको Happy New year बोलने के लिए फोन किया है। अगल महीने बिटिया की शादी है। आपको आना है। अपना पता भेज दीजिएगा। मैं और मेरी पत्नी आपके पास आएंगे। मेरी पत्नी ने मुझसे पूछा था कि ये पासपोर्ट दफ्तर में रिश्ते कमाना कहां से सीखे? तो मैंने पूरी कहानी बताई थी। आप किसी से नहीं मिले लेकिन मेरे घर में आपने रिश्ता जोड़ लिया है।</p>
+<p>सब आपको जानते है बहुत दिनों से फोन करने की सोचता था, लेकिन हिम्मत नहीं होती थी। आज नव वर्ष का मौका निकाल कर कर रहा हूं। शादी में आपको आना है। बिटिया को आशीर्वाद देने। रिश्ता जोड़ा है आपने। मुझे यकीन है आप आएंगे। वो बोलता जा रहा था, मैं सुनता जा रहा था। सोचा नहीं था कि सचमुच उसकी ज़िंदगी में भी पैसों पर रिश्ता भारी पड़ेगा। लेकिन मेरा कहा सच साबित हुआ। आदमी भावनाओं से संचालित होता है। कारणों से नहीं।</p>
+<p><em>– अज्ञात</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;बात बहुत पुरानी है। आठ-दस साल पहले की। मैं अपने एक मित्र का पासपोर्ट बनवाने के लिए दिल्ली के पासपोर्ट ऑफिस गया था। उन दिनों इंटरनेट पर फार्म भरने की सुविधा नहीं थी। पासपोर्ट दफ्तर में दलालों का बोलबाला था और खुलेआम दलाल पैसे लेकर पासपोर्ट के फार्म बेचने से लेकर उसे भरवाने, जमा करवाने और पासपोर्ट बनवाने का काम करते थे।&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Inspirational" scheme="http://yogendra.me/categories/Inspirational/"/>
+    
+    
+      <category term="हिंदी" scheme="http://yogendra.me/tags/%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80/"/>
+    
+      <category term="story" scheme="http://yogendra.me/tags/story/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Happy New Year 2015</title>
+    <link href="http://yogendra.me/2015/01/01/happy-new-year-2015/"/>
+    <id>http://yogendra.me/2015/01/01/happy-new-year-2015/</id>
+    <published>2014-12-31T16:58:51.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Happy New Year to All</p>
+<p>– Rampuria Family<br><a id="more"></a><br><div class="figure center" style="width:;"><a class="fancybox" href="wpid-2015-01-01-00.35.28.jpg" title="Happy New Year" data-fancybox-group=""><img class="fig-img" src="wpid-2015-01-01-00.35.28.jpg" alt="Happy New Year"></a><span class="caption">Happy New Year</span></div><div style="clear:both;"></div></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Happy New Year to All&lt;/p&gt;
+&lt;p&gt;– Rampuria Family&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Personal" scheme="http://yogendra.me/categories/Personal/"/>
+    
+    
+      <category term="greeting" scheme="http://yogendra.me/tags/greeting/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> yogendra/trusty32 - Announcing my first vagrant box</title>
+    <link href="http://yogendra.me/2014/12/11/yogendra-trusty32/"/>
+    <id>http://yogendra.me/2014/12/11/yogendra-trusty32/</id>
+    <published>2014-12-11T15:08:49.000Z</published>
+    <updated>2017-07-29T11:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>I have finally released my first vagrant box. Its been a long time coming, but it’s here now. How to get it?</p>
+<a id="more"></a>
+<p>Create a new vagrant project with:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant init yogendra/trusty32</div></pre></td></tr></table></figure>
+<p><em>Or</em></p>
+<ol>
+<li><p>Create/update your Vagrantfile as</p>
+<figure class="highlight ruby"><figcaption><span>Vagrantfile</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- mode: ruby -*-</span></div><div class="line"><span class="comment"># vi: set ft=ruby :</span></div><div class="line"></div><div class="line"><span class="comment"># Vagrantfile API/syntax version. Don't touch unless you know what you're doing!</span></div><div class="line">VAGRANTFILE_API_VERSION = <span class="string">"2"</span></div><div class="line"></div><div class="line">Vagrant.configure(VAGRANTFILE_API_VERSION) <span class="keyword">do</span> <span class="params">|config|</span></div><div class="line">  config.vm.box = <span class="string">"yogendra/trusty32"</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>Run this</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vagrant up --provider vmware_fusion</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>That’s it.</p>
+<p>If you are new to Vagrant, read <a href="https://docs.vagrantup.com/v2/getting-started/" target="_blank" rel="external">this tutorial</a>to get started</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I have finally released my first vagrant box. Its been a long time coming, but it’s here now. How to get it?&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yogendra.me/categories/Technology/"/>
+    
+    
+      <category term="devops" scheme="http://yogendra.me/tags/devops/"/>
+    
+      <category term="vagrant" scheme="http://yogendra.me/tags/vagrant/"/>
+    
+  </entry>
+  
+</feed>
