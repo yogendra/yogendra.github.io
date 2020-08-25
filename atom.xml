@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Chase Your Dreams</title>
+  
+  <subtitle>Blog | Tutorials | Projects</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yogendra.github.io/"/>
+  <updated>2020-08-25T14:21:37.780Z</updated>
+  <id>http://yogendra.github.io/</id>
+  
+  <author>
+    <name>Yogendra Rampuria</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Right Abstraction</title>
+    <link href="http://yogendra.github.io/2019/03/15/right-abstraction/"/>
+    <id>http://yogendra.github.io/2019/03/15/right-abstraction/</id>
+    <published>2019-03-15T14:25:31.000Z</published>
+    <updated>2020-08-25T14:21:37.780Z</updated>
+    
+    <content type="html"><![CDATA[<p>Process of abstraction is as old as the mankind themself. Whenever I brain looks at a problem, it tries to simplify by abstracting all the non-contextual aspect. In computer science as well, we follow the same process of hiding details through layering.</p><a id="more"></a><p>Get full Deck is <a href="right-abstraction.pdf">here</a></p><div class="video-container"><iframe src="//www.youtube.com/embed/jGVm_-SYc5I" frameborder="0" allowfullscreen></iframe></div><p>Today we are seeing an increasing number of enterprises opting to transform themselves into a “software driven business”. They are recognizing software and software based services as a unique differentiator.</p><p>This has created a huge demand for cloud based or cloud-alike operating model within the organization. We are regularly find ourself talking to large traditional organizations, about internet-scale or web-scale operting model. They all want to build and deliver software like the Netflix, Uber, Lyft or Airbnb. This is an amazing time to be in the digital transformation space. It is almost a revolutionary change in progress. And I find myself on the front-row seat for this show.</p><p>Digital transaformation is a very huge topic and deserves a conference of its own. Today I will talk about a very small part of this journey - selecting a runtime environment. It may seem like a no-brainer to an individual, but it is a extremely important decision that an organization makes that influences each and every business and technical decision moving forward. Imagine, as an individual developer you chose to build an application in scala. Six months later Kotlin has become more popular and is far more apealing to use in your project. May be your applcation is not large just a few hundred lines of code, so you decide to migrate to Kotlin. May be you spend good week to fully migrate the whole application.</p><p>Now imagine there are 100s of apps and you have to do the same thing. And changing the runtime also needs ensuring right libraries, drivers or SDK for dependent services. It gets very messy, very fast.</p><p>In large enterprises, migration is not a result of an individuals preference but driven by variety of economic factors, regulatory changes and/or market forces. You may start with building and running your application on public cloud, but as you grow your service offerings you may be required to have keep data on-prem/onshore.</p><p>Hence, choosing right runtime will go a long way in ensuring success for the project and company.</p><p>In the presentation deck and in video you will find me going through variety of options that help you in build applications. Based on your preference, reigning technilogy in your organinzation, skillsets available, etc., you can make a more informed decision.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Process of abstraction is as old as the mankind themself. Whenever I brain looks at a problem, it tries to simplify by abstracting all the non-contextual aspect. In computer science as well, we follow the same process of hiding details through layering.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Talk" scheme="http://yogendra.github.io/categories/Talk/"/>
+    
+    
+      <category term="cloud" scheme="http://yogendra.github.io/tags/cloud/"/>
+    
+      <category term="containers" scheme="http://yogendra.github.io/tags/containers/"/>
+    
+      <category term="caas" scheme="http://yogendra.github.io/tags/caas/"/>
+    
+      <category term="paas" scheme="http://yogendra.github.io/tags/paas/"/>
+    
+      <category term="cloud-native" scheme="http://yogendra.github.io/tags/cloud-native/"/>
+    
+      <category term="spring" scheme="http://yogendra.github.io/tags/spring/"/>
+    
+      <category term="spring data cloud flow" scheme="http://yogendra.github.io/tags/spring-data-cloud-flow/"/>
+    
+      <category term="pas" scheme="http://yogendra.github.io/tags/pas/"/>
+    
+      <category term="pcf" scheme="http://yogendra.github.io/tags/pcf/"/>
+    
+      <category term="cf" scheme="http://yogendra.github.io/tags/cf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IDD Dialer - My First App</title>
+    <link href="http://yogendra.github.io/2018/04/14/idd-dialer-my-first-app/"/>
+    <id>http://yogendra.github.io/2018/04/14/idd-dialer-my-first-app/</id>
+    <published>2018-04-14T07:05:12.000Z</published>
+    <updated>2020-08-25T14:21:37.780Z</updated>
+    
+    <content type="html"><![CDATA[<p>A simple utility app to assist in international calling.</p><a id="more"></a><p><img src="/projects/idd/app-icon.png" alt="type-icon-right" title="IDD icon"><br>I have launched my first mobile app this week. It a simple tool for assisting in making IDD calls. It allows users to dial any prefixes needed make cheap internation calls.</p><p>Check out more details on the project page <a href="/projects/idd">here</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;A simple utility app to assist in international calling.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="announcement" scheme="http://yogendra.github.io/categories/announcement/"/>
+    
+    
+      <category term="android" scheme="http://yogendra.github.io/tags/android/"/>
+    
+      <category term="app" scheme="http://yogendra.github.io/tags/app/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mobile Sites Certification</title>
+    <link href="http://yogendra.github.io/2018/01/25/mobile-sites-certification/"/>
+    <id>http://yogendra.github.io/2018/01/25/mobile-sites-certification/</id>
+    <published>2018-01-25T16:45:53.000Z</published>
+    <updated>2020-08-25T14:21:37.780Z</updated>
+    
+    <content type="html"><![CDATA[<p>First one in a while! I just (now) passed my Mobile Site Certifiation from<br><a href="https://landing.google.com/academyforads" target="_blank" rel="noopener">Academy for Ads</a></p><a id="more"></a><p><img src="certificate.png" alt="Certificate"><br>This is a very good training and certification for anyone who wants to get recognition for their mobile site developement skills. I also learned a great deal about:</p><ul><li>Key Business Metrics for Mobile Sites (Page Value, Exit Rate, Bouce Rate, Convertion Rates, etc.)</li><li><a href="https://developer.chrome.com/devtools" target="_blank" rel="noopener">Using DevTools to Optimize Mobile Sites</a></li><li><a href="https://developers.google.com/web/progressive-web-apps/" target="_blank" rel="noopener">Progressive Web Apps - PWA</a></li><li><a href="https://www.ampproject.org/" target="_blank" rel="noopener">Accelerated Mobile Pages - AMP</a></li></ul><p>Course and certifications are <strong>FREE</strong> and available online. <a href="https://www.gdg-sg.org/" target="_blank" rel="noopener">GDG-SG</a> will run training session, next month for this. So watch our group on <a href="https://www.facebook.com/gdgsgorg" target="_blank" rel="noopener">FB</a> and <a href="https://gdg-singapore.peatix.com/view" target="_blank" rel="noopener">Peatix</a> for session details.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;First one in a while! I just (now) passed my Mobile Site Certifiation from&lt;br&gt;&lt;a href=&quot;https://landing.google.com/academyforads&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Academy for Ads&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="training" scheme="http://yogendra.github.io/tags/training/"/>
+    
+      <category term="technology" scheme="http://yogendra.github.io/tags/technology/"/>
+    
+      <category term="mobile" scheme="http://yogendra.github.io/tags/mobile/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Puppeteer - No Strings Attached</title>
+    <link href="http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/"/>
+    <id>http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/</id>
+    <published>2017-10-28T15:52:08.000Z</published>
+    <updated>2020-08-25T14:21:37.776Z</updated>
+    
+    <content type="html"><![CDATA[<p>I am a Co-Manager for <a href="https://www.gdg-sg.org" target="_blank" rel="noopener">Google Developer Group - Singapore</a> (<a href="https://www.facebook.com/gdgsgorg" target="_blank" rel="noopener">FB</a>). And today was our annual <a href="https://www.gdg-sg.org/2017/10/gdg-devfest-2017.html" target="_blank" rel="noopener">GDG-SG DevFest 2017</a> event. Apart from being an organizer, I was also a speaker. I gave a short talk on <a href="https://github.com/GoogleChrome/puppeteer" target="_blank" rel="noopener">Puppeteer</a>. This post is (almost) a transcript of my speech today. Slides can be found <a href="https://drive.google.com/open?id=0B6Mr-G5qbPLPT0JCTWl0N0w5M2s" target="_blank" rel="noopener">here</a></p><a id="more"></a><p><img src="gdg-collage.jpg" alt="GDG-SG"></p><p><img src="slides.001.jpeg" alt></p><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><a href="https://github.com/GoogleChrome/puppeteer" target="_blank" rel="noopener">Puppeteer</a> is a <a href="https://www.nodejs.org" target="_blank" rel="noopener">Node JS</a> API published by Chrome team. It is an API to control Chrome browser via <a href="https://github.com/ChromeDevTools/devtools-protocol" target="_blank" rel="noopener">DevTools Protocol</a>. Puppeteer was released shortly after the Chrome 59. This version of Chrome brought us <a href="https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md" target="_blank" rel="noopener">Headless Chrome</a>. It requires <a href="https://www.nodejs.org" target="_blank" rel="noopener">Node JS</a> version 6.4+. I would recommend using version 7.5+, so you can use <code>async/await</code> feature from <a href="https://medium.com/@tmvvr/ecmascript-async-await-to-the-rescue-fc379ff89146" target="_blank" rel="noopener">ES2017</a>.</p><h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><p>It connects with browser using <a href="https://chromedevtools.github.io/devtools-protocol/" target="_blank" rel="noopener">Chrome DevTools Protocol</a>. Hence, it works with <a href="https://www.google.com/chrome" target="_blank" rel="noopener">Chrome</a>/<a href="https://www.chromium.org" target="_blank" rel="noopener">Chromium</a> only, and not with other browsers.</p><p>Puppeteer can work in headless environment. This makes it a good candidate tool for unit/acceptance/functional tests in a CI environment. It can simulate keyboard, mouse and touch events. So, if you are building a responsive application for desktop and mobile devices, you can use Puppeteer for testing. It also brings the PDF and screenshot capabilities out of box. You can capture PDF and screenshot for whole or part of the page.</p><p>Puppeteer allows you to trap console output and web requests. If you have a requirement to “flag” any console output, you may put traps in your test cases for it. If you want to mock a back-end server request (json/xml), you can intercept those request and provide mock response for it.</p><p>It has API for performance tracing. So you can use it for recording page load performance and trace any bottlenecks. One of the biggest advantage, of having latest Chromium or Chrome being driven by the API, is <a href="https://www.chromium.org/Blink" target="_blank" rel="noopener">Blink Engine</a>. It is a shiny new layout engine from Chromium project and replaces <a href="https://webkit.org" target="_blank" rel="noopener">WebKit</a> engine. I am not aware about any short comings with WebKit, but I am guessing that Chromium has outgrown WebKit zone.</p><h3 id="Use-cases"><a href="#Use-cases" class="headerlink" title="Use cases"></a>Use cases</h3><p>I have found Puppeteer most useful in browser automation. I have done multiple personal projects for browser automation (I am a lazy guy). Puppeteer offers a simple clean API interface for this, and that in itself is a great selling point. You can use if for frontend testing, e2e testing, etc.</p><p>Server side rendering (SSR) is another great use case for this API. You can easily render your single page applications’ view on server side and send them to client. This is very useful when you have deep nested view and deep-linking facility in your application.</p><p>If you have written apps in Spring Web MVC to produce PDF, you would be aware of maintenance nightmares. You had to maintain each View (HTML and PDF) separately. I eventually started using PhantomJS on server side and reused HTML view to generate PDF with it. You get absolutely great looking PDF out of box with Puppeteer. Its identical to what you get in the PDF print in regular Chrome.</p><p>Web crawling and scraping is one of the easiest things to do with Puppeteer. You can easily navigate to pages, retrieve details and process them in a nested fashion.</p><h2 id="Puppeteer-And-Others"><a href="#Puppeteer-And-Others" class="headerlink" title="Puppeteer And Others"></a>Puppeteer And Others</h2><p>Browser automation and e2e testing is a very busy area. Lots of options for frameworks, APIs, Tools and Platforms. As a result, there are many competing tools in this space. Puppeteer emerges as a good replacement for a few of them.</p><h3 id="PhantomJS"><a href="#PhantomJS" class="headerlink" title="PhantomJS"></a>PhantomJS</h3><p><a href="https://phantomjs.org" target="_blank" rel="noopener">PhantomJS</a> was one of the first tools that I used for headless browsing. I used it for generating server side PDF. However, recent events force us to move on to other tooling. Primary maintainer of PhantomJS, Vitaly, has stepped down. In his departing note, he expressed excitement about the new Headless Chrome experience. That’s fair! And I agree with his point of view.</p><h3 id="The-‘Selenium’-Empire"><a href="#The-‘Selenium’-Empire" class="headerlink" title="The ‘Selenium’ Empire"></a>The ‘Selenium’ Empire</h3><p><a href="https://www.seleniumhq.org/" target="_blank" rel="noopener">Selenium</a> is probably the most used browser automation and testing tool for frontend. It is the “Automation Emperor” for me. It has the most comprehensive coverage in terms of languages and target browsers. It has language binding for Java, Node, Ruby, Python, etc. You name it and it has language binding for it. And on the other side, it has web driver for every browser or browser like system. It has drivers for all browsers, Chrome, Safari, Firefox, Opera, etc. It also has drivers for like ok PhantomJS and Appium.</p><p>They have managed to achieve the most unimaginable feat. They have got these giants on a common footing. It enjoy a lot of love and support from community, including myself. So, why am I even talking about puppeteer.</p><p>That brings me nicely into the next piece. Architecture-wise Selenium and Puppeteer are slightly different. Selenium achieve browser automation though an intermediate proxy, the <a href="https://www.seleniumhq.org/projects/webdriver/" target="_blank" rel="noopener">WebDriver</a>. WebDriver is a per-browser component implementing remote control capabilities. It exposes an restful API interface. A language binding uses these APIs to interact and control browser.</p><p><img src="slides.012.jpeg" alt></p><p>Puppeteer takes a leaner approach to this and taps straight into the DevTools protocol of the browser. This makes it possible to easily keep keep with browser features and automation API, in sync.</p><h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>Lets go through some samples to understand the development with Puppeteer.</p><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>Puppeteer is a Node JS API. Its published as an NPM package. You can install it in you project with simple <code>npm install</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm i --save-dev puppeteer</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> puppeteer@0.12.0 install /Users/user/.nvm/project1/node_modules/puppeteer</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> node install.js</span></span><br><span class="line"></span><br><span class="line">Downloading Chromium r508693 - 72.6 Mb [====================] 100% 0.0s</span><br><span class="line">Chromium downloaded to /Users/monkey/project1/lib/node_modules/puppeteer/.local-chromium/mac-508693</span><br><span class="line">+ puppeteer@0.12.0</span><br><span class="line">added 42 packages in 223.254s</span><br></pre></td></tr></table></figure><p>Notice how it has also downloaded Chromium. This ensures that it has a compatible version of chromium always. You can skip Chromium download and run it with your own installation of Chrome / Chromium. You can skip download by setting an <code>PUPPETEER_SKIP_CHROMIUM_DOWNLOAD</code> environment variable. And you can provide executable path to alternate Chrome or Chromium in you code.</p><h3 id="Screenshot"><a href="#Screenshot" class="headerlink" title="Screenshot"></a>Screenshot</h3><p>Taking a screenshot in an automation tool is like a “Hello World!” thing.</p><figure class="highlight javascript"><figcaption><span>screenshot.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">"puppeteer"</span>);</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch();</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">  <span class="keyword">await</span> page.goto(<span class="string">"https://www.google.com"</span>, &#123; <span class="attr">waitUntil</span>: <span class="string">"networkidle"</span> &#125;);</span><br><span class="line">  <span class="keyword">await</span> page.screenshot(&#123; <span class="attr">path</span>: <span class="string">"screenshot.png"</span> &#125;);</span><br><span class="line">  <span class="keyword">await</span> browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure><p><a href="screenshot.js">Source</a></p><p>If you are not familiar with <code>async/await</code>, I would recommend reading <a href="https://medium.com/@tmvvr/ecmascript-async-await-to-the-rescue-fc379ff89146" target="_blank" rel="noopener">this</a>. Most methods in Puppeteer API return a Promise. <code>await</code> ensures that you wait for a promise to resolve or reject before proceeding to next instruction. Line <strong>5</strong>, invokes <code>launch()</code>, which launches Chromium. You can specify launch options as an object parameter, like <code>puppeteer.launch({headless: false})</code>. See all the options in <a href="https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions" target="_blank" rel="noopener">documentation</a> page. Line <strong>6</strong> creates a new tab with <code>newPage()</code> method. <code>goto()</code> method on line <strong>7</strong> navigates page to a URL. <code>waitUntil</code> ensures that page and its and related assets (js/images/css) are loaded, before promise is resolved.</p><p>On line <strong>10-12</strong>, <code>screenshot()</code> method captures an image of output and stores it in <code>screenshot.png</code>. This looks plain and simple. And that is what made me like this API. It is clean and simple.</p><p>You can run this with following command</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> node screenshot.js</span></span><br><span class="line"><span class="meta">$</span><span class="bash"></span></span><br></pre></td></tr></table></figure><p>This produces <code>screenshot.png</code> in the current directory.</p><p><img src="screenshot.png" alt></p><h3 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h3><p>This is the single biggest reason for me to use Puppeteer. PDF generation is a breeze! Heres how you can do it.</p><figure class="highlight javascript"><figcaption><span>pdf.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">"puppeteer"</span>);</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch();</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">  <span class="keyword">await</span> page.goto(<span class="string">"https://news.ycombinator.com"</span>, &#123; <span class="attr">waitUntil</span>: <span class="string">"networkidle"</span> &#125;);</span><br><span class="line">  <span class="keyword">await</span> page.pdf(&#123;</span><br><span class="line">    path: <span class="string">"hn.pdf"</span>,</span><br><span class="line">    format: <span class="string">"A4"</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">await</span> browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure><p><a href="pdf.js">Source</a></p><p>We will now generate PDF from hacker news landing page. Code is not very different from what we saw in screenshot example. Line <strong>20-23</strong> generates PDF instead of screenshot. And thats it. You can specify paper size for the PDF in the optional argument. Look at <a href="https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagepdfoptions" target="_blank" rel="noopener">documentation</a> for more options. Its output would be identical to “Print PDF” function of Chrome or Chromium. It uses print media css.</p><p><img src="hn.jpg" alt><br><a href="hn.pdf">Link to actual extracted PDF</a></p><h3 id="Web-Scraping"><a href="#Web-Scraping" class="headerlink" title="Web Scraping"></a>Web Scraping</h3><p>I have used Puppeteer most for this. In my work environment I have need for integration via web pages. There are case where I don’t have access to a data API for integration. Puppeteer can make it possible for you to expose a “web” site as a JSON api.</p><figure class="highlight javascript"><figcaption><span>scrape.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`use strict`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> SELECTOR_BOOK_IMAGE =</span><br><span class="line">  <span class="string">"#default &gt; div &gt; div &gt; div &gt; div &gt; section &gt; div:nth-child(2) &gt; ol &gt; li:nth-child(1) &gt; article &gt; div.image_container &gt; a &gt; img"</span>;</span><br><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">"puppeteer"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> scrape = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123; <span class="attr">headless</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">  <span class="keyword">await</span> page.goto(<span class="string">"http://books.toscrape.com/"</span>);</span><br><span class="line">  <span class="keyword">await</span> page.waitFor(<span class="number">1000</span>);</span><br><span class="line">  <span class="keyword">await</span> page.click(SELECTOR_BOOK_IMAGE);</span><br><span class="line">  <span class="keyword">await</span> page.waitFor(<span class="number">2000</span>);</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> page.evaluate(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> title = <span class="built_in">document</span>.querySelector(<span class="string">"h1"</span>).innerText;</span><br><span class="line">    <span class="keyword">let</span> price = <span class="built_in">document</span>.querySelector(<span class="string">".price_color"</span>).innerText;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      title,</span><br><span class="line">      price,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">await</span> browser.close();</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line">scrape().then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value); <span class="comment">// Success!</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p><a href="scrape.js">Source</a></p><p>We first goto “books.toscrape.com” and click on first image (line 11) on the page. First image on page is referred via <code>SELECTOR_BOOK_IMAGE</code> css selector. This triggers a navigation to a details page.</p><p>On line 13, a function is dispatched for evaluation on the DOM. This function goes through DOM element (<code>h1</code> and element with class <code>price_color</code> ) and extracts text (<code>innerText</code>).</p><p>You can simply run this with <code>node</code> command.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> node scrape.js</span></span><br><span class="line">&#123; title: 'A Light in the Attic', price: '£51.77' &#125;</span><br></pre></td></tr></table></figure><p>You will see browser window for this example. This is because of line <strong>7</strong>, where I have opted for <code>{headless: false}</code>. This is to show scraping in action.</p><p><strong>Disclaimer:</strong> Be very careful what you scrape. You can/will run into legal and licensing issues very quickly.</p><h2 id="Final-Thoughts"><a href="#Final-Thoughts" class="headerlink" title="Final Thoughts"></a>Final Thoughts</h2><p>Puppeteer is a very promising project. In a very short period (&lt; 6 month) it has gotten great support from community. I have read many posts covering this API. I am confident about the future of this project. I am looking forward to a growing and thriving community for this.</p><p>It is a very good replacement for PhantomJS. However, my key concern as at the moment are:</p><ul><li>Google Cloud Function (GCF) does not support Node JS 6.4+. So, you have to use cloud VM or Container service to run this in cloud. Hopefully next version of LTS will be 8+, and will bring all the goodness of async/await into the mix</li><li>Lack of support for non-Chrome based browser could be discouraging for many developers. We all want to keep tool/library dependency low and single codebase for testing. If you project demands multi-browser testing, you will end up in a fractured state. Better stick with WebDriver/Selenium. May be WebDriver will adopt some part of Puppeteer API.</li></ul><p>I also found the e2e testing support very <em>unclean</em>. Its possible, workable, but now readable. I would like to see a very clean integration with likes of cucumber, mocha, chai, etc.</p><h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3><p>Here are some links that I used for preparing my presentation.</p><ul><li><a href="https://github.com/GoogleChrome/puppeteer" target="_blank" rel="noopener">Puppeteer Home</a></li><li><a href="https://try-puppeteer.appspot.com/" target="_blank" rel="noopener">Try Puppeteer in Browser</a></li><li><a href="https://puppetron.now.sh/" target="_blank" rel="noopener">Puppetron</a> (<a href="https://www.youtube.com/watch?v=n4sRp3qe_1Y" target="_blank" rel="noopener">Demo</a>)</li><li><a href="https://developers.google.com/web/updates/2017/04/headless-chrome" target="_blank" rel="noopener">Getting Started with Headless Chrome - Eric Bidelman</a></li><li><a href="https://medium.com/@e_mad_ehsan/getting-started-with-puppeteer-and-chrome-headless-for-web-scrapping-6bf5979dee3e" target="_blank" rel="noopener">Getting Started with Puppeteer and Headless Chrome Web Scraping - Emad Ehsan</a></li><li><a href="https://codeburst.io/a-guide-to-automating-scraping-the-web-with-javascript-chrome-puppeteer-node-js-b18efb9e9921" target="_blank" rel="noopener">A Guide to Automating and Scraping - Brandon Morelli</a></li></ul><h3 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h3><p><strong>Can I use Puppeteer for extracting data and localizing?</strong><br>Technically, Yes. You can setup data pipeline to crawl and extract data. You case store it in database or some other persistent store. You can use a workflow to review, edit and publish. Be very careful about licensing. Don’t crawl/scrape data without author’s consent.</p><p><strong>Can you run multiple tabs simultaneously?</strong><br>Yes. You can use <code>newPage()</code> method to create multiple tabs. And for each tab you can have a different execution code. I have tried it with 2 tabs. Here is a code sample for the last example (scraping) that does same thing but five times, concurrently.</p><figure class="highlight javascript"><figcaption><span>scrape-multi.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> SELECTOR_BOOK_IMAGE =</span><br><span class="line">  <span class="string">"#default &gt; div &gt; div &gt; div &gt; div &gt; section &gt; div:nth-child(2) &gt; ol &gt; li:nth-child(1) &gt; article &gt; div.image_container &gt; a &gt; img"</span>;</span><br><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">"puppeteer"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> scrapeSite = <span class="keyword">async</span> (browser) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">  <span class="keyword">await</span> page.goto(<span class="string">"http://books.toscrape.com/"</span>);</span><br><span class="line">  <span class="keyword">await</span> page.waitFor(<span class="number">1000</span>);</span><br><span class="line">  <span class="keyword">await</span> page.click(SELECTOR_BOOK_IMAGE);</span><br><span class="line">  <span class="keyword">await</span> page.waitFor(<span class="number">2000</span>);</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> page.evaluate(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> title = <span class="built_in">document</span>.querySelector(<span class="string">"h1"</span>).innerText;</span><br><span class="line">    <span class="keyword">let</span> price = <span class="built_in">document</span>.querySelector(<span class="string">".price_color"</span>).innerText;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      title,</span><br><span class="line">      price,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> scrape = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123; <span class="attr">headless</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> <span class="built_in">Promise</span>.all([</span><br><span class="line">    scrapeSite(browser),</span><br><span class="line">    scrapeSite(browser),</span><br><span class="line">    scrapeSite(browser),</span><br><span class="line">    scrapeSite(browser),</span><br><span class="line">    scrapeSite(browser),</span><br><span class="line">  ]);</span><br><span class="line">  <span class="keyword">await</span> browser.close();</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line">scrape().then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value); <span class="comment">// Success!</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p><a href="scrape-multi.js">Source</a></p><p><strong>Can I extract CSS from the pages with this?</strong><br>I have not tried it, but as you can evaluate any valid javascript code using API, you should be able to extract that.</p><p>Below is a code that dumps each css being accessed by the page.</p><figure class="highlight javascript"><figcaption><span>scrape-dump-css.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">"puppeteer"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> scrape = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123; <span class="attr">headless</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">await</span> page.setRequestInterceptionEnabled(<span class="literal">true</span>);</span><br><span class="line">  page.on(<span class="string">"request"</span>, (r) =&gt; &#123;</span><br><span class="line">    r.continue();</span><br><span class="line">  &#125;);</span><br><span class="line">  page.on(<span class="string">"response"</span>, (r) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> url = r.url;</span><br><span class="line">    <span class="keyword">if</span> (url.endsWith(<span class="string">"css"</span>)) &#123;</span><br><span class="line">      r.text().then(<span class="function">(<span class="params">s</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"// Source:"</span> + url);</span><br><span class="line">        <span class="built_in">console</span>.log(s);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">await</span> page.goto(<span class="string">"http://books.toscrape.com/"</span>);</span><br><span class="line">  <span class="keyword">await</span> browser.close();</span><br><span class="line">&#125;;</span><br><span class="line">scrape();</span><br></pre></td></tr></table></figure><p><a href="scrape-dump-css.js">Source</a></p><h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><p>My father (<a href="https://twitter.com/nmrampuria" target="_blank" rel="noopener">Shri. Noratan Rampuria</a>) has always been very supportive of my life and career choices. And he showed his support once again. He was there for my talk and had looked happy. Thanks papa 🙏!<br><img src="special-thanks.jpg" alt></p><p>Many ex and current colleagues were also at the event and showed their support. Thanks folks🤝!</p><p>Thanks to <a href="https://www.facebook.com/bharathi.subramanian.73" target="_blank" rel="noopener">Bharathi</a> and <a href="https://www.facebook.com/hari1prasath" target="_blank" rel="noopener">Hari</a> (GDG Mangement team) for the opportunity to speak. Well, it was more like <em>push</em> to speak 😀. <a href="https://www.facebook.com/manikantan.krish" target="_blank" rel="noopener">Manikantan K</a>, <a href="https://twitter.com/heliumlif" target="_blank" rel="noopener">Hui Yi</a>, <a href="https://twitter.com/dirkprimbs" target="_blank" rel="noopener">Dirk Primbs</a> and David from Google Developer Relations for supporting GDG-SG - “Thank you”. And <a href="https://twitter.com/perfinion" target="_blank" rel="noopener">Jason Zaman</a> for incepting the idea “Want to be at a conference? Just speak on something”.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I am a Co-Manager for &lt;a href=&quot;https://www.gdg-sg.org&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Google Developer Group - Singapore&lt;/a&gt; (&lt;a href=&quot;https://www.facebook.com/gdgsgorg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;FB&lt;/a&gt;). And today was our annual &lt;a href=&quot;https://www.gdg-sg.org/2017/10/gdg-devfest-2017.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GDG-SG DevFest 2017&lt;/a&gt; event. Apart from being an organizer, I was also a speaker. I gave a short talk on &lt;a href=&quot;https://github.com/GoogleChrome/puppeteer&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Puppeteer&lt;/a&gt;. This post is (almost) a transcript of my speech today. Slides can be found &lt;a href=&quot;https://drive.google.com/open?id=0B6Mr-G5qbPLPT0JCTWl0N0w5M2s&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Talk" scheme="http://yogendra.github.io/categories/Talk/"/>
+    
+    
+      <category term="gdg" scheme="http://yogendra.github.io/tags/gdg/"/>
+    
+      <category term="testing" scheme="http://yogendra.github.io/tags/testing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kotlin - Baby Steps</title>
+    <link href="http://yogendra.github.io/2017/09/19/kotlin-baby-steps/"/>
+    <id>http://yogendra.github.io/2017/09/19/kotlin-baby-steps/</id>
+    <published>2017-09-19T14:49:47.000Z</published>
+    <updated>2020-08-25T14:21:37.776Z</updated>
+    
+    <content type="html"><![CDATA[<p>I was at <a href="https://www.meetup.com/kotlinsg/events/243293562/" target="_blank" rel="noopener">Kotlin SG Meetup</a> tonight. It had a lot of content. I will post more about that later.</p><p>On my way back home (now), I started reading Kotlin website about various features (<a href="https://kotlinlang.org/docs/tutorials/" target="_blank" rel="noopener">here</a>).</p><a id="more"></a><p><a href="https://kotlinlang.org/" target="_blank" rel="noopener"><img src="https://kotlinlang.org/assets/images/twitter-card/kotlin_800x320.png" alt="Kotlin"></a></p><p>I was curious about command line usage of Kotlin. How will I complile kotlin classes outside an IDE? How to run this? What about the runtime libraries? etc.</p><p>It turns out to be very straight forward. No surprises.</p><ol><li>Just write your code in a <code>.kt</code> file</li><li>Run kotlin compiler<br>a. For Apps, use <code>-include-runtime</code> flag<br>b. For libraries, <strong>DON’T</strong> include runtime</li><li>Run app with <code>java</code></li></ol><h2 id="But-I-want-moar"><a href="#But-I-want-moar" class="headerlink" title="But I want moar"></a>But I want <em>moar</em></h2><p>I have Kotlin installed via <a href="https://sdkman.io" target="_blank" rel="noopener">SDKMAN</a>. So, on the <a href="https://kotlinlang.org/docs/tutorials/command-line.html" target="_blank" rel="noopener">“Command Line” Tutorial</a> page I saw (<a href="https://kotlinlang.org/docs/tutorials/command-line.html#using-the-command-line-to-run-scripts" target="_blank" rel="noopener">here</a>) how to run kotlin as a script. Cool!</p><p>Now, I was more curious. I wanted to see if I could do one better. Can I write a script and execute it directly by filename? Lets try. Created a file <code>list_folders.kts</code>, as below.</p><figure class="highlight kotlin"><figcaption><span>list_folders.kts</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env kotlinc -script</span></span><br><span class="line"><span class="keyword">import</span> java.io.File</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> folders = File(args[<span class="number">0</span>]).listFiles &#123; file -&gt; file.isDirectory() &#125;</span><br><span class="line">folders?.forEach &#123; folder -&gt; println(folder) &#125;</span><br></pre></td></tr></table></figure><p>And, run this.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> chmod a+x ./list_folders.kts</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./list_folders.kts .</span></span><br><span class="line">./kotlin-koans</span><br></pre></td></tr></table></figure><p>Wow! that worked. Trick is in the first line</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/usr/bin/env kotlinc -script</span></span><br></pre></td></tr></table></figure><p>This causes shell the use <code>kotlinc</code> interpreter for this script.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I was at &lt;a href=&quot;https://www.meetup.com/kotlinsg/events/243293562/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Kotlin SG Meetup&lt;/a&gt; tonight. It had a lot of content. I will post more about that later.&lt;/p&gt;
+&lt;p&gt;On my way back home (now), I started reading Kotlin website about various features (&lt;a href=&quot;https://kotlinlang.org/docs/tutorials/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt;).&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yogendra.github.io/categories/Technology/"/>
+    
+      <category term="Programming" scheme="http://yogendra.github.io/categories/Technology/Programming/"/>
+    
+    
+      <category term="kotlin" scheme="http://yogendra.github.io/tags/kotlin/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Diagrams In Blog</title>
+    <link href="http://yogendra.github.io/2017/07/21/diagrams-in-blog/"/>
+    <id>http://yogendra.github.io/2017/07/21/diagrams-in-blog/</id>
+    <published>2017-07-21T09:34:12.000Z</published>
+    <updated>2020-08-25T14:21:37.772Z</updated>
+    
+    <content type="html"><![CDATA[<p>I use a text to diagram tool called <a href="https://plantuml.com" target="_blank" rel="noopener">PlantUML</a>. It’s perfect!<br>Now, I want to use it with my hugo site, through a short code. So, I I type a<br>code like below, I should see out like as the image.</p><a id="more"></a><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@startuml</span><br><span class="line">A -&gt; B : Hello</span><br><span class="line">A <span class="xml"><span class="tag">&lt;<span class="name">-</span> <span class="attr">B</span> <span class="attr">:</span> <span class="attr">Hi</span> <span class="attr">There</span>!</span></span></span><br><span class="line"><span class="xml">@enduml</span></span><br></pre></td></tr></table></figure><p><strong>Update</strong>: I spend many hours trying to work this out. Created a firebase function to process posting and converting<br>and yada yada. But finally gave up on Hugo. Until there is a plugin support in the core, this will be a very challenging<br>thing.</p><p>During my (failed) research, I ran into <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> and <a href="https://www.npmjs.com/package/hexo-filter-plantuml" target="_blank" rel="noopener">PlantUML filter plugin</a>. I saw a a <a href="https://www.npmjs.com/package/hexo-migrator-wordpress" target="_blank" rel="noopener">WordPress Migration</a> plugin. I decided to give it a go.</p><p>In less than 20 minutes, I managed to install hexo, create a project, migrate wordpress items and got plantuml working.</p><img src="https://www.plantuml.com/plantuml/svg/SoWkIImgAStDuN9KqBLJS5AmKl18pSd91t9jT27SJ8MGZDIYL4KkXzIy5A1A0000"><p>I guess I will have to wait for hugo to mature a bit more. I really liked the speed and simplicity of hugo. But lack of<br>plugin support in processing really killed it!</p><p><strong>Update</strong>: I am now using a <a href="https://www.npmjs.com/package/hexo-local-plantuml" target="_blank" rel="noopener">hexo-local-plantuml</a> instead. This<br>generates plantuml files and svg locally. So overall page rendering is fast. Downside, I need to have Java and graphviz<br>working locally. I have created a working Docker image (<a href="https://hub.docker.com/yogendra/blog-toolbox" target="_blank" rel="noopener">yogendra/blog-toolbox:latest</a>)<br>to help me work around this</p><p><strong>Update</strong>: Trying client side rendering</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I use a text to diagram tool called &lt;a href=&quot;https://plantuml.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;PlantUML&lt;/a&gt;. It’s perfect!&lt;br&gt;Now, I want to use it with my hugo site, through a short code. So, I I type a&lt;br&gt;code like below, I should see out like as the image.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yogendra.github.io/categories/Technology/"/>
+    
+    
+      <category term="web" scheme="http://yogendra.github.io/tags/web/"/>
+    
+      <category term="blogging" scheme="http://yogendra.github.io/tags/blogging/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Migration Mania</title>
+    <link href="http://yogendra.github.io/2017/07/20/migration-mania/"/>
+    <id>http://yogendra.github.io/2017/07/20/migration-mania/</id>
+    <published>2017-07-20T14:13:49.000Z</published>
+    <updated>2020-08-25T14:21:37.772Z</updated>
+    
+    <content type="html"><![CDATA[<p>I am embarking on this new journey to use <a href="https://www.staticgen.com/" target="_blank" rel="noopener">Static Site Generator</a>.</p><a id="more"></a><p><img src="/2017/07/20/migration-mania/html-js-css.png" alt="type-icon-right"></p><p>So far, I have managed to setup:</p><ul><li><a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a> base project</li><li><a href="https://www.github.com/yogendra/yogendra.me" target="_blank" rel="noopener">GitHub repository</a></li><li><a href="https://travis-ci.org/yogendra/yogendra.me" target="_blank" rel="noopener">Travis CI</a> based build and deploy</li></ul><p>I have a shared hosting service (for many years now) so I want to use that to host my site. This added some (small) challenges in my journey. I will share my experience, so far and in future, in this post. One thing that I really like is how natural I find this. After all I am a <em>Programmer</em>.</p><h2 id="How-can-you-use-my-work"><a href="#How-can-you-use-my-work" class="headerlink" title="How can you use my work?"></a>How can you use my work?</h2><p>You can fork my repository (link above) and follow the simple instruction on the <code>README.md</code> to start using. I will use my own repository for instructions here.</p><p>Before you start, get these softwares and setup correctly</p><ul><li><a href="https://gohugo.io/getting-started/installing/" target="_blank" rel="noopener">Hugo</a></li><li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank" rel="noopener">Git</a></li><li><a href="https://github.com/travis-ci/travis.rb#installation" target="_blank" rel="noopener">Travis CI Client</a></li><li><a href="https://firebase.google.com/docs/cli/" target="_blank" rel="noopener">Firebase CLI</a></li><li><a href="https://github.com/kennethreitz/autoenv" target="_blank" rel="noopener">autoenv</a> <em>(Optional but Highly Recommended)</em></li></ul><p>I use <a href="https://github.com/kennethreitz/autoenv" target="_blank" rel="noopener">autoenv</a> to manager per-project shell environment. It executes <code>.env</code> file in the directory when you <code>cd</code> into it. This is optional but very useful.</p><h2 id="Clone-and-Change"><a href="#Clone-and-Change" class="headerlink" title="Clone and Change"></a>Clone and Change</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:yogendra/yogendra.me.git</span><br><span class="line">cd yogendra.me</span><br><span class="line">git submodule update --init --recursive</span><br></pre></td></tr></table></figure><p>Here are some changes that you should consider:</p><ul><li>You should probably delete <code>site/content/*</code> and <code>site/static/*</code> (or not).</li><li>You <strong>should</strong> change information in <code>config.toml</code>, consider changing:<ul><li>googleAnalytics</li><li>baseUrl</li><li>title</li><li>author</li><li>description</li><li>githubUsername</li><li>[menu.icon] links</li></ul></li></ul><h2 id="Run-and-Test"><a href="#Run-and-Test" class="headerlink" title="Run and Test"></a>Run and Test</h2><p>You can run development server using following command</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo server -s site -wDEF -b http://localhost:1313 --navigateToChanged --cleanDestinationDir -d dev</span><br></pre></td></tr></table></figure><p>What the hell! Read instruction in <code>hugo server --help</code> to understand what each of those switches mean. We are asking hugo to:</p><ul><li>-w : watch for changes</li><li>-D : build draft</li><li>-E : build expired pages</li><li>-F : build future date page,</li><li>-b : set base url to <code>http://localhost:1313</code></li><li>–navigateToChanged : navigate browser to updated file</li><li>–cleanDestinationDir: Delete all the files that might be there in destination dir</li><li>-d : Destination dir to store files into</li></ul><p>You can add your own content using command like</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd site</span><br><span class="line">hugo new post/&lt;post-name.md&gt;</span><br></pre></td></tr></table></figure><p>When you want to prepare actual deployment, you can use following command</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo -s site -d public</span><br></pre></td></tr></table></figure><h2 id="Configure-Firebase"><a href="#Configure-Firebase" class="headerlink" title="Configure Firebase"></a>Configure Firebase</h2><p>I recommend using <a href="https://firebase.google.com" target="_blank" rel="noopener">Firebase</a>. Read the <a href="https://firebase.google.com/docs/hosting/" target="_blank" rel="noopener">hosting guide</a> and get familiar with the concept and commands.</p><p>First, login to firebase from cli. This needs to be done only once. If you have already done this for any other prohect, you can skip this step</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> firebase login</span></span><br></pre></td></tr></table></figure><p>Now you need to initialize firebase setting for the project. This will run as a wizard. Follow onscreen instructions.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> firebase init hosting</span></span><br></pre></td></tr></table></figure><p>You may test your firebase configuration by deploying changes directly from your machine</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> firebase deploy</span></span><br></pre></td></tr></table></figure><p><strong>Important:</strong> <em>Choose “N” for “Configure as a single-page app (rewrite all urls to /index.html)?”. Also, don’t overwrite files under <code>public/</code></em></p><h2 id="Configure-Travis-CI"><a href="#Configure-Travis-CI" class="headerlink" title="Configure Travis CI"></a>Configure Travis CI</h2><p><em>Based on <a href="https://docs.travis-ci.com/user/deployment/firebase/" target="_blank" rel="noopener">Travis CI - Firebase Deployment</a></em></p><p>Create a new project on Travis CI website website. Login to Travis CI via <code>travis</code> command.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> travis login</span></span><br></pre></td></tr></table></figure><p>Get a deployment token from firebase, for using in travis ci build environment.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> firebase login:ci</span></span><br></pre></td></tr></table></figure><p>This should generate a string that looks like <code>1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla</code>.<br>Use following command to encrypt this string and use in <code>.travis.yml</code>.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> travis encrypt <span class="string">"1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla"</span> --add</span></span><br><span class="line">SUPER-SECRET-ENCRYPTED-VALUE</span><br></pre></td></tr></table></figure><p>Replace <code>deploy</code> key in <code>.travis.yml</code> with folowing text. Remember to change <code>SUPER-SECRET-ENCRYPTED-VALUE</code> with text from last command output</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  provider:</span> <span class="string">firebase</span></span><br><span class="line"><span class="attr">  token:</span></span><br><span class="line"><span class="attr">    secure:</span> <span class="string">"SUPER-SECRET-ENCRYPTED-VALUE"</span></span><br><span class="line"><span class="attr">  on:</span></span><br><span class="line"><span class="attr">    branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure><p>That’s it! Don’t forget to checkin your changes.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I am embarking on this new journey to use &lt;a href=&quot;https://www.staticgen.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Static Site Generator&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yogendra.github.io/categories/Technology/"/>
+    
+      <category term="DevOps" scheme="http://yogendra.github.io/categories/Technology/DevOps/"/>
+    
+    
+      <category term="web" scheme="http://yogendra.github.io/tags/web/"/>
+    
+      <category term="blog" scheme="http://yogendra.github.io/tags/blog/"/>
+    
+      <category term="cd/ci" scheme="http://yogendra.github.io/tags/cd-ci/"/>
+    
+      <category term="git" scheme="http://yogendra.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The New Begining</title>
+    <link href="http://yogendra.github.io/2017/07/18/the-new-begining/"/>
+    <id>http://yogendra.github.io/2017/07/18/the-new-begining/</id>
+    <published>2017-07-18T16:00:00.000Z</published>
+    <updated>2017-07-22T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>If its not working, try restarting it</p><footer><strong>An Engineer</strong></footer></blockquote><a id="more"></a><p><a href="/2017/07/18/the-new-begining/the-new-begining.jpg"><img src="/2017/07/18/the-new-begining/the-new-begining.jpg" alt="type-icon" title="The New Begining"></a><br>This is my attempt to restart. This is my 4th attempt to blog. I started blogging years ago. But something or the other always kept me from writing regularly.</p><p>Sometimes I was just lazy to write. But most of the times, I digressed into updating my core, plugins, themes, etc. After all I am a programmer, and I get more satisfaction in creating (read breaking) and fixing stuff.</p><p>I don’t have any particular agenda for this site. Just get scraps of information from all over the internet and put it in a way that I , and possibly others, can understand.</p><p><del>I will migrate date from my old site (someday).</del></p><p><strong>Update</strong>: Migrated content. Hugo was my first choice for new platform. But Hexo made it to top.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;&lt;p&gt;If its not working, try restarting it&lt;/p&gt;
+&lt;footer&gt;&lt;strong&gt;An Engineer&lt;/strong&gt;&lt;/footer&gt;&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Top 30 SSH shenanigans</title>
+    <link href="http://yogendra.github.io/2016/11/09/top-30-ssh-shenanigans/"/>
+    <id>http://yogendra.github.io/2016/11/09/top-30-ssh-shenanigans/</id>
+    <published>2016-11-09T14:52:49.000Z</published>
+    <updated>2020-08-25T14:21:37.772Z</updated>
+    
+    <content type="html"><![CDATA[<p>Good list of commands to be SSH ‘Yoda’. I like the tunnels and screen the most in these. They have been so useful over the years, for development and troubleshooting.</p><a id="more"></a><p><a href="/2016/11/09/top-30-ssh-shenanigans/icon-ssh.png" title="SSH Shenanigans"><img src="/2016/11/09/top-30-ssh-shenanigans/icon-ssh.png" alt title="SSH Shenanigans"></a></p><p>Here is a short list that I use ofter:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Copy SSH public key</span></span><br><span class="line">$ ssh-copy-id user@host</span><br><span class="line"></span><br><span class="line"><span class="comment"># Alternative for ssh-copy-id</span></span><br><span class="line">$ cat ~/.ssh/id_rsa.pub | ssh user@machine “mkdir ~/.ssh; cat &gt;&gt; ~/.ssh/authorized_keys”</span><br><span class="line"><span class="comment"># Start a tunnel local:2001 -&gt; remote:80</span></span><br><span class="line">$ ssh -N -L2001:localhost:80 somemachine</span><br><span class="line"></span><br><span class="line"><span class="comment"># Run a GUI app from remote machine</span></span><br><span class="line">$ ssh -fX &lt;user&gt;@&lt;host&gt; &lt;program&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># SSH to machien behind NAT</span></span><br><span class="line">$ ssh -NR 0.0.0.0:2222:127.0.0.1:22 user@jump.host.com</span><br></pre></td></tr></table></figure><p>Click to <a href="https://www.blackmoreops.com/2016/11/08/top-30-ssh-shenanigans" target="_blank" rel="noopener">Original Post</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Good list of commands to be SSH ‘Yoda’. I like the tunnels and screen the most in these. They have been so useful over the years, for development and troubleshooting.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yogendra.github.io/categories/Technology/"/>
+    
+    
+      <category term="linux" scheme="http://yogendra.github.io/tags/linux/"/>
+    
+      <category term="remote" scheme="http://yogendra.github.io/tags/remote/"/>
+    
+      <category term="shell" scheme="http://yogendra.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>शुभ दीपावली</title>
+    <link href="http://yogendra.github.io/2016/10/30/%E0%A4%B6%E0%A5%81%E0%A4%AD-%E0%A4%A6%E0%A5%80%E0%A4%AA%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80/"/>
+    <id>http://yogendra.github.io/2016/10/30/शुभ-दीपावली/</id>
+    <published>2016-10-30T08:47:35.000Z</published>
+    <updated>2020-08-25T14:21:37.772Z</updated>
+    
+    <content type="html"><![CDATA[<p>यह दिवाली आपकी…</p><a id="more"></a><p><a href="/2016/10/30/शुभ-दीपावली/happy-diwali-2016-generic.jpg"><img src="/2016/10/30/%E0%A4%B6%E0%A5%81%E0%A4%AD-%E0%A4%A6%E0%A5%80%E0%A4%AA%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80/happy-diwali-2016-generic.jpg" alt> “दीपावली और नववर्ष की हार्दिक शुभकामनाए”)</a></p><p>यह दिवाली आपकी, जीवन बने खुशियों का सागर।<br>स्वस्थ तन-मन और धन से, भर उठे जीवन की गागर।<br>दीन, दीपक रोशनी के, समन्वय को दे दिशा हम।<br>बांटकर खुशियाँ करे हम, रोशनी मन की उजागर।</p><p>दीप बनकर कालिमा का, तम हरें खुद को जलाकर<br>दीन की झोली भरें हम, हर्ष की लड़ीयाँ जलाकर।<br>दीपमाला की लड़ी से, प्रेरणा हमको मिले कि,<br>साथ में दीपक जले, ‘नोरत’ लगे नभ में प्रभाकर I</p><p>~ नोरतन</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;यह दिवाली आपकी…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Personal" scheme="http://yogendra.github.io/categories/Personal/"/>
+    
+    
+      <category term="greeting" scheme="http://yogendra.github.io/tags/greeting/"/>
+    
+      <category term="हिंदी" scheme="http://yogendra.github.io/tags/%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>​मैंने दहेज़ नहीं माँगा</title>
+    <link href="http://yogendra.github.io/2016/08/02/%E0%A4%AE%E0%A5%88%E0%A4%82%E0%A4%A8%E0%A5%87-%E0%A4%A6%E0%A4%B9%E0%A5%87%E0%A4%9C%E0%A4%BC-%E0%A4%A8%E0%A4%B9%E0%A5%80%E0%A4%82-%E0%A4%AE%E0%A4%BE%E0%A4%81%E0%A4%97%E0%A4%BE/"/>
+    <id>http://yogendra.github.io/2016/08/02/मैंने-दहेज़-नहीं-माँगा/</id>
+    <published>2016-08-02T04:48:59.000Z</published>
+    <updated>2020-08-25T14:21:37.772Z</updated>
+    
+    <content type="html"><![CDATA[<p>साहब मैं थाने नहीं आउंगा,<br>अपने इस घर से कहीं नहीं जाउंगा,<br>माना पत्नी से थोडा मन मुटाव था,<br>सोच में अन्तर और विचारों में खिंचाव था,<br><strong>पर यकीन मानिए साहब ,“ मैंने दहेज़ नहीं माँगा ”</strong></p><a id="more"></a><p><a href="/2016/08/02/मैंने-दहेज़-नहीं-माँगा/frustrated-man.gif"><img src="/2016/08/02/%E0%A4%AE%E0%A5%88%E0%A4%82%E0%A4%A8%E0%A5%87-%E0%A4%A6%E0%A4%B9%E0%A5%87%E0%A4%9C%E0%A4%BC-%E0%A4%A8%E0%A4%B9%E0%A5%80%E0%A4%82-%E0%A4%AE%E0%A4%BE%E0%A4%81%E0%A4%97%E0%A4%BE/frustrated-man.gif" alt title="मैंने दहेज़ नहीं माँगा"></a></p><p>मानता हूँ कानून आज पत्नी के पास है,<br>महिलाओं का समाज में हो रहा विकास है।<br>चाहत मेरी भी बस ये थी कि माँ बाप का सम्मान हो,<br>उन्हें भी समझे माता पिता, न कभी उनका अपमान हो।<br>पर अब क्या फायदा, जब टूट ही गया हर रिश्ते का धागा,<br><strong>यकीन मानिए साहब,“ मैंने दहेज़ नहीं माँगा ”</strong></p><p>परिवार के साथ रहना इसे पसंन्द नहीं,<br>कहती यहाँ कोई रस, कोई आनन्द नही,<br>मुझे ले चलो इस घर से दूर, किसी किराए के आशियाने में,<br>कुछ नहीं रखा माँ बाप पर प्यार बरसाने में,<br>हाँ छोड़ दो, छोड़ दो इस माँ बाप के प्यार को,<br>नहीं मांने तो याद रखोगे मेरी मार को,<br>बस बूढ़े माता पिता का ही मोह, न छोड़ पाया मैं अभागा,<br><strong>यकींन मानिए साहब,“ मैंने दहेज़ नहीं माँगा ”</strong></p><p>फिर शुरू हुआ वाद विवाद माँ बाप से अलग होने का,<br>शायद समय आ गया था, चैन और सुकून खोने का,<br>एक दिन साफ़ मैंने पत्नी को मना कर दिया,<br>न रहुगा माँ बाप के बिना ये उसके दिमाग में भर दिया।<br>बस मुझसे लड़ कर मोहतरमा मायके जा पहुंची,<br>2 दिन बाद ही पत्नी के घर से मुझे धमकी आ पहुंची,<br>माँ बाप से हो जा अलग, नहीं सबक सीखा देगे,<br>क्या होता है दहेज़ कानून तुझे इसका असर दिखा देगें।<br>परिणाम जानते हुए भी हर धमकी को गले में टांगा,<br><strong>यकींन माँनिये साहब ,“ मैंने दहेज़ नहीं माँगा ”</strong></p><p>जो कहा था बीवी ने, आखिरकार वो कर दिखाया,<br>झगड़ा किसी और बात पर था, पर उसने दहेज़ का नाटक रचाया।<br>बस पुलिस थाने से एक दिन मुझे फ़ोन आया,<br>क्यों बे, पत्नी से दहेज़ मांगता है, ये कह के मुझे धमकाया।<br>माता पिता भाई बहिन जीजा सभी के रिपोर्ट में नाम थे,<br>घर में सब हैरान, सब परेशान थे,<br>अब अकेले बैठ कर सोचता हूँ, वो क्यों ज़िन्दगी में आई थी,<br>मैंने भी तो उसके प्रति हर ज़िम्मेदारी निभाई थी।<br>आखिरकार तमका मिला हमे दहेज़ लोभी होने का,<br>कोई फायदा न हुआ मीठे मीठे सपने सजोने का।<br>बुलाने पर थाने आया हूँ, छूप कर कहीं नहीं भागा,<br><strong>लेकिन  यकींन  मानिए  साहब ,“ मैंने दहेज़ नहीं माँगा ”</strong></p><p><strong><em>झूठे दहेज के मुकदमों के कारण ,पुरुष के दर्द से ओतप्रोत एक मार्मिक  कृति, दहेज  की  ये  कविता  कई  घरो  की  हकीकत  है</em></strong></p><p><em>- Forward on WhatsApp</em></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;साहब मैं थाने नहीं आउंगा,&lt;br&gt;अपने इस घर से कहीं नहीं जाउंगा,&lt;br&gt;माना पत्नी से थोडा मन मुटाव था,&lt;br&gt;सोच में अन्तर और विचारों में खिंचाव था,&lt;br&gt;&lt;strong&gt;पर यकीन मानिए साहब ,“ मैंने दहेज़ नहीं माँगा ”&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Inspirational" scheme="http://yogendra.github.io/categories/Inspirational/"/>
+    
+    
+      <category term="हिंदी" scheme="http://yogendra.github.io/tags/%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vagrant Docker Basebox for VMWare + Vagrant</title>
+    <link href="http://yogendra.github.io/2016/02/05/vagrant-docker-basebox-for-vmware-vagrant/"/>
+    <id>http://yogendra.github.io/2016/02/05/vagrant-docker-basebox-for-vmware-vagrant/</id>
+    <published>2016-02-05T15:03:42.000Z</published>
+    <updated>2020-08-25T14:21:37.772Z</updated>
+    
+    <content type="html"><![CDATA[<p>Docker VMWare is a base box with all goodness. See full information on <a href="https://github.com/yogendra/docker-vmware" target="_blank" rel="noopener">Github</a></p><a id="more"></a><p><a href="/2016/02/05/vagrant-docker-basebox-for-vmware-vagrant/docker-vmware-vagrant.png"><img src="/2016/02/05/vagrant-docker-basebox-for-vmware-vagrant/docker-vmware-vagrant.png" alt title="Docker + VMWare + Vagrant"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Docker VMWare is a base box with all goodness. See full information on &lt;a href=&quot;https://github.com/yogendra/docker-vmware&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Project" scheme="http://yogendra.github.io/categories/Project/"/>
+    
+    
+      <category term="vagrant" scheme="http://yogendra.github.io/tags/vagrant/"/>
+    
+      <category term="docker" scheme="http://yogendra.github.io/tags/docker/"/>
+    
+      <category term="vm" scheme="http://yogendra.github.io/tags/vm/"/>
+    
+      <category term="vmware" scheme="http://yogendra.github.io/tags/vmware/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Parenting Lessons !!</title>
+    <link href="http://yogendra.github.io/2015/12/22/parenting-lessons/"/>
+    <id>http://yogendra.github.io/2015/12/22/parenting-lessons/</id>
+    <published>2015-12-22T07:58:23.000Z</published>
+    <updated>2020-08-25T14:21:37.768Z</updated>
+    
+    <content type="html"><![CDATA[<p>Lets connet with our little ones. Hope this helps you, as much as it helped me.</p><a id="more"></a><p><a href="/2015/12/22/parenting-lessons/words.jpg"><img src="/2015/12/22/parenting-lessons/words.jpg" alt title="Parenting Lessons"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Lets connet with our little ones. Hope this helps you, as much as it helped me.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Personal" scheme="http://yogendra.github.io/categories/Personal/"/>
+    
+    
+      <category term="parenting" scheme="http://yogendra.github.io/tags/parenting/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>... And My Heart Skipped A Beat</title>
+    <link href="http://yogendra.github.io/2015/04/29/and-my-heart-skipped-a-beat/"/>
+    <id>http://yogendra.github.io/2015/04/29/and-my-heart-skipped-a-beat/</id>
+    <published>2015-04-29T11:02:56.000Z</published>
+    <updated>2020-08-25T14:21:37.768Z</updated>
+    
+    <content type="html"><![CDATA[<p>27th April 2015, Monday - A date that has become even more special. Its Srishti’s (my niece) birthday. She turned 4. Everyone who knows me, know it well, how special she is to me. But God had his own plans to take this to a whole new level.<br>test</p><a id="more"></a><p>On this day, I woke up a Son, Brother, Husband, Brother In Law and Uncle. And Ashu woke up as Daughter, Sister, Wife, Sister In Law and Aunty. But, in a miraculous moment, I became a Father, she became a Mother and we both became Parents. We are blessed with a lovely <strong>DAUGHTER</strong>. It still feels like a dream. And if it is one,  I wish I never wake up.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;27th April 2015, Monday - A date that has become even more special. Its Srishti’s (my niece) birthday. She turned 4. Everyone who knows me, know it well, how special she is to me. But God had his own plans to take this to a whole new level.&lt;br&gt;test&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Personal" scheme="http://yogendra.github.io/categories/Personal/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>40 Ways to Stay Creative</title>
+    <link href="http://yogendra.github.io/2015/04/25/40-ways-to-stay-creative/"/>
+    <id>http://yogendra.github.io/2015/04/25/40-ways-to-stay-creative/</id>
+    <published>2015-04-25T08:00:58.000Z</published>
+    <updated>2020-08-25T14:21:37.768Z</updated>
+    
+    <content type="html"><![CDATA[<p>We all need some ways to stay creative, isn’t it?</p><a id="more"></a><p><a href="/2015/04/25/40-ways-to-stay-creative/be-creative.jpg"><img src="/2015/04/25/40-ways-to-stay-creative/be-creative.jpg" alt title="40 Ways to Stay Creative"></a></p><p>Credit: <a href="https://www.layerform.com/40-ways-stay-creative-infographic/" target="_blank" rel="noopener">Edd Biel @ Typeform</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;We all need some ways to stay creative, isn’t it?&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Productivity" scheme="http://yogendra.github.io/categories/Productivity/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Data Structure Operation</title>
+    <link href="http://yogendra.github.io/2015/04/12/data-structure-operation/"/>
+    <id>http://yogendra.github.io/2015/04/12/data-structure-operation/</id>
+    <published>2015-04-12T16:58:00.000Z</published>
+    <updated>2020-08-25T14:21:37.768Z</updated>
+    
+    <content type="html"><![CDATA[<p>I always find myself pondering about this</p><a id="more"></a><p><a href="/2015/04/12/data-structure-operation/datastructures.png"><img src="/2015/04/12/data-structure-operation/datastructures.png" alt title="Data Structure Operations"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I always find myself pondering about this&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yogendra.github.io/categories/Technology/"/>
+    
+      <category term="Programming" scheme="http://yogendra.github.io/categories/Technology/Programming/"/>
+    
+    
+      <category term="data strucrures" scheme="http://yogendra.github.io/tags/data-strucrures/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Operation Raahat</title>
+    <link href="http://yogendra.github.io/2015/04/11/operation-raahat/"/>
+    <id>http://yogendra.github.io/2015/04/11/operation-raahat/</id>
+    <published>2015-04-11T05:10:58.000Z</published>
+    <updated>2020-08-25T14:21:37.764Z</updated>
+    
+    <content type="html"><![CDATA[<p>In the past six months, a war for political dominance between the two sects of Muslims—Sunni and Zaidi Shia has intensified in Yemen, the Arab country in southwest Asia that has been imploding since 2011.</p><a id="more"></a><p>Saudi Arabia has been trying to thwart the attempt by the Iran-backed Zaidi Shia group to take control of the country.</p><p>In February, however, Yemeni president Abdrabbuh Mansour Hadi fled the capital Sana’a when the rebel Shia group—also known as Houthis—strengthened their presence in the city.</p><p>Due to the worsening condition of the country, the Indian govt on March 31, decided to send Gen V.K. Singh, one of its senior ministers and former Chief of The Indian Army, to oversee the mission and ensure safe return of its citizens.The operation was called as ‘ Rahat’ - which means relief in Hindi</p><h2 id="Here-are-a-few-facts-about-Operation-Rahat-that-every-Indian-should-know-about"><a href="#Here-are-a-few-facts-about-Operation-Rahat-that-every-Indian-should-know-about" class="headerlink" title="Here are a few facts about Operation Rahat, that every Indian should know about :"></a>Here are a few facts about Operation Rahat, that every Indian should know about :</h2><ol><li><p>Saudi Arabia is attacking Yemen, but from the air. Their soldiers are afraid of setting foot on land fearing for their lives.</p></li><li><p>Pakistani Army &amp; Air force form the bulk of Saudi force in Yemen, but Paksitani soldiers are afraid of landing in the cities due to the fear of being killed by Shia Militia.</p></li><li><p>Pakistani Ambassador to Yemen Dr Irfan Yousuf Shami escaped with all his staff, leaving behind hundreds of stranded Pakistani nationals.</p></li><li><p>What made the situation more complex was the fact that the airport and airspace in Yemen, is under the control of Saudi Arabia.</p></li><li><p>PM Modi called up Saudi King Salman for his co-operation in rescuing Indians from Yemen. Since the PM shares a good relationship with the Saudi King, the King assured his complete support. PM Modi requested the Saudi King to stop the air strike for some time and also allow Indian planes to fly out of Yemen, so that Indians could be evacuated from the strife torn country.</p></li><li><p>The Indian national carrier, Air India, carried 488 people through three special flights from Sana’a to India on April 5. A day later, Air India is reported to have evacuated 574 people from Sana’a to Djibouti, described as the single largest evacuation by air in a day. The Indian Airforce had dispatched its C-17s on April 2, and brought back 358 Indians.</p></li><li><p>GOI decided to take sea route to rescue the expatriates stranded in Aden, a port city, after the government’s plans to airlift them did not materialize due to attack on Sana’a airport.</p></li><li><p>Two merchant vessels and two warships — destroyer Mumbai and stealth frigate Tarkash — also left for Yemen, to help ferry other stranded expatriates back home. The government had also pressed into service INS Sumitra to ensure the safety and security of the passengers from pirates.</p></li><li><p>India’s shipping corporation also sent two passenger ships—Kavaratti and Corals— to assist the navy. In all, India sent five ships to Yemen. Small boats were used to transport Indians from Yemen’s port city Aden onto the naval vessels that could not enter the ports due to heavy firing.</p></li><li><p>Eyewitnesses state that, in such a hostile atmosphere, unarmed Gen VK Singh toured the cities &amp; villages in Yemen, collecting Indians &amp; anybody else who asked him for help. He did sit in a car or a Helicopter. He actually got on the ground &amp; walked on the roads, in the streets &amp; commanded the operation.</p></li><li><p>Because of the stunning rescue work done by India, 26 nations reached out for help in evacuating their citizens. Countries like USA, Germany, France were amongst those which sought help.</p></li><li><p>Most aircrafts and ships landed in Mumbai and the southern Indian city of Kochi. The evacuees were then transported to their hometowns by Indian Railways. The railways offered free tickets for their onward journeys. In addition, state governments have offered financial support to many evacuees.</p></li></ol><p>Its a matter of shame for the nation, that no leading newspaper or media channel finds this historic mission worthy enough to cover frontpages or be on prime time. Its up to social media now, to let truth prevail.</p><p>‪Jai Hind</p><p><em>Posted from WordPress for Android</em></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In the past six months, a war for political dominance between the two sects of Muslims—Sunni and Zaidi Shia has intensified in Yemen, the Arab country in southwest Asia that has been imploding since 2011.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Inspirational" scheme="http://yogendra.github.io/categories/Inspirational/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>राजस्थान दिवस री बधाई हो सा</title>
+    <link href="http://yogendra.github.io/2015/03/30/%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A4%BE%E0%A4%A8-%E0%A4%A6%E0%A4%BF%E0%A4%B5%E0%A4%B8-%E0%A4%B0%E0%A5%80-%E0%A4%AC%E0%A4%A7%E0%A4%BE%E0%A4%88-%E0%A4%B9%E0%A5%8B-%E0%A4%B8%E0%A4%BE/"/>
+    <id>http://yogendra.github.io/2015/03/30/राजस्थान-दिवस-री-बधाई-हो-सा/</id>
+    <published>2015-03-30T13:14:40.000Z</published>
+    <updated>2020-08-25T14:21:37.764Z</updated>
+    
+    <content type="html"><![CDATA[<p>राजस्थान दिवस री बधाई हो सा</p><a id="more"></a><p><a href="/2015/03/30/राजस्थान-दिवस-री-बधाई-हो-सा/greetings.jpg"><img src="/2015/03/30/%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A4%BE%E0%A4%A8-%E0%A4%A6%E0%A4%BF%E0%A4%B5%E0%A4%B8-%E0%A4%B0%E0%A5%80-%E0%A4%AC%E0%A4%A7%E0%A4%BE%E0%A4%88-%E0%A4%B9%E0%A5%8B-%E0%A4%B8%E0%A4%BE/greetings.jpg#center" alt title="राजस्थान दिवस री बधाई हो सा"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;राजस्थान दिवस री बधाई हो सा&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Inspirational" scheme="http://yogendra.github.io/categories/Inspirational/"/>
+    
+    
+      <category term="greeting" scheme="http://yogendra.github.io/tags/greeting/"/>
+    
+      <category term="हिंदी" scheme="http://yogendra.github.io/tags/%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>An Old Photo</title>
+    <link href="http://yogendra.github.io/2015/03/29/an-old-photo/"/>
+    <id>http://yogendra.github.io/2015/03/29/an-old-photo/</id>
+    <published>2015-03-29T17:24:18.000Z</published>
+    <updated>2020-08-25T14:21:37.764Z</updated>
+    
+    <content type="html"><![CDATA[<p>Lol</p><a id="more"></a><p><a href="/2015/03/29/an-old-photo/old-photo.jpg"><img src="/2015/03/29/an-old-photo/old-photo.jpg" alt title="An Old Photo"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Lol&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Jokes" scheme="http://yogendra.github.io/categories/Jokes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux Performance Observability Tools</title>
+    <link href="http://yogendra.github.io/2015/03/29/linux-performance-observability-tools/"/>
+    <id>http://yogendra.github.io/2015/03/29/linux-performance-observability-tools/</id>
+    <published>2015-03-29T13:04:29.000Z</published>
+    <updated>2020-08-25T14:21:37.764Z</updated>
+    
+    <content type="html"><![CDATA[<p>I use linux for all production deployments (Obviously). Here is a quick one image run down for all optimizations.</p><a id="more"></a><p><a href="/2015/03/29/linux-performance-observability-tools/tools.png"><img src="/2015/03/29/linux-performance-observability-tools/tools.png" alt></a></p><p>Source: <a href="https://www.linux.com/news/enterprise/systems-management/785426-a-template-for-monitoring-linux-performance-tools-like-from-netflix" target="_blank" rel="noopener">linux.com</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I use linux for all production deployments (Obviously). Here is a quick one image run down for all optimizations.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yogendra.github.io/categories/Technology/"/>
+    
+    
+  </entry>
+  
+</feed>

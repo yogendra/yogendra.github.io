@@ -1,0 +1,719 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Chase Your Dreams">
+    <title>Diagrams In Blog - Chase Your Dreams</title>
+    <meta name="author" content="Yogendra Rampuria">
+    
+    
+        <link rel="icon" href="http://yogendra.github.io/assets/images/favicon_32.png">
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Yogendra Rampuria","sameAs":["https://github.com/yogendra","https://stackoverflow.com/users/559158/yogi","https://twitter.com/yogendra","https://facebook.com/yogendrarampuria","https://www.linkedin.com/in/yogi","mailto:yogendrarampuria@gmail.com"],"image":"https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc"},"articleBody":"I use a text to diagram tool called PlantUML. It’s perfect!Now, I want to use it with my hugo site, through a short code. So, I I type acode like below, I should see out like as the image.\n\n\n1234@startumlA -&gt; B : HelloA &lt;- B : Hi There!@enduml\n\nUpdate: I spend many hours trying to work this out. Created a firebase function to process posting and convertingand yada yada. But finally gave up on Hugo. Until there is a plugin support in the core, this will be a very challengingthing.\nDuring my (failed) research, I ran into Hexo and PlantUML filter plugin. I saw a a WordPress Migration plugin. I decided to give it a go.\nIn less than 20 minutes, I managed to install hexo, create a project, migrate wordpress items and got plantuml working.\n\n\nI guess I will have to wait for hugo to mature a bit more. I really liked the speed and simplicity of hugo. But lack ofplugin support in processing really killed it!\nUpdate: I am now using a hexo-local-plantuml instead. Thisgenerates plantuml files and svg locally. So overall page rendering is fast. Downside, I need to have Java and graphvizworking locally. I have created a working Docker image (yogendra/blog-toolbox:latest)to help me work around this\nUpdate: Trying client side rendering\n","dateCreated":"2017-07-21T09:34:12+00:00","dateModified":"2020-08-25T14:21:37+00:00","datePublished":"2017-07-21T09:34:12+00:00","description":"I use a text to diagram tool called PlantUML. It’s perfect!Now, I want to use it with my hugo site, through a short code. So, I I type acode like below, I should see out like as the image.","headline":"Diagrams In Blog","image":["uml.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yogendra.github.io/2017/07/21/diagrams-in-blog/"},"publisher":{"@type":"Organization","name":"Yogendra Rampuria","sameAs":["https://github.com/yogendra","https://stackoverflow.com/users/559158/yogi","https://twitter.com/yogendra","https://facebook.com/yogendrarampuria","https://www.linkedin.com/in/yogi","mailto:yogendrarampuria@gmail.com"],"image":"https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc"}},"url":"http://yogendra.github.io/2017/07/21/diagrams-in-blog/","keywords":"web, blogging","thumbnailUrl":"uml.png"}</script>
+    <meta name="description" content="I use a text to diagram tool called PlantUML. It’s perfect!Now, I want to use it with my hugo site, through a short code. So, I I type acode like below, I should see out like as the image.">
+<meta name="keywords" content="web,blogging">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Diagrams In Blog">
+<meta property="og:url" content="http://yogendra.github.io/2017/07/21/diagrams-in-blog/index.html">
+<meta property="og:site_name" content="Chase Your Dreams">
+<meta property="og:description" content="I use a text to diagram tool called PlantUML. It’s perfect!Now, I want to use it with my hugo site, through a short code. So, I I type acode like below, I should see out like as the image.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://www.plantuml.com/plantuml/svg/SoWkIImgAStDuN9KqBLJS5AmKl18pSd91t9jT27SJ8MGZDIYL4KkXzIy5A1A0000">
+<meta property="og:updated_time" content="2020-08-25T14:21:37.772Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Diagrams In Blog">
+<meta name="twitter:description" content="I use a text to diagram tool called PlantUML. It’s perfect!Now, I want to use it with my hugo site, through a short code. So, I I type acode like below, I should see out like as the image.">
+<meta name="twitter:image" content="https://www.plantuml.com/plantuml/svg/SoWkIImgAStDuN9KqBLJS5AmKl18pSd91t9jT27SJ8MGZDIYL4KkXzIy5A1A0000">
+<meta name="twitter:creator" content="@yogendra">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc?s=640"/>
+    
+    
+        <meta property="og:image" content="http://yogendra.github.io/2017/07/21/diagrams-in-blog/uml.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://yogendra.github.io/2017/07/21/diagrams-in-blog/uml.png"/>
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-7tzu0ct5vop2qi4mhoifkrbobtkjwjqdy1vdgyojtumjjo45ba7hnlfjb3sd.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-21164716-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-21164716-2');
+    </script>
+
+
+    
+
+    
+        
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/ "
+            aria-label=""
+        >
+            Chase Your Dreams
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="Open the link: /#about"
+            >
+        
+        
+            <img class="header-picture" src="https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc?s=90" alt="Author&#39;s picture"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+    
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="/#about"
+                    aria-label="Read more about the author"
+                >
+                    <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc?s=110" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Yogendra Rampuria</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>Software Engineer<br>OSS Advocate, User, Buyer and Seller.<br>GPG: 019ECB5CDC6D59B7 </p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                            title="Home"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/projects"
+                            
+                            title="Projects"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-project-diagram" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Projects</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                            title="Categories"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                            title="Tags"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-archives"
+                            
+                            title="Archives"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                            title="About"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/security.html"
+                            
+                            title="Security"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-shield-alt" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Security</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/yogendra" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://stackoverflow.com/users/559158/yogi" target="_blank" rel="noopener" title="Stack Overflow">
+                    
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://twitter.com/yogendra" target="_blank" rel="noopener" title="Twitter">
+                    
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://facebook.com/yogendrarampuria" target="_blank" rel="noopener" title="Facebook">
+                    
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://www.linkedin.com/in/yogi" target="_blank" rel="noopener" title="LinkedIn">
+                    
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="mailto:yogendrarampuria@gmail.com" target="_blank" rel="noopener" title="Mail">
+                    
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/atom.xml"
+                            
+                            title="RSS"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            Diagrams In Blog
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2017-07-21T09:34:12+00:00">
+	
+		    Jul 21, 2017
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Technology/">Technology</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>I use a text to diagram tool called <a href="https://plantuml.com" target="_blank" rel="noopener">PlantUML</a>. It’s perfect!<br>Now, I want to use it with my hugo site, through a short code. So, I I type a<br>code like below, I should see out like as the image.</p>
+<a id="more"></a>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@startuml</span><br><span class="line">A -&gt; B : Hello</span><br><span class="line">A <span class="xml"><span class="tag">&lt;<span class="name">-</span> <span class="attr">B</span> <span class="attr">:</span> <span class="attr">Hi</span> <span class="attr">There</span>!</span></span></span><br><span class="line"><span class="xml">@enduml</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Update</strong>: I spend many hours trying to work this out. Created a firebase function to process posting and converting<br>and yada yada. But finally gave up on Hugo. Until there is a plugin support in the core, this will be a very challenging<br>thing.</p>
+<p>During my (failed) research, I ran into <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> and <a href="https://www.npmjs.com/package/hexo-filter-plantuml" target="_blank" rel="noopener">PlantUML filter plugin</a>. I saw a a <a href="https://www.npmjs.com/package/hexo-migrator-wordpress" target="_blank" rel="noopener">WordPress Migration</a> plugin. I decided to give it a go.</p>
+<p>In less than 20 minutes, I managed to install hexo, create a project, migrate wordpress items and got plantuml working.</p>
+<img src="https://www.plantuml.com/plantuml/svg/SoWkIImgAStDuN9KqBLJS5AmKl18pSd91t9jT27SJ8MGZDIYL4KkXzIy5A1A0000">
+
+<p>I guess I will have to wait for hugo to mature a bit more. I really liked the speed and simplicity of hugo. But lack of<br>plugin support in processing really killed it!</p>
+<p><strong>Update</strong>: I am now using a <a href="https://www.npmjs.com/package/hexo-local-plantuml" target="_blank" rel="noopener">hexo-local-plantuml</a> instead. This<br>generates plantuml files and svg locally. So overall page rendering is fast. Downside, I need to have Java and graphviz<br>working locally. I have created a working Docker image (<a href="https://hub.docker.com/yogendra/blog-toolbox" target="_blank" rel="noopener">yogendra/blog-toolbox:latest</a>)<br>to help me work around this</p>
+<p><strong>Update</strong>: Trying client side rendering</p>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/blogging/">blogging</a> <a class="tag tag--primary tag--small t-link" href="/tags/web/">web</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2017/09/19/kotlin-baby-steps/"
+                    data-tooltip="Kotlin - Baby Steps"
+                    aria-label="PREVIOUS: Kotlin - Baby Steps"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2017/07/20/migration-mania/"
+                    data-tooltip="Migration Mania"
+                    aria-label="NEXT: Migration Mania"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yogendra.github.io/2017/07/21/diagrams-in-blog/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://yogendra.github.io/2017/07/21/diagrams-in-blog/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.linkedin.com/shareArticle?url=http://yogendra.github.io/2017/07/21/diagrams-in-blog/"
+                    title="global.share_on_linkedin"
+                    aria-label="global.share_on_linkedin"
+                >
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Leave a comment"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Yogendra Rampuria. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2017/09/19/kotlin-baby-steps/"
+                    data-tooltip="Kotlin - Baby Steps"
+                    aria-label="PREVIOUS: Kotlin - Baby Steps"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2017/07/20/migration-mania/"
+                    data-tooltip="Migration Mania"
+                    aria-label="NEXT: Migration Mania"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yogendra.github.io/2017/07/21/diagrams-in-blog/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://yogendra.github.io/2017/07/21/diagrams-in-blog/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.linkedin.com/shareArticle?url=http://yogendra.github.io/2017/07/21/diagrams-in-blog/"
+                    title="global.share_on_linkedin"
+                    aria-label="global.share_on_linkedin"
+                >
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Leave a comment"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.facebook.com/sharer/sharer.php?u=http://yogendra.github.io/2017/07/21/diagrams-in-blog/"
+                        aria-label="Share on Facebook"
+                    >
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://twitter.com/intent/tweet?text=http://yogendra.github.io/2017/07/21/diagrams-in-blog/"
+                        aria-label="Share on Twitter"
+                    >
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.linkedin.com/shareArticle?url=http://yogendra.github.io/2017/07/21/diagrams-in-blog/"
+                        aria-label="global.share_on_linkedin"
+                    >
+                        <i class="fab fa-linkedin" aria-hidden="true"></i><span>global.share_on_linkedin</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <img id="about-card-picture" src="https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc?s=110" alt="Author&#39;s picture"/>
+        
+            <h4 id="about-card-name">Yogendra Rampuria</h4>
+        
+            <div id="about-card-bio"><p>Software Engineer<br>OSS Advocate, User, Buyer and Seller.<br>GPG: 019ECB5CDC6D59B7 </p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Senior Platform Architect<br>VMware / Pivotal</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br/>
+                Singapore
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover-yogi.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-sotevtnmobtyf1n4d3atbcsz9tjfnegyx7rivsk6hkdbzqltswlndxacw0um.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+        <script>
+          var disqus_config = function() {
+            this.page.url = 'http://yogendra.github.io/2017/07/21/diagrams-in-blog/';
+              
+            this.page.identifier = '2017/07/21/diagrams-in-blog/';
+              
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            var disqus_shortname = 'yogendrarampuria';
+            s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+    
+
+
+
+
+    </body>
+</html>

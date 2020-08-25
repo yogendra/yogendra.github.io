@@ -1,0 +1,788 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Chase Your Dreams">
+    <title>Migration Mania - Chase Your Dreams</title>
+    <meta name="author" content="Yogendra Rampuria">
+    
+    
+        <link rel="icon" href="http://yogendra.github.io/assets/images/favicon_32.png">
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Yogendra Rampuria","sameAs":["https://github.com/yogendra","https://stackoverflow.com/users/559158/yogi","https://twitter.com/yogendra","https://facebook.com/yogendrarampuria","https://www.linkedin.com/in/yogi","mailto:yogendrarampuria@gmail.com"],"image":"https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc"},"articleBody":"I am embarking on this new journey to use Static Site Generator.\n\n\n\nSo far, I have managed to setup:\n\nHugo base project\nGitHub repository\nTravis CI based build and deploy\n\nI have a shared hosting service (for many years now) so I want to use that to host my site. This added some (small) challenges in my journey. I will share my experience, so far and in future, in this post. One thing that I really like is how natural I find this. After all I am a Programmer.\nHow can you use my work?You can fork my repository (link above) and follow the simple instruction on the README.md to start using. I will use my own repository for instructions here.\nBefore you start, get these softwares and setup correctly\n\nHugo\nGit\nTravis CI Client\nFirebase CLI\nautoenv (Optional but Highly Recommended)\n\nI use autoenv to manager per-project shell environment. It executes .env file in the directory when you cd into it. This is optional but very useful.\nClone and Change123git clone git@github.com:yogendra/yogendra.me.gitcd yogendra.megit submodule update --init --recursive\n\nHere are some changes that you should consider:\n\nYou should probably delete site/content/* and site/static/* (or not).\nYou should change information in config.toml, consider changing:\ngoogleAnalytics\nbaseUrl\ntitle\nauthor\ndescription\ngithubUsername\n[menu.icon] links\n\n\n\nRun and TestYou can run development server using following command\n1hugo server -s site -wDEF -b http://localhost:1313 --navigateToChanged --cleanDestinationDir -d dev\n\nWhat the hell! Read instruction in hugo server --help to understand what each of those switches mean. We are asking hugo to:\n\n-w : watch for changes\n-D : build draft\n-E : build expired pages\n-F : build future date page,\n-b : set base url to http://localhost:1313\n–navigateToChanged : navigate browser to updated file\n–cleanDestinationDir: Delete all the files that might be there in destination dir\n-d : Destination dir to store files into\n\nYou can add your own content using command like\n12cd sitehugo new post/&lt;post-name.md&gt;\n\nWhen you want to prepare actual deployment, you can use following command\n1hugo -s site -d public\n\nConfigure FirebaseI recommend using Firebase. Read the hosting guide and get familiar with the concept and commands.\nFirst, login to firebase from cli. This needs to be done only once. If you have already done this for any other prohect, you can skip this step\n1$ firebase login\n\nNow you need to initialize firebase setting for the project. This will run as a wizard. Follow onscreen instructions.\n1$ firebase init hosting\n\nYou may test your firebase configuration by deploying changes directly from your machine\n1$ firebase deploy\n\nImportant: Choose “N” for “Configure as a single-page app (rewrite all urls to /index.html)?”. Also, don’t overwrite files under public/\nConfigure Travis CIBased on Travis CI - Firebase Deployment\nCreate a new project on Travis CI website website. Login to Travis CI via travis command.\n1$ travis login\n\nGet a deployment token from firebase, for using in travis ci build environment.\n1$ firebase login:ci\n\nThis should generate a string that looks like 1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla.Use following command to encrypt this string and use in .travis.yml.\n12$ travis encrypt \"1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla\" --addSUPER-SECRET-ENCRYPTED-VALUE\n\nReplace deploy key in .travis.yml with folowing text. Remember to change SUPER-SECRET-ENCRYPTED-VALUE with text from last command output\n123456deploy:  provider: firebase  token:    secure: \"SUPER-SECRET-ENCRYPTED-VALUE\"  on:    branch: master\n\nThat’s it! Don’t forget to checkin your changes.\n","dateCreated":"2017-07-20T14:13:49+00:00","dateModified":"2020-08-25T14:21:37+00:00","datePublished":"2017-07-20T14:13:49+00:00","description":"I am embarking on this new journey to use Static Site Generator.","headline":"Migration Mania","image":["html-js-css.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yogendra.github.io/2017/07/20/migration-mania/"},"publisher":{"@type":"Organization","name":"Yogendra Rampuria","sameAs":["https://github.com/yogendra","https://stackoverflow.com/users/559158/yogi","https://twitter.com/yogendra","https://facebook.com/yogendrarampuria","https://www.linkedin.com/in/yogi","mailto:yogendrarampuria@gmail.com"],"image":"https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc"}},"url":"http://yogendra.github.io/2017/07/20/migration-mania/","keywords":"web, blog, cd/ci, git","thumbnailUrl":"html-js-css.png"}</script>
+    <meta name="description" content="I am embarking on this new journey to use Static Site Generator.">
+<meta name="keywords" content="web,blog,cd&#x2F;ci,git">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Migration Mania">
+<meta property="og:url" content="http://yogendra.github.io/2017/07/20/migration-mania/index.html">
+<meta property="og:site_name" content="Chase Your Dreams">
+<meta property="og:description" content="I am embarking on this new journey to use Static Site Generator.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yogendra.github.io/2017/07/20/migration-mania/html-js-css.png">
+<meta property="og:updated_time" content="2020-08-25T14:21:37.772Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Migration Mania">
+<meta name="twitter:description" content="I am embarking on this new journey to use Static Site Generator.">
+<meta name="twitter:image" content="http://yogendra.github.io/2017/07/20/migration-mania/html-js-css.png">
+<meta name="twitter:creator" content="@yogendra">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc?s=640"/>
+    
+    
+        <meta property="og:image" content="http://yogendra.github.io/2017/07/20/migration-mania/html-js-css.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://yogendra.github.io/2017/07/20/migration-mania/html-js-css.png"/>
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-7tzu0ct5vop2qi4mhoifkrbobtkjwjqdy1vdgyojtumjjo45ba7hnlfjb3sd.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-21164716-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-21164716-2');
+    </script>
+
+
+    
+
+    
+        
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/ "
+            aria-label=""
+        >
+            Chase Your Dreams
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="Open the link: /#about"
+            >
+        
+        
+            <img class="header-picture" src="https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc?s=90" alt="Author&#39;s picture"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+    
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="/#about"
+                    aria-label="Read more about the author"
+                >
+                    <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc?s=110" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Yogendra Rampuria</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>Software Engineer<br>OSS Advocate, User, Buyer and Seller.<br>GPG: 019ECB5CDC6D59B7 </p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                            title="Home"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/projects"
+                            
+                            title="Projects"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-project-diagram" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Projects</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                            title="Categories"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                            title="Tags"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-archives"
+                            
+                            title="Archives"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                            title="About"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/security.html"
+                            
+                            title="Security"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-shield-alt" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Security</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/yogendra" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://stackoverflow.com/users/559158/yogi" target="_blank" rel="noopener" title="Stack Overflow">
+                    
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://twitter.com/yogendra" target="_blank" rel="noopener" title="Twitter">
+                    
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://facebook.com/yogendrarampuria" target="_blank" rel="noopener" title="Facebook">
+                    
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://www.linkedin.com/in/yogi" target="_blank" rel="noopener" title="LinkedIn">
+                    
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="mailto:yogendrarampuria@gmail.com" target="_blank" rel="noopener" title="Mail">
+                    
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/atom.xml"
+                            
+                            title="RSS"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            Migration Mania
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2017-07-20T14:13:49+00:00">
+	
+		    Jul 20, 2017
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Technology/">Technology</a>, <a class="category-link" href="/categories/Technology/DevOps/">DevOps</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>I am embarking on this new journey to use <a href="https://www.staticgen.com/" target="_blank" rel="noopener">Static Site Generator</a>.</p>
+<a id="more"></a>
+
+<p><img src="/2017/07/20/migration-mania/html-js-css.png" alt="type-icon-right"></p>
+<p>So far, I have managed to setup:</p>
+<ul>
+<li><a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a> base project</li>
+<li><a href="https://www.github.com/yogendra/yogendra.me" target="_blank" rel="noopener">GitHub repository</a></li>
+<li><a href="https://travis-ci.org/yogendra/yogendra.me" target="_blank" rel="noopener">Travis CI</a> based build and deploy</li>
+</ul>
+<p>I have a shared hosting service (for many years now) so I want to use that to host my site. This added some (small) challenges in my journey. I will share my experience, so far and in future, in this post. One thing that I really like is how natural I find this. After all I am a <em>Programmer</em>.</p>
+<h2 id="How-can-you-use-my-work"><a href="#How-can-you-use-my-work" class="headerlink" title="How can you use my work?"></a>How can you use my work?</h2><p>You can fork my repository (link above) and follow the simple instruction on the <code>README.md</code> to start using. I will use my own repository for instructions here.</p>
+<p>Before you start, get these softwares and setup correctly</p>
+<ul>
+<li><a href="https://gohugo.io/getting-started/installing/" target="_blank" rel="noopener">Hugo</a></li>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank" rel="noopener">Git</a></li>
+<li><a href="https://github.com/travis-ci/travis.rb#installation" target="_blank" rel="noopener">Travis CI Client</a></li>
+<li><a href="https://firebase.google.com/docs/cli/" target="_blank" rel="noopener">Firebase CLI</a></li>
+<li><a href="https://github.com/kennethreitz/autoenv" target="_blank" rel="noopener">autoenv</a> <em>(Optional but Highly Recommended)</em></li>
+</ul>
+<p>I use <a href="https://github.com/kennethreitz/autoenv" target="_blank" rel="noopener">autoenv</a> to manager per-project shell environment. It executes <code>.env</code> file in the directory when you <code>cd</code> into it. This is optional but very useful.</p>
+<h2 id="Clone-and-Change"><a href="#Clone-and-Change" class="headerlink" title="Clone and Change"></a>Clone and Change</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:yogendra/yogendra.me.git</span><br><span class="line">cd yogendra.me</span><br><span class="line">git submodule update --init --recursive</span><br></pre></td></tr></table></figure>
+
+<p>Here are some changes that you should consider:</p>
+<ul>
+<li>You should probably delete <code>site/content/*</code> and <code>site/static/*</code> (or not).</li>
+<li>You <strong>should</strong> change information in <code>config.toml</code>, consider changing:<ul>
+<li>googleAnalytics</li>
+<li>baseUrl</li>
+<li>title</li>
+<li>author</li>
+<li>description</li>
+<li>githubUsername</li>
+<li>[menu.icon] links</li>
+</ul>
+</li>
+</ul>
+<h2 id="Run-and-Test"><a href="#Run-and-Test" class="headerlink" title="Run and Test"></a>Run and Test</h2><p>You can run development server using following command</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo server -s site -wDEF -b http://localhost:1313 --navigateToChanged --cleanDestinationDir -d dev</span><br></pre></td></tr></table></figure>
+
+<p>What the hell! Read instruction in <code>hugo server --help</code> to understand what each of those switches mean. We are asking hugo to:</p>
+<ul>
+<li>-w : watch for changes</li>
+<li>-D : build draft</li>
+<li>-E : build expired pages</li>
+<li>-F : build future date page,</li>
+<li>-b : set base url to <code>http://localhost:1313</code></li>
+<li>–navigateToChanged : navigate browser to updated file</li>
+<li>–cleanDestinationDir: Delete all the files that might be there in destination dir</li>
+<li>-d : Destination dir to store files into</li>
+</ul>
+<p>You can add your own content using command like</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd site</span><br><span class="line">hugo new post/&lt;post-name.md&gt;</span><br></pre></td></tr></table></figure>
+
+<p>When you want to prepare actual deployment, you can use following command</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo -s site -d public</span><br></pre></td></tr></table></figure>
+
+<h2 id="Configure-Firebase"><a href="#Configure-Firebase" class="headerlink" title="Configure Firebase"></a>Configure Firebase</h2><p>I recommend using <a href="https://firebase.google.com" target="_blank" rel="noopener">Firebase</a>. Read the <a href="https://firebase.google.com/docs/hosting/" target="_blank" rel="noopener">hosting guide</a> and get familiar with the concept and commands.</p>
+<p>First, login to firebase from cli. This needs to be done only once. If you have already done this for any other prohect, you can skip this step</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> firebase login</span></span><br></pre></td></tr></table></figure>
+
+<p>Now you need to initialize firebase setting for the project. This will run as a wizard. Follow onscreen instructions.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> firebase init hosting</span></span><br></pre></td></tr></table></figure>
+
+<p>You may test your firebase configuration by deploying changes directly from your machine</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> firebase deploy</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Important:</strong> <em>Choose “N” for “Configure as a single-page app (rewrite all urls to /index.html)?”. Also, don’t overwrite files under <code>public/</code></em></p>
+<h2 id="Configure-Travis-CI"><a href="#Configure-Travis-CI" class="headerlink" title="Configure Travis CI"></a>Configure Travis CI</h2><p><em>Based on <a href="https://docs.travis-ci.com/user/deployment/firebase/" target="_blank" rel="noopener">Travis CI - Firebase Deployment</a></em></p>
+<p>Create a new project on Travis CI website website. Login to Travis CI via <code>travis</code> command.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> travis login</span></span><br></pre></td></tr></table></figure>
+
+<p>Get a deployment token from firebase, for using in travis ci build environment.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> firebase login:ci</span></span><br></pre></td></tr></table></figure>
+
+<p>This should generate a string that looks like <code>1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla</code>.<br>Use following command to encrypt this string and use in <code>.travis.yml</code>.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> travis encrypt <span class="string">"1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla"</span> --add</span></span><br><span class="line">SUPER-SECRET-ENCRYPTED-VALUE</span><br></pre></td></tr></table></figure>
+
+<p>Replace <code>deploy</code> key in <code>.travis.yml</code> with folowing text. Remember to change <code>SUPER-SECRET-ENCRYPTED-VALUE</code> with text from last command output</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  provider:</span> <span class="string">firebase</span></span><br><span class="line"><span class="attr">  token:</span></span><br><span class="line"><span class="attr">    secure:</span> <span class="string">"SUPER-SECRET-ENCRYPTED-VALUE"</span></span><br><span class="line"><span class="attr">  on:</span></span><br><span class="line"><span class="attr">    branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<p>That’s it! Don’t forget to checkin your changes.</p>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/blog/">blog</a> <a class="tag tag--primary tag--small t-link" href="/tags/cd-ci/">cd/ci</a> <a class="tag tag--primary tag--small t-link" href="/tags/git/">git</a> <a class="tag tag--primary tag--small t-link" href="/tags/web/">web</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2017/07/21/diagrams-in-blog/"
+                    data-tooltip="Diagrams In Blog"
+                    aria-label="PREVIOUS: Diagrams In Blog"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2017/07/18/the-new-begining/"
+                    data-tooltip="The New Begining"
+                    aria-label="NEXT: The New Begining"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yogendra.github.io/2017/07/20/migration-mania/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://yogendra.github.io/2017/07/20/migration-mania/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.linkedin.com/shareArticle?url=http://yogendra.github.io/2017/07/20/migration-mania/"
+                    title="global.share_on_linkedin"
+                    aria-label="global.share_on_linkedin"
+                >
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Leave a comment"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Yogendra Rampuria. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2017/07/21/diagrams-in-blog/"
+                    data-tooltip="Diagrams In Blog"
+                    aria-label="PREVIOUS: Diagrams In Blog"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2017/07/18/the-new-begining/"
+                    data-tooltip="The New Begining"
+                    aria-label="NEXT: The New Begining"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yogendra.github.io/2017/07/20/migration-mania/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://yogendra.github.io/2017/07/20/migration-mania/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.linkedin.com/shareArticle?url=http://yogendra.github.io/2017/07/20/migration-mania/"
+                    title="global.share_on_linkedin"
+                    aria-label="global.share_on_linkedin"
+                >
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Leave a comment"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.facebook.com/sharer/sharer.php?u=http://yogendra.github.io/2017/07/20/migration-mania/"
+                        aria-label="Share on Facebook"
+                    >
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://twitter.com/intent/tweet?text=http://yogendra.github.io/2017/07/20/migration-mania/"
+                        aria-label="Share on Twitter"
+                    >
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.linkedin.com/shareArticle?url=http://yogendra.github.io/2017/07/20/migration-mania/"
+                        aria-label="global.share_on_linkedin"
+                    >
+                        <i class="fab fa-linkedin" aria-hidden="true"></i><span>global.share_on_linkedin</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <img id="about-card-picture" src="https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc?s=110" alt="Author&#39;s picture"/>
+        
+            <h4 id="about-card-name">Yogendra Rampuria</h4>
+        
+            <div id="about-card-bio"><p>Software Engineer<br>OSS Advocate, User, Buyer and Seller.<br>GPG: 019ECB5CDC6D59B7 </p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Senior Platform Architect<br>VMware / Pivotal</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br/>
+                Singapore
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover-yogi.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-sotevtnmobtyf1n4d3atbcsz9tjfnegyx7rivsk6hkdbzqltswlndxacw0um.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+        <script>
+          var disqus_config = function() {
+            this.page.url = 'http://yogendra.github.io/2017/07/20/migration-mania/';
+              
+            this.page.identifier = '2017/07/20/migration-mania/';
+              
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            var disqus_shortname = 'yogendrarampuria';
+            s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+    
+
+
+
+
+    </body>
+</html>
