@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Yogendra Rampuria</title><link>https://yogendra.github.io/</link><description>Recent content on Yogendra Rampuria</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2012–2021, Yogendra Rampuria; all rights reserved.</copyright><lastBuildDate>Tue, 07 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yogendra.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Migration Guide</title><link>https://yogendra.github.io/2021/09/07/migration-guide/</link><pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate><guid>https://yogendra.github.io/2021/09/07/migration-guide/</guid><description>
+&lt;h2 id="from-hexo-to-hugo">From Hexo to Hugo&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Setup Hugo site with menu and theme etc.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Create site&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">hugo new site . --force
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>Add theme &lt;a href="">link&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Configure &lt;code>_config.toml&lt;/code> as per theme specs&lt;/p>
+&lt;ol>
+&lt;li>Add Menus / Links / Social links&lt;/li>
+&lt;li>Change author name&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>Page migration&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Post Migration&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Copy &lt;code>&amp;lt;hexo_site&amp;gt;/source/_posts/*&lt;/code> to &lt;code>&amp;lt;hugo_site&amp;gt;/content/posts&lt;/code>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Delete all the non Markdown files&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">cd $SITE_ROOT/content/posts
+find . -type f | grep -v .md&lt;span style="color:#ae81ff">\$&lt;/span> --color&lt;span style="color:#f92672">=&lt;/span>never | xargs rm
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>Copy &lt;code>&amp;lt;hexo_site&amp;gt;/source/_posts/*&lt;/code> to &lt;code>&amp;lt;hugo_site&amp;gt;/static&lt;/code>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Delete all the Markdown files&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">cd $SITE_ROOT/static
+find . -type f | grep -v .md --color&lt;span style="color:#f92672">=&lt;/span>never | xargs rm
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>Change &lt;code>_config.toml&lt;/code>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Permalink&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-toml" data-lang="toml">[&lt;span style="color:#a6e22e">permalinks&lt;/span>]
+&lt;span style="color:#a6e22e">posts&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;/:year/:month/:day/:title/&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol></description></item><item><title>Right Abstraction</title><link>https://yogendra.github.io/2019/03/15/right-abstraction/</link><pubDate>Fri, 15 Mar 2019 22:25:31 +0000</pubDate><guid>https://yogendra.github.io/2019/03/15/right-abstraction/</guid><description>
+&lt;p>Process of abstraction is as old as the mankind themself. Whenever I brain looks at a problem, it tries to simplify by abstracting all the non-contextual aspect. In computer science as well, we follow the same process of hiding details through layering.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>Get full Deck is &lt;a href="right-abstraction.pdf">here&lt;/a>&lt;/p>
+&lt;div class="video">
+&lt;iframe src="https://www.youtube.com/embed/jGVm_-SYc5I?controls=1&amp;rel=0" loading="lazy">&lt;/iframe>
+&lt;/div>
+&lt;p>Today we are seeing an increasing number of enterprises opting to transform themselves into a &amp;ldquo;software driven business&amp;rdquo;. They are recognizing software and software based services as a unique differentiator.&lt;/p>
+&lt;p>This has created a huge demand for cloud based or cloud-alike operating model within the organization. We are regularly find ourself talking to large traditional organizations, about internet-scale or web-scale operting model. They all want to build and deliver software like the Netflix, Uber, Lyft or Airbnb. This is an amazing time to be in the digital transformation space. It is almost a revolutionary change in progress. And I find myself on the front-row seat for this show.&lt;/p>
+&lt;p>Digital transaformation is a very huge topic and deserves a conference of its own. Today I will talk about a very small part of this journey - selecting a runtime environment. It may seem like a no-brainer to an individual, but it is a extremely important decision that an organization makes that influences each and every business and technical decision moving forward. Imagine, as an individual developer you chose to build an application in scala. Six months later Kotlin has become more popular and is far more apealing to use in your project. May be your applcation is not large just a few hundred lines of code, so you decide to migrate to Kotlin. May be you spend good week to fully migrate the whole application.&lt;/p>
+&lt;p>Now imagine there are 100s of apps and you have to do the same thing. And changing the runtime also needs ensuring right libraries, drivers or SDK for dependent services. It gets very messy, very fast.&lt;/p>
+&lt;p>In large enterprises, migration is not a result of an individuals preference but driven by variety of economic factors, regulatory changes and/or market forces. You may start with building and running your application on public cloud, but as you grow your service offerings you may be required to have keep data on-prem/onshore.&lt;/p>
+&lt;p>Hence, choosing right runtime will go a long way in ensuring success for the project and company.&lt;/p>
+&lt;p>In the presentation deck and in video you will find me going through variety of options that help you in build applications. Based on your preference, reigning technilogy in your organinzation, skillsets available, etc., you can make a more informed decision.&lt;/p></description></item><item><title>IDD Dialer - My First App</title><link>https://yogendra.github.io/2018/04/14/idd-dialer-my-first-app/</link><pubDate>Sat, 14 Apr 2018 15:05:12 +0000</pubDate><guid>https://yogendra.github.io/2018/04/14/idd-dialer-my-first-app/</guid><description>
+&lt;p>A simple utility app to assist in international calling.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="https://yogendra.github.io/projects/idd/app-icon.png" alt="type-icon-right" title="IDD icon">
+I have launched my first mobile app this week. It a simple tool for assisting in making IDD calls. It allows users to dial any prefixes needed make cheap internation calls.&lt;/p>
+&lt;p>Check out more details on the project page &lt;a href="https://yogendra.github.io/projects/idd">here&lt;/a>&lt;/p></description></item><item><title>Mobile Sites Certification</title><link>https://yogendra.github.io/2018/01/26/mobile-sites-certification/</link><pubDate>Fri, 26 Jan 2018 00:45:53 +0000</pubDate><guid>https://yogendra.github.io/2018/01/26/mobile-sites-certification/</guid><description>
+&lt;p>First one in a while! I just (now) passed my Mobile Site Certifiation from
+&lt;a href="https://landing.google.com/academyforads">Academy for Ads&lt;/a>&lt;/p>
+&lt;p>&lt;img src="certificate.png" alt="Certificate">
+This is a very good training and certification for anyone who wants to get recognition for their mobile site developement skills. I also learned a great deal about:&lt;/p>
+&lt;ul>
+&lt;li>Key Business Metrics for Mobile Sites (Page Value, Exit Rate, Bouce Rate, Convertion Rates, etc.)&lt;/li>
+&lt;li>&lt;a href="https://developer.chrome.com/devtools">Using DevTools to Optimize Mobile Sites&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.google.com/web/progressive-web-apps/">Progressive Web Apps - PWA&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.ampproject.org/">Accelerated Mobile Pages - AMP&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Course and certifications are &lt;strong>FREE&lt;/strong> and available online. &lt;a href="https://www.gdg-sg.org/">GDG-SG&lt;/a> will run training session, next month for this. So watch our group on &lt;a href="https://www.facebook.com/gdgsgorg">FB&lt;/a> and &lt;a href="https://gdg-singapore.peatix.com/view">Peatix&lt;/a> for session details.&lt;/p></description></item><item><title>Puppeteer - No Strings Attached</title><link>https://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/</link><pubDate>Sat, 28 Oct 2017 23:52:08 +0000</pubDate><guid>https://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/</guid><description>
+&lt;p>I am a Co-Manager for &lt;a href="https://www.gdg-sg.org">Google Developer Group - Singapore&lt;/a> (&lt;a href="https://www.facebook.com/gdgsgorg">FB&lt;/a>). And today was our annual &lt;a href="https://www.gdg-sg.org/2017/10/gdg-devfest-2017.html">GDG-SG DevFest 2017&lt;/a> event. Apart from being an organizer, I was also a speaker. I gave a short talk on &lt;a href="https://github.com/GoogleChrome/puppeteer">Puppeteer&lt;/a>. This post is (almost) a transcript of my speech today. Slides can be found &lt;a href="https://drive.google.com/open?id=0B6Mr-G5qbPLPT0JCTWl0N0w5M2s">here&lt;/a>&lt;/p>
+&lt;p>&lt;img src="gdg-collage.jpg" alt="GDG-SG">&lt;/p>
+&lt;p>&lt;img src="slides.001.jpeg" alt="">&lt;/p>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>&lt;a href="https://github.com/GoogleChrome/puppeteer">Puppeteer&lt;/a> is a &lt;a href="https://www.nodejs.org">Node JS&lt;/a> API published by Chrome team. It is an API to control Chrome browser via &lt;a href="https://github.com/ChromeDevTools/devtools-protocol">DevTools Protocol&lt;/a>. Puppeteer was released shortly after the Chrome 59. This version of Chrome brought us &lt;a href="https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md">Headless Chrome&lt;/a>. It requires &lt;a href="https://www.nodejs.org">Node JS&lt;/a> version 6.4+. I would recommend using version 7.5+, so you can use &lt;code>async/await&lt;/code> feature from &lt;a href="https://medium.com/@tmvvr/ecmascript-async-await-to-the-rescue-fc379ff89146">ES2017&lt;/a>.&lt;/p>
+&lt;h3 id="features">Features&lt;/h3>
+&lt;p>It connects with browser using &lt;a href="https://chromedevtools.github.io/devtools-protocol/">Chrome DevTools Protocol&lt;/a>. Hence, it works with &lt;a href="https://www.google.com/chrome">Chrome&lt;/a>/&lt;a href="https://www.chromium.org">Chromium&lt;/a> only, and not with other browsers.&lt;/p>
+&lt;p>Puppeteer can work in headless environment. This makes it a good candidate tool for unit/acceptance/functional tests in a CI environment. It can simulate keyboard, mouse and touch events. So, if you are building a responsive application for desktop and mobile devices, you can use Puppeteer for testing. It also brings the PDF and screenshot capabilities out of box. You can capture PDF and screenshot for whole or part of the page.&lt;/p>
+&lt;p>Puppeteer allows you to trap console output and web requests. If you have a requirement to &amp;ldquo;flag&amp;rdquo; any console output, you may put traps in your test cases for it. If you want to mock a back-end server request (json/xml), you can intercept those request and provide mock response for it.&lt;/p>
+&lt;p>It has API for performance tracing. So you can use it for recording page load performance and trace any bottlenecks. One of the biggest advantage, of having latest Chromium or Chrome being driven by the API, is &lt;a href="https://www.chromium.org/Blink">Blink Engine&lt;/a>. It is a shiny new layout engine from Chromium project and replaces &lt;a href="https://webkit.org">WebKit&lt;/a> engine. I am not aware about any short comings with WebKit, but I am guessing that Chromium has outgrown WebKit zone.&lt;/p>
+&lt;h3 id="use-cases">Use cases&lt;/h3>
+&lt;p>I have found Puppeteer most useful in browser automation. I have done multiple personal projects for browser automation (I am a lazy guy). Puppeteer offers a simple clean API interface for this, and that in itself is a great selling point. You can use if for frontend testing, e2e testing, etc.&lt;/p>
+&lt;p>Server side rendering (SSR) is another great use case for this API. You can easily render your single page applications' view on server side and send them to client. This is very useful when you have deep nested view and deep-linking facility in your application.&lt;/p>
+&lt;p>If you have written apps in Spring Web MVC to produce PDF, you would be aware of maintenance nightmares. You had to maintain each View (HTML and PDF) separately. I eventually started using PhantomJS on server side and reused HTML view to generate PDF with it. You get absolutely great looking PDF out of box with Puppeteer. Its identical to what you get in the PDF print in regular Chrome.&lt;/p>
+&lt;p>Web crawling and scraping is one of the easiest things to do with Puppeteer. You can easily navigate to pages, retrieve details and process them in a nested fashion.&lt;/p>
+&lt;h2 id="puppeteer-and-others">Puppeteer And Others&lt;/h2>
+&lt;p>Browser automation and e2e testing is a very busy area. Lots of options for frameworks, APIs, Tools and Platforms. As a result, there are many competing tools in this space. Puppeteer emerges as a good replacement for a few of them.&lt;/p>
+&lt;h3 id="phantomjs">PhantomJS&lt;/h3>
+&lt;p>&lt;a href="https://phantomjs.org">PhantomJS&lt;/a> was one of the first tools that I used for headless browsing. I used it for generating server side PDF. However, recent events force us to move on to other tooling. Primary maintainer of PhantomJS, Vitaly, has stepped down. In his departing note, he expressed excitement about the new Headless Chrome experience. That&amp;rsquo;s fair! And I agree with his point of view.&lt;/p>
+&lt;h3 id="the-selenium-empire">The &amp;lsquo;Selenium&amp;rsquo; Empire&lt;/h3>
+&lt;p>&lt;a href="https://www.seleniumhq.org/">Selenium&lt;/a> is probably the most used browser automation and testing tool for frontend. It is the &amp;ldquo;Automation Emperor&amp;rdquo; for me. It has the most comprehensive coverage in terms of languages and target browsers. It has language binding for Java, Node, Ruby, Python, etc. You name it and it has language binding for it. And on the other side, it has web driver for every browser or browser like system. It has drivers for all browsers, Chrome, Safari, Firefox, Opera, etc. It also has drivers for like ok PhantomJS and Appium.&lt;/p>
+&lt;p>They have managed to achieve the most unimaginable feat. They have got these giants on a common footing. It enjoy a lot of love and support from community, including myself. So, why am I even talking about puppeteer.&lt;/p>
+&lt;p>That brings me nicely into the next piece. Architecture-wise Selenium and Puppeteer are slightly different. Selenium achieve browser automation though an intermediate proxy, the &lt;a href="https://www.seleniumhq.org/projects/webdriver/">WebDriver&lt;/a>. WebDriver is a per-browser component implementing remote control capabilities. It exposes an restful API interface. A language binding uses these APIs to interact and control browser.&lt;/p>
+&lt;p>&lt;img src="slides.012.jpeg" alt="">&lt;/p>
+&lt;p>Puppeteer takes a leaner approach to this and taps straight into the DevTools protocol of the browser. This makes it possible to easily keep keep with browser features and automation API, in sync.&lt;/p>
+&lt;h2 id="demo">Demo&lt;/h2>
+&lt;p>Lets go through some samples to understand the development with Puppeteer.&lt;/p>
+&lt;h3 id="installation">Installation&lt;/h3>
+&lt;p>Puppeteer is a Node JS API. Its published as an NPM package. You can install it in you project with simple &lt;code>npm install&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ npm i --save-dev puppeteer
+&amp;gt; puppeteer@0.12.0 install /Users/user/.nvm/project1/node_modules/puppeteer
+&amp;gt; node install.js
+Downloading Chromium r508693 - 72.6 Mb &lt;span style="color:#f92672">[====================]&lt;/span> 100% 0.0s
+Chromium downloaded to /Users/monkey/project1/lib/node_modules/puppeteer/.local-chromium/mac-508693
++ puppeteer@0.12.0
+added &lt;span style="color:#ae81ff">42&lt;/span> packages in 223.254s
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Notice how it has also downloaded Chromium. This ensures that it has a compatible version of chromium always. You can skip Chromium download and run it with your own installation of Chrome / Chromium. You can skip download by setting an &lt;code>PUPPETEER_SKIP_CHROMIUM_DOWNLOAD&lt;/code> environment variable. And you can provide executable path to alternate Chrome or Chromium in you code.&lt;/p>
+&lt;h3 id="screenshot">Screenshot&lt;/h3>
+&lt;p>Taking a screenshot in an automation tool is like a &amp;ldquo;Hello World!&amp;rdquo; thing.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#e6db74">&amp;#34;use strict&amp;#34;&lt;/span>;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">puppeteer&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">require&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;puppeteer&amp;#34;&lt;/span>);
+(&lt;span style="color:#66d9ef">async&lt;/span> () =&amp;gt; {
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">browser&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">puppeteer&lt;/span>.&lt;span style="color:#a6e22e">launch&lt;/span>();
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">browser&lt;/span>.&lt;span style="color:#a6e22e">newPage&lt;/span>();
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#66d9ef">goto&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;https://www.google.com&amp;#34;&lt;/span>, { &lt;span style="color:#a6e22e">waitUntil&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;networkidle&amp;#34;&lt;/span> });
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#a6e22e">screenshot&lt;/span>({ &lt;span style="color:#a6e22e">path&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;screenshot.png&amp;#34;&lt;/span> });
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">browser&lt;/span>.&lt;span style="color:#a6e22e">close&lt;/span>();
+})();
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="screenshot.js">Source&lt;/a>&lt;/p>
+&lt;p>If you are not familiar with &lt;code>async/await&lt;/code>, I would recommend reading &lt;a href="https://medium.com/@tmvvr/ecmascript-async-await-to-the-rescue-fc379ff89146">this&lt;/a>. Most methods in Puppeteer API return a Promise. &lt;code>await&lt;/code> ensures that you wait for a promise to resolve or reject before proceeding to next instruction. Line &lt;strong>5&lt;/strong>, invokes &lt;code>launch()&lt;/code>, which launches Chromium. You can specify launch options as an object parameter, like &lt;code>puppeteer.launch({headless: false})&lt;/code>. See all the options in &lt;a href="https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions">documentation&lt;/a> page. Line &lt;strong>6&lt;/strong> creates a new tab with &lt;code>newPage()&lt;/code> method. &lt;code>goto()&lt;/code> method on line &lt;strong>7&lt;/strong> navigates page to a URL. &lt;code>waitUntil&lt;/code> ensures that page and its and related assets (js/images/css) are loaded, before promise is resolved.&lt;/p>
+&lt;p>On line &lt;strong>10-12&lt;/strong>, &lt;code>screenshot()&lt;/code> method captures an image of output and stores it in &lt;code>screenshot.png&lt;/code>. This looks plain and simple. And that is what made me like this API. It is clean and simple.&lt;/p>
+&lt;p>You can run this with following command&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ node screenshot.js
+$
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>This produces &lt;code>screenshot.png&lt;/code> in the current directory.&lt;/p>
+&lt;p>&lt;img src="screenshot.png" alt="">&lt;/p>
+&lt;h3 id="pdf">PDF&lt;/h3>
+&lt;p>This is the single biggest reason for me to use Puppeteer. PDF generation is a breeze! Heres how you can do it.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#e6db74">&amp;#34;use strict&amp;#34;&lt;/span>;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">puppeteer&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">require&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;puppeteer&amp;#34;&lt;/span>);
+(&lt;span style="color:#66d9ef">async&lt;/span> () =&amp;gt; {
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">browser&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">puppeteer&lt;/span>.&lt;span style="color:#a6e22e">launch&lt;/span>();
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">browser&lt;/span>.&lt;span style="color:#a6e22e">newPage&lt;/span>();
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#66d9ef">goto&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;https://news.ycombinator.com&amp;#34;&lt;/span>, { &lt;span style="color:#a6e22e">waitUntil&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;networkidle&amp;#34;&lt;/span> });
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#a6e22e">pdf&lt;/span>({
+&lt;span style="color:#a6e22e">path&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;hn.pdf&amp;#34;&lt;/span>,
+&lt;span style="color:#a6e22e">format&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;A4&amp;#34;&lt;/span>,
+});
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">browser&lt;/span>.&lt;span style="color:#a6e22e">close&lt;/span>();
+})();
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="pdf.js">Source&lt;/a>&lt;/p>
+&lt;p>We will now generate PDF from hacker news landing page. Code is not very different from what we saw in screenshot example. Line &lt;strong>20-23&lt;/strong> generates PDF instead of screenshot. And thats it. You can specify paper size for the PDF in the optional argument. Look at &lt;a href="https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagepdfoptions">documentation&lt;/a> for more options. Its output would be identical to &amp;ldquo;Print PDF&amp;rdquo; function of Chrome or Chromium. It uses print media css.&lt;/p>
+&lt;p>&lt;img src="hn.jpg" alt="">
+&lt;a href="hn.pdf">Link to actual extracted PDF&lt;/a>&lt;/p>
+&lt;h3 id="web-scraping">Web Scraping&lt;/h3>
+&lt;p>I have used Puppeteer most for this. In my work environment I have need for integration via web pages. There are case where I don&amp;rsquo;t have access to a data API for integration. Puppeteer can make it possible for you to expose a &amp;ldquo;web&amp;rdquo; site as a JSON api.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#e6db74">`use strict`&lt;/span>;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">SELECTOR_BOOK_IMAGE&lt;/span> &lt;span style="color:#f92672">=&lt;/span>
+&lt;span style="color:#e6db74">&amp;#34;#default &amp;gt; div &amp;gt; div &amp;gt; div &amp;gt; div &amp;gt; section &amp;gt; div:nth-child(2) &amp;gt; ol &amp;gt; li:nth-child(1) &amp;gt; article &amp;gt; div.image_container &amp;gt; a &amp;gt; img&amp;#34;&lt;/span>;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">puppeteer&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">require&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;puppeteer&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">scrape&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> () =&amp;gt; {
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">browser&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">puppeteer&lt;/span>.&lt;span style="color:#a6e22e">launch&lt;/span>({ &lt;span style="color:#a6e22e">headless&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">false&lt;/span> });
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">browser&lt;/span>.&lt;span style="color:#a6e22e">newPage&lt;/span>();
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#66d9ef">goto&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;http://books.toscrape.com/&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#a6e22e">waitFor&lt;/span>(&lt;span style="color:#ae81ff">1000&lt;/span>);
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#a6e22e">click&lt;/span>(&lt;span style="color:#a6e22e">SELECTOR_BOOK_IMAGE&lt;/span>);
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#a6e22e">waitFor&lt;/span>(&lt;span style="color:#ae81ff">2000&lt;/span>);
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">result&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#a6e22e">evaluate&lt;/span>(() =&amp;gt; {
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">title&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">querySelector&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;h1&amp;#34;&lt;/span>).&lt;span style="color:#a6e22e">innerText&lt;/span>;
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">price&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">querySelector&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;.price_color&amp;#34;&lt;/span>).&lt;span style="color:#a6e22e">innerText&lt;/span>;
+&lt;span style="color:#66d9ef">return&lt;/span> {
+&lt;span style="color:#a6e22e">title&lt;/span>,
+&lt;span style="color:#a6e22e">price&lt;/span>,
+};
+});
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">browser&lt;/span>.&lt;span style="color:#a6e22e">close&lt;/span>();
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">result&lt;/span>;
+};
+&lt;span style="color:#a6e22e">scrape&lt;/span>().&lt;span style="color:#a6e22e">then&lt;/span>((&lt;span style="color:#a6e22e">value&lt;/span>) =&amp;gt; {
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">value&lt;/span>); &lt;span style="color:#75715e">// Success!
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>});
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="scrape.js">Source&lt;/a>&lt;/p>
+&lt;p>We first goto &amp;ldquo;books.toscrape.com&amp;rdquo; and click on first image (line 11) on the page. First image on page is referred via &lt;code>SELECTOR_BOOK_IMAGE&lt;/code> css selector. This triggers a navigation to a details page.&lt;/p>
+&lt;p>On line 13, a function is dispatched for evaluation on the DOM. This function goes through DOM element (&lt;code>h1&lt;/code> and element with class &lt;code>price_color&lt;/code> ) and extracts text (&lt;code>innerText&lt;/code>).&lt;/p>
+&lt;p>You can simply run this with &lt;code>node&lt;/code> command.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ node scrape.js
+&lt;span style="color:#f92672">{&lt;/span> title: &lt;span style="color:#e6db74">&amp;#39;A Light in the Attic&amp;#39;&lt;/span>, price: &lt;span style="color:#e6db74">&amp;#39;£51.77&amp;#39;&lt;/span> &lt;span style="color:#f92672">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>You will see browser window for this example. This is because of line &lt;strong>7&lt;/strong>, where I have opted for &lt;code>{headless: false}&lt;/code>. This is to show scraping in action.&lt;/p>
+&lt;p>&lt;strong>Disclaimer:&lt;/strong> Be very careful what you scrape. You can/will run into legal and licensing issues very quickly.&lt;/p>
+&lt;h2 id="final-thoughts">Final Thoughts&lt;/h2>
+&lt;p>Puppeteer is a very promising project. In a very short period (&amp;lt; 6 month) it has gotten great support from community. I have read many posts covering this API. I am confident about the future of this project. I am looking forward to a growing and thriving community for this.&lt;/p>
+&lt;p>It is a very good replacement for PhantomJS. However, my key concern as at the moment are:&lt;/p>
+&lt;ul>
+&lt;li>Google Cloud Function (GCF) does not support Node JS 6.4+. So, you have to use cloud VM or Container service to run this in cloud. Hopefully next version of LTS will be 8+, and will bring all the goodness of async/await into the mix&lt;/li>
+&lt;li>Lack of support for non-Chrome based browser could be discouraging for many developers. We all want to keep tool/library dependency low and single codebase for testing. If you project demands multi-browser testing, you will end up in a fractured state. Better stick with WebDriver/Selenium. May be WebDriver will adopt some part of Puppeteer API.&lt;/li>
+&lt;/ul>
+&lt;p>I also found the e2e testing support very &lt;em>unclean&lt;/em>. Its possible, workable, but now readable. I would like to see a very clean integration with likes of cucumber, mocha, chai, etc.&lt;/p>
+&lt;h3 id="links">Links&lt;/h3>
+&lt;p>Here are some links that I used for preparing my presentation.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/GoogleChrome/puppeteer">Puppeteer Home&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://try-puppeteer.appspot.com/">Try Puppeteer in Browser&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://puppetron.now.sh/">Puppetron&lt;/a> (&lt;a href="https://www.youtube.com/watch?v=n4sRp3qe_1Y">Demo&lt;/a>)&lt;/li>
+&lt;li>&lt;a href="https://developers.google.com/web/updates/2017/04/headless-chrome">Getting Started with Headless Chrome - Eric Bidelman&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://medium.com/@e_mad_ehsan/getting-started-with-puppeteer-and-chrome-headless-for-web-scrapping-6bf5979dee3e">Getting Started with Puppeteer and Headless Chrome Web Scraping - Emad Ehsan&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://codeburst.io/a-guide-to-automating-scraping-the-web-with-javascript-chrome-puppeteer-node-js-b18efb9e9921">A Guide to Automating and Scraping - Brandon Morelli&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="questions">Questions&lt;/h3>
+&lt;p>&lt;strong>Can I use Puppeteer for extracting data and localizing?&lt;/strong>
+Technically, Yes. You can setup data pipeline to crawl and extract data. You case store it in database or some other persistent store. You can use a workflow to review, edit and publish. Be very careful about licensing. Don&amp;rsquo;t crawl/scrape data without author&amp;rsquo;s consent.&lt;/p>
+&lt;p>&lt;strong>Can you run multiple tabs simultaneously?&lt;/strong>
+Yes. You can use &lt;code>newPage()&lt;/code> method to create multiple tabs. And for each tab you can have a different execution code. I have tried it with 2 tabs. Here is a code sample for the last example (scraping) that does same thing but five times, concurrently.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">SELECTOR_BOOK_IMAGE&lt;/span> &lt;span style="color:#f92672">=&lt;/span>
+&lt;span style="color:#e6db74">&amp;#34;#default &amp;gt; div &amp;gt; div &amp;gt; div &amp;gt; div &amp;gt; section &amp;gt; div:nth-child(2) &amp;gt; ol &amp;gt; li:nth-child(1) &amp;gt; article &amp;gt; div.image_container &amp;gt; a &amp;gt; img&amp;#34;&lt;/span>;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">puppeteer&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">require&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;puppeteer&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">scrapeSite&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> (&lt;span style="color:#a6e22e">browser&lt;/span>) =&amp;gt; {
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">browser&lt;/span>.&lt;span style="color:#a6e22e">newPage&lt;/span>();
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#66d9ef">goto&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;http://books.toscrape.com/&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#a6e22e">waitFor&lt;/span>(&lt;span style="color:#ae81ff">1000&lt;/span>);
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#a6e22e">click&lt;/span>(&lt;span style="color:#a6e22e">SELECTOR_BOOK_IMAGE&lt;/span>);
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#a6e22e">waitFor&lt;/span>(&lt;span style="color:#ae81ff">2000&lt;/span>);
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">result&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#a6e22e">evaluate&lt;/span>(() =&amp;gt; {
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">title&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">querySelector&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;h1&amp;#34;&lt;/span>).&lt;span style="color:#a6e22e">innerText&lt;/span>;
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">price&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">querySelector&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;.price_color&amp;#34;&lt;/span>).&lt;span style="color:#a6e22e">innerText&lt;/span>;
+&lt;span style="color:#66d9ef">return&lt;/span> {
+&lt;span style="color:#a6e22e">title&lt;/span>,
+&lt;span style="color:#a6e22e">price&lt;/span>,
+};
+});
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">result&lt;/span>;
+};
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">scrape&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> () =&amp;gt; {
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">browser&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">puppeteer&lt;/span>.&lt;span style="color:#a6e22e">launch&lt;/span>({ &lt;span style="color:#a6e22e">headless&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">false&lt;/span> });
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">result&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">await&lt;/span> Promise.&lt;span style="color:#a6e22e">all&lt;/span>([
+&lt;span style="color:#a6e22e">scrapeSite&lt;/span>(&lt;span style="color:#a6e22e">browser&lt;/span>),
+&lt;span style="color:#a6e22e">scrapeSite&lt;/span>(&lt;span style="color:#a6e22e">browser&lt;/span>),
+&lt;span style="color:#a6e22e">scrapeSite&lt;/span>(&lt;span style="color:#a6e22e">browser&lt;/span>),
+&lt;span style="color:#a6e22e">scrapeSite&lt;/span>(&lt;span style="color:#a6e22e">browser&lt;/span>),
+&lt;span style="color:#a6e22e">scrapeSite&lt;/span>(&lt;span style="color:#a6e22e">browser&lt;/span>),
+]);
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">browser&lt;/span>.&lt;span style="color:#a6e22e">close&lt;/span>();
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">result&lt;/span>;
+};
+&lt;span style="color:#a6e22e">scrape&lt;/span>().&lt;span style="color:#a6e22e">then&lt;/span>((&lt;span style="color:#a6e22e">value&lt;/span>) =&amp;gt; {
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">value&lt;/span>); &lt;span style="color:#75715e">// Success!
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>});
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="scrape-multi.js">Source&lt;/a>&lt;/p>
+&lt;p>&lt;strong>Can I extract CSS from the pages with this?&lt;/strong>
+I have not tried it, but as you can evaluate any valid javascript code using API, you should be able to extract that.&lt;/p>
+&lt;p>Below is a code that dumps each css being accessed by the page.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">puppeteer&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">require&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;puppeteer&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">scrape&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> () =&amp;gt; {
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">browser&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">puppeteer&lt;/span>.&lt;span style="color:#a6e22e">launch&lt;/span>({ &lt;span style="color:#a6e22e">headless&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">false&lt;/span> });
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">browser&lt;/span>.&lt;span style="color:#a6e22e">newPage&lt;/span>();
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#a6e22e">setRequestInterceptionEnabled&lt;/span>(&lt;span style="color:#66d9ef">true&lt;/span>);
+&lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#a6e22e">on&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;request&amp;#34;&lt;/span>, (&lt;span style="color:#a6e22e">r&lt;/span>) =&amp;gt; {
+&lt;span style="color:#a6e22e">r&lt;/span>.&lt;span style="color:#66d9ef">continue&lt;/span>();
+});
+&lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#a6e22e">on&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;response&amp;#34;&lt;/span>, (&lt;span style="color:#a6e22e">r&lt;/span>) =&amp;gt; {
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">url&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">r&lt;/span>.&lt;span style="color:#a6e22e">url&lt;/span>;
+&lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">url&lt;/span>.&lt;span style="color:#a6e22e">endsWith&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;css&amp;#34;&lt;/span>)) {
+&lt;span style="color:#a6e22e">r&lt;/span>.&lt;span style="color:#a6e22e">text&lt;/span>().&lt;span style="color:#a6e22e">then&lt;/span>((&lt;span style="color:#a6e22e">s&lt;/span>) =&amp;gt; {
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;// Source:&amp;#34;&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">url&lt;/span>);
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">s&lt;/span>);
+});
+}
+});
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">page&lt;/span>.&lt;span style="color:#66d9ef">goto&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;http://books.toscrape.com/&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">await&lt;/span> &lt;span style="color:#a6e22e">browser&lt;/span>.&lt;span style="color:#a6e22e">close&lt;/span>();
+};
+&lt;span style="color:#a6e22e">scrape&lt;/span>();
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="scrape-dump-css.js">Source&lt;/a>&lt;/p>
+&lt;h2 id="thanks">Thanks&lt;/h2>
+&lt;p>My father (&lt;a href="https://twitter.com/nmrampuria">Shri. Noratan Rampuria&lt;/a>) has always been very supportive of my life and career choices. And he showed his support once again. He was there for my talk and had looked happy. Thanks papa 🙏!
+&lt;img src="special-thanks.jpg" alt="">&lt;/p>
+&lt;p>Many ex and current colleagues were also at the event and showed their support. Thanks folks🤝!&lt;/p>
+&lt;p>Thanks to &lt;a href="https://www.facebook.com/bharathi.subramanian.73">Bharathi&lt;/a> and &lt;a href="https://www.facebook.com/hari1prasath">Hari&lt;/a> (GDG Mangement team) for the opportunity to speak. Well, it was more like &lt;em>push&lt;/em> to speak 😀. &lt;a href="https://www.facebook.com/manikantan.krish">Manikantan K&lt;/a>, &lt;a href="https://twitter.com/heliumlif">Hui Yi&lt;/a>, &lt;a href="https://twitter.com/dirkprimbs">Dirk Primbs&lt;/a> and David from Google Developer Relations for supporting GDG-SG - &amp;ldquo;Thank you&amp;rdquo;. And &lt;a href="https://twitter.com/perfinion">Jason Zaman&lt;/a> for incepting the idea &amp;ldquo;Want to be at a conference? Just speak on something&amp;rdquo;.&lt;/p></description></item><item><title>Kotlin - Baby Steps</title><link>https://yogendra.github.io/2017/09/19/kotlin-baby-steps/</link><pubDate>Tue, 19 Sep 2017 22:49:47 +0000</pubDate><guid>https://yogendra.github.io/2017/09/19/kotlin-baby-steps/</guid><description>
+&lt;p>I was at &lt;a href="https://www.meetup.com/kotlinsg/events/243293562/">Kotlin SG Meetup&lt;/a> tonight. It had a lot of content. I will post more about that later.&lt;/p>
+&lt;p>On my way back home (now), I started reading Kotlin website about various features (&lt;a href="https://kotlinlang.org/docs/tutorials/">here&lt;/a>).&lt;/p>
+&lt;p>&lt;a href="https://kotlinlang.org/">&lt;img src="https://kotlinlang.org/assets/images/twitter-card/kotlin_800x320.png" alt="Kotlin">&lt;/a>&lt;/p>
+&lt;p>I was curious about command line usage of Kotlin. How will I complile kotlin classes outside an IDE? How to run this? What about the runtime libraries? etc.&lt;/p>
+&lt;p>It turns out to be very straight forward. No surprises.&lt;/p>
+&lt;ol>
+&lt;li>Just write your code in a &lt;code>.kt&lt;/code> file&lt;/li>
+&lt;li>Run kotlin compiler
+a. For Apps, use &lt;code>-include-runtime&lt;/code> flag
+b. For libraries, &lt;strong>DON&amp;rsquo;T&lt;/strong> include runtime&lt;/li>
+&lt;li>Run app with &lt;code>java&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h2 id="but-i-want-moar">But I want &lt;em>moar&lt;/em>&lt;/h2>
+&lt;p>I have Kotlin installed via &lt;a href="https://sdkman.io">SDKMAN&lt;/a>. So, on the &lt;a href="https://kotlinlang.org/docs/tutorials/command-line.html">&amp;ldquo;Command Line&amp;rdquo; Tutorial&lt;/a> page I saw (&lt;a href="https://kotlinlang.org/docs/tutorials/command-line.html#using-the-command-line-to-run-scripts">here&lt;/a>) how to run kotlin as a script. Cool!&lt;/p>
+&lt;p>Now, I was more curious. I wanted to see if I could do one better. Can I write a script and execute it directly by filename? Lets try. Created a file &lt;code>list_folders.kts&lt;/code>, as below.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span>!/usr/bin/env kotlinc -script
+&lt;span style="color:#66d9ef">import&lt;/span> java.io.File
+&lt;span style="color:#66d9ef">val&lt;/span> folders = File(args[&lt;span style="color:#ae81ff">0&lt;/span>]).listFiles { &lt;span style="color:#66d9ef">file&lt;/span> &lt;span style="color:#f92672">-&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">file&lt;/span>.isDirectory() }
+folders&lt;span style="color:#f92672">?.&lt;/span>forEach { folder &lt;span style="color:#f92672">-&amp;gt;&lt;/span> println(folder) }
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>And, run this.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ chmod a+x ./list_folders.kts
+$ ./list_folders.kts .
+./kotlin-koans
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Wow! that worked. Trick is in the first line&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#75715e">#!/usr/bin/env kotlinc -script
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This causes shell the use &lt;code>kotlinc&lt;/code> interpreter for this script.&lt;/p></description></item><item><title>Diagrams In Blog</title><link>https://yogendra.github.io/2017/07/21/diagrams-in-blog/</link><pubDate>Fri, 21 Jul 2017 17:34:12 +0000</pubDate><guid>https://yogendra.github.io/2017/07/21/diagrams-in-blog/</guid><description>
+&lt;p>I use a text to diagram tool called &lt;a href="https://plantuml.com">PlantUML&lt;/a>. It&amp;rsquo;s perfect!
+Now, I want to use it with my hugo site, through a short code. So, I I type a
+code like below, I should see out like as the image.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-markdown" data-lang="markdown">@startuml
+A -&amp;gt; B : Hello
+A &amp;lt;&lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#a6e22e">B&lt;/span> &lt;span style="color:#a6e22e">:&lt;/span> &lt;span style="color:#a6e22e">Hi&lt;/span> &lt;span style="color:#a6e22e">There&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">!&lt;/span>
+@enduml
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Update&lt;/strong>: I spend many hours trying to work this out. Created a firebase function to process posting and converting
+and yada yada. But finally gave up on Hugo. Until there is a plugin support in the core, this will be a very challenging
+thing.&lt;/p>
+&lt;p>During my (failed) research, I ran into &lt;a href="https://hexo.io">Hexo&lt;/a> and &lt;a href="https://www.npmjs.com/package/hexo-filter-plantuml">PlantUML filter plugin&lt;/a>. I saw a a &lt;a href="https://www.npmjs.com/package/hexo-migrator-wordpress">WordPress Migration&lt;/a> plugin. I decided to give it a go.&lt;/p>
+&lt;p>In less than 20 minutes, I managed to install hexo, create a project, migrate wordpress items and got plantuml working.&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-plantuml" data-lang="plantuml">@startuml
+A -&amp;gt; B : Hello
+A &amp;lt;- B : Hi There!
+@enduml
+&lt;/code>&lt;/pre>
+&lt;img src="https://yogendra.github.io/2017/07/21/diagrams-in-blog/sample/Test%20Sequence.png">
+&lt;p>I guess I will have to wait for hugo to mature a bit more. I really liked the speed and simplicity of hugo. But lack of
+plugin support in processing really killed it!&lt;/p>
+&lt;p>&lt;strong>Update&lt;/strong>: I am now using a &lt;a href="https://www.npmjs.com/package/hexo-local-plantuml">hexo-local-plantuml&lt;/a> instead. This
+generates plantuml files and svg locally. So overall page rendering is fast. Downside, I need to have Java and graphviz
+working locally. I have created a working Docker image (&lt;a href="https://hub.docker.com/yogendra/blog-toolbox">yogendra/blog-toolbox:latest&lt;/a>)
+to help me work around this&lt;/p>
+&lt;p>&lt;img src="test.drawio.svg" alt="Test Diagram.IO">&lt;/p>
+&lt;p>&lt;strong>Update&lt;/strong>: Trying client side rendering&lt;/p></description></item><item><title>Migration Mania</title><link>https://yogendra.github.io/2017/07/20/migration-mania/</link><pubDate>Thu, 20 Jul 2017 22:13:49 +0000</pubDate><guid>https://yogendra.github.io/2017/07/20/migration-mania/</guid><description>
+&lt;p>I am embarking on this new journey to use &lt;a href="https://www.staticgen.com/">Static Site Generator&lt;/a>.&lt;/p>
+&lt;p>&lt;img src="migration-mania/html-js-css.png" alt="type-icon-right">&lt;/p>
+&lt;p>So far, I have managed to setup:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gohugo.io">Hugo&lt;/a> base project&lt;/li>
+&lt;li>&lt;a href="https://www.github.com/yogendra/yogendra.me">GitHub repository&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://travis-ci.org/yogendra/yogendra.me">Travis CI&lt;/a> based build and deploy&lt;/li>
+&lt;/ul>
+&lt;p>I have a shared hosting service (for many years now) so I want to use that to host my site. This added some (small) challenges in my journey. I will share my experience, so far and in future, in this post. One thing that I really like is how natural I find this. After all I am a &lt;em>Programmer&lt;/em>.&lt;/p>
+&lt;h2 id="how-can-you-use-my-work">How can you use my work?&lt;/h2>
+&lt;p>You can fork my repository (link above) and follow the simple instruction on the &lt;code>README.md&lt;/code> to start using. I will use my own repository for instructions here.&lt;/p>
+&lt;p>Before you start, get these softwares and setup correctly&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gohugo.io/getting-started/installing/">Hugo&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/travis-ci/travis.rb#installation">Travis CI Client&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://firebase.google.com/docs/cli/">Firebase CLI&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/kennethreitz/autoenv">autoenv&lt;/a> &lt;em>(Optional but Highly Recommended)&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>I use &lt;a href="https://github.com/kennethreitz/autoenv">autoenv&lt;/a> to manager per-project shell environment. It executes &lt;code>.env&lt;/code> file in the directory when you &lt;code>cd&lt;/code> into it. This is optional but very useful.&lt;/p>
+&lt;h2 id="clone-and-change">Clone and Change&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">git clone git@github.com:yogendra/yogendra.me.git
+cd yogendra.me
+git submodule update --init --recursive
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here are some changes that you should consider:&lt;/p>
+&lt;ul>
+&lt;li>You should probably delete &lt;code>site/content/*&lt;/code> and &lt;code>site/static/*&lt;/code> (or not).&lt;/li>
+&lt;li>You &lt;strong>should&lt;/strong> change information in &lt;code>config.toml&lt;/code>, consider changing:
+&lt;ul>
+&lt;li>googleAnalytics&lt;/li>
+&lt;li>baseUrl&lt;/li>
+&lt;li>title&lt;/li>
+&lt;li>author&lt;/li>
+&lt;li>description&lt;/li>
+&lt;li>githubUsername&lt;/li>
+&lt;li>[menu.icon] links&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="run-and-test">Run and Test&lt;/h2>
+&lt;p>You can run development server using following command&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">hugo server -s site -wDEF -b http://localhost:1313 --navigateToChanged --cleanDestinationDir -d dev
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>What the hell! Read instruction in &lt;code>hugo server --help&lt;/code> to understand what each of those switches mean. We are asking hugo to:&lt;/p>
+&lt;ul>
+&lt;li>-w : watch for changes&lt;/li>
+&lt;li>-D : build draft&lt;/li>
+&lt;li>-E : build expired pages&lt;/li>
+&lt;li>-F : build future date page,&lt;/li>
+&lt;li>-b : set base url to &lt;code>http://localhost:1313&lt;/code>&lt;/li>
+&lt;li>&amp;ndash;navigateToChanged : navigate browser to updated file&lt;/li>
+&lt;li>&amp;ndash;cleanDestinationDir: Delete all the files that might be there in destination dir&lt;/li>
+&lt;li>-d : Destination dir to store files into&lt;/li>
+&lt;/ul>
+&lt;p>You can add your own content using command like&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">cd site
+hugo new post/&amp;lt;post-name.md&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>When you want to prepare actual deployment, you can use following command&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">hugo -s site -d public
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="configure-firebase">Configure Firebase&lt;/h2>
+&lt;p>I recommend using &lt;a href="https://firebase.google.com">Firebase&lt;/a>. Read the &lt;a href="https://firebase.google.com/docs/hosting/">hosting guide&lt;/a> and get familiar with the concept and commands.&lt;/p>
+&lt;p>First, login to firebase from cli. This needs to be done only once. If you have already done this for any other prohect, you can skip this step&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ firebase login
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now you need to initialize firebase setting for the project. This will run as a wizard. Follow onscreen instructions.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ firebase init hosting
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>You may test your firebase configuration by deploying changes directly from your machine&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ firebase deploy
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Important:&lt;/strong> &lt;em>Choose &amp;ldquo;N&amp;rdquo; for &amp;ldquo;Configure as a single-page app (rewrite all urls to /index.html)?&amp;rdquo;. Also, don&amp;rsquo;t overwrite files under &lt;code>public/&lt;/code>&lt;/em>&lt;/p>
+&lt;h2 id="configure-travis-ci">Configure Travis CI&lt;/h2>
+&lt;p>&lt;em>Based on &lt;a href="https://docs.travis-ci.com/user/deployment/firebase/">Travis CI - Firebase Deployment&lt;/a>&lt;/em>&lt;/p>
+&lt;p>Create a new project on Travis CI website website. Login to Travis CI via &lt;code>travis&lt;/code> command.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ travis login
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Get a deployment token from firebase, for using in travis ci build environment.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ firebase login:ci
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>This should generate a string that looks like &lt;code>1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla&lt;/code>.
+Use following command to encrypt this string and use in &lt;code>.travis.yml&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ travis encrypt &lt;span style="color:#e6db74">&amp;#34;1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla&amp;#34;&lt;/span> --add
+SUPER-SECRET-ENCRYPTED-VALUE
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Replace &lt;code>deploy&lt;/code> key in &lt;code>.travis.yml&lt;/code> with folowing text. Remember to change &lt;code>SUPER-SECRET-ENCRYPTED-VALUE&lt;/code> with text from last command output&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#f92672">deploy&lt;/span>:
+&lt;span style="color:#f92672">provider&lt;/span>: &lt;span style="color:#ae81ff">firebase&lt;/span>
+&lt;span style="color:#f92672">token&lt;/span>:
+&lt;span style="color:#f92672">secure&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;SUPER-SECRET-ENCRYPTED-VALUE&amp;#34;&lt;/span>
+&lt;span style="color:#f92672">on&lt;/span>:
+&lt;span style="color:#f92672">branch&lt;/span>: &lt;span style="color:#ae81ff">master&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>That&amp;rsquo;s it! Don&amp;rsquo;t forget to checkin your changes.&lt;/p></description></item><item><title>The New Begining</title><link>https://yogendra.github.io/2017/07/19/the-new-begining/</link><pubDate>Wed, 19 Jul 2017 00:00:00 +0000</pubDate><guid>https://yogendra.github.io/2017/07/19/the-new-begining/</guid><description>
+&lt;p>{% quote &amp;ldquo;An Engineer&amp;rdquo; %}
+If its not working, try restarting it
+{% endquote %}&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;a href="the-new-begining/the-new-begining.jpg">&lt;img src="the-new-begining/the-new-begining.jpg" alt="type-icon" title="The New Begining">&lt;/a>
+This is my attempt to restart. This is my 4th attempt to blog. I started blogging years ago. But something or the other always kept me from writing regularly.&lt;/p>
+&lt;p>Sometimes I was just lazy to write. But most of the times, I digressed into updating my core, plugins, themes, etc. After all I am a programmer, and I get more satisfaction in creating (read breaking) and fixing stuff.&lt;/p>
+&lt;p>I don&amp;rsquo;t have any particular agenda for this site. Just get scraps of information from all over the internet and put it in a way that I , and possibly others, can understand.&lt;/p>
+&lt;p>&lt;del>I will migrate date from my old site (someday).&lt;/del>&lt;/p>
+&lt;p>&lt;strong>Update&lt;/strong>: Migrated content. Hugo was my first choice for new platform. But Hexo made it to top.&lt;/p></description></item><item><title>Top 30 SSH shenanigans</title><link>https://yogendra.github.io/2016/11/09/top-30-ssh-shenanigans/</link><pubDate>Wed, 09 Nov 2016 22:52:49 +0000</pubDate><guid>https://yogendra.github.io/2016/11/09/top-30-ssh-shenanigans/</guid><description>
+&lt;p>Good list of commands to be SSH &amp;lsquo;Yoda&amp;rsquo;. I like the tunnels and screen the most in these. They have been so useful over the years, for development and troubleshooting.&lt;/p>
+&lt;p>&lt;a href="top-30-ssh-shenanigans/icon-ssh.png" title="SSH Shenanigans">&lt;img src="top-30-ssh-shenanigans/icon-ssh.png" alt="" title="SSH Shenanigans">&lt;/a>&lt;/p>
+&lt;p>Here is a short list that I use ofter:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#75715e"># Copy SSH public key&lt;/span>
+$ ssh-copy-id user@host
+&lt;span style="color:#75715e"># Alternative for ssh-copy-id&lt;/span>
+$ cat ~/.ssh/id_rsa.pub | ssh user@machine “mkdir ~/.ssh; cat &amp;gt;&amp;gt; ~/.ssh/authorized_keys”
+&lt;span style="color:#75715e"># Start a tunnel local:2001 -&amp;gt; remote:80&lt;/span>
+$ ssh -N -L2001:localhost:80 somemachine
+&lt;span style="color:#75715e"># Run a GUI app from remote machine&lt;/span>
+$ ssh -fX &amp;lt;user&amp;gt;@&amp;lt;host&amp;gt; &amp;lt;program&amp;gt;
+&lt;span style="color:#75715e"># SSH to machien behind NAT&lt;/span>
+$ ssh -NR 0.0.0.0:2222:127.0.0.1:22 user@jump.host.com
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Click to &lt;a href="https://www.blackmoreops.com/2016/11/08/top-30-ssh-shenanigans">Original Post&lt;/a>&lt;/p></description></item><item><title>शुभ दीपावली</title><link>https://yogendra.github.io/2016/10/30/%E0%A4%B6%E0%A5%81%E0%A4%AD-%E0%A4%A6%E0%A5%80%E0%A4%AA%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80/</link><pubDate>Sun, 30 Oct 2016 16:47:35 +0000</pubDate><guid>https://yogendra.github.io/2016/10/30/%E0%A4%B6%E0%A5%81%E0%A4%AD-%E0%A4%A6%E0%A5%80%E0%A4%AA%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80/</guid><description>
+&lt;p>यह दिवाली आपकी&amp;hellip;&lt;/p>
+&lt;p>&lt;a href="%E0%A4%B6%E0%A5%81%E0%A4%AD-%E0%A4%A6%E0%A5%80%E0%A4%AA%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80/happy-diwali-2016-generic.jpg">&lt;img src="%E0%A4%B6%E0%A5%81%E0%A4%AD-%E0%A4%A6%E0%A5%80%E0%A4%AA%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80/happy-diwali-2016-generic.jpg" alt=""> &amp;ldquo;दीपावली और नववर्ष की हार्दिक शुभकामनाए&amp;rdquo;)&lt;/a>&lt;/p>
+&lt;p>यह दिवाली आपकी, जीवन बने खुशियों का सागर।
+स्वस्थ तन-मन और धन से, भर उठे जीवन की गागर।
+दीन, दीपक रोशनी के, समन्वय को दे दिशा हम।
+बांटकर खुशियाँ करे हम, रोशनी मन की उजागर।&lt;/p>
+&lt;p>दीप बनकर कालिमा का, तम हरें खुद को जलाकर
+दीन की झोली भरें हम, हर्ष की लड़ीयाँ जलाकर।
+दीपमाला की लड़ी से, प्रेरणा हमको मिले कि,
+साथ में दीपक जले, &amp;lsquo;नोरत&amp;rsquo; लगे नभ में प्रभाकर I&lt;/p>
+&lt;p>~ नोरतन&lt;/p></description></item><item><title>​मैंने दहेज़ नहीं माँगा</title><link>https://yogendra.github.io/2016/08/02/%E0%A4%AE%E0%A5%88%E0%A4%82%E0%A4%A8%E0%A5%87-%E0%A4%A6%E0%A4%B9%E0%A5%87%E0%A5%9B-%E0%A4%A8%E0%A4%B9%E0%A5%80%E0%A4%82-%E0%A4%AE%E0%A4%BE%E0%A4%81%E0%A4%97%E0%A4%BE/</link><pubDate>Tue, 02 Aug 2016 12:48:59 +0000</pubDate><guid>https://yogendra.github.io/2016/08/02/%E0%A4%AE%E0%A5%88%E0%A4%82%E0%A4%A8%E0%A5%87-%E0%A4%A6%E0%A4%B9%E0%A5%87%E0%A5%9B-%E0%A4%A8%E0%A4%B9%E0%A5%80%E0%A4%82-%E0%A4%AE%E0%A4%BE%E0%A4%81%E0%A4%97%E0%A4%BE/</guid><description>
+&lt;p>साहब मैं थाने नहीं आउंगा,
+अपने इस घर से कहीं नहीं जाउंगा,
+माना पत्नी से थोडा मन मुटाव था,
+सोच में अन्तर और विचारों में खिंचाव था,
+&lt;strong>पर यकीन मानिए साहब ,“ मैंने दहेज़ नहीं माँगा ”&lt;/strong>&lt;/p>
+&lt;p>&lt;a href="%E0%A4%AE%E0%A5%88%E0%A4%82%E0%A4%A8%E0%A5%87-%E0%A4%A6%E0%A4%B9%E0%A5%87%E0%A4%9C%E0%A4%BC-%E0%A4%A8%E0%A4%B9%E0%A5%80%E0%A4%82-%E0%A4%AE%E0%A4%BE%E0%A4%81%E0%A4%97%E0%A4%BE/frustrated-man.gif">&lt;img src="%E0%A4%AE%E0%A5%88%E0%A4%82%E0%A4%A8%E0%A5%87-%E0%A4%A6%E0%A4%B9%E0%A5%87%E0%A4%9C%E0%A4%BC-%E0%A4%A8%E0%A4%B9%E0%A5%80%E0%A4%82-%E0%A4%AE%E0%A4%BE%E0%A4%81%E0%A4%97%E0%A4%BE/frustrated-man.gif" alt="" title="मैंने दहेज़ नहीं माँगा">&lt;/a>&lt;/p>
+&lt;p>मानता हूँ कानून आज पत्नी के पास है,
+महिलाओं का समाज में हो रहा विकास है।
+चाहत मेरी भी बस ये थी कि माँ बाप का सम्मान हो,
+उन्हें भी समझे माता पिता, न कभी उनका अपमान हो।
+पर अब क्या फायदा, जब टूट ही गया हर रिश्ते का धागा,
+&lt;strong>यकीन मानिए साहब,“ मैंने दहेज़ नहीं माँगा ”&lt;/strong>&lt;/p>
+&lt;p>परिवार के साथ रहना इसे पसंन्द नहीं,
+कहती यहाँ कोई रस, कोई आनन्द नही,
+मुझे ले चलो इस घर से दूर, किसी किराए के आशियाने में,
+कुछ नहीं रखा माँ बाप पर प्यार बरसाने में,
+हाँ छोड़ दो, छोड़ दो इस माँ बाप के प्यार को,
+नहीं मांने तो याद रखोगे मेरी मार को,
+बस बूढ़े माता पिता का ही मोह, न छोड़ पाया मैं अभागा,
+&lt;strong>यकींन मानिए साहब,“ मैंने दहेज़ नहीं माँगा ”&lt;/strong>&lt;/p>
+&lt;p>फिर शुरू हुआ वाद विवाद माँ बाप से अलग होने का,
+शायद समय आ गया था, चैन और सुकून खोने का,
+एक दिन साफ़ मैंने पत्नी को मना कर दिया,
+न रहुगा माँ बाप के बिना ये उसके दिमाग में भर दिया।
+बस मुझसे लड़ कर मोहतरमा मायके जा पहुंची,
+2 दिन बाद ही पत्नी के घर से मुझे धमकी आ पहुंची,
+माँ बाप से हो जा अलग, नहीं सबक सीखा देगे,
+क्या होता है दहेज़ कानून तुझे इसका असर दिखा देगें।
+परिणाम जानते हुए भी हर धमकी को गले में टांगा,
+&lt;strong>यकींन माँनिये साहब ,“ मैंने दहेज़ नहीं माँगा ”&lt;/strong>&lt;/p>
+&lt;p>जो कहा था बीवी ने, आखिरकार वो कर दिखाया,
+झगड़ा किसी और बात पर था, पर उसने दहेज़ का नाटक रचाया।
+बस पुलिस थाने से एक दिन मुझे फ़ोन आया,
+क्यों बे, पत्नी से दहेज़ मांगता है, ये कह के मुझे धमकाया।
+माता पिता भाई बहिन जीजा सभी के रिपोर्ट में नाम थे,
+घर में सब हैरान, सब परेशान थे,
+अब अकेले बैठ कर सोचता हूँ, वो क्यों ज़िन्दगी में आई थी,
+मैंने भी तो उसके प्रति हर ज़िम्मेदारी निभाई थी।
+आखिरकार तमका मिला हमे दहेज़ लोभी होने का,
+कोई फायदा न हुआ मीठे मीठे सपने सजोने का।
+बुलाने पर थाने आया हूँ, छूप कर कहीं नहीं भागा,
+&lt;strong>लेकिन  यकींन  मानिए  साहब ,“ मैंने दहेज़ नहीं माँगा ”&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>&lt;em>झूठे दहेज के मुकदमों के कारण ,पुरुष के दर्द से ओतप्रोत एक मार्मिक  कृति, दहेज  की  ये  कविता  कई  घरो  की  हकीकत  है&lt;/em>&lt;/strong>&lt;/p>
+&lt;p>&lt;em>- Forward on WhatsApp&lt;/em>&lt;/p></description></item><item><title>Vagrant Docker Basebox for VMWare + Vagrant</title><link>https://yogendra.github.io/2016/02/05/vagrant-docker-basebox-for-vmware-vagrant/</link><pubDate>Fri, 05 Feb 2016 23:03:42 +0000</pubDate><guid>https://yogendra.github.io/2016/02/05/vagrant-docker-basebox-for-vmware-vagrant/</guid><description>
+&lt;p>Docker VMWare is a base box with all goodness. See full information on &lt;a href="https://github.com/yogendra/docker-vmware">Github&lt;/a>&lt;/p>
+&lt;p>&lt;a href="vagrant-docker-basebox-for-vmware-vagrant/docker-vmware-vagrant.png">&lt;img src="vagrant-docker-basebox-for-vmware-vagrant/docker-vmware-vagrant.png" alt="" title="Docker + VMWare + Vagrant">&lt;/a>&lt;/p></description></item><item><title>Parenting Lessons !!</title><link>https://yogendra.github.io/2015/12/22/parenting-lessons/</link><pubDate>Tue, 22 Dec 2015 15:58:23 +0000</pubDate><guid>https://yogendra.github.io/2015/12/22/parenting-lessons/</guid><description>
+&lt;p>Lets connet with our little ones. Hope this helps you, as much as it helped me.&lt;/p>
+&lt;p>&lt;a href="words.jpg">&lt;img src="words.jpg" alt="" title="Parenting Lessons">&lt;/a>&lt;/p></description></item><item><title>... And My Heart Skipped A Beat</title><link>https://yogendra.github.io/2015/04/29/...-and-my-heart-skipped-a-beat/</link><pubDate>Wed, 29 Apr 2015 19:02:56 +0000</pubDate><guid>https://yogendra.github.io/2015/04/29/...-and-my-heart-skipped-a-beat/</guid><description>
+&lt;p>27th April 2015, Monday - A date that has become even more special. Its Srishti&amp;rsquo;s (my niece) birthday. She turned 4. Everyone who knows me, know it well, how special she is to me. But God had his own plans to take this to a whole new level.
+test&lt;/p>
+&lt;p>On this day, I woke up a Son, Brother, Husband, Brother In Law and Uncle. And Ashu woke up as Daughter, Sister, Wife, Sister In Law and Aunty. But, in a miraculous moment, I became a Father, she became a Mother and we both became Parents. We are blessed with a lovely &lt;strong>DAUGHTER&lt;/strong>. It still feels like a dream. And if it is one,  I wish I never wake up.&lt;/p></description></item><item><title>40 Ways to Stay Creative</title><link>https://yogendra.github.io/2015/04/25/40-ways-to-stay-creative/</link><pubDate>Sat, 25 Apr 2015 16:00:58 +0000</pubDate><guid>https://yogendra.github.io/2015/04/25/40-ways-to-stay-creative/</guid><description>
+&lt;p>We all need some ways to stay creative, isn&amp;rsquo;t it?&lt;/p>
+&lt;p>&lt;a href="40-ways-to-stay-creative/be-creative.jpg">&lt;img src="40-ways-to-stay-creative/be-creative.jpg" alt="" title="40 Ways to Stay Creative">&lt;/a>&lt;/p>
+&lt;p>Credit: &lt;a href="https://www.layerform.com/40-ways-stay-creative-infographic/">Edd Biel @ Typeform&lt;/a>&lt;/p></description></item><item><title>Data Structure Operation</title><link>https://yogendra.github.io/2015/04/13/data-structure-operation/</link><pubDate>Mon, 13 Apr 2015 00:58:00 +0000</pubDate><guid>https://yogendra.github.io/2015/04/13/data-structure-operation/</guid><description>
+&lt;p>I always find myself pondering about this&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;a href="data-structure-operation/datastructures.png">&lt;img src="data-structure-operation/datastructures.png" alt="" title="Data Structure Operations">&lt;/a>&lt;/p></description></item><item><title>Operation Raahat</title><link>https://yogendra.github.io/2015/04/11/operation-raahat/</link><pubDate>Sat, 11 Apr 2015 13:10:58 +0000</pubDate><guid>https://yogendra.github.io/2015/04/11/operation-raahat/</guid><description>
+&lt;p>In the past six months, a war for political dominance between the two sects of Muslims—Sunni and Zaidi Shia has intensified in Yemen, the Arab country in southwest Asia that has been imploding since 2011.&lt;/p>
+&lt;p>Saudi Arabia has been trying to thwart the attempt by the Iran-backed Zaidi Shia group to take control of the country.&lt;/p>
+&lt;p>In February, however, Yemeni president Abdrabbuh Mansour Hadi fled the capital Sana’a when the rebel Shia group—also known as Houthis—strengthened their presence in the city.&lt;/p>
+&lt;p>Due to the worsening condition of the country, the Indian govt on March 31, decided to send Gen V.K. Singh, one of its senior ministers and former Chief of The Indian Army, to oversee the mission and ensure safe return of its citizens.The operation was called as ' Rahat' - which means relief in Hindi&lt;/p>
+&lt;h2 id="here-are-a-few-facts-about-operation-rahat-that-every-indian-should-know-about-">Here are a few facts about Operation Rahat, that every Indian should know about :&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Saudi Arabia is attacking Yemen, but from the air. Their soldiers are afraid of setting foot on land fearing for their lives.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Pakistani Army &amp;amp; Air force form the bulk of Saudi force in Yemen, but Paksitani soldiers are afraid of landing in the cities due to the fear of being killed by Shia Militia.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Pakistani Ambassador to Yemen Dr Irfan Yousuf Shami escaped with all his staff, leaving behind hundreds of stranded Pakistani nationals.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>What made the situation more complex was the fact that the airport and airspace in Yemen, is under the control of Saudi Arabia.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>PM Modi called up Saudi King Salman for his co-operation in rescuing Indians from Yemen. Since the PM shares a good relationship with the Saudi King, the King assured his complete support. PM Modi requested the Saudi King to stop the air strike for some time and also allow Indian planes to fly out of Yemen, so that Indians could be evacuated from the strife torn country.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>The Indian national carrier, Air India, carried 488 people through three special flights from Sana’a to India on April 5. A day later, Air India is reported to have evacuated 574 people from Sana’a to Djibouti, described as the single largest evacuation by air in a day. The Indian Airforce had dispatched its C-17s on April 2, and brought back 358 Indians.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>GOI decided to take sea route to rescue the expatriates stranded in Aden, a port city, after the government’s plans to airlift them did not materialize due to attack on Sana’a airport.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Two merchant vessels and two warships — destroyer Mumbai and stealth frigate Tarkash — also left for Yemen, to help ferry other stranded expatriates back home. The government had also pressed into service INS Sumitra to ensure the safety and security of the passengers from pirates.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>India’s shipping corporation also sent two passenger ships—Kavaratti and Corals— to assist the navy. In all, India sent five ships to Yemen. Small boats were used to transport Indians from Yemen’s port city Aden onto the naval vessels that could not enter the ports due to heavy firing.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Eyewitnesses state that, in such a hostile atmosphere, unarmed Gen VK Singh toured the cities &amp;amp; villages in Yemen, collecting Indians &amp;amp; anybody else who asked him for help. He did sit in a car or a Helicopter. He actually got on the ground &amp;amp; walked on the roads, in the streets &amp;amp; commanded the operation.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Because of the stunning rescue work done by India, 26 nations reached out for help in evacuating their citizens. Countries like USA, Germany, France were amongst those which sought help.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Most aircrafts and ships landed in Mumbai and the southern Indian city of Kochi. The evacuees were then transported to their hometowns by Indian Railways. The railways offered free tickets for their onward journeys. In addition, state governments have offered financial support to many evacuees.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>Its a matter of shame for the nation, that no leading newspaper or media channel finds this historic mission worthy enough to cover frontpages or be on prime time. Its up to social media now, to let truth prevail.&lt;/p>
+&lt;p>‪Jai Hind&lt;/p>
+&lt;p>&lt;em>Posted from WordPress for Android&lt;/em>&lt;/p></description></item><item><title>राजस्थान दिवस री बधाई हो सा</title><link>https://yogendra.github.io/2015/03/30/%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A4%BE%E0%A4%A8-%E0%A4%A6%E0%A4%BF%E0%A4%B5%E0%A4%B8-%E0%A4%B0%E0%A5%80-%E0%A4%AC%E0%A4%A7%E0%A4%BE%E0%A4%88-%E0%A4%B9%E0%A5%8B-%E0%A4%B8%E0%A4%BE/</link><pubDate>Mon, 30 Mar 2015 21:14:40 +0000</pubDate><guid>https://yogendra.github.io/2015/03/30/%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A4%BE%E0%A4%A8-%E0%A4%A6%E0%A4%BF%E0%A4%B5%E0%A4%B8-%E0%A4%B0%E0%A5%80-%E0%A4%AC%E0%A4%A7%E0%A4%BE%E0%A4%88-%E0%A4%B9%E0%A5%8B-%E0%A4%B8%E0%A4%BE/</guid><description>
+&lt;p>राजस्थान दिवस री बधाई हो सा&lt;/p>
+&lt;p>&lt;a href="%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A4%BE%E0%A4%A8-%E0%A4%A6%E0%A4%BF%E0%A4%B5%E0%A4%B8-%E0%A4%B0%E0%A5%80-%E0%A4%AC%E0%A4%A7%E0%A4%BE%E0%A4%88-%E0%A4%B9%E0%A5%8B-%E0%A4%B8%E0%A4%BE/greetings.jpg">&lt;img src="%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A4%BE%E0%A4%A8-%E0%A4%A6%E0%A4%BF%E0%A4%B5%E0%A4%B8-%E0%A4%B0%E0%A5%80-%E0%A4%AC%E0%A4%A7%E0%A4%BE%E0%A4%88-%E0%A4%B9%E0%A5%8B-%E0%A4%B8%E0%A4%BE/greetings.jpg#center" alt="" title="राजस्थान दिवस री बधाई हो सा">&lt;/a>&lt;/p></description></item><item><title>An Old Photo</title><link>https://yogendra.github.io/2015/03/30/an-old-photo/</link><pubDate>Mon, 30 Mar 2015 01:24:18 +0000</pubDate><guid>https://yogendra.github.io/2015/03/30/an-old-photo/</guid><description>
+&lt;p>Lol&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;a href="an-old-photo/old-photo.jpg">&lt;img src="an-old-photo/old-photo.jpg" alt="" title="An Old Photo">&lt;/a>&lt;/p></description></item><item><title>Linux Performance Observability Tools</title><link>https://yogendra.github.io/2015/03/29/linux-performance-observability-tools/</link><pubDate>Sun, 29 Mar 2015 21:04:29 +0000</pubDate><guid>https://yogendra.github.io/2015/03/29/linux-performance-observability-tools/</guid><description>
+&lt;p>I use linux for all production deployments (Obviously). Here is a quick one image run down for all optimizations.&lt;/p>
+&lt;p>&lt;a href="linux-performance-observability-tools/tools.png">&lt;img src="linux-performance-observability-tools/tools.png" alt="">&lt;/a>&lt;/p>
+&lt;p>Source: &lt;a href="https://www.linux.com/news/enterprise/systems-management/785426-a-template-for-monitoring-linux-performance-tools-like-from-netflix">linux.com&lt;/a>&lt;/p></description></item><item><title>Some Golden Thoughts Of Thiruvalluvar</title><link>https://yogendra.github.io/2015/03/10/some-golden-thoughts-of-thiruvalluvar/</link><pubDate>Tue, 10 Mar 2015 07:22:52 +0000</pubDate><guid>https://yogendra.github.io/2015/03/10/some-golden-thoughts-of-thiruvalluvar/</guid><description>
+&lt;p>Tirukkural by Tiruvalluvar (A Tamil - poet/writer) was written more than 5000 yrs ago. It’s one of the ancient science on Human behavior, which has not changed dispite of modern education &amp;amp; technology&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="thiruvalluvar.gif" alt="">&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>If your child lies to you often, it is because you over-react too harshly to their inappropriate behavior.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If your child is not taught to confide in you about their mistakes, you’ve lost them.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If your child had poor self-esteem, it is because you advice them more than you encourage them.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If your child does not stand up for themselves, it is because from a young age you have disciplined them regularly in public.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If your child takes things that do not belong to them, it is because when you buy them things, you don’t let them chose what they want.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If your child is cowardly, it is because you help them too quickly.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If your child does not respect other people’s feelings, it is because instead of speaking to your child, you order and command them.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If your child is too quick to anger, it is because you give too much attention to misbehavior and you give little attention to good behavior.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If your child is excessively jealous, it is because you only congratulate them when they successfully complete something and not when they improve at something even if they don’t successfully complete it.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If your child intentionally disturbs you, it is because you are not physically affectionate enough.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If your child is openly defiant, it is because you openly threaten to do something but don’t follow through.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If your child is secretive, it is because they don’t trust that you won’t blow things out of proportion.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If your child talks back to you, it is because they watch you do it to others and think its normal behavior.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If your child doesn’t listen to you but listens to others, it is because you are too quick to jump to conclusions.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If your child rebels it is because they know you care more about what others think than what is right.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>Please forward this to all. It MAY GUIDE OUR MODERN PARENTS.&lt;/p></description></item><item><title>पैसे नहीं रिश्ते बनाओ</title><link>https://yogendra.github.io/2015/01/03/%E0%A4%AA%E0%A5%88%E0%A4%B8%E0%A5%87-%E0%A4%A8%E0%A4%B9%E0%A5%80%E0%A4%82-%E0%A4%B0%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%A4%E0%A5%87-%E0%A4%AC%E0%A4%A8%E0%A4%BE%E0%A4%93/</link><pubDate>Sat, 03 Jan 2015 12:08:48 +0000</pubDate><guid>https://yogendra.github.io/2015/01/03/%E0%A4%AA%E0%A5%88%E0%A4%B8%E0%A5%87-%E0%A4%A8%E0%A4%B9%E0%A5%80%E0%A4%82-%E0%A4%B0%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%A4%E0%A5%87-%E0%A4%AC%E0%A4%A8%E0%A4%BE%E0%A4%93/</guid><description>
+&lt;p>बात बहुत पुरानी है। आठ-दस साल पहले की। मैं अपने एक मित्र का पासपोर्ट बनवाने के लिए दिल्ली के पासपोर्ट ऑफिस गया था। उन दिनों इंटरनेट पर फार्म भरने की सुविधा नहीं थी। पासपोर्ट दफ्तर में दलालों का बोलबाला था और खुलेआम दलाल पैसे लेकर पासपोर्ट के फार्म बेचने से लेकर उसे भरवाने, जमा करवाने और पासपोर्ट बनवाने का काम करते थे।&lt;/p>
+&lt;p>&lt;img src="money-vs-love.jpg" alt="">&lt;/p>
+&lt;p>मेरे मित्र को किसी कारण से पासपोर्ट की जल्दी थी, लेकिन दलालों के दलदल में फंसना नहीं चाहते थे। हम पासपोर्ट दफ्तर पहुंच गए, लाइन में लग कर हमने पासपोर्ट का तत्काल फार्म भी ले लिया। पूरा फार्म भर लिया। इस चक्कर में कई घंटे निकल चुके थे, और अब हमें किसी तरह पासपोर्ट की फीस जमा करानी थी। हम लाइन में खड़े हुए लेकिन जैसे ही हमारा नंबर आया बाबू ने खिड़की बंद कर दी और कहा कि समय खत्म हो चुका है अब कल आइएगा। मैंने उससे मिन्नतें की, उससे कहा कि आज पूरा दिन हमने खर्च किया है और बस अब केवल फीस जमा कराने की बात रह गई है, कृपया फीस ले लीजिए। बाबू बिगड़ गया। कहने लगा, &amp;ldquo;आपने पूरा दिन खर्च कर दिया तो उसके लिए वो जिम्मेदार है क्या? अरे सरकार ज्यादा लोगों को बहाल करे। मैं तो सुबह से अपना काम ही कर रहा हूं।&amp;rdquo;&lt;/p>
+&lt;p>मैने बहुत अनुरोध किया पर वो नहीं माना। उसने कहा कि बस दो बजे तक का समय होता है, दो बज गए। अब कुछ नहीं हो सकता। मैं समझ रहा था कि सुबह से दलालों का काम वो कर रहा था, लेकिन जैसे ही बिना दलाल वाला काम आया उसने बहाने शुरू कर दिए हैं। पर हम भी अड़े हुए थे कि बिना अपने पद का इस्तेमाल किए और बिना उपर से पैसे खिलाए इस काम को अंजाम देना है।&lt;/p>
+&lt;p>मैं ये भी समझ गया था कि अब कल अगर आए तो कल का भी पूरा दिन निकल ही जाएगा, क्योंकि दलाल हर खिड़की को घेर कर खड़े रहते हैं, और आम आदमी वहां तक पहुंचने में बिलबिला उठता है। खैर, मेरा मित्र बहुत मायूस हुआ और उसने कहा कि चलो अब कल आएंगे। मैंने उसे रोका। कहा कि रुको एक और कोशिश करता हूं। बाबू अपना थैला लेकर उठ चुका था। मैंने कुछ कहा नहीं, चुपचाप उसके-पीछे हो लिया। वो उसी दफ्तर में तीसरी या चौथी मंजिल पर बनी एक कैंटीन में गया, वहां उसने अपने थैले से लंच बॉक्स निकाला और धीरे-धीरे अकेला खाने लगा।&lt;/p>
+&lt;p>मैं उसके सामने की बेंच पर जाकर बैठ गया। उसने मेरी ओर देखा और बुरा सा मुंह बनाया। मैं उसकी ओर देख कर मुस्कुराया। उससे मैंने पूछा कि रोज घर से खाना लाते हो? उसने अनमने से कहा कि हां, रोज घर से लाता हूं। मैंने कहा कि तुम्हारे पास तो बहुत काम है, रोज बहुत से नए-नए लोगों से मिलते होगे? वो पता नहीं क्या समझा और कहने लगा कि हां मैं तो एक से एक बड़े अधिकारियों से मिलता हूं। कई आईएएस, आईपीएस, विधायक और न जाने कौन-कौन रोज यहां आते हैं। मेरी कुर्सी के सामने बड़े-बड़े लोग इंतजार करते हैं।&lt;/p>
+&lt;p>मैंने बहुत गौर से देखा, ऐसा कहते हुए उसके चेहरे पर अहं का भाव था। मैं चुपचाप उसे सुनता रहा। फिर मैंने उससे पूछा कि एक रोटी तुम्हारी प्लेट से मैं भी खा लूं? वो समझ नहीं पाया कि मैं क्या कह रहा हूं। उसने बस हां में सिर हिला दिया। मैंने एक रोटी उसकी प्लेट से उठा ली, और सब्जी के साथ खाने लगा। वो चुपचाप मुझे देखता रहा। मैंने उसके खाने की तारीफ की, और कहा कि तुम्हारी पत्नी बहुत ही स्वादिष्ट खाना पकाती है। वो चुप रहा।&lt;/p>
+&lt;p>मैंने फिर उसे कुरेदा। तुम बहुत महत्वपूर्ण सीट पर बैठे हो। बड़े-बड़े लोग तुम्हारे पास आते हैं। तो क्या तुम अपनी कुर्सी की इज्जत करते हो? अब वो चौंका। उसने मेरी ओर देख कर पूछा कि इज्जत? मतलब? मैंने कहा कि तुम बहुत भाग्यशाली हो, तुम्हें इतनी महत्वपूर्ण जिम्मेदारी मिली है, तुम न जाने कितने बड़े-बड़े अफसरों से डील करते हो, लेकिन तुम अपने पद की इज्जत नहीं करते। उसने मुझसे पूछा कि ऐसा कैसे कहा आपने? मैंने कहा कि जो काम दिया गया है उसकी इज्जत करते तो तुम इस तरह रुखे व्यवहार वाले नहीं होते। देखो तुम्हारा कोई दोस्त भी नहीं है। तुम दफ्तर की कैंटीन में अकेले खाना खाते हो, अपनी कुर्सी पर भी मायूस होकर बैठे रहते हो, लोगों का होता हुआ काम पूरा करने की जगह अटकाने की कोशिश करते हो।&lt;/p>
+&lt;p>मान लो कोई एकदम दो बजे ही तुम्हारे काउंटर पर पहुंचा तो तुमने इस बात का लिहाज तक नहीं किया कि वो सुबह से लाइऩ में खड़ा रहा होगा, और तुमने फटाक से खिड़की बंद कर दी। जब मैंने तुमसे अनुरोध किया तो तुमने कहा कि सरकार से कहो कि ज्यादा लोगों को बहाल करे। मान लो मैं सरकार से कह कर और लोग बहाल करा लूं, तो तुम्हारी अहमियत घट नहीं जाएगी? हो सकता है तुमसे ये काम ही ले लिया जाए। फिर तुम कैसे आईएएस, आईपीए और विधायकों से मिलोगे?&lt;/p>
+&lt;p>भगवान ने तुम्हें मौका दिया है रिश्ते बनाने के लिए। लेकिन अपना दुर्भाग्य देखो, तुम इसका लाभ उठाने की जगह रिश्ते बिगाड़ रहे हो। मेरा क्या है, कल भी आ जाउंगा, परसों भी आ जाउंगा। ऐसा तो है नहीं कि आज नहीं काम हुआ तो कभी नहीं होगा। तुम नहीं करोगे कोई और बाबू कल करेगा। पर तुम्हारे पास तो मौका था किसी को अपना अहसानमंद बनाने का। तुम उससे चूक गए। वो खाना छोड़ कर मेरी बातें सुनने लगा था।&lt;/p>
+&lt;p>मैंने कहा कि पैसे तो बहुत कमा लोगे, लेकिन रिश्ते नहीं कमाए तो सब बेकार है। क्या करोगे पैसों का? अपना व्यवहार ठीक नहीं रखोगे तो तुम्हारे घर वाले भी तुमसे दुखी रहेंगे। यार दोस्त तो नहीं हैं, ये तो मैं देख ही चुका हूं। मुझे देखो, अपने दफ्तर में कभी अकेला खाना नहीं खाता। यहां भी भूख लगी तो तुम्हारे साथ खाना खाने आ गया। अरे अकेला खाना भी कोई ज़िंदगी है? मेरी बात सुन कर वो रुंआसा हो गया। उसने कहा कि आपने बात सही कही है साहब। मैं अकेला हूं। पत्नी झगड़ा कर मायके चली गई है। बच्चे भी मुझे पसंद नहीं करते। मां है, वो भी कुछ ज्यादा बात नहीं करती। सुबह चार-पांच रोटी बना कर दे देती है, और मैं तनहा खाना खाता हूं। रात में घर जाने का भी मन नहीं करता। समझ में नहीं आता कि गड़बड़ी कहां है?&lt;/p>
+&lt;p>मैंने हौले से कहा कि खुद को लोगों से जोड़ो। किसी की मदद कर सकते तो तो करो। देखो मैं यहां अपने दोस्त के पासपोर्ट के लिए आया हूं। मेरे पास तो पासपोर्ट है। मैंने दोस्त की खातिर तुम्हारी मिन्नतें कीं। निस्वार्थ भाव से। इसलिए मेरे पास दोस्त हैं, तुम्हारे पास नहीं हैं। वो उठा और उसने मुझसे कहा कि आप मेरी खिड़की पर पहुंचो। मैं आज ही फार्म जमा करुंगा। मैं नीचे गया, उसने फार्म जमा कर लिया, फीस ले ली। और हफ्ते भर में पासपोर्ट बन गया। बाबू ने मुझसे मेरा नंबर मांगा, मैंने अपना मोबाइल नंबर उसे दे दिया और चला आया। नववर्ष पर मेरे पास बहुत से फोन आए। मैंने करीब-करीब सारे नंबर उठाए। उसी में एक नंबर से फोन आया, &amp;ldquo;कुमार स्कन्द बजाज बोल रहा हूं साहब&amp;rdquo;। मैं एकदम नहीं पहचान सका। उसने कहा कि कई साल पहले आप हमारे पास अपने किसी दोस्त के पासपोर्ट के लिए आए थे, और आपने मेरे साथ रोटी भी खाई थी।&lt;/p>
+&lt;p>आपने कहा था कि पैसे की जगह रिश्ते बनाओ। मुझे एकदम याद आ गया। मैंने कहा हां जी बजाज साहब कैसे हैं? उसने खुश होकर कहा, &amp;ldquo;साहब आप उस दिन चले गए, फिर मैं बहुत सोचता रहा। मुझे लगा कि पैसे तो सचमुच बहुत लोग दे जाते हैं, लेकिन साथ खाना खाने वाला कोई नहीं मिलता। सब अपने में व्यस्त हैं। मैं साहब अगले ही दिन पत्नी के मायके गया, बहुत मिन्नतें कर उसे घर लाया। वो मान ही नहीं रही थी। वो खाना खाने बैठी तो मैंने उसकी प्लेट से एक रोटी उठा ली, कहा कि साथ खिलाओगी? वो हैरान थी। रोने लगी। मेरे साथ चली आई। बच्चे भी साथ चले आए।&lt;/p>
+&lt;p>साहब अब मैं पैसे नहीं कमाता। रिश्ते कमाता हूं। जो आता है उसका काम कर देता हूं। साहब आज आपको Happy New year बोलने के लिए फोन किया है। अगल महीने बिटिया की शादी है। आपको आना है। अपना पता भेज दीजिएगा। मैं और मेरी पत्नी आपके पास आएंगे। मेरी पत्नी ने मुझसे पूछा था कि ये पासपोर्ट दफ्तर में रिश्ते कमाना कहां से सीखे? तो मैंने पूरी कहानी बताई थी। आप किसी से नहीं मिले लेकिन मेरे घर में आपने रिश्ता जोड़ लिया है।&lt;/p>
+&lt;p>सब आपको जानते है बहुत दिनों से फोन करने की सोचता था, लेकिन हिम्मत नहीं होती थी। आज नव वर्ष का मौका निकाल कर कर रहा हूं। शादी में आपको आना है। बिटिया को आशीर्वाद देने। रिश्ता जोड़ा है आपने। मुझे यकीन है आप आएंगे। वो बोलता जा रहा था, मैं सुनता जा रहा था। सोचा नहीं था कि सचमुच उसकी ज़िंदगी में भी पैसों पर रिश्ता भारी पड़ेगा। लेकिन मेरा कहा सच साबित हुआ। आदमी भावनाओं से संचालित होता है। कारणों से नहीं।&lt;/p>
+&lt;p>&lt;em>&amp;ndash; अज्ञात&lt;/em>&lt;/p></description></item><item><title>Happy New Year 2015</title><link>https://yogendra.github.io/2015/01/01/happy-new-year-2015/</link><pubDate>Thu, 01 Jan 2015 00:58:51 +0000</pubDate><guid>https://yogendra.github.io/2015/01/01/happy-new-year-2015/</guid><description>
+&lt;p>Happy New Year to All&lt;/p>
+&lt;p>&amp;ndash; Rampuria Family&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="happy-2015-rampuria-family.jpg" alt="">&lt;/p></description></item><item><title> yogendra/trusty32 - Announcing my first vagrant box</title><link>https://yogendra.github.io/2014/12/11/yogendra/trusty32-announcing-my-first-vagrant-box/</link><pubDate>Thu, 11 Dec 2014 23:08:49 +0000</pubDate><guid>https://yogendra.github.io/2014/12/11/yogendra/trusty32-announcing-my-first-vagrant-box/</guid><description>
+&lt;p>I have finally released my first vagrant box. Its been a long time coming, but it&amp;rsquo;s here now. How to get it?&lt;/p>
+&lt;p>Create a new vagrant project with:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">vagrant init yogendra/trusty32
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>Or&lt;/em>&lt;/p>
+&lt;ol>
+&lt;li>Create/update your Vagrantfile as&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#75715e"># -*- mode: ruby -*-&lt;/span>
+&lt;span style="color:#75715e"># vi: set ft=ruby :&lt;/span>
+&lt;span style="color:#75715e"># Vagrantfile API/syntax version. Don&amp;#39;t touch unless you know what you&amp;#39;re doing!&lt;/span>
+&lt;span style="color:#66d9ef">VAGRANTFILE_API_VERSION&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;2&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">Vagrant&lt;/span>&lt;span style="color:#f92672">.&lt;/span>configure(&lt;span style="color:#66d9ef">VAGRANTFILE_API_VERSION&lt;/span>) &lt;span style="color:#66d9ef">do&lt;/span> &lt;span style="color:#f92672">|&lt;/span>config&lt;span style="color:#f92672">|&lt;/span>
+config&lt;span style="color:#f92672">.&lt;/span>vm&lt;span style="color:#f92672">.&lt;/span>box &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;yogendra/trusty32&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>Run this&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">vagrant up --provider vmware_fusion
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>That&amp;rsquo;s it.&lt;/p>
+&lt;p>If you are new to Vagrant, read &lt;a href="https://docs.vagrantup.com/v2/getting-started/">this tutorial&lt;/a>to get started&lt;/p></description></item><item><title>HOLI! Colours of joy and happiness</title><link>https://yogendra.github.io/2014/03/16/holi-colours-of-joy-and-happiness/</link><pubDate>Sun, 16 Mar 2014 23:03:13 +0000</pubDate><guid>https://yogendra.github.io/2014/03/16/holi-colours-of-joy-and-happiness/</guid><description>
+&lt;p>Colours of JOY - Best Moments in life&amp;hellip;&amp;hellip; Just Happen!&lt;/p>
+&lt;p>&lt;img src="%22wpid-03169115.jpg%22" alt="type-banner" title="Colours of JOY - Best Moments in life...... Just Happen!">&lt;/p></description></item><item><title>JDK - No Install Needed</title><link>https://yogendra.github.io/2014/01/10/jdk-no-install-needed/</link><pubDate>Fri, 10 Jan 2014 10:09:46 +0000</pubDate><guid>https://yogendra.github.io/2014/01/10/jdk-no-install-needed/</guid><description>
+&lt;p>I don&amp;rsquo;t like the whole concept of installers for my development tools like JDK, Eclipse, Netbeans, etc. I just keep a batch/shell script to setup my environment variables for JAVA_HOME, PATH and aliases.&lt;/p>
+&lt;p>So, on Windows, updating JDK involves installing new version of JDK and then copying what I need and then uninstall it. I don&amp;rsquo;t like those registry entries and files installed in C:\Windows\System32, etc.&lt;/p>
+&lt;p>Recently I read a &lt;a href="https://stackoverflow.com/questions/1619662/where-can-i-get-the-latest-jre-jdk-as-a-zip-file-i-mean-no-exe-installer">stackoverflow entry&lt;/a> that gave some insight on JDK packaging. So I wrote a small batch script to do it all. Only quirk is that, there is a small difference in Pre 7.0 packaging from the 7.0 and above, so for now I need to keep 2 scripts. Scripts need 7z, that is a free tool and could be downloaded from &lt;a href="https://www.7-zip.org/download.html">here&lt;/a>.&lt;/p>
+&lt;p>These scripts can be run as:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">jdk-extract path_to_install.exe&amp;lt;/pre&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>or&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">jdk-extract-pre-7.0.bat path_to_installer.bat
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>And now on to the actual the code:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">@echo off
+REM This script will extract JDK tools from installers, without polluting Windows environment.
+REM You need the pristine installers from Oracles website to extract all the data
+setlocal
+SET CWD&lt;span style="color:#f92672">=&lt;/span>%CD%
+SET FILE&lt;span style="color:#f92672">=&lt;/span>%~f1
+SET DEST&lt;span style="color:#f92672">=&lt;/span>%~dpn1
+echo DEST&lt;span style="color:#f92672">=&lt;/span>%DEST% FILE&lt;span style="color:#f92672">=&lt;/span>%FILE% CWD&lt;span style="color:#f92672">=&lt;/span>%CWD%
+md %DEST%
+REM Used e here instead of x to keep structure flat
+7z e -o&lt;span style="color:#e6db74">&amp;#34;%DEST%&amp;#34;&lt;/span> -y &lt;span style="color:#e6db74">&amp;#34;%FILE%&amp;#34;&lt;/span> tools.zip
+cd &lt;span style="color:#e6db74">&amp;#34;%DEST%&amp;#34;&lt;/span>
+7z x -y tools.zip
+del tools.zip
+&lt;span style="color:#66d9ef">for&lt;/span> /r %%x in &lt;span style="color:#f92672">(&lt;/span>*.pack&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">do&lt;/span> call :unpack2000 &lt;span style="color:#e6db74">&amp;#34;%%x&amp;#34;&lt;/span>
+cd %CWD%
+goto end
+:unpack2000
+%DEST%&lt;span style="color:#ae81ff">\b&lt;/span>in&lt;span style="color:#ae81ff">\u&lt;/span>npack200 -r %1 &lt;span style="color:#e6db74">&amp;#34;%~dpn1.jar&amp;#34;&lt;/span>
+goto:eof
+:end
+echo Extracted %FILE% to %DEST%
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">@echo off
+REM This script will extract JDK tools from installers, without polluting Windows environment.
+REM You need the pristine installers from Oracles website to extract all the data
+setlocal
+SET CWD&lt;span style="color:#f92672">=&lt;/span>%CD%
+SET FILE&lt;span style="color:#f92672">=&lt;/span>%~f1
+SET DEST&lt;span style="color:#f92672">=&lt;/span>%~dpn1
+echo DEST&lt;span style="color:#f92672">=&lt;/span>%DEST% FILE&lt;span style="color:#f92672">=&lt;/span>%FILE% CWD&lt;span style="color:#f92672">=&lt;/span>%CWD%
+md %DEST%
+REM Used e here instead of x to keep structure flat
+7z e -o&lt;span style="color:#e6db74">&amp;#34;%DEST%&amp;#34;&lt;/span> -y &lt;span style="color:#e6db74">&amp;#34;%FILE%&amp;#34;&lt;/span> .rsrc&lt;span style="color:#ae81ff">\J&lt;/span>AVA_CAB10&lt;span style="color:#ae81ff">\1&lt;/span>&lt;span style="color:#ae81ff">11&lt;/span>
+cd &lt;span style="color:#e6db74">&amp;#34;%DEST%&amp;#34;&lt;/span>
+extrac32.exe &lt;span style="color:#ae81ff">111&lt;/span>
+del &lt;span style="color:#ae81ff">111&lt;/span>
+7z x -y tools.zip
+del tools.zip
+&lt;span style="color:#66d9ef">for&lt;/span> /r %%x in &lt;span style="color:#f92672">(&lt;/span>*.pack&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">do&lt;/span> call :unpack2000 &lt;span style="color:#e6db74">&amp;#34;%%x&amp;#34;&lt;/span>
+cd %CWD%
+goto end
+:unpack2000
+%DEST%&lt;span style="color:#ae81ff">\b&lt;/span>in&lt;span style="color:#ae81ff">\u&lt;/span>npack200 -r %1 &lt;span style="color:#e6db74">&amp;#34;%~dpn1.jar&amp;#34;&lt;/span>
+goto:eof
+:end
+echo Extracted %FILE% to %DEST%
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>साल कैसा रहा यारों</title><link>https://yogendra.github.io/2014/01/06/%E0%A4%B8%E0%A4%BE%E0%A4%B2-%E0%A4%95%E0%A5%88%E0%A4%B8%E0%A4%BE-%E0%A4%B0%E0%A4%B9%E0%A4%BE-%E0%A4%AF%E0%A4%BE%E0%A4%B0%E0%A5%8B%E0%A4%82/</link><pubDate>Mon, 06 Jan 2014 21:00:55 +0000</pubDate><guid>https://yogendra.github.io/2014/01/06/%E0%A4%B8%E0%A4%BE%E0%A4%B2-%E0%A4%95%E0%A5%88%E0%A4%B8%E0%A4%BE-%E0%A4%B0%E0%A4%B9%E0%A4%BE-%E0%A4%AF%E0%A4%BE%E0%A4%B0%E0%A5%8B%E0%A4%82/</guid><description>
+&lt;p>फिर कोई पत्ता पेड़ से झड़ गया यारों,
+कौनसा फर्क किसी को पड़ गया यारों।&lt;/p>
+&lt;p>नौकरानी को तनख्वाह कम क्या मिली,
+&amp;ldquo;अंकल सैम&amp;quot;हम से उखड़ गया यारों।&lt;/p>
+&lt;p>इस बाजू पाकिस्तान क्या कम था?
+जो आज चीन उस बाजू से चढ़ गया यारों।&lt;/p>
+&lt;p>वो अनाज जो किसान ने ही उगाया था,
+वो उसी की आस में भूखों मर गया यारों।&lt;/p>
+&lt;p>जो भीतर रखा उसे सियासी चूहे खा गए,
+जो बाहर था वो बारिश में सड़ गया यारों।&lt;/p>
+&lt;p>रोटी न दी,सरकार ने&amp;quot;रोटी की गारंटी&amp;rdquo; दी,
+पेट पिचक के तब तक सिकुड़ गया यारों।&lt;/p>
+&lt;p>&amp;ldquo;देश की माँ&amp;quot;किस कदर परेशान हो गयी,
+जब &amp;ldquo;पप्पू&amp;quot;इम्तिहान में पिछड़ गया यारों।&lt;/p>
+&lt;p>&amp;ldquo;टोपी वाला&amp;quot;भी अजब फितरत का निकला,
+जिसके कंधे पे बैठा,उसीसे लड़ गया यारों।&lt;/p>
+&lt;p>गायों को कटने से बचाने की फुर्सत किसे?
+मुल्क &amp;ldquo;गे&amp;rdquo; रक्षा के लिए झगड़ गया यारों।&lt;/p>
+&lt;p>हुकूमत तो &amp;ldquo;दामाद&amp;quot;का सूट सजाती रही,
+यहाँ वतन का पायजामा उधड़ गया यारों।&lt;/p>
+&lt;p>शहीदों की बरसी पे सन्नाटा पसरा रहा वहाँ,
+वतन&amp;quot;सनी लियोन&amp;quot;के शो में उमड़ गया यारों।&lt;/p>
+&lt;p>सियासत के मेले में इस कदर भीड़-भाड़ थी,
+&amp;ldquo;आप&amp;quot;का लोकपाल उनसे बिछड़ गया यारों।&lt;/p>
+&lt;p>&amp;ldquo;हाथ&amp;quot;ने थाम लिया कसके,चने का झाड़,
+&amp;ldquo;आप&amp;quot;सा कोई &amp;ldquo;झाड़ू&amp;quot;लेके चढ़ गया यारो।&lt;/p>
+&lt;p>ज़िक्र &amp;ldquo;निर्भया&amp;quot;का जब भी कहीं भी हुआ,
+&amp;ldquo;गाफ़िल&amp;quot;शर्म से ज़मीं में गड़ गया यारों।&lt;/p>
+&lt;p>मैं पुरानी बातों पे अभी भी अटका हूँ यहाँ,
+मुल्क सब छोड़,कब का आगे बढ़ गया यारों।&lt;/p></description></item><item><title>Google App Engine &amp; Maven - Works For Me</title><link>https://yogendra.github.io/2014/01/04/google-app-engine-maven-works-for-me/</link><pubDate>Sat, 04 Jan 2014 02:23:58 +0000</pubDate><guid>https://yogendra.github.io/2014/01/04/google-app-engine-maven-works-for-me/</guid><description>
+&lt;p>Google has released its App Engine SDK on Maven central as a zip. But its very large and causes a &amp;ldquo;&lt;strong>Error 503 backend read error&lt;/strong>&amp;rdquo;.&lt;/p>
+&lt;p>So, after a lot of head-banging I resolved this by adding SDK zip package (Yes! one from website) and a few jars (optional), to maven. Skip to end for the commands. You may have to modify these for a newer version.&lt;/p>
+&lt;h1 id="tldr-skip-to-endgae_solution">&lt;a href="#gae_solution">tl;dr Skip to End&lt;/a>&lt;/h1>
+&lt;h2 id="idea-to-accident">Idea to Accident&lt;/h2>
+&lt;p>I created a simple maven project for some usual &amp;ldquo;help a friend&amp;rdquo; work. It worked well, so I thought &amp;ldquo;Why not publish sources on GitHub?&amp;rdquo;. After a few cycles, it looked ok, so I though I will push is to Google App Engine.&lt;/p>
+&lt;p>And,  the nightmare began. I added following plugin and dependency in &lt;code>pom.xml&lt;/code>  based on official documentation.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-xml" data-lang="xml">&lt;span style="color:#f92672">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;groupId&amp;gt;&lt;/span>com.google.appengine&lt;span style="color:#f92672">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;artifactId&amp;gt;&lt;/span>appengine-api-1.0-sdk&lt;span style="color:#f92672">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;version&amp;gt;&lt;/span>1.8.8&lt;span style="color:#f92672">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-xml" data-lang="xml">&lt;span style="color:#f92672">&amp;lt;plugin&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;groupId&amp;gt;&lt;/span>com.google.appengine&lt;span style="color:#f92672">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;artifactId&amp;gt;&lt;/span>appengine-maven-plugin&lt;span style="color:#f92672">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;version&amp;gt;&lt;/span>1.8.8&lt;span style="color:#f92672">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;/plugin&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Just to be safe, I downloaded latest GAE SDK (1.8.8), Eclipse Plugin, etc. As per documentation, I tried to start dev server with following command:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">mvn appengine:devserver_start
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>After a long list of downloads, build failed. Bang! The trouble started. Got this:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#f92672">[&lt;/span>INFO&lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;lt;&amp;lt;&lt;/span> appengine-maven-plugin:1.8.8:devserver_start &lt;span style="color:#f92672">(&lt;/span>default-cli&lt;span style="color:#f92672">)&lt;/span> @ java-servlet &lt;span style="color:#f92672">&amp;lt;&amp;lt;&amp;lt;&lt;/span>
+&lt;span style="color:#f92672">[&lt;/span>INFO&lt;span style="color:#f92672">]&lt;/span>
+&lt;span style="color:#f92672">[&lt;/span>INFO&lt;span style="color:#f92672">]&lt;/span> --- appengine-maven-plugin:1.8.8:devserver_start &lt;span style="color:#f92672">(&lt;/span>default-cli&lt;span style="color:#f92672">)&lt;/span> @ java-servlet ---
+&lt;span style="color:#f92672">[&lt;/span>INFO&lt;span style="color:#f92672">]&lt;/span>
+&lt;span style="color:#f92672">[&lt;/span>INFO&lt;span style="color:#f92672">]&lt;/span> Google App Engine Java SDK - Starting the Development Server
+&lt;span style="color:#f92672">[&lt;/span>INFO&lt;span style="color:#f92672">]&lt;/span>
+&lt;span style="color:#f92672">[&lt;/span>INFO&lt;span style="color:#f92672">]&lt;/span> Retrieving Google App Engine Java SDK from Maven
+Downloading: http://repo.maven.apache.org/maven2/com/google/appengine/appengine-java-sdk/1.8.8/appengine-java-sdk-1.8.8.zip
+&lt;span style="color:#f92672">[&lt;/span>INFO&lt;span style="color:#f92672">]&lt;/span> ------------------------------------------------------------------------
+&lt;span style="color:#f92672">[&lt;/span>INFO&lt;span style="color:#f92672">]&lt;/span> BUILD FAILURE
+&lt;span style="color:#f92672">[&lt;/span>INFO&lt;span style="color:#f92672">]&lt;/span> ------------------------------------------------------------------------
+&lt;span style="color:#f92672">[&lt;/span>INFO&lt;span style="color:#f92672">]&lt;/span> Total time: 1:05.713s
+&lt;span style="color:#f92672">[&lt;/span>INFO&lt;span style="color:#f92672">]&lt;/span> Finished at: Sat Jan &lt;span style="color:#ae81ff">04&lt;/span> 01:05:29 SGT &lt;span style="color:#ae81ff">2014&lt;/span>
+&lt;span style="color:#f92672">[&lt;/span>INFO&lt;span style="color:#f92672">]&lt;/span> Final Memory: 17M/227M
+&lt;span style="color:#f92672">[&lt;/span>INFO&lt;span style="color:#f92672">]&lt;/span> ------------------------------------------------------------------------
+&lt;span style="color:#f92672">[&lt;/span>ERROR&lt;span style="color:#f92672">]&lt;/span> Failed to execute goal com.google.appengine:appengine-maven-plugin:1.8.8:devserver_start &lt;span style="color:#f92672">(&lt;/span>default-cli&lt;span style="color:#f92672">)&lt;/span> on project java-servlet: Could not resolve SDK artifact in Maven. Could not transfer artifact com.google.appengine:appengine-java-sdk:zip:1.8.8 from/to central &lt;span style="color:#f92672">(&lt;/span>http://repo.maven.apache.org/maven2&lt;span style="color:#f92672">)&lt;/span>: Failed to transfer file: http://repo.maven.apache.org/maven2/com/google/appengine/appengine-java-sdk/1.8.8/appengine-java-sdk-1.8.8.zip. Return code is: &lt;span style="color:#ae81ff">503&lt;/span> , ReasonPhrase:backend read error. -&amp;gt; &lt;span style="color:#f92672">[&lt;/span>Help 1&lt;span style="color:#f92672">]&lt;/span>
+&lt;span style="color:#f92672">[&lt;/span>ERROR&lt;span style="color:#f92672">]&lt;/span>
+&lt;span style="color:#f92672">[&lt;/span>ERROR&lt;span style="color:#f92672">]&lt;/span> To see the full stack trace of the errors, re-run Maven with the -e switch.
+&lt;span style="color:#f92672">[&lt;/span>ERROR&lt;span style="color:#f92672">]&lt;/span> Re-run Maven using the -X switch to enable full debug logging.
+&lt;span style="color:#f92672">[&lt;/span>ERROR&lt;span style="color:#f92672">]&lt;/span>
+&lt;span style="color:#f92672">[&lt;/span>ERROR&lt;span style="color:#f92672">]&lt;/span> For more information about the errors and possible solutions, please read the following articles:
+&lt;span style="color:#f92672">[&lt;/span>ERROR&lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">[&lt;/span>Help 1&lt;span style="color:#f92672">]&lt;/span> http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>This was unusual. So I tried again. Its maven central server not an &amp;ldquo;under-the-desk-server&amp;rdquo;. But same no change. I tried to download zip manually, just to be sure that artifact is indeed there. Damn it! I got same error, just a little more fancy looking though!&lt;/p>
+&lt;p>&lt;img src="gae-sdk-mave-503-error.png" alt="type-banner" title="Google App Engine : Maven SDK Download Error">&lt;/p>
+&lt;p>In directory index (&lt;a href="https://repo.maven.apache.org/maven2/com/google/appengine/appengine-java-sdk/1.8.8">here&lt;/a>), I saw that this file was a large (150+MB). So, now what? I did deploy the application after testing on Tomcat 7. I used simple appcfg.sh command.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">mvn tomcat7:run
+...
+...
+appcfg.sh update target/java-servlet
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>But, this was not a &amp;ldquo;cool&amp;rdquo; way. Maven is my project management tool, and I should use it as much as possible.&lt;/p>
+&lt;h2 id="accident-to-revival">Accident to Revival&lt;/h2>
+&lt;p>After googling, reading, googling, reading and googling, I stumbled upon an &lt;a href="https://shal.in/post/285908979/google-app-engine-and-maven">old blog&lt;/a> that added 1.2 version of SDK to maven using &lt;code>install:install-file&lt;/code> goal. Eureka! Why not do this with SDK zip? Thats it. Here are the commands&lt;/p>
+&lt;h2 id="solution">Solution&lt;/h2>
+&lt;p>Install SDK zip via following command.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">mvn install:install-file &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -Dfile&lt;span style="color:#f92672">=&lt;/span>appengine-java-sdk-1.8.8.zip &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -DgroupId&lt;span style="color:#f92672">=&lt;/span>com.google.appengine &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -DartifactId&lt;span style="color:#f92672">=&lt;/span>appenging-java-sdk &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -Dversion&lt;span style="color:#f92672">=&lt;/span>1.8.8 &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -Dpackaging&lt;span style="color:#f92672">=&lt;/span>zip &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -DgeneratePom&lt;span style="color:#f92672">=&lt;/span>true
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>And, an optional JAR install can be done via:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">mvn install:install-file &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -Dfile&lt;span style="color:#f92672">=&lt;/span>appengine-java-sdk-1.8.8/lib/appengine-tools-api.jar
+-DgroupId&lt;span style="color:#f92672">=&lt;/span>com.google &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -DartifactId&lt;span style="color:#f92672">=&lt;/span>appengine-tools &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -Dversion&lt;span style="color:#f92672">=&lt;/span>1.8.8 &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -Dpackaging&lt;span style="color:#f92672">=&lt;/span>jar &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -DgeneratePom&lt;span style="color:#f92672">=&lt;/span>true
+mvn install:install-file &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -Dfile&lt;span style="color:#f92672">=&lt;/span>appengine-java-sdk-1.8.8/lib/shared/appengine-local-runtime-shared.jar &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -DgroupId&lt;span style="color:#f92672">=&lt;/span>com.google &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -DartifactId&lt;span style="color:#f92672">=&lt;/span>appengine-local-runtime-shared &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -Dversion&lt;span style="color:#f92672">=&lt;/span>1.8.8 &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -Dpackaging&lt;span style="color:#f92672">=&lt;/span>jar &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -DgeneratePom&lt;span style="color:#f92672">=&lt;/span>true
+mvn install:install-file &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -Dfile&lt;span style="color:#f92672">=&lt;/span>appengine-java-sdk-1.8.8/lib/user/appengine-api-1.0-sdk-1.8.8.jar &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -DgroupId&lt;span style="color:#f92672">=&lt;/span>com.google &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -DartifactId&lt;span style="color:#f92672">=&lt;/span>appengine-sdk-1.8.8-api &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -Dversion&lt;span style="color:#f92672">=&lt;/span>1.8.8 &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -Dpackaging&lt;span style="color:#f92672">=&lt;/span>jar &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -DgeneratePom&lt;span style="color:#f92672">=&lt;/span>true
+mvn install:install-file &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -Dfile&lt;span style="color:#f92672">=&lt;/span>appengine-java-sdk-1.8.8/lib/user/orm/datanucleus-appengine-1.0.10.final.jar &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -DgroupId&lt;span style="color:#f92672">=&lt;/span>org.datanucleus &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -DartifactId&lt;span style="color:#f92672">=&lt;/span>datanucleus-appengine &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -Dversion&lt;span style="color:#f92672">=&lt;/span>1.0.10.final &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -Dpackaging&lt;span style="color:#f92672">=&lt;/span>jar &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> -DgeneratePom&lt;span style="color:#f92672">=&lt;/span>true
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Project :   &lt;a href="https://github.com/yogendra/java-servlet">Source&lt;/a> | &lt;a href="https://java-servlet.yogendra.me">Live&lt;/a>&lt;/li>
+&lt;li>Google App Engine: &lt;a href="https://developers.google.com/appengine/docs/java/tools/maven">Maven&lt;/a> | &lt;a href="https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Java">Dowloads&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Cricket is just a sport now, coz God has Left Cricket</title><link>https://yogendra.github.io/2013/11/16/cricket-is-just-a-sport-now-coz-god-has-left-cricket/</link><pubDate>Sat, 16 Nov 2013 16:21:54 +0000</pubDate><guid>https://yogendra.github.io/2013/11/16/cricket-is-just-a-sport-now-coz-god-has-left-cricket/</guid><description>
+&lt;p>{% quote &amp;ldquo;- Sachin R. Tendulkar&amp;rdquo; %}
+Yogendra,
+Your expressions have brought joy to my heart &amp;amp; at times a tear to my eyes
+{% endquote %}&lt;/p>
+&lt;p>&lt;img src="https://www.yogendra.me/wp-content/uploads/2013/11/Sachin-TheLegend-682x1024.jpeg" alt="Sachin Digigraph">&lt;/p></description></item><item><title>Michhami Dukkadam</title><link>https://yogendra.github.io/2013/09/10/michhami-dukkadam/</link><pubDate>Tue, 10 Sep 2013 14:43:21 +0000</pubDate><guid>https://yogendra.github.io/2013/09/10/michhami-dukkadam/</guid><description>
+&lt;p>&lt;strong>&lt;a href="https://en.wikipedia.org/wiki/Micchami_Dukkadam">Micchāmi Dukkaḍaṃ (मिच्छामि दुक्कडम्)&lt;/a>&lt;/strong> - may all the evil that has been done be fruitless&lt;/p>
+&lt;p>&lt;a href="michhami-dukkadam.jpg">&lt;img src="michhami-dukkadam.jpg" alt="type-banner" title="Micchami Dukkadam">&lt;/a>&lt;/p></description></item><item><title>Happy Independence Day</title><link>https://yogendra.github.io/2013/08/15/happy-independence-day/</link><pubDate>Thu, 15 Aug 2013 15:17:40 +0000</pubDate><guid>https://yogendra.github.io/2013/08/15/happy-independence-day/</guid><description>
+&lt;p>Happy Independence Data to All Indians.&lt;/p></description></item><item><title>C++ 11 Style : A Touch of Class</title><link>https://yogendra.github.io/2013/07/31/c-11-style-a-touch-of-class/</link><pubDate>Wed, 31 Jul 2013 14:41:38 +0000</pubDate><guid>https://yogendra.github.io/2013/07/31/c-11-style-a-touch-of-class/</guid><description>
+&lt;p>C++11 is the latest specification for C++. Have a look at some of the cool new features in it.&lt;/p>
+&lt;div class="slides">
+&lt;iframe
+src="//www.slideshare.net/slideshow/embed_code/key/GxUn4dWYuCvjwV"
+width="595"
+height="485"
+frameborder="0"
+marginwidth="0"
+marginheight="0"
+scrolling="no"
+style="
+border: 1px solid #ccc;
+border-width: 1px;
+margin-bottom: 5px;
+max-width: 100%;
+"
+allowfullscreen
+>
+&lt;/iframe>
+&lt;/div></description></item><item><title>Netbeans OS X Launcher : My First Open Source Project</title><link>https://yogendra.github.io/2013/04/26/netbeans-os-x-launcher-my-first-open-source-project/</link><pubDate>Fri, 26 Apr 2013 20:17:10 +0000</pubDate><guid>https://yogendra.github.io/2013/04/26/netbeans-os-x-launcher-my-first-open-source-project/</guid><description>
+&lt;p>After many many years of open source advocacy, I have finally created my own first open source project. I have really started small. Too small actually.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="netbeans.png" alt="type-banner" title="Netbeans">&lt;/p>
+&lt;p>&lt;strong>So whats this all about?&lt;/strong>&lt;/p>
+&lt;p>This application is a simple launcher for Netbeans. I have no prior experience in Mac OS X application development. This is not even a full blown application, per say. Its just an Automator workflow.&lt;/p>
+&lt;p>&lt;strong>Where is it?&lt;/strong>&lt;/p>
+&lt;p>&lt;a href="https://github.com/yogendra/netbeans-osx-launcher" title="GitHub : Netbean OSX Launcher">Github&lt;/a>&lt;/p>
+&lt;p>More to follow&lt;/p></description></item><item><title>Sunset at Nariman Point</title><link>https://yogendra.github.io/2013/04/19/sunset-at-nariman-point/</link><pubDate>Fri, 19 Apr 2013 18:40:44 +0000</pubDate><guid>https://yogendra.github.io/2013/04/19/sunset-at-nariman-point/</guid><description>
+&lt;p>Whenever I see this pic, it brings a sense of great nostaligia to me. Don&amp;rsquo;t know if its pure love for city or the majestic effect that it has on me.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="wpid-20130330_185159.jpg" alt="type-banner" title="Sunset at Nariman Point">&lt;/p></description></item><item><title>House Building Trip - Phnom Penh, Cambodia</title><link>https://yogendra.github.io/2013/02/01/house-building-trip-phnom-penh-cambodia/</link><pubDate>Fri, 01 Feb 2013 19:30:00 +0000</pubDate><guid>https://yogendra.github.io/2013/02/01/house-building-trip-phnom-penh-cambodia/</guid><description>
+&lt;p>A memorable journey.&lt;/p>
+&lt;!-- raw HTML omitted --></description></item><item><title>India by C</title><link>https://yogendra.github.io/2013/01/05/india-by-c/</link><pubDate>Sat, 05 Jan 2013 16:54:11 +0000</pubDate><guid>https://yogendra.github.io/2013/01/05/india-by-c/</guid><description>
+&lt;p>Map of India, drawn form C Code.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>Going through social networks, I stumbled upon this code. It didn&amp;rsquo;t make much sense to me, except for the fact that there were 2 loops doing something with a large string. But when I compiled it (with a tiny modification), it gave a great result. Here&amp;rsquo;s code and result.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">
+&lt;span style="color:#75715e">// File: india.c
+&lt;/span>&lt;span style="color:#75715e">// India by C
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;#34;stdio.h&amp;#34;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+&lt;span style="color:#66d9ef">int&lt;/span> a,b,c;
+&lt;span style="color:#66d9ef">int&lt;/span> count &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+printf(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74"> &lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74"> &lt;/span>&lt;span style="color:#ae81ff">\t\t&lt;/span>&lt;span style="color:#e6db74"> Welcome India &lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">for&lt;/span> (b&lt;span style="color:#f92672">=&lt;/span>c&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>;a&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;- FIGURE?, UMKC,XYZHello Folks,\
+&lt;/span>&lt;span style="color:#e6db74"> TFy!QJu ROo TNn(ROo)SLq SLq ULo+\
+&lt;/span>&lt;span style="color:#e6db74"> UHs UJq TNn*RPn/ QPbEWS_JSWQAIJO^ \
+&lt;/span>&lt;span style="color:#e6db74"> NBELPeHBFHT}TnA LVlBLOFAkHFOuFE Tp\
+&lt;/span>&lt;span style="color:#e6db74"> HCStHAUFAgcEAel clcn^r^r&lt;/span>&lt;span style="color:#ae81ff">\\&lt;/span>&lt;span style="color:#e6db74">tZvYx Xy\
+&lt;/span>&lt;span style="color:#e6db74"> T|S~Pn SPm SOn TNn ULo0ULo#ULo-W\
+&lt;/span>&lt;span style="color:#e6db74"> Hq!WFs XDt!&amp;#34;&lt;/span> [b&lt;span style="color:#f92672">+++&lt;/span>&lt;span style="color:#ae81ff">21&lt;/span>]; )
+&lt;span style="color:#66d9ef">for&lt;/span>(; a&lt;span style="color:#f92672">--&lt;/span> &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">64&lt;/span> ; )
+putchar ( &lt;span style="color:#f92672">++&lt;/span>c&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#e6db74">&amp;#39;Z&amp;#39;&lt;/span> &lt;span style="color:#f92672">?&lt;/span> c &lt;span style="color:#f92672">=&lt;/span> c&lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#ae81ff">9&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">33&lt;/span>&lt;span style="color:#f92672">^&lt;/span>b&lt;span style="color:#f92672">&amp;amp;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="india-by-c.png" alt="type-banner" title="India by C - by an Indian Programmer">&lt;/p>
+&lt;p>&lt;em>Credits&lt;/em> : &lt;a href="https://www.facebook.com/amit.adate">Amit Adate&lt;/a>&lt;/p></description></item><item><title>Law of Garbage Truck</title><link>https://yogendra.github.io/2012/12/21/law-of-garbage-truck/</link><pubDate>Fri, 21 Dec 2012 16:07:09 +0000</pubDate><guid>https://yogendra.github.io/2012/12/21/law-of-garbage-truck/</guid><description>
+&lt;p>One day I hopped in a taxi and we took off for the airport.&lt;/p>
+&lt;p>We were driving in the right lane when suddenly a black car jumped out of a parking space right in front of us. My taxi driver slammed on his brakes, skidded, and missed the other car by just inches! The driver of the other car whipped his head around and started yelling at us. My taxi driver just smiled and waved at the guy. And I mean, he was really friendly. So I asked, Why did you just do that? This guy almost ruined your car and sent us to the hospital!
+This is when my taxi driver taught me what I now call, The Law of the Garbage Truck.&lt;/p>
+&lt;p>He explained that many people are like garbage trucks. They run around full of garbage, full of frustration, full of anger, and full of disappointment. As their garbage piles up, they need a place to dump it, and sometimes theyll dump it on you. Dont take it personally. Just smile, wave, wish them well, and move on. Dont take their garbage and spread it to other people at work, at home, or on the streets.&lt;/p>
+&lt;p>The bottom line is that successful people do not let garbage trucks take over their day.&lt;/p>
+&lt;p>Lifes too short to wake up in the morning with regrets, soLove the people who treat you right. Pray for the ones who dont. Life is ten percent what you make it and ninety percent how you take it!&lt;/p>
+&lt;p>Have a blessed, garbage-free day.&lt;/p>
+&lt;p>Source: Social network chatter&lt;/p></description></item><item><title>SIII Advantage</title><link>https://yogendra.github.io/2012/09/25/siii-advantage/</link><pubDate>Tue, 25 Sep 2012 00:43:57 +0000</pubDate><guid>https://yogendra.github.io/2012/09/25/siii-advantage/</guid><description>
+&lt;p>With local telcos slimming data bundle with phone plans and charging extra S$2+ /gb, having radio on phone is great. Saves me 50megs a day. Or 1.5 gb a month.&lt;/p>
+&lt;p>&lt;img src="wpid-galaxy3b_2210472b1.jpg" alt="type-banner" title="Samsung Galaxy SIII">&lt;/p>
+&lt;p>Widgets are great for quick updates glances, phone controls, etc.&lt;/p>
+&lt;p>Big screen is great for reading pages.&lt;/p>
+&lt;p>Otg (32gb), sd card (64gb) and 16 gb internal storage is more like unlimited storage.&lt;/p>
+&lt;p>My favorite feature in all android phone is that they are pc-less phones.&lt;/p>
+&lt;p>File/music/video/photo copy/beam/sync is so easy. I just works.&lt;/p></description></item><item><title>What is this</title><link>https://yogendra.github.io/2012/09/20/what-is-this/</link><pubDate>Thu, 20 Sep 2012 23:10:03 +0000</pubDate><guid>https://yogendra.github.io/2012/09/20/what-is-this/</guid><description>
+&lt;p>Funky remote!&lt;/p>
+&lt;p>&lt;img src="wpid-20120920_230919.jpg" alt="type-banner" title="This is what my TV runs with">&lt;/p></description></item><item><title>moBlog</title><link>https://yogendra.github.io/2012/09/12/moblog/</link><pubDate>Wed, 12 Sep 2012 09:41:03 +0000</pubDate><guid>https://yogendra.github.io/2012/09/12/moblog/</guid><description>
+&lt;p>I have been thinking about blogging regularly, but with amount of work, home chores and everything in between, idea just gets lost. Then again being lazy me is not easy.&lt;/p>
+&lt;p>Anyway if I can write quick posts from phone, may be it might just work. It could be as short as a Tweet or G+ update. If I can get a decent 1 entry per week, I would be happy though.&lt;/p>
+&lt;p>I read a lot about programming, mobile platforms, etc., so I can comment about those here. I have no monetizing objective behind this at the moment and don&amp;rsquo;t have any plan in long term future.&lt;/p></description></item><item><title>Development Books</title><link>https://yogendra.github.io/2012/01/29/development-books/</link><pubDate>Sun, 29 Jan 2012 00:57:18 +0000</pubDate><guid>https://yogendra.github.io/2012/01/29/development-books/</guid><description>
+&lt;p>List of Books that I have been recommended and I would recommend&lt;/p>
+&lt;p>Here&amp;rsquo;s a list of books that I came across while doing some searching:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.amazon.com/gp/product/0201895420">Analysis Patterns&lt;/a>:  A great book about designing large applications&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.com/gp/product/0321125215">Domain Driven Design&lt;/a>: Another great book about application design&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.com/gp/product/020161622X">Pragmatic Programmer&lt;/a>: The best way to not do stupid development&lt;/li>
+&lt;li>&lt;a href="https://mitpress.mit.edu/sicp/">SICP&lt;/a> (free download): Learn about the structure of programming&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.com/gp/product/0201485672">Refactoring&lt;/a>: This should reaffirm your belief in refactoring&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882">Clean Code&lt;/a>: Best book for learning to code right&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.com/gp/product/0465067107">The Design of Everyday Things&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>Source:&lt;/em> &lt;a href="https://madstop.com/post/12932620637/development-books">MadShop&lt;/a>&lt;/p></description></item><item><title>How to use UOB Internet Banking on Chrome/Safari on MAC OS X Lion</title><link>https://yogendra.github.io/2012/01/08/how-to-use-uob-internet-banking-on-chrome/safari-on-mac-os-x-lion/</link><pubDate>Sun, 08 Jan 2012 18:15:50 +0000</pubDate><guid>https://yogendra.github.io/2012/01/08/how-to-use-uob-internet-banking-on-chrome/safari-on-mac-os-x-lion/</guid><description>
+&lt;p>I have been suffering with login issues on &lt;a href="https://www.uob.com.sg/personal/index.html">UOB&lt;/a> internet banking site for as long as I can remember. I had to use Windows on a virtual machine to always login on UOB internet banking site.&lt;/p>
+&lt;p>&lt;img src="UOB-ERROR.png" alt="type-banner" title="Error Message on Login Page in Chrome">&lt;/p>
+&lt;p>I checked java installation and its all in top shape. I knew that its some crappy javascript coding that is causing it to fail to load (or merely reporting it as &amp;ldquo;failed to load&amp;rdquo;). Surprisingly site got loaded perfectly on Firefox and Opera on OS X Lion. Puh! After searching internet for possible issue I ran into a chromium issue report &lt;a href="https://code.google.com/p/chromium/issues/detail?id=40364">40364&lt;/a>. That made me wear my developer hat.&lt;/p>
+&lt;p>I started looking up for the error message all over the javascript and html code. I started by stepping through code in the &amp;ldquo;Developer Tools&amp;rdquo; in chrome. Main culprit here was initApplet() method in pib_login.js.&lt;/p>
+&lt;p>All you need to do is execute &amp;lsquo;initApplet&amp;rsquo; and &amp;lsquo;init&amp;rsquo; method on the login page after everything is finished loading. I tried writing an extension to DO THAT , but Chrome&amp;rsquo;s extension protects the page javascript and css. It allows you to modify DOM only. So, I had to think of something else. And then I remembered &amp;ldquo;Bookmarklet&amp;rdquo;. And here it is now. Just follow the steps below to get it working.&lt;/p>
+&lt;ol>
+&lt;li>Drag the link below (&amp;ldquo;FIX UOB Login&amp;rdquo;) to your bookmark bar (one time only) or create a bookmark with address/URL as one mentioned below (Updated).&lt;/li>
+&lt;li>Goto UOB internet banking page.&lt;/li>
+&lt;li>On the login page, after you get the error (see image) click &amp;ldquo;OK&amp;rdquo;, &lt;strong>let the page load fully&lt;/strong>&lt;/li>
+&lt;li>Once page is fully loaded, click on the bookmarklet (that you dragged in first step).&lt;/li>
+&lt;li>That&amp;rsquo;s it you can login now.&lt;/li>
+&lt;li>Repeat step 2-5, every time you want to login.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;a href="">FIX UOB Login&lt;/a>&lt;/p>
+&lt;p>&lt;strong>Update&lt;/strong>: Some users have reported issues with the bookmarklet. So, I am also posting javascript code that you can put as URL/Address of you bookmark to&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#a6e22e">javascript&lt;/span>&lt;span style="color:#f92672">:&lt;/span>(&lt;span style="color:#66d9ef">function&lt;/span>()&lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#ae81ff">7&lt;/span>&lt;span style="color:#a6e22e">Bif&lt;/span>(&lt;span style="color:#a6e22e">location&lt;/span>.&lt;span style="color:#a6e22e">href&lt;/span>&lt;span style="color:#f92672">==%&lt;/span>&lt;span style="color:#ae81ff">22&lt;/span>&lt;span style="color:#a6e22e">https&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#75715e">//pib.uob.com.sg/PIBLogin/appmanager/Login/Public%22)%7BinitApplet();init();%7D%7D)();
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Please note, that this bookmarklet is designed for Singapore Personal Banking UOB site only. If you are going to any other UOB Banking site, then this Bookmarklet may not work&lt;/p>
+&lt;p>&lt;strong>Disclaimer&lt;/strong>: &lt;em>I will not be liable for any issues resulting, directly or indirectly, due to use of any information provided here.&lt;/em>&lt;/p></description></item><item><title>Need a stand for your phone .. under S$1 .. checkout this!</title><link>https://yogendra.github.io/2012/01/07/need-a-stand-for-your-phone-..-under-s1-..-checkout-this/</link><pubDate>Sat, 07 Jan 2012 01:13:58 +0000</pubDate><guid>https://yogendra.github.io/2012/01/07/need-a-stand-for-your-phone-..-under-s1-..-checkout-this/</guid><description>
+&lt;p>This one is an accidental discovery. I have been always looking for a good phone stand. One  that could hold my phone in a good angle.&lt;/p>
+&lt;p>Especially at night while charging, so that it can double as my bedside clock. Also, in the day, on my work desk.&lt;/p>
+&lt;p>I know most of the phones these days come with docking stands. I personally have 4 phone docks (2 x Motorola droid, 1 x Sony Ericsson Aino, 1 x iPhone) and an iPad dock. I had SGS2 dock on my shopping list for last 2 months. But all these come with a common trouble. You need to remove the cover/bumper to fit them in nicely.&lt;/p>
+&lt;p>But suddenly today fiddling with a plugkey on my desk I put my phone on a it and bang! I got a new stand.&lt;/p>
+&lt;p>&lt;img src="plugkey-stand-plugkey1.jpg" alt="type-banner" title="Plugkey Stand: Plug key">
+&lt;img src="plugkey-stand-iphone-horizontal1.jpg" alt="type-banner" title="Plugkey Stand: iPhone Horizontal">
+&lt;img src="plugkey-stand-iphone-vertical1.jpg" alt="type-banner" title="Plugkey Stand: iPhone Vertical">
+&lt;img src="plugkey-stand-sgs2-horizontal1.jpg" alt="type-banner" title="Plugkey Stand: GSII Horizontal">
+&lt;img src="plugkey-stand-sgs2-vertical1.jpg" alt="type-banner" title="Plugkey Stand: GSII Vertical">&lt;/p>
+&lt;p>Good thing is, you can get very creative and cover it with some velvet or paper. Also, you could get some other color and semi-transparent ones.&lt;/p></description></item><item><title>Launchers for Windows and Mac OS X</title><link>https://yogendra.github.io/2012/01/03/launchers-for-windows-and-mac-os-x/</link><pubDate>Tue, 03 Jan 2012 13:17:33 +0000</pubDate><guid>https://yogendra.github.io/2012/01/03/launchers-for-windows-and-mac-os-x/</guid><description>
+&lt;p>Stumbled upon these on internet. Good apps and good review vid.&lt;/p>
+&lt;p>&lt;strong>Alfred for Mac OS X (but Spotlight is still my choice)&lt;/strong>&lt;/p>
+&lt;div class="video">
+&lt;iframe src="https://www.youtube.com/embed/NhjgInEVnjY?controls=1&amp;rel=0" loading="lazy">&lt;/iframe>
+&lt;/div>
+&lt;div class="video">
+&lt;iframe src="https://www.youtube.com/embed/-TZqaEBejI?controls=1&amp;rel=0" loading="lazy">&lt;/iframe>
+&lt;/div></description></item><item><title>OpenVPN on (Rooted) SGS2</title><link>https://yogendra.github.io/2012/01/02/openvpn-on-rooted-sgs2/</link><pubDate>Mon, 02 Jan 2012 00:59:22 +0000</pubDate><guid>https://yogendra.github.io/2012/01/02/openvpn-on-rooted-sgs2/</guid><description>
+&lt;p>Since mid-last year, I started using a VPN service. Good for me, my VPN provider has both &lt;a href="https://goo.gl/8LTMa">L2TP&lt;/a> and &lt;a href="https://goo.gl/jEe4k">OpenVPN&lt;/a> services. L2TP is very easy to configure on Android phones (newer ones). But I find it unstable (may be my provider&amp;rsquo;s problem). So, I prefer OpenVPN as its stable.&lt;/p>
+&lt;p>&lt;img src="ovpnlogo.png" alt="type-banner" title="OpenVPN">&lt;/p>
+&lt;p>I can only switch between L2TP and OpenVPN a limited number of time in a month. My provider do provide a good guide for getting OpenVPN up and running on a rooted android phone. But as we know &amp;ldquo;NO TWO DROIDS ARE SAME&amp;rdquo;, I had to improvise to get it all up. I did manage to get VPN up in a sec but requests were not getting routed via VPN.&lt;/p>
+&lt;p>After all the reading around at regular places, I got this thing working. Here&amp;rsquo;s how I did it. You would require:&lt;/p>
+&lt;ol>
+&lt;li>tun.ko module for your kernel (Optional as SGS2 should have it build in, I am using DXKL3 firmware. Else try &lt;a href="https://goo.gl/g8Rnj">tun.ko installer&lt;/a> app), if you can not find one and don&amp;rsquo;t feel like compiling one, STOP HERE else read on.&lt;/li>
+&lt;li>Rooted Phone (procedure for SGS2 &lt;a href="https://goo.gl/ehSbJ" title="here">here&lt;/a>)&lt;/li>
+&lt;li>BusyBox (SGS2 w/ &lt;a href="https://goo.gl/ehSbJ">CF-Root&lt;/a> don&amp;rsquo;t have to do anything, its all burnt in, else use &lt;a href="https://goo.gl/p8Q1z">BusyBox Installer&lt;/a>)&lt;/li>
+&lt;li>VPN Account with OpenVPN service (I guess you have one already else just google it)&lt;/li>
+&lt;li>Application: &lt;a href="https://goo.gl/Xoecp">OpenVPN Installer&lt;/a>&lt;/li>
+&lt;li>Application: &lt;a href="https://goo.gl/W1VeQ">OpenVPN Settings&lt;/a>&lt;/li>
+&lt;li>A PC/Mac with &lt;a href="https://goo.gl/2qpr">Android SDK&lt;/a> (adb tool) and &lt;a href="https://goo.gl/dS1rv">Kies&lt;/a> &lt;strong>OR&lt;/strong> &lt;a href="https://goo.gl/G9Ids">Terminal Emulator&lt;/a> &lt;strong>OR&lt;/strong> &lt;a href="https://goo.gl/J7agC">SSHDroid&lt;/a> application in the phone&lt;/li>
+&lt;li>30 minutes of time to make all this work.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="openvpn-install.png" alt="type-banner" title="OpenVPN Install">&lt;/p>
+&lt;p>Once you have rooted your phone, install applications mentioned above as per your preference . Start &amp;ldquo;OpenVPN Installer&amp;rdquo; application and click &amp;ldquo;Install&amp;rdquo;. Choose &amp;ldquo;&lt;strong>/system/xbin&lt;/strong>&amp;rdquo; location for &amp;ldquo;&lt;strong>openvpn&lt;/strong>&amp;rdquo;. For &amp;ldquo;&lt;strong>ifconfig/route&lt;/strong>&amp;rdquo; choose &amp;ldquo;&lt;strong>/system/xbin/bb&lt;/strong>&amp;rdquo; for ifconfig/route.&lt;/p>
+&lt;p>Now, this is the most tricky part. ifconfig and route commands did not get configured correctly. Then I stumbled on &lt;a href="https://goo.gl/3BgZE">this thread&lt;/a> where people were facing exact same issue. Its a huge thread, so just read post #30 and #34 or better, run following commands (in bold) on PC/Mac:&lt;/p>
+&lt;ol>
+&lt;li>Remount /system are R/W&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">adb remount
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>Create a symlink of /system/xbin at /system/xbin/bb&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">adb  ls -s /system/xbin /system/xbin/bb
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>Link toolbox (busybox) as ifconfig and route under /system/xbin/bb&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">adb shell ln -s /system/bin/toolbox /system/xbin/bb
+adb shell ln -s /system/bin/toolbox /system/xbin/bb
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>(Optional) Reboot your phone to just make /system R/O&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">adb reboot
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Puh! congrats you are through with toughest part. Put your OpenVPN configuration files (keys and ovpn file) in &lt;strong>/sdcard/openvpn&lt;/strong> folder. Start &lt;strong>OpenVPN Settings&lt;/strong>, and you should see your configuration listed just under &amp;ldquo;&lt;strong>OpenVPN&lt;/strong>&amp;rdquo; option.&lt;/p>
+&lt;p>Optional: Long press on your configuration name and choose &amp;ldquo;Preferences&amp;rdquo;. Put Google DNS Server &amp;ldquo;&lt;strong>8.8.8.8&lt;/strong>&amp;rdquo; in VPN DNS Server field and check &amp;ldquo;&lt;strong>Use VPN DNS Server&lt;/strong>&amp;rdquo;.&lt;/p>
+&lt;p>&lt;img src="openvpn-connected.png" alt="type-banner" title="OpenVPN Successfully Connected">&lt;/p>
+&lt;p>All set! Just click on &amp;ldquo;&lt;strong>OpenVPN&lt;/strong>&amp;rdquo; on main screen and then click on your configuration name (might have to click twice). You will see the progress in the status bar and final message is &amp;ldquo;&lt;strong>Connection successful&lt;/strong>&amp;rdquo;. If you pull the notification bar down, you should see upload and download speeds.&lt;/p>
+&lt;p>Just go to any site (&lt;a href="https://goo.gl/auec">ip2location&lt;/a>) which tells your ip/location (I go to my VPN provider&amp;rsquo;s page) and check if all works.&lt;/p>
+&lt;p>Okay I have just enough time to catch next episode of CSI:Miami on CBS. Bye.&lt;/p>
+&lt;p>&lt;em>Note:&lt;/em> For other Android (2.1+) phones checkout &lt;a href="https://goo.gl/UrJMn">vpnblog&lt;/a>&lt;/p></description></item><item><title>Fond Farewell, Warm Welcome and Happy Housewarming</title><link>https://yogendra.github.io/2012/01/01/fond-farewell-warm-welcome-and-happy-housewarming/</link><pubDate>Sun, 01 Jan 2012 21:48:32 +0000</pubDate><guid>https://yogendra.github.io/2012/01/01/fond-farewell-warm-welcome-and-happy-housewarming/</guid><description>
+&lt;p>Its that time of the year when everyone looks back at the year gone by and look forward to the new year, in a new spirit. I too decided that I would make some changes and new commitments.&lt;/p>
+&lt;p>&lt;img src="old-new.jpg" alt="type-banner">&lt;/p>
+&lt;p>Over the course of this year I have invested time and money to amass some web assets, but never had enough time and inclination to put them to good use. I have had a stale blog before thi with an average of 3 posts per year (duh). Apart from that, there is always a fear of starting flame wars, misquoting, etc. So, its only apt to get started now.&lt;/p>
+&lt;p>This year has given me many fond memories. I was uncle again, India won a cricket world cup, house was renovated, my SGS2, my first macbook, short getaway at Bintan and many more. And as usual there were a few not so find memories like India&amp;rsquo;s white wash tour of England (wth).&lt;/p>
+&lt;p>I look forward to next year with many plans in mind. One of them is maintaining thia site. This sure will become center of my social networking.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>shell on Yogendra Rampuria</title><link>https://yogendra.github.io/tags/shell/</link><description>Recent content in shell on Yogendra Rampuria</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2012–2021, Yogendra Rampuria; all rights reserved.</copyright><lastBuildDate>Wed, 09 Nov 2016 22:52:49 +0000</lastBuildDate><atom:link href="https://yogendra.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml"/><item><title>Top 30 SSH shenanigans</title><link>https://yogendra.github.io/2016/11/09/top-30-ssh-shenanigans/</link><pubDate>Wed, 09 Nov 2016 22:52:49 +0000</pubDate><guid>https://yogendra.github.io/2016/11/09/top-30-ssh-shenanigans/</guid><description>
+&lt;p>Good list of commands to be SSH &amp;lsquo;Yoda&amp;rsquo;. I like the tunnels and screen the most in these. They have been so useful over the years, for development and troubleshooting.&lt;/p>
+&lt;p>&lt;a href="top-30-ssh-shenanigans/icon-ssh.png" title="SSH Shenanigans">&lt;img src="top-30-ssh-shenanigans/icon-ssh.png" alt="" title="SSH Shenanigans">&lt;/a>&lt;/p>
+&lt;p>Here is a short list that I use ofter:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#75715e"># Copy SSH public key&lt;/span>
+$ ssh-copy-id user@host
+&lt;span style="color:#75715e"># Alternative for ssh-copy-id&lt;/span>
+$ cat ~/.ssh/id_rsa.pub | ssh user@machine “mkdir ~/.ssh; cat &amp;gt;&amp;gt; ~/.ssh/authorized_keys”
+&lt;span style="color:#75715e"># Start a tunnel local:2001 -&amp;gt; remote:80&lt;/span>
+$ ssh -N -L2001:localhost:80 somemachine
+&lt;span style="color:#75715e"># Run a GUI app from remote machine&lt;/span>
+$ ssh -fX &amp;lt;user&amp;gt;@&amp;lt;host&amp;gt; &amp;lt;program&amp;gt;
+&lt;span style="color:#75715e"># SSH to machien behind NAT&lt;/span>
+$ ssh -NR 0.0.0.0:2222:127.0.0.1:22 user@jump.host.com
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Click to &lt;a href="https://www.blackmoreops.com/2016/11/08/top-30-ssh-shenanigans">Original Post&lt;/a>&lt;/p></description></item></channel></rss>

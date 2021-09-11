@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Technology on Yogendra Rampuria</title><link>https://yogendra.github.io/categories/technology/</link><description>Recent content in Technology on Yogendra Rampuria</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2012–2021, Yogendra Rampuria; all rights reserved.</copyright><lastBuildDate>Fri, 21 Jul 2017 17:34:12 +0000</lastBuildDate><atom:link href="https://yogendra.github.io/categories/technology/index.xml" rel="self" type="application/rss+xml"/><item><title>Diagrams In Blog</title><link>https://yogendra.github.io/2017/07/21/diagrams-in-blog/</link><pubDate>Fri, 21 Jul 2017 17:34:12 +0000</pubDate><guid>https://yogendra.github.io/2017/07/21/diagrams-in-blog/</guid><description>
+&lt;p>I use a text to diagram tool called &lt;a href="https://plantuml.com">PlantUML&lt;/a>. It&amp;rsquo;s perfect!
+Now, I want to use it with my hugo site, through a short code. So, I I type a
+code like below, I should see out like as the image.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-markdown" data-lang="markdown">@startuml
+A -&amp;gt; B : Hello
+A &amp;lt;&lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#a6e22e">B&lt;/span> &lt;span style="color:#a6e22e">:&lt;/span> &lt;span style="color:#a6e22e">Hi&lt;/span> &lt;span style="color:#a6e22e">There&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">!&lt;/span>
+@enduml
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Update&lt;/strong>: I spend many hours trying to work this out. Created a firebase function to process posting and converting
+and yada yada. But finally gave up on Hugo. Until there is a plugin support in the core, this will be a very challenging
+thing.&lt;/p>
+&lt;p>During my (failed) research, I ran into &lt;a href="https://hexo.io">Hexo&lt;/a> and &lt;a href="https://www.npmjs.com/package/hexo-filter-plantuml">PlantUML filter plugin&lt;/a>. I saw a a &lt;a href="https://www.npmjs.com/package/hexo-migrator-wordpress">WordPress Migration&lt;/a> plugin. I decided to give it a go.&lt;/p>
+&lt;p>In less than 20 minutes, I managed to install hexo, create a project, migrate wordpress items and got plantuml working.&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-plantuml" data-lang="plantuml">@startuml
+A -&amp;gt; B : Hello
+A &amp;lt;- B : Hi There!
+@enduml
+&lt;/code>&lt;/pre>
+&lt;img src="https://yogendra.github.io/2017/07/21/diagrams-in-blog/sample/Test%20Sequence.png">
+&lt;p>I guess I will have to wait for hugo to mature a bit more. I really liked the speed and simplicity of hugo. But lack of
+plugin support in processing really killed it!&lt;/p>
+&lt;p>&lt;strong>Update&lt;/strong>: I am now using a &lt;a href="https://www.npmjs.com/package/hexo-local-plantuml">hexo-local-plantuml&lt;/a> instead. This
+generates plantuml files and svg locally. So overall page rendering is fast. Downside, I need to have Java and graphviz
+working locally. I have created a working Docker image (&lt;a href="https://hub.docker.com/yogendra/blog-toolbox">yogendra/blog-toolbox:latest&lt;/a>)
+to help me work around this&lt;/p>
+&lt;p>&lt;img src="test.drawio.svg" alt="Test Diagram.IO">&lt;/p>
+&lt;p>&lt;strong>Update&lt;/strong>: Trying client side rendering&lt;/p></description></item><item><title>Migration Mania</title><link>https://yogendra.github.io/2017/07/20/migration-mania/</link><pubDate>Thu, 20 Jul 2017 22:13:49 +0000</pubDate><guid>https://yogendra.github.io/2017/07/20/migration-mania/</guid><description>
+&lt;p>I am embarking on this new journey to use &lt;a href="https://www.staticgen.com/">Static Site Generator&lt;/a>.&lt;/p>
+&lt;p>&lt;img src="migration-mania/html-js-css.png" alt="type-icon-right">&lt;/p>
+&lt;p>So far, I have managed to setup:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gohugo.io">Hugo&lt;/a> base project&lt;/li>
+&lt;li>&lt;a href="https://www.github.com/yogendra/yogendra.me">GitHub repository&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://travis-ci.org/yogendra/yogendra.me">Travis CI&lt;/a> based build and deploy&lt;/li>
+&lt;/ul>
+&lt;p>I have a shared hosting service (for many years now) so I want to use that to host my site. This added some (small) challenges in my journey. I will share my experience, so far and in future, in this post. One thing that I really like is how natural I find this. After all I am a &lt;em>Programmer&lt;/em>.&lt;/p>
+&lt;h2 id="how-can-you-use-my-work">How can you use my work?&lt;/h2>
+&lt;p>You can fork my repository (link above) and follow the simple instruction on the &lt;code>README.md&lt;/code> to start using. I will use my own repository for instructions here.&lt;/p>
+&lt;p>Before you start, get these softwares and setup correctly&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gohugo.io/getting-started/installing/">Hugo&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/travis-ci/travis.rb#installation">Travis CI Client&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://firebase.google.com/docs/cli/">Firebase CLI&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/kennethreitz/autoenv">autoenv&lt;/a> &lt;em>(Optional but Highly Recommended)&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>I use &lt;a href="https://github.com/kennethreitz/autoenv">autoenv&lt;/a> to manager per-project shell environment. It executes &lt;code>.env&lt;/code> file in the directory when you &lt;code>cd&lt;/code> into it. This is optional but very useful.&lt;/p>
+&lt;h2 id="clone-and-change">Clone and Change&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">git clone git@github.com:yogendra/yogendra.me.git
+cd yogendra.me
+git submodule update --init --recursive
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here are some changes that you should consider:&lt;/p>
+&lt;ul>
+&lt;li>You should probably delete &lt;code>site/content/*&lt;/code> and &lt;code>site/static/*&lt;/code> (or not).&lt;/li>
+&lt;li>You &lt;strong>should&lt;/strong> change information in &lt;code>config.toml&lt;/code>, consider changing:
+&lt;ul>
+&lt;li>googleAnalytics&lt;/li>
+&lt;li>baseUrl&lt;/li>
+&lt;li>title&lt;/li>
+&lt;li>author&lt;/li>
+&lt;li>description&lt;/li>
+&lt;li>githubUsername&lt;/li>
+&lt;li>[menu.icon] links&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="run-and-test">Run and Test&lt;/h2>
+&lt;p>You can run development server using following command&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">hugo server -s site -wDEF -b http://localhost:1313 --navigateToChanged --cleanDestinationDir -d dev
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>What the hell! Read instruction in &lt;code>hugo server --help&lt;/code> to understand what each of those switches mean. We are asking hugo to:&lt;/p>
+&lt;ul>
+&lt;li>-w : watch for changes&lt;/li>
+&lt;li>-D : build draft&lt;/li>
+&lt;li>-E : build expired pages&lt;/li>
+&lt;li>-F : build future date page,&lt;/li>
+&lt;li>-b : set base url to &lt;code>http://localhost:1313&lt;/code>&lt;/li>
+&lt;li>&amp;ndash;navigateToChanged : navigate browser to updated file&lt;/li>
+&lt;li>&amp;ndash;cleanDestinationDir: Delete all the files that might be there in destination dir&lt;/li>
+&lt;li>-d : Destination dir to store files into&lt;/li>
+&lt;/ul>
+&lt;p>You can add your own content using command like&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">cd site
+hugo new post/&amp;lt;post-name.md&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>When you want to prepare actual deployment, you can use following command&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">hugo -s site -d public
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="configure-firebase">Configure Firebase&lt;/h2>
+&lt;p>I recommend using &lt;a href="https://firebase.google.com">Firebase&lt;/a>. Read the &lt;a href="https://firebase.google.com/docs/hosting/">hosting guide&lt;/a> and get familiar with the concept and commands.&lt;/p>
+&lt;p>First, login to firebase from cli. This needs to be done only once. If you have already done this for any other prohect, you can skip this step&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ firebase login
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now you need to initialize firebase setting for the project. This will run as a wizard. Follow onscreen instructions.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ firebase init hosting
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>You may test your firebase configuration by deploying changes directly from your machine&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ firebase deploy
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Important:&lt;/strong> &lt;em>Choose &amp;ldquo;N&amp;rdquo; for &amp;ldquo;Configure as a single-page app (rewrite all urls to /index.html)?&amp;rdquo;. Also, don&amp;rsquo;t overwrite files under &lt;code>public/&lt;/code>&lt;/em>&lt;/p>
+&lt;h2 id="configure-travis-ci">Configure Travis CI&lt;/h2>
+&lt;p>&lt;em>Based on &lt;a href="https://docs.travis-ci.com/user/deployment/firebase/">Travis CI - Firebase Deployment&lt;/a>&lt;/em>&lt;/p>
+&lt;p>Create a new project on Travis CI website website. Login to Travis CI via &lt;code>travis&lt;/code> command.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ travis login
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Get a deployment token from firebase, for using in travis ci build environment.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ firebase login:ci
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>This should generate a string that looks like &lt;code>1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla&lt;/code>.
+Use following command to encrypt this string and use in &lt;code>.travis.yml&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ travis encrypt &lt;span style="color:#e6db74">&amp;#34;1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla&amp;#34;&lt;/span> --add
+SUPER-SECRET-ENCRYPTED-VALUE
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Replace &lt;code>deploy&lt;/code> key in &lt;code>.travis.yml&lt;/code> with folowing text. Remember to change &lt;code>SUPER-SECRET-ENCRYPTED-VALUE&lt;/code> with text from last command output&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#f92672">deploy&lt;/span>:
+&lt;span style="color:#f92672">provider&lt;/span>: &lt;span style="color:#ae81ff">firebase&lt;/span>
+&lt;span style="color:#f92672">token&lt;/span>:
+&lt;span style="color:#f92672">secure&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;SUPER-SECRET-ENCRYPTED-VALUE&amp;#34;&lt;/span>
+&lt;span style="color:#f92672">on&lt;/span>:
+&lt;span style="color:#f92672">branch&lt;/span>: &lt;span style="color:#ae81ff">master&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>That&amp;rsquo;s it! Don&amp;rsquo;t forget to checkin your changes.&lt;/p></description></item><item><title>Top 30 SSH shenanigans</title><link>https://yogendra.github.io/2016/11/09/top-30-ssh-shenanigans/</link><pubDate>Wed, 09 Nov 2016 22:52:49 +0000</pubDate><guid>https://yogendra.github.io/2016/11/09/top-30-ssh-shenanigans/</guid><description>
+&lt;p>Good list of commands to be SSH &amp;lsquo;Yoda&amp;rsquo;. I like the tunnels and screen the most in these. They have been so useful over the years, for development and troubleshooting.&lt;/p>
+&lt;p>&lt;a href="top-30-ssh-shenanigans/icon-ssh.png" title="SSH Shenanigans">&lt;img src="top-30-ssh-shenanigans/icon-ssh.png" alt="" title="SSH Shenanigans">&lt;/a>&lt;/p>
+&lt;p>Here is a short list that I use ofter:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#75715e"># Copy SSH public key&lt;/span>
+$ ssh-copy-id user@host
+&lt;span style="color:#75715e"># Alternative for ssh-copy-id&lt;/span>
+$ cat ~/.ssh/id_rsa.pub | ssh user@machine “mkdir ~/.ssh; cat &amp;gt;&amp;gt; ~/.ssh/authorized_keys”
+&lt;span style="color:#75715e"># Start a tunnel local:2001 -&amp;gt; remote:80&lt;/span>
+$ ssh -N -L2001:localhost:80 somemachine
+&lt;span style="color:#75715e"># Run a GUI app from remote machine&lt;/span>
+$ ssh -fX &amp;lt;user&amp;gt;@&amp;lt;host&amp;gt; &amp;lt;program&amp;gt;
+&lt;span style="color:#75715e"># SSH to machien behind NAT&lt;/span>
+$ ssh -NR 0.0.0.0:2222:127.0.0.1:22 user@jump.host.com
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Click to &lt;a href="https://www.blackmoreops.com/2016/11/08/top-30-ssh-shenanigans">Original Post&lt;/a>&lt;/p></description></item><item><title>Data Structure Operation</title><link>https://yogendra.github.io/2015/04/13/data-structure-operation/</link><pubDate>Mon, 13 Apr 2015 00:58:00 +0000</pubDate><guid>https://yogendra.github.io/2015/04/13/data-structure-operation/</guid><description>
+&lt;p>I always find myself pondering about this&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;a href="data-structure-operation/datastructures.png">&lt;img src="data-structure-operation/datastructures.png" alt="" title="Data Structure Operations">&lt;/a>&lt;/p></description></item><item><title>Linux Performance Observability Tools</title><link>https://yogendra.github.io/2015/03/29/linux-performance-observability-tools/</link><pubDate>Sun, 29 Mar 2015 21:04:29 +0000</pubDate><guid>https://yogendra.github.io/2015/03/29/linux-performance-observability-tools/</guid><description>
+&lt;p>I use linux for all production deployments (Obviously). Here is a quick one image run down for all optimizations.&lt;/p>
+&lt;p>&lt;a href="linux-performance-observability-tools/tools.png">&lt;img src="linux-performance-observability-tools/tools.png" alt="">&lt;/a>&lt;/p>
+&lt;p>Source: &lt;a href="https://www.linux.com/news/enterprise/systems-management/785426-a-template-for-monitoring-linux-performance-tools-like-from-netflix">linux.com&lt;/a>&lt;/p></description></item><item><title> yogendra/trusty32 - Announcing my first vagrant box</title><link>https://yogendra.github.io/2014/12/11/yogendra/trusty32-announcing-my-first-vagrant-box/</link><pubDate>Thu, 11 Dec 2014 23:08:49 +0000</pubDate><guid>https://yogendra.github.io/2014/12/11/yogendra/trusty32-announcing-my-first-vagrant-box/</guid><description>
+&lt;p>I have finally released my first vagrant box. Its been a long time coming, but it&amp;rsquo;s here now. How to get it?&lt;/p>
+&lt;p>Create a new vagrant project with:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">vagrant init yogendra/trusty32
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>Or&lt;/em>&lt;/p>
+&lt;ol>
+&lt;li>Create/update your Vagrantfile as&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#75715e"># -*- mode: ruby -*-&lt;/span>
+&lt;span style="color:#75715e"># vi: set ft=ruby :&lt;/span>
+&lt;span style="color:#75715e"># Vagrantfile API/syntax version. Don&amp;#39;t touch unless you know what you&amp;#39;re doing!&lt;/span>
+&lt;span style="color:#66d9ef">VAGRANTFILE_API_VERSION&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;2&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">Vagrant&lt;/span>&lt;span style="color:#f92672">.&lt;/span>configure(&lt;span style="color:#66d9ef">VAGRANTFILE_API_VERSION&lt;/span>) &lt;span style="color:#66d9ef">do&lt;/span> &lt;span style="color:#f92672">|&lt;/span>config&lt;span style="color:#f92672">|&lt;/span>
+config&lt;span style="color:#f92672">.&lt;/span>vm&lt;span style="color:#f92672">.&lt;/span>box &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;yogendra/trusty32&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>Run this&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">vagrant up --provider vmware_fusion
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>That&amp;rsquo;s it.&lt;/p>
+&lt;p>If you are new to Vagrant, read &lt;a href="https://docs.vagrantup.com/v2/getting-started/">this tutorial&lt;/a>to get started&lt;/p></description></item><item><title>JDK - No Install Needed</title><link>https://yogendra.github.io/2014/01/10/jdk-no-install-needed/</link><pubDate>Fri, 10 Jan 2014 10:09:46 +0000</pubDate><guid>https://yogendra.github.io/2014/01/10/jdk-no-install-needed/</guid><description>
+&lt;p>I don&amp;rsquo;t like the whole concept of installers for my development tools like JDK, Eclipse, Netbeans, etc. I just keep a batch/shell script to setup my environment variables for JAVA_HOME, PATH and aliases.&lt;/p>
+&lt;p>So, on Windows, updating JDK involves installing new version of JDK and then copying what I need and then uninstall it. I don&amp;rsquo;t like those registry entries and files installed in C:\Windows\System32, etc.&lt;/p>
+&lt;p>Recently I read a &lt;a href="https://stackoverflow.com/questions/1619662/where-can-i-get-the-latest-jre-jdk-as-a-zip-file-i-mean-no-exe-installer">stackoverflow entry&lt;/a> that gave some insight on JDK packaging. So I wrote a small batch script to do it all. Only quirk is that, there is a small difference in Pre 7.0 packaging from the 7.0 and above, so for now I need to keep 2 scripts. Scripts need 7z, that is a free tool and could be downloaded from &lt;a href="https://www.7-zip.org/download.html">here&lt;/a>.&lt;/p>
+&lt;p>These scripts can be run as:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">jdk-extract path_to_install.exe&amp;lt;/pre&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>or&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">jdk-extract-pre-7.0.bat path_to_installer.bat
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>And now on to the actual the code:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">@echo off
+REM This script will extract JDK tools from installers, without polluting Windows environment.
+REM You need the pristine installers from Oracles website to extract all the data
+setlocal
+SET CWD&lt;span style="color:#f92672">=&lt;/span>%CD%
+SET FILE&lt;span style="color:#f92672">=&lt;/span>%~f1
+SET DEST&lt;span style="color:#f92672">=&lt;/span>%~dpn1
+echo DEST&lt;span style="color:#f92672">=&lt;/span>%DEST% FILE&lt;span style="color:#f92672">=&lt;/span>%FILE% CWD&lt;span style="color:#f92672">=&lt;/span>%CWD%
+md %DEST%
+REM Used e here instead of x to keep structure flat
+7z e -o&lt;span style="color:#e6db74">&amp;#34;%DEST%&amp;#34;&lt;/span> -y &lt;span style="color:#e6db74">&amp;#34;%FILE%&amp;#34;&lt;/span> tools.zip
+cd &lt;span style="color:#e6db74">&amp;#34;%DEST%&amp;#34;&lt;/span>
+7z x -y tools.zip
+del tools.zip
+&lt;span style="color:#66d9ef">for&lt;/span> /r %%x in &lt;span style="color:#f92672">(&lt;/span>*.pack&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">do&lt;/span> call :unpack2000 &lt;span style="color:#e6db74">&amp;#34;%%x&amp;#34;&lt;/span>
+cd %CWD%
+goto end
+:unpack2000
+%DEST%&lt;span style="color:#ae81ff">\b&lt;/span>in&lt;span style="color:#ae81ff">\u&lt;/span>npack200 -r %1 &lt;span style="color:#e6db74">&amp;#34;%~dpn1.jar&amp;#34;&lt;/span>
+goto:eof
+:end
+echo Extracted %FILE% to %DEST%
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">@echo off
+REM This script will extract JDK tools from installers, without polluting Windows environment.
+REM You need the pristine installers from Oracles website to extract all the data
+setlocal
+SET CWD&lt;span style="color:#f92672">=&lt;/span>%CD%
+SET FILE&lt;span style="color:#f92672">=&lt;/span>%~f1
+SET DEST&lt;span style="color:#f92672">=&lt;/span>%~dpn1
+echo DEST&lt;span style="color:#f92672">=&lt;/span>%DEST% FILE&lt;span style="color:#f92672">=&lt;/span>%FILE% CWD&lt;span style="color:#f92672">=&lt;/span>%CWD%
+md %DEST%
+REM Used e here instead of x to keep structure flat
+7z e -o&lt;span style="color:#e6db74">&amp;#34;%DEST%&amp;#34;&lt;/span> -y &lt;span style="color:#e6db74">&amp;#34;%FILE%&amp;#34;&lt;/span> .rsrc&lt;span style="color:#ae81ff">\J&lt;/span>AVA_CAB10&lt;span style="color:#ae81ff">\1&lt;/span>&lt;span style="color:#ae81ff">11&lt;/span>
+cd &lt;span style="color:#e6db74">&amp;#34;%DEST%&amp;#34;&lt;/span>
+extrac32.exe &lt;span style="color:#ae81ff">111&lt;/span>
+del &lt;span style="color:#ae81ff">111&lt;/span>
+7z x -y tools.zip
+del tools.zip
+&lt;span style="color:#66d9ef">for&lt;/span> /r %%x in &lt;span style="color:#f92672">(&lt;/span>*.pack&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">do&lt;/span> call :unpack2000 &lt;span style="color:#e6db74">&amp;#34;%%x&amp;#34;&lt;/span>
+cd %CWD%
+goto end
+:unpack2000
+%DEST%&lt;span style="color:#ae81ff">\b&lt;/span>in&lt;span style="color:#ae81ff">\u&lt;/span>npack200 -r %1 &lt;span style="color:#e6db74">&amp;#34;%~dpn1.jar&amp;#34;&lt;/span>
+goto:eof
+:end
+echo Extracted %FILE% to %DEST%
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>C++ 11 Style : A Touch of Class</title><link>https://yogendra.github.io/2013/07/31/c-11-style-a-touch-of-class/</link><pubDate>Wed, 31 Jul 2013 14:41:38 +0000</pubDate><guid>https://yogendra.github.io/2013/07/31/c-11-style-a-touch-of-class/</guid><description>
+&lt;p>C++11 is the latest specification for C++. Have a look at some of the cool new features in it.&lt;/p>
+&lt;div class="slides">
+&lt;iframe
+src="//www.slideshare.net/slideshow/embed_code/key/GxUn4dWYuCvjwV"
+width="595"
+height="485"
+frameborder="0"
+marginwidth="0"
+marginheight="0"
+scrolling="no"
+style="
+border: 1px solid #ccc;
+border-width: 1px;
+margin-bottom: 5px;
+max-width: 100%;
+"
+allowfullscreen
+>
+&lt;/iframe>
+&lt;/div></description></item><item><title>India by C</title><link>https://yogendra.github.io/2013/01/05/india-by-c/</link><pubDate>Sat, 05 Jan 2013 16:54:11 +0000</pubDate><guid>https://yogendra.github.io/2013/01/05/india-by-c/</guid><description>
+&lt;p>Map of India, drawn form C Code.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>Going through social networks, I stumbled upon this code. It didn&amp;rsquo;t make much sense to me, except for the fact that there were 2 loops doing something with a large string. But when I compiled it (with a tiny modification), it gave a great result. Here&amp;rsquo;s code and result.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">
+&lt;span style="color:#75715e">// File: india.c
+&lt;/span>&lt;span style="color:#75715e">// India by C
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;#34;stdio.h&amp;#34;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+&lt;span style="color:#66d9ef">int&lt;/span> a,b,c;
+&lt;span style="color:#66d9ef">int&lt;/span> count &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+printf(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74"> &lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74"> &lt;/span>&lt;span style="color:#ae81ff">\t\t&lt;/span>&lt;span style="color:#e6db74"> Welcome India &lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">for&lt;/span> (b&lt;span style="color:#f92672">=&lt;/span>c&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>;a&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;- FIGURE?, UMKC,XYZHello Folks,\
+&lt;/span>&lt;span style="color:#e6db74"> TFy!QJu ROo TNn(ROo)SLq SLq ULo+\
+&lt;/span>&lt;span style="color:#e6db74"> UHs UJq TNn*RPn/ QPbEWS_JSWQAIJO^ \
+&lt;/span>&lt;span style="color:#e6db74"> NBELPeHBFHT}TnA LVlBLOFAkHFOuFE Tp\
+&lt;/span>&lt;span style="color:#e6db74"> HCStHAUFAgcEAel clcn^r^r&lt;/span>&lt;span style="color:#ae81ff">\\&lt;/span>&lt;span style="color:#e6db74">tZvYx Xy\
+&lt;/span>&lt;span style="color:#e6db74"> T|S~Pn SPm SOn TNn ULo0ULo#ULo-W\
+&lt;/span>&lt;span style="color:#e6db74"> Hq!WFs XDt!&amp;#34;&lt;/span> [b&lt;span style="color:#f92672">+++&lt;/span>&lt;span style="color:#ae81ff">21&lt;/span>]; )
+&lt;span style="color:#66d9ef">for&lt;/span>(; a&lt;span style="color:#f92672">--&lt;/span> &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">64&lt;/span> ; )
+putchar ( &lt;span style="color:#f92672">++&lt;/span>c&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#e6db74">&amp;#39;Z&amp;#39;&lt;/span> &lt;span style="color:#f92672">?&lt;/span> c &lt;span style="color:#f92672">=&lt;/span> c&lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#ae81ff">9&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">33&lt;/span>&lt;span style="color:#f92672">^&lt;/span>b&lt;span style="color:#f92672">&amp;amp;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="india-by-c.png" alt="type-banner" title="India by C - by an Indian Programmer">&lt;/p>
+&lt;p>&lt;em>Credits&lt;/em> : &lt;a href="https://www.facebook.com/amit.adate">Amit Adate&lt;/a>&lt;/p></description></item><item><title>SIII Advantage</title><link>https://yogendra.github.io/2012/09/25/siii-advantage/</link><pubDate>Tue, 25 Sep 2012 00:43:57 +0000</pubDate><guid>https://yogendra.github.io/2012/09/25/siii-advantage/</guid><description>
+&lt;p>With local telcos slimming data bundle with phone plans and charging extra S$2+ /gb, having radio on phone is great. Saves me 50megs a day. Or 1.5 gb a month.&lt;/p>
+&lt;p>&lt;img src="wpid-galaxy3b_2210472b1.jpg" alt="type-banner" title="Samsung Galaxy SIII">&lt;/p>
+&lt;p>Widgets are great for quick updates glances, phone controls, etc.&lt;/p>
+&lt;p>Big screen is great for reading pages.&lt;/p>
+&lt;p>Otg (32gb), sd card (64gb) and 16 gb internal storage is more like unlimited storage.&lt;/p>
+&lt;p>My favorite feature in all android phone is that they are pc-less phones.&lt;/p>
+&lt;p>File/music/video/photo copy/beam/sync is so easy. I just works.&lt;/p></description></item><item><title>What is this</title><link>https://yogendra.github.io/2012/09/20/what-is-this/</link><pubDate>Thu, 20 Sep 2012 23:10:03 +0000</pubDate><guid>https://yogendra.github.io/2012/09/20/what-is-this/</guid><description>
+&lt;p>Funky remote!&lt;/p>
+&lt;p>&lt;img src="wpid-20120920_230919.jpg" alt="type-banner" title="This is what my TV runs with">&lt;/p></description></item><item><title>Development Books</title><link>https://yogendra.github.io/2012/01/29/development-books/</link><pubDate>Sun, 29 Jan 2012 00:57:18 +0000</pubDate><guid>https://yogendra.github.io/2012/01/29/development-books/</guid><description>
+&lt;p>List of Books that I have been recommended and I would recommend&lt;/p>
+&lt;p>Here&amp;rsquo;s a list of books that I came across while doing some searching:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.amazon.com/gp/product/0201895420">Analysis Patterns&lt;/a>:  A great book about designing large applications&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.com/gp/product/0321125215">Domain Driven Design&lt;/a>: Another great book about application design&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.com/gp/product/020161622X">Pragmatic Programmer&lt;/a>: The best way to not do stupid development&lt;/li>
+&lt;li>&lt;a href="https://mitpress.mit.edu/sicp/">SICP&lt;/a> (free download): Learn about the structure of programming&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.com/gp/product/0201485672">Refactoring&lt;/a>: This should reaffirm your belief in refactoring&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882">Clean Code&lt;/a>: Best book for learning to code right&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.com/gp/product/0465067107">The Design of Everyday Things&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>Source:&lt;/em> &lt;a href="https://madstop.com/post/12932620637/development-books">MadShop&lt;/a>&lt;/p></description></item><item><title>OpenVPN on (Rooted) SGS2</title><link>https://yogendra.github.io/2012/01/02/openvpn-on-rooted-sgs2/</link><pubDate>Mon, 02 Jan 2012 00:59:22 +0000</pubDate><guid>https://yogendra.github.io/2012/01/02/openvpn-on-rooted-sgs2/</guid><description>
+&lt;p>Since mid-last year, I started using a VPN service. Good for me, my VPN provider has both &lt;a href="https://goo.gl/8LTMa">L2TP&lt;/a> and &lt;a href="https://goo.gl/jEe4k">OpenVPN&lt;/a> services. L2TP is very easy to configure on Android phones (newer ones). But I find it unstable (may be my provider&amp;rsquo;s problem). So, I prefer OpenVPN as its stable.&lt;/p>
+&lt;p>&lt;img src="ovpnlogo.png" alt="type-banner" title="OpenVPN">&lt;/p>
+&lt;p>I can only switch between L2TP and OpenVPN a limited number of time in a month. My provider do provide a good guide for getting OpenVPN up and running on a rooted android phone. But as we know &amp;ldquo;NO TWO DROIDS ARE SAME&amp;rdquo;, I had to improvise to get it all up. I did manage to get VPN up in a sec but requests were not getting routed via VPN.&lt;/p>
+&lt;p>After all the reading around at regular places, I got this thing working. Here&amp;rsquo;s how I did it. You would require:&lt;/p>
+&lt;ol>
+&lt;li>tun.ko module for your kernel (Optional as SGS2 should have it build in, I am using DXKL3 firmware. Else try &lt;a href="https://goo.gl/g8Rnj">tun.ko installer&lt;/a> app), if you can not find one and don&amp;rsquo;t feel like compiling one, STOP HERE else read on.&lt;/li>
+&lt;li>Rooted Phone (procedure for SGS2 &lt;a href="https://goo.gl/ehSbJ" title="here">here&lt;/a>)&lt;/li>
+&lt;li>BusyBox (SGS2 w/ &lt;a href="https://goo.gl/ehSbJ">CF-Root&lt;/a> don&amp;rsquo;t have to do anything, its all burnt in, else use &lt;a href="https://goo.gl/p8Q1z">BusyBox Installer&lt;/a>)&lt;/li>
+&lt;li>VPN Account with OpenVPN service (I guess you have one already else just google it)&lt;/li>
+&lt;li>Application: &lt;a href="https://goo.gl/Xoecp">OpenVPN Installer&lt;/a>&lt;/li>
+&lt;li>Application: &lt;a href="https://goo.gl/W1VeQ">OpenVPN Settings&lt;/a>&lt;/li>
+&lt;li>A PC/Mac with &lt;a href="https://goo.gl/2qpr">Android SDK&lt;/a> (adb tool) and &lt;a href="https://goo.gl/dS1rv">Kies&lt;/a> &lt;strong>OR&lt;/strong> &lt;a href="https://goo.gl/G9Ids">Terminal Emulator&lt;/a> &lt;strong>OR&lt;/strong> &lt;a href="https://goo.gl/J7agC">SSHDroid&lt;/a> application in the phone&lt;/li>
+&lt;li>30 minutes of time to make all this work.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="openvpn-install.png" alt="type-banner" title="OpenVPN Install">&lt;/p>
+&lt;p>Once you have rooted your phone, install applications mentioned above as per your preference . Start &amp;ldquo;OpenVPN Installer&amp;rdquo; application and click &amp;ldquo;Install&amp;rdquo;. Choose &amp;ldquo;&lt;strong>/system/xbin&lt;/strong>&amp;rdquo; location for &amp;ldquo;&lt;strong>openvpn&lt;/strong>&amp;rdquo;. For &amp;ldquo;&lt;strong>ifconfig/route&lt;/strong>&amp;rdquo; choose &amp;ldquo;&lt;strong>/system/xbin/bb&lt;/strong>&amp;rdquo; for ifconfig/route.&lt;/p>
+&lt;p>Now, this is the most tricky part. ifconfig and route commands did not get configured correctly. Then I stumbled on &lt;a href="https://goo.gl/3BgZE">this thread&lt;/a> where people were facing exact same issue. Its a huge thread, so just read post #30 and #34 or better, run following commands (in bold) on PC/Mac:&lt;/p>
+&lt;ol>
+&lt;li>Remount /system are R/W&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">adb remount
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>Create a symlink of /system/xbin at /system/xbin/bb&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">adb  ls -s /system/xbin /system/xbin/bb
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>Link toolbox (busybox) as ifconfig and route under /system/xbin/bb&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">adb shell ln -s /system/bin/toolbox /system/xbin/bb
+adb shell ln -s /system/bin/toolbox /system/xbin/bb
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>(Optional) Reboot your phone to just make /system R/O&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">adb reboot
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Puh! congrats you are through with toughest part. Put your OpenVPN configuration files (keys and ovpn file) in &lt;strong>/sdcard/openvpn&lt;/strong> folder. Start &lt;strong>OpenVPN Settings&lt;/strong>, and you should see your configuration listed just under &amp;ldquo;&lt;strong>OpenVPN&lt;/strong>&amp;rdquo; option.&lt;/p>
+&lt;p>Optional: Long press on your configuration name and choose &amp;ldquo;Preferences&amp;rdquo;. Put Google DNS Server &amp;ldquo;&lt;strong>8.8.8.8&lt;/strong>&amp;rdquo; in VPN DNS Server field and check &amp;ldquo;&lt;strong>Use VPN DNS Server&lt;/strong>&amp;rdquo;.&lt;/p>
+&lt;p>&lt;img src="openvpn-connected.png" alt="type-banner" title="OpenVPN Successfully Connected">&lt;/p>
+&lt;p>All set! Just click on &amp;ldquo;&lt;strong>OpenVPN&lt;/strong>&amp;rdquo; on main screen and then click on your configuration name (might have to click twice). You will see the progress in the status bar and final message is &amp;ldquo;&lt;strong>Connection successful&lt;/strong>&amp;rdquo;. If you pull the notification bar down, you should see upload and download speeds.&lt;/p>
+&lt;p>Just go to any site (&lt;a href="https://goo.gl/auec">ip2location&lt;/a>) which tells your ip/location (I go to my VPN provider&amp;rsquo;s page) and check if all works.&lt;/p>
+&lt;p>Okay I have just enough time to catch next episode of CSI:Miami on CBS. Bye.&lt;/p>
+&lt;p>&lt;em>Note:&lt;/em> For other Android (2.1+) phones checkout &lt;a href="https://goo.gl/UrJMn">vpnblog&lt;/a>&lt;/p></description></item></channel></rss>

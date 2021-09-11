@@ -1,794 +1,592 @@
-
-<!DOCTYPE html>
-<html lang="en">
-    
+<!doctype html><html lang=en data-figures class=page>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Chase Your Dreams">
-    <title>Puppeteer - No Strings Attached - Chase Your Dreams</title>
-    <meta name="author" content="Yogendra Rampuria">
-    
-    
-        <link rel="icon" href="http://yogendra.github.io/assets/images/favicon_32.png">
-    
-    
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
-    
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Yogendra Rampuria","sameAs":["https://github.com/yogendra","https://stackoverflow.com/users/559158/yogi","https://twitter.com/yogendra","https://facebook.com/yogendrarampuria","https://www.linkedin.com/in/yogi","mailto:yogendrarampuria@gmail.com"],"image":"https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc"},"articleBody":"I am a Co-Manager for Google Developer Group - Singapore (FB). And today was our annual GDG-SG DevFest 2017 event. Apart from being an organizer, I was also a speaker. I gave a short talk on Puppeteer. This post is (almost) a transcript of my speech today. Slides can be found here\n\n\n\n\nOverviewPuppeteer is a Node JS API published by Chrome team. It is an API to control Chrome browser via DevTools Protocol. Puppeteer was released shortly after the Chrome 59. This version of Chrome brought us Headless Chrome. It requires Node JS version 6.4+. I would recommend using version 7.5+, so you can use async/await feature from ES2017.\nFeaturesIt connects with browser using Chrome DevTools Protocol. Hence, it works with Chrome/Chromium only, and not with other browsers.\nPuppeteer can work in headless environment. This makes it a good candidate tool for unit/acceptance/functional tests in a CI environment. It can simulate keyboard, mouse and touch events. So, if you are building a responsive application for desktop and mobile devices, you can use Puppeteer for testing. It also brings the PDF and screenshot capabilities out of box. You can capture PDF and screenshot for whole or part of the page.\nPuppeteer allows you to trap console output and web requests. If you have a requirement to “flag” any console output, you may put traps in your test cases for it. If you want to mock a back-end server request (json/xml), you can intercept those request and provide mock response for it.\nIt has API for performance tracing. So you can use it for recording page load performance and trace any bottlenecks. One of the biggest advantage, of having latest Chromium or Chrome being driven by the API, is Blink Engine. It is a shiny new layout engine from Chromium project and replaces WebKit engine. I am not aware about any short comings with WebKit, but I am guessing that Chromium has outgrown WebKit zone.\nUse casesI have found Puppeteer most useful in browser automation. I have done multiple personal projects for browser automation (I am a lazy guy). Puppeteer offers a simple clean API interface for this, and that in itself is a great selling point. You can use if for frontend testing, e2e testing, etc.\nServer side rendering (SSR) is another great use case for this API. You can easily render your single page applications’ view on server side and send them to client. This is very useful when you have deep nested view and deep-linking facility in your application.\nIf you have written apps in Spring Web MVC to produce PDF, you would be aware of maintenance nightmares. You had to maintain each View (HTML and PDF) separately. I eventually started using PhantomJS on server side and reused HTML view to generate PDF with it. You get absolutely great looking PDF out of box with Puppeteer. Its identical to what you get in the PDF print in regular Chrome.\nWeb crawling and scraping is one of the easiest things to do with Puppeteer. You can easily navigate to pages, retrieve details and process them in a nested fashion.\nPuppeteer And OthersBrowser automation and e2e testing is a very busy area. Lots of options for frameworks, APIs, Tools and Platforms. As a result, there are many competing tools in this space. Puppeteer emerges as a good replacement for a few of them.\nPhantomJSPhantomJS was one of the first tools that I used for headless browsing. I used it for generating server side PDF. However, recent events force us to move on to other tooling. Primary maintainer of PhantomJS, Vitaly, has stepped down. In his departing note, he expressed excitement about the new Headless Chrome experience. That’s fair! And I agree with his point of view.\nThe ‘Selenium’ EmpireSelenium is probably the most used browser automation and testing tool for frontend. It is the “Automation Emperor” for me. It has the most comprehensive coverage in terms of languages and target browsers. It has language binding for Java, Node, Ruby, Python, etc. You name it and it has language binding for it. And on the other side, it has web driver for every browser or browser like system. It has drivers for all browsers, Chrome, Safari, Firefox, Opera, etc. It also has drivers for like ok PhantomJS and Appium.\nThey have managed to achieve the most unimaginable feat. They have got these giants on a common footing. It enjoy a lot of love and support from community, including myself. So, why am I even talking about puppeteer.\nThat brings me nicely into the next piece. Architecture-wise Selenium and Puppeteer are slightly different. Selenium achieve browser automation though an intermediate proxy, the WebDriver. WebDriver is a per-browser component implementing remote control capabilities. It exposes an restful API interface. A language binding uses these APIs to interact and control browser.\n\nPuppeteer takes a leaner approach to this and taps straight into the DevTools protocol of the browser. This makes it possible to easily keep keep with browser features and automation API, in sync.\nDemoLets go through some samples to understand the development with Puppeteer.\nInstallationPuppeteer is a Node JS API. Its published as an NPM package. You can install it in you project with simple npm install\n12345678$ npm i --save-dev puppeteer&gt; puppeteer@0.12.0 install /Users/user/.nvm/project1/node_modules/puppeteer&gt; node install.jsDownloading Chromium r508693 - 72.6 Mb [====================] 100% 0.0sChromium downloaded to /Users/monkey/project1/lib/node_modules/puppeteer/.local-chromium/mac-508693+ puppeteer@0.12.0added 42 packages in 223.254s\n\nNotice how it has also downloaded Chromium. This ensures that it has a compatible version of chromium always. You can skip Chromium download and run it with your own installation of Chrome / Chromium. You can skip download by setting an PUPPETEER_SKIP_CHROMIUM_DOWNLOAD environment variable. And you can provide executable path to alternate Chrome or Chromium in you code.\nScreenshotTaking a screenshot in an automation tool is like a “Hello World!” thing.\nscreenshot.js12345678910\"use strict\";const puppeteer = require(\"puppeteer\");(async () =&gt; &#123;  const browser = await puppeteer.launch();  const page = await browser.newPage();  await page.goto(\"https://www.google.com\", &#123; waitUntil: \"networkidle\" &#125;);  await page.screenshot(&#123; path: \"screenshot.png\" &#125;);  await browser.close();&#125;)();\n\nSource\nIf you are not familiar with async/await, I would recommend reading this. Most methods in Puppeteer API return a Promise. await ensures that you wait for a promise to resolve or reject before proceeding to next instruction. Line 5, invokes launch(), which launches Chromium. You can specify launch options as an object parameter, like puppeteer.launch({headless: false}). See all the options in documentation page. Line 6 creates a new tab with newPage() method. goto() method on line 7 navigates page to a URL. waitUntil ensures that page and its and related assets (js/images/css) are loaded, before promise is resolved.\nOn line 10-12, screenshot() method captures an image of output and stores it in screenshot.png. This looks plain and simple. And that is what made me like this API. It is clean and simple.\nYou can run this with following command\n12$ node screenshot.js$\n\nThis produces screenshot.png in the current directory.\n\nPDFThis is the single biggest reason for me to use Puppeteer. PDF generation is a breeze! Heres how you can do it.\npdf.js12345678910111213\"use strict\";const puppeteer = require(\"puppeteer\");(async () =&gt; &#123;  const browser = await puppeteer.launch();  const page = await browser.newPage();  await page.goto(\"https://news.ycombinator.com\", &#123; waitUntil: \"networkidle\" &#125;);  await page.pdf(&#123;    path: \"hn.pdf\",    format: \"A4\",  &#125;);  await browser.close();&#125;)();\n\nSource\nWe will now generate PDF from hacker news landing page. Code is not very different from what we saw in screenshot example. Line 20-23 generates PDF instead of screenshot. And thats it. You can specify paper size for the PDF in the optional argument. Look at documentation for more options. Its output would be identical to “Print PDF” function of Chrome or Chromium. It uses print media css.\nLink to actual extracted PDF\nWeb ScrapingI have used Puppeteer most for this. In my work environment I have need for integration via web pages. There are case where I don’t have access to a data API for integration. Puppeteer can make it possible for you to expose a “web” site as a JSON api.\nscrape.js123456789101112131415161718192021222324252627`use strict`;const SELECTOR_BOOK_IMAGE =  \"#default &gt; div &gt; div &gt; div &gt; div &gt; section &gt; div:nth-child(2) &gt; ol &gt; li:nth-child(1) &gt; article &gt; div.image_container &gt; a &gt; img\";const puppeteer = require(\"puppeteer\");let scrape = async () =&gt; &#123;  const browser = await puppeteer.launch(&#123; headless: false &#125;);  const page = await browser.newPage();  await page.goto(\"http://books.toscrape.com/\");  await page.waitFor(1000);  await page.click(SELECTOR_BOOK_IMAGE);  await page.waitFor(2000);  const result = await page.evaluate(() =&gt; &#123;    let title = document.querySelector(\"h1\").innerText;    let price = document.querySelector(\".price_color\").innerText;    return &#123;      title,      price,    &#125;;  &#125;);  await browser.close();  return result;&#125;;scrape().then((value) =&gt; &#123;  console.log(value); // Success!&#125;);\n\nSource\nWe first goto “books.toscrape.com” and click on first image (line 11) on the page. First image on page is referred via SELECTOR_BOOK_IMAGE css selector. This triggers a navigation to a details page.\nOn line 13, a function is dispatched for evaluation on the DOM. This function goes through DOM element (h1 and element with class price_color ) and extracts text (innerText).\nYou can simply run this with node command.\n12$ node scrape.js&#123; title: 'A Light in the Attic', price: '£51.77' &#125;\n\nYou will see browser window for this example. This is because of line 7, where I have opted for {headless: false}. This is to show scraping in action.\nDisclaimer: Be very careful what you scrape. You can/will run into legal and licensing issues very quickly.\nFinal ThoughtsPuppeteer is a very promising project. In a very short period (&lt; 6 month) it has gotten great support from community. I have read many posts covering this API. I am confident about the future of this project. I am looking forward to a growing and thriving community for this.\nIt is a very good replacement for PhantomJS. However, my key concern as at the moment are:\n\nGoogle Cloud Function (GCF) does not support Node JS 6.4+. So, you have to use cloud VM or Container service to run this in cloud. Hopefully next version of LTS will be 8+, and will bring all the goodness of async/await into the mix\nLack of support for non-Chrome based browser could be discouraging for many developers. We all want to keep tool/library dependency low and single codebase for testing. If you project demands multi-browser testing, you will end up in a fractured state. Better stick with WebDriver/Selenium. May be WebDriver will adopt some part of Puppeteer API.\n\nI also found the e2e testing support very unclean. Its possible, workable, but now readable. I would like to see a very clean integration with likes of cucumber, mocha, chai, etc.\nLinksHere are some links that I used for preparing my presentation.\n\nPuppeteer Home\nTry Puppeteer in Browser\nPuppetron (Demo)\nGetting Started with Headless Chrome - Eric Bidelman\nGetting Started with Puppeteer and Headless Chrome Web Scraping - Emad Ehsan\nA Guide to Automating and Scraping - Brandon Morelli\n\nQuestionsCan I use Puppeteer for extracting data and localizing?Technically, Yes. You can setup data pipeline to crawl and extract data. You case store it in database or some other persistent store. You can use a workflow to review, edit and publish. Be very careful about licensing. Don’t crawl/scrape data without author’s consent.\nCan you run multiple tabs simultaneously?Yes. You can use newPage() method to create multiple tabs. And for each tab you can have a different execution code. I have tried it with 2 tabs. Here is a code sample for the last example (scraping) that does same thing but five times, concurrently.\nscrape-multi.js123456789101112131415161718192021222324252627282930313233343536const SELECTOR_BOOK_IMAGE =  \"#default &gt; div &gt; div &gt; div &gt; div &gt; section &gt; div:nth-child(2) &gt; ol &gt; li:nth-child(1) &gt; article &gt; div.image_container &gt; a &gt; img\";const puppeteer = require(\"puppeteer\");let scrapeSite = async (browser) =&gt; &#123;  const page = await browser.newPage();  await page.goto(\"http://books.toscrape.com/\");  await page.waitFor(1000);  await page.click(SELECTOR_BOOK_IMAGE);  await page.waitFor(2000);  const result = await page.evaluate(() =&gt; &#123;    let title = document.querySelector(\"h1\").innerText;    let price = document.querySelector(\".price_color\").innerText;    return &#123;      title,      price,    &#125;;  &#125;);  return result;&#125;;let scrape = async () =&gt; &#123;  const browser = await puppeteer.launch(&#123; headless: false &#125;);  const result = await Promise.all([    scrapeSite(browser),    scrapeSite(browser),    scrapeSite(browser),    scrapeSite(browser),    scrapeSite(browser),  ]);  await browser.close();  return result;&#125;;scrape().then((value) =&gt; &#123;  console.log(value); // Success!&#125;);\n\nSource\nCan I extract CSS from the pages with this?I have not tried it, but as you can evaluate any valid javascript code using API, you should be able to extract that.\nBelow is a code that dumps each css being accessed by the page.\nscrape-dump-css.js1234567891011121314151617181920212223const puppeteer = require(\"puppeteer\");let scrape = async () =&gt; &#123;  const browser = await puppeteer.launch(&#123; headless: false &#125;);  const page = await browser.newPage();  await page.setRequestInterceptionEnabled(true);  page.on(\"request\", (r) =&gt; &#123;    r.continue();  &#125;);  page.on(\"response\", (r) =&gt; &#123;    const url = r.url;    if (url.endsWith(\"css\")) &#123;      r.text().then((s) =&gt; &#123;        console.log(\"// Source:\" + url);        console.log(s);      &#125;);    &#125;  &#125;);  await page.goto(\"http://books.toscrape.com/\");  await browser.close();&#125;;scrape();\n\nSource\nThanksMy father (Shri. Noratan Rampuria) has always been very supportive of my life and career choices. And he showed his support once again. He was there for my talk and had looked happy. Thanks papa 🙏!\nMany ex and current colleagues were also at the event and showed their support. Thanks folks🤝!\nThanks to Bharathi and Hari (GDG Mangement team) for the opportunity to speak. Well, it was more like push to speak 😀. Manikantan K, Hui Yi, Dirk Primbs and David from Google Developer Relations for supporting GDG-SG - “Thank you”. And Jason Zaman for incepting the idea “Want to be at a conference? Just speak on something”.\n","dateCreated":"2017-10-28T15:52:08+00:00","dateModified":"2020-08-25T14:21:37+00:00","datePublished":"2017-10-28T15:52:08+00:00","description":"I am a Co-Manager for Google Developer Group - Singapore (FB). And today was our annual GDG-SG DevFest 2017 event. Apart from being an organizer, I was also a speaker. I gave a short talk on Puppeteer. This post is (almost) a transcript of my speech today. Slides can be found here","headline":"Puppeteer - No Strings Attached","image":["logo.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/"},"publisher":{"@type":"Organization","name":"Yogendra Rampuria","sameAs":["https://github.com/yogendra","https://stackoverflow.com/users/559158/yogi","https://twitter.com/yogendra","https://facebook.com/yogendrarampuria","https://www.linkedin.com/in/yogi","mailto:yogendrarampuria@gmail.com"],"image":"https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc"}},"url":"http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/","keywords":"gdg, testing","thumbnailUrl":"logo.png"}</script>
-    <meta name="description" content="I am a Co-Manager for Google Developer Group - Singapore (FB). And today was our annual GDG-SG DevFest 2017 event. Apart from being an organizer, I was also a speaker. I gave a short talk on Puppeteer">
-<meta name="keywords" content="gdg,testing">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="Puppeteer - No Strings Attached">
-<meta property="og:url" content="http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/index.html">
-<meta property="og:site_name" content="Chase Your Dreams">
-<meta property="og:description" content="I am a Co-Manager for Google Developer Group - Singapore (FB). And today was our annual GDG-SG DevFest 2017 event. Apart from being an organizer, I was also a speaker. I gave a short talk on Puppeteer">
+<title>Puppeteer - No Strings Attached | Yogendra Rampuria</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-21164716-2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-21164716-2')</script>
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/gdg-collage.jpg">
-<meta property="og:image" content="http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/slides.001.jpeg">
-<meta property="og:image" content="http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/slides.012.jpeg">
-<meta property="og:image" content="http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/screenshot.png">
-<meta property="og:image" content="http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/hn.jpg">
-<meta property="og:image" content="http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/special-thanks.jpg">
-<meta property="og:updated_time" content="2020-08-25T14:21:37.776Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Puppeteer - No Strings Attached">
-<meta name="twitter:description" content="I am a Co-Manager for Google Developer Group - Singapore (FB). And today was our annual GDG-SG DevFest 2017 event. Apart from being an organizer, I was also a speaker. I gave a short talk on Puppeteer">
-<meta name="twitter:image" content="http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/gdg-collage.jpg">
-<meta name="twitter:creator" content="@yogendra">
-    
-    
-        
-    
-    
-        <meta property="og:image" content="https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc?s=640"/>
-    
-    
-        <meta property="og:image" content="http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/logo.png"/>
-        <meta class="swiftype" name="image" data-type="enum" content="http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/logo.png"/>
-    
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style-7tzu0ct5vop2qi4mhoifkrbobtkjwjqdy1vdgyojtumjjo45ba7hnlfjb3sd.min.css">
-    <!--STYLES END-->
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-21164716-2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-21164716-2');
-    </script>
-
-
-    
-
-    
-        
-    
+<meta property="og:type" content="article">
+<meta name=description content="I am a Co-Manager for Google Developer Group - Singapore (FB). And today was our annual GDG-SG DevFest 2017 event. Apart from being an organizer, I was also a …">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:creator content="@yogendra">
+<meta name=twitter:title content="Puppeteer - No Strings Attached">
+<meta property="og:url" content="https://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/">
+<meta property="og:title" content="Puppeteer - No Strings Attached">
+<meta property="og:description" content="I am a Co-Manager for Google Developer Group - Singapore (FB). And today was our annual GDG-SG DevFest 2017 event. Apart from being an organizer, I was also a …">
+<meta property="og:image" content="https://yogendra.github.io/logo.png">
+<link rel=apple-touch-icon sizes=180x180 href=https://yogendra.github.io/icons/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=https://yogendra.github.io/icons/favicon-32x32.png>
+<link rel=manifest href=https://yogendra.github.io/icons/site.webmanifest>
+<link rel=canonical href=https://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/>
+<link rel=preload href=https://yogendra.github.io/css/styles.ee3b9488ef041710052f5c22837bf044d13ac251377aac559881157179229b04be4ae0027ad7b3c9b0cf469d0b37c82b8fcc5956709efe67b73f0e08a76bba3d.css integrity="sha512-7juUiO8EFxAFL1wig3vwRNE6wlE3eqxVmIEVcXkimwS+SuACetezybDPRp0LN8grj8xZVnCe/me3Pw4Ip2u6PQ==" as=style crossorigin=anonymous>
+<link rel=preload href=https://yogendra.github.io/js/bundle.min.14825dc619648aeca2e4e66c65ef7d06ea216e6a64cd503f64d2fe77950ee425c47fc0f2cf993c2d656f534914619a2c47c8313438a810ed5008db38a46a812d.js as=script integrity="sha512-FIJdxhlkiuyi5OZsZe99BuohbmpkzVA/ZNL+d5UO5CXEf8Dyz5k8LWVvU0kUYZosR8gxNDioEO1QCNs4pGqBLQ==" crossorigin=anonymous>
+<link rel=stylesheet type=text/css href=https://yogendra.github.io/css/styles.ee3b9488ef041710052f5c22837bf044d13ac251377aac559881157179229b04be4ae0027ad7b3c9b0cf469d0b37c82b8fcc5956709efe67b73f0e08a76bba3d.css integrity="sha512-7juUiO8EFxAFL1wig3vwRNE6wlE3eqxVmIEVcXkimwS+SuACetezybDPRp0LN8grj8xZVnCe/me3Pw4Ip2u6PQ==" crossorigin=anonymous>
 </head>
-
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
-
-
-    
-        
-    
-
-<header id="header" data-behavior="4">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <div class="header-title">
-        <a
-            class="header-title-link"
-            href="/ "
-            aria-label=""
-        >
-            Chase Your Dreams
-        </a>
-    </div>
-    
-        
-            <a
-                class="header-right-picture "
-                href="#about"
-                aria-label="Open the link: /#about"
-            >
-        
-        
-            <img class="header-picture" src="https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc?s=90" alt="Author&#39;s picture"/>
-        
-        </a>
-    
-</header>
-
-            <!-- Define author's picture -->
-
-
-    
-
-<nav id="sidebar" data-behavior="4">
-    <div class="sidebar-container">
-        
-            <div class="sidebar-profile">
-                <a
-                    href="/#about"
-                    aria-label="Read more about the author"
-                >
-                    <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc?s=110" alt="Author&#39;s picture"/>
-                </a>
-                <h4 class="sidebar-profile-name">Yogendra Rampuria</h4>
-                
-                    <h5 class="sidebar-profile-bio"><p>Software Engineer<br>OSS Advocate, User, Buyer and Seller.<br>GPG: 019ECB5CDC6D59B7 </p>
-</h5>
-                
-            </div>
-        
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/ "
-                            
-                            title="Home"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Home</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/projects"
-                            
-                            title="Projects"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-project-diagram" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Projects</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/all-categories"
-                            
-                            title="Categories"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/all-tags"
-                            
-                            title="Tags"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/all-archives"
-                            
-                            title="Archives"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Archives</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="#about"
-                            
-                            title="About"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">About</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/security.html"
-                            
-                            title="Security"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-shield-alt" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Security</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="https://github.com/yogendra" target="_blank" rel="noopener" title="GitHub">
-                    
-                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="https://stackoverflow.com/users/559158/yogi" target="_blank" rel="noopener" title="Stack Overflow">
-                    
-                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Stack Overflow</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="https://twitter.com/yogendra" target="_blank" rel="noopener" title="Twitter">
-                    
-                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Twitter</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="https://facebook.com/yogendrarampuria" target="_blank" rel="noopener" title="Facebook">
-                    
-                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Facebook</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="https://www.linkedin.com/in/yogi" target="_blank" rel="noopener" title="LinkedIn">
-                    
-                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">LinkedIn</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link " href="mailto:yogendrarampuria@gmail.com" target="_blank" rel="noopener" title="Mail">
-                    
-                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/atom.xml"
-                            
-                            title="RSS"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">RSS</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-    </div>
+<body data-code=10 data-lines=true id=documentTop>
+<header class=nav_header>
+<nav class=nav><a href=https://yogendra.github.io class="nav_brand nav_item" title="Yogendra Rampuria">
+<img src=https://yogendra.github.io/images/logo-64.png class=logo alt="Yogendra Rampuria">
+<div class=nav_close>
+<div><svg class="icon"><use xlink:href="#open-menu"/></svg><svg class="icon"><use xlink:href="#closeme"/></svg></div>
+</div>
+</a>
+<div class="nav_body nav_body_left">
+<div class=nav_parent>
+<a href=https://yogendra.github.io class=nav_item title=Home>Home </a>
+</div>
+<div class=nav_parent>
+<a href=https://yogendra.github.io/projects/ class=nav_item title=Projects>Projects </a>
+</div>
+<div class=nav_parent>
+<a href=https://yogendra.github.io/about/ class=nav_item title=About>About </a>
+</div>
+<div class=nav_parent>
+<a href=https://yogendra.github.io/security.html class=nav_item title=Security>Security </a>
+</div>
+<div class=follow>
+<a href=https://github.com/yogendra><svg class="icon"><use xlink:href="#github"/></svg>
+</a>
+<a href=https://twitter.com/yogendra><svg class="icon"><use xlink:href="#twitter"/></svg>
+</a>
+<a href=https://www.linkedin.com/in/yogi><svg class="icon"><use xlink:href="#linkedin"/></svg>
+</a>
+<a href=https://yogendra.github.io/index.xml><svg class="icon"><use xlink:href="#rss"/></svg>
+</a>
+<div class=color_mode>
+<input type=checkbox class=color_choice id=mode>
+</div>
+</div>
+</div>
 </nav>
-
-            
-            <div id="main" data-behavior="4"
-                 class="
-                        hasCoverMetaIn
-                        ">
-                
-<article class="post">
-    
-    
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title">
-            Puppeteer - No Strings Attached
-        </h1>
-    
-    
-        <div class="post-meta">
-    <time datetime="2017-10-28T15:52:08+00:00">
-	
-		    Oct 28, 2017
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Talk/">Talk</a>
-
-
-    
+</header>
+<main>
+<div class="grid-inverse wrap content">
+<article class=post_content>
+<h1 class=post_title>Puppeteer - No Strings Attached</h1>
+<div class=post_meta>
+<span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
+<span class=post_date>
+Oct 28, 2017</span>
+<span class=post_time> · 11 min read</span><span>&nbsp;· <a href=https://yogendra.github.io/tags/gdg title=gdg class="post_tag button button_translucent">gdg
+</a><a href=https://yogendra.github.io/tags/testing title=testing class="post_tag button button_translucent">testing
+</a>
+</span>
+<span class=page_only>&nbsp;·
+<div class=post_share>
+Share on:
+<a href="https://twitter.com/intent/tweet?text=Puppeteer%20-%20No%20Strings%20Attached&url=https%3a%2f%2fyogendra.github.io%2f2017%2f10%2f28%2fpuppeteer-no-strings-attached%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+</a>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fyogendra.github.io%2f2017%2f10%2f28%2fpuppeteer-no-strings-attached%2f&t=Puppeteer%20-%20No%20Strings%20Attached" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+</a>
+<a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
+</a>
+<a href=https://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+</a>
 </div>
-
-    
+</span>
 </div>
-
-    
-    <div class="post-content markdown">
-        <div class="main-content-wrap">
-            <p>I am a Co-Manager for <a href="https://www.gdg-sg.org" target="_blank" rel="noopener">Google Developer Group - Singapore</a> (<a href="https://www.facebook.com/gdgsgorg" target="_blank" rel="noopener">FB</a>). And today was our annual <a href="https://www.gdg-sg.org/2017/10/gdg-devfest-2017.html" target="_blank" rel="noopener">GDG-SG DevFest 2017</a> event. Apart from being an organizer, I was also a speaker. I gave a short talk on <a href="https://github.com/GoogleChrome/puppeteer" target="_blank" rel="noopener">Puppeteer</a>. This post is (almost) a transcript of my speech today. Slides can be found <a href="https://drive.google.com/open?id=0B6Mr-G5qbPLPT0JCTWl0N0w5M2s" target="_blank" rel="noopener">here</a></p>
-<a id="more"></a>
-
-<p><img src="gdg-collage.jpg" alt="GDG-SG"></p>
-<p><img src="slides.001.jpeg" alt></p>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><a href="https://github.com/GoogleChrome/puppeteer" target="_blank" rel="noopener">Puppeteer</a> is a <a href="https://www.nodejs.org" target="_blank" rel="noopener">Node JS</a> API published by Chrome team. It is an API to control Chrome browser via <a href="https://github.com/ChromeDevTools/devtools-protocol" target="_blank" rel="noopener">DevTools Protocol</a>. Puppeteer was released shortly after the Chrome 59. This version of Chrome brought us <a href="https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md" target="_blank" rel="noopener">Headless Chrome</a>. It requires <a href="https://www.nodejs.org" target="_blank" rel="noopener">Node JS</a> version 6.4+. I would recommend using version 7.5+, so you can use <code>async/await</code> feature from <a href="https://medium.com/@tmvvr/ecmascript-async-await-to-the-rescue-fc379ff89146" target="_blank" rel="noopener">ES2017</a>.</p>
-<h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><p>It connects with browser using <a href="https://chromedevtools.github.io/devtools-protocol/" target="_blank" rel="noopener">Chrome DevTools Protocol</a>. Hence, it works with <a href="https://www.google.com/chrome" target="_blank" rel="noopener">Chrome</a>/<a href="https://www.chromium.org" target="_blank" rel="noopener">Chromium</a> only, and not with other browsers.</p>
+<p>I am a Co-Manager for <a href=https://www.gdg-sg.org>Google Developer Group - Singapore</a> (<a href=https://www.facebook.com/gdgsgorg>FB</a>). And today was our annual <a href=https://www.gdg-sg.org/2017/10/gdg-devfest-2017.html>GDG-SG DevFest 2017</a> event. Apart from being an organizer, I was also a speaker. I gave a short talk on <a href=https://github.com/GoogleChrome/puppeteer>Puppeteer</a>. This post is (almost) a transcript of my speech today. Slides can be found <a href="https://drive.google.com/open?id=0B6Mr-G5qbPLPT0JCTWl0N0w5M2s">here</a></p>
+<p><img src=gdg-collage.jpg alt=GDG-SG></p>
+<p><img src=slides.001.jpeg alt></p>
+<h2 id=overview>Overview</h2>
+<p><a href=https://github.com/GoogleChrome/puppeteer>Puppeteer</a> is a <a href=https://www.nodejs.org>Node JS</a> API published by Chrome team. It is an API to control Chrome browser via <a href=https://github.com/ChromeDevTools/devtools-protocol>DevTools Protocol</a>. Puppeteer was released shortly after the Chrome 59. This version of Chrome brought us <a href=https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md>Headless Chrome</a>. It requires <a href=https://www.nodejs.org>Node JS</a> version 6.4+. I would recommend using version 7.5+, so you can use <code>async/await</code> feature from <a href=https://medium.com/@tmvvr/ecmascript-async-await-to-the-rescue-fc379ff89146>ES2017</a>.</p>
+<h3 id=features>Features</h3>
+<p>It connects with browser using <a href=https://chromedevtools.github.io/devtools-protocol/>Chrome DevTools Protocol</a>. Hence, it works with <a href=https://www.google.com/chrome>Chrome</a>/<a href=https://www.chromium.org>Chromium</a> only, and not with other browsers.</p>
 <p>Puppeteer can work in headless environment. This makes it a good candidate tool for unit/acceptance/functional tests in a CI environment. It can simulate keyboard, mouse and touch events. So, if you are building a responsive application for desktop and mobile devices, you can use Puppeteer for testing. It also brings the PDF and screenshot capabilities out of box. You can capture PDF and screenshot for whole or part of the page.</p>
-<p>Puppeteer allows you to trap console output and web requests. If you have a requirement to “flag” any console output, you may put traps in your test cases for it. If you want to mock a back-end server request (json/xml), you can intercept those request and provide mock response for it.</p>
-<p>It has API for performance tracing. So you can use it for recording page load performance and trace any bottlenecks. One of the biggest advantage, of having latest Chromium or Chrome being driven by the API, is <a href="https://www.chromium.org/Blink" target="_blank" rel="noopener">Blink Engine</a>. It is a shiny new layout engine from Chromium project and replaces <a href="https://webkit.org" target="_blank" rel="noopener">WebKit</a> engine. I am not aware about any short comings with WebKit, but I am guessing that Chromium has outgrown WebKit zone.</p>
-<h3 id="Use-cases"><a href="#Use-cases" class="headerlink" title="Use cases"></a>Use cases</h3><p>I have found Puppeteer most useful in browser automation. I have done multiple personal projects for browser automation (I am a lazy guy). Puppeteer offers a simple clean API interface for this, and that in itself is a great selling point. You can use if for frontend testing, e2e testing, etc.</p>
-<p>Server side rendering (SSR) is another great use case for this API. You can easily render your single page applications’ view on server side and send them to client. This is very useful when you have deep nested view and deep-linking facility in your application.</p>
+<p>Puppeteer allows you to trap console output and web requests. If you have a requirement to &ldquo;flag&rdquo; any console output, you may put traps in your test cases for it. If you want to mock a back-end server request (json/xml), you can intercept those request and provide mock response for it.</p>
+<p>It has API for performance tracing. So you can use it for recording page load performance and trace any bottlenecks. One of the biggest advantage, of having latest Chromium or Chrome being driven by the API, is <a href=https://www.chromium.org/Blink>Blink Engine</a>. It is a shiny new layout engine from Chromium project and replaces <a href=https://webkit.org>WebKit</a> engine. I am not aware about any short comings with WebKit, but I am guessing that Chromium has outgrown WebKit zone.</p>
+<h3 id=use-cases>Use cases</h3>
+<p>I have found Puppeteer most useful in browser automation. I have done multiple personal projects for browser automation (I am a lazy guy). Puppeteer offers a simple clean API interface for this, and that in itself is a great selling point. You can use if for frontend testing, e2e testing, etc.</p>
+<p>Server side rendering (SSR) is another great use case for this API. You can easily render your single page applications' view on server side and send them to client. This is very useful when you have deep nested view and deep-linking facility in your application.</p>
 <p>If you have written apps in Spring Web MVC to produce PDF, you would be aware of maintenance nightmares. You had to maintain each View (HTML and PDF) separately. I eventually started using PhantomJS on server side and reused HTML view to generate PDF with it. You get absolutely great looking PDF out of box with Puppeteer. Its identical to what you get in the PDF print in regular Chrome.</p>
 <p>Web crawling and scraping is one of the easiest things to do with Puppeteer. You can easily navigate to pages, retrieve details and process them in a nested fashion.</p>
-<h2 id="Puppeteer-And-Others"><a href="#Puppeteer-And-Others" class="headerlink" title="Puppeteer And Others"></a>Puppeteer And Others</h2><p>Browser automation and e2e testing is a very busy area. Lots of options for frameworks, APIs, Tools and Platforms. As a result, there are many competing tools in this space. Puppeteer emerges as a good replacement for a few of them.</p>
-<h3 id="PhantomJS"><a href="#PhantomJS" class="headerlink" title="PhantomJS"></a>PhantomJS</h3><p><a href="https://phantomjs.org" target="_blank" rel="noopener">PhantomJS</a> was one of the first tools that I used for headless browsing. I used it for generating server side PDF. However, recent events force us to move on to other tooling. Primary maintainer of PhantomJS, Vitaly, has stepped down. In his departing note, he expressed excitement about the new Headless Chrome experience. That’s fair! And I agree with his point of view.</p>
-<h3 id="The-‘Selenium’-Empire"><a href="#The-‘Selenium’-Empire" class="headerlink" title="The ‘Selenium’ Empire"></a>The ‘Selenium’ Empire</h3><p><a href="https://www.seleniumhq.org/" target="_blank" rel="noopener">Selenium</a> is probably the most used browser automation and testing tool for frontend. It is the “Automation Emperor” for me. It has the most comprehensive coverage in terms of languages and target browsers. It has language binding for Java, Node, Ruby, Python, etc. You name it and it has language binding for it. And on the other side, it has web driver for every browser or browser like system. It has drivers for all browsers, Chrome, Safari, Firefox, Opera, etc. It also has drivers for like ok PhantomJS and Appium.</p>
+<h2 id=puppeteer-and-others>Puppeteer And Others</h2>
+<p>Browser automation and e2e testing is a very busy area. Lots of options for frameworks, APIs, Tools and Platforms. As a result, there are many competing tools in this space. Puppeteer emerges as a good replacement for a few of them.</p>
+<h3 id=phantomjs>PhantomJS</h3>
+<p><a href=https://phantomjs.org>PhantomJS</a> was one of the first tools that I used for headless browsing. I used it for generating server side PDF. However, recent events force us to move on to other tooling. Primary maintainer of PhantomJS, Vitaly, has stepped down. In his departing note, he expressed excitement about the new Headless Chrome experience. That&rsquo;s fair! And I agree with his point of view.</p>
+<h3 id=the-selenium-empire>The &lsquo;Selenium&rsquo; Empire</h3>
+<p><a href=https://www.seleniumhq.org/>Selenium</a> is probably the most used browser automation and testing tool for frontend. It is the &ldquo;Automation Emperor&rdquo; for me. It has the most comprehensive coverage in terms of languages and target browsers. It has language binding for Java, Node, Ruby, Python, etc. You name it and it has language binding for it. And on the other side, it has web driver for every browser or browser like system. It has drivers for all browsers, Chrome, Safari, Firefox, Opera, etc. It also has drivers for like ok PhantomJS and Appium.</p>
 <p>They have managed to achieve the most unimaginable feat. They have got these giants on a common footing. It enjoy a lot of love and support from community, including myself. So, why am I even talking about puppeteer.</p>
-<p>That brings me nicely into the next piece. Architecture-wise Selenium and Puppeteer are slightly different. Selenium achieve browser automation though an intermediate proxy, the <a href="https://www.seleniumhq.org/projects/webdriver/" target="_blank" rel="noopener">WebDriver</a>. WebDriver is a per-browser component implementing remote control capabilities. It exposes an restful API interface. A language binding uses these APIs to interact and control browser.</p>
-<p><img src="slides.012.jpeg" alt></p>
+<p>That brings me nicely into the next piece. Architecture-wise Selenium and Puppeteer are slightly different. Selenium achieve browser automation though an intermediate proxy, the <a href=https://www.seleniumhq.org/projects/webdriver/>WebDriver</a>. WebDriver is a per-browser component implementing remote control capabilities. It exposes an restful API interface. A language binding uses these APIs to interact and control browser.</p>
+<p><img src=slides.012.jpeg alt></p>
 <p>Puppeteer takes a leaner approach to this and taps straight into the DevTools protocol of the browser. This makes it possible to easily keep keep with browser features and automation API, in sync.</p>
-<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>Lets go through some samples to understand the development with Puppeteer.</p>
-<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>Puppeteer is a Node JS API. Its published as an NPM package. You can install it in you project with simple <code>npm install</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm i --save-dev puppeteer</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> puppeteer@0.12.0 install /Users/user/.nvm/project1/node_modules/puppeteer</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> node install.js</span></span><br><span class="line"></span><br><span class="line">Downloading Chromium r508693 - 72.6 Mb [====================] 100% 0.0s</span><br><span class="line">Chromium downloaded to /Users/monkey/project1/lib/node_modules/puppeteer/.local-chromium/mac-508693</span><br><span class="line">+ puppeteer@0.12.0</span><br><span class="line">added 42 packages in 223.254s</span><br></pre></td></tr></table></figure>
+<h2 id=demo>Demo</h2>
+<p>Lets go through some samples to understand the development with Puppeteer.</p>
+<h3 id=installation>Installation</h3>
+<p>Puppeteer is a Node JS API. Its published as an NPM package. You can install it in you project with simple <code>npm install</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ npm i --save-dev puppeteer
+&gt; puppeteer@0.12.0 install /Users/user/.nvm/project1/node_modules/puppeteer
+&gt; node install.js
 
-<p>Notice how it has also downloaded Chromium. This ensures that it has a compatible version of chromium always. You can skip Chromium download and run it with your own installation of Chrome / Chromium. You can skip download by setting an <code>PUPPETEER_SKIP_CHROMIUM_DOWNLOAD</code> environment variable. And you can provide executable path to alternate Chrome or Chromium in you code.</p>
-<h3 id="Screenshot"><a href="#Screenshot" class="headerlink" title="Screenshot"></a>Screenshot</h3><p>Taking a screenshot in an automation tool is like a “Hello World!” thing.</p>
-<figure class="highlight javascript"><figcaption><span>screenshot.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">"puppeteer"</span>);</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch();</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">  <span class="keyword">await</span> page.goto(<span class="string">"https://www.google.com"</span>, &#123; <span class="attr">waitUntil</span>: <span class="string">"networkidle"</span> &#125;);</span><br><span class="line">  <span class="keyword">await</span> page.screenshot(&#123; <span class="attr">path</span>: <span class="string">"screenshot.png"</span> &#125;);</span><br><span class="line">  <span class="keyword">await</span> browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+Downloading Chromium r508693 - 72.6 Mb <span style=color:#f92672>[====================]</span> 100% 0.0s
+Chromium downloaded to /Users/monkey/project1/lib/node_modules/puppeteer/.local-chromium/mac-508693
++ puppeteer@0.12.0
+added <span style=color:#ae81ff>42</span> packages in 223.254s
+</code></pre></div><p>Notice how it has also downloaded Chromium. This ensures that it has a compatible version of chromium always. You can skip Chromium download and run it with your own installation of Chrome / Chromium. You can skip download by setting an <code>PUPPETEER_SKIP_CHROMIUM_DOWNLOAD</code> environment variable. And you can provide executable path to alternate Chrome or Chromium in you code.</p>
+<h3 id=screenshot>Screenshot</h3>
+<p>Taking a screenshot in an automation tool is like a &ldquo;Hello World!&rdquo; thing.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#e6db74>&#34;use strict&#34;</span>;
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>puppeteer</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#34;puppeteer&#34;</span>);
 
-<p><a href="screenshot.js">Source</a></p>
-<p>If you are not familiar with <code>async/await</code>, I would recommend reading <a href="https://medium.com/@tmvvr/ecmascript-async-await-to-the-rescue-fc379ff89146" target="_blank" rel="noopener">this</a>. Most methods in Puppeteer API return a Promise. <code>await</code> ensures that you wait for a promise to resolve or reject before proceeding to next instruction. Line <strong>5</strong>, invokes <code>launch()</code>, which launches Chromium. You can specify launch options as an object parameter, like <code>puppeteer.launch({headless: false})</code>. See all the options in <a href="https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions" target="_blank" rel="noopener">documentation</a> page. Line <strong>6</strong> creates a new tab with <code>newPage()</code> method. <code>goto()</code> method on line <strong>7</strong> navigates page to a URL. <code>waitUntil</code> ensures that page and its and related assets (js/images/css) are loaded, before promise is resolved.</p>
+(<span style=color:#66d9ef>async</span> () =&gt; {
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>browser</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>puppeteer</span>.<span style=color:#a6e22e>launch</span>();
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>page</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>browser</span>.<span style=color:#a6e22e>newPage</span>();
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#66d9ef>goto</span>(<span style=color:#e6db74>&#34;https://www.google.com&#34;</span>, { <span style=color:#a6e22e>waitUntil</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;networkidle&#34;</span> });
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>screenshot</span>({ <span style=color:#a6e22e>path</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;screenshot.png&#34;</span> });
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>browser</span>.<span style=color:#a6e22e>close</span>();
+})();
+</code></pre></div><p><a href=screenshot.js>Source</a></p>
+<p>If you are not familiar with <code>async/await</code>, I would recommend reading <a href=https://medium.com/@tmvvr/ecmascript-async-await-to-the-rescue-fc379ff89146>this</a>. Most methods in Puppeteer API return a Promise. <code>await</code> ensures that you wait for a promise to resolve or reject before proceeding to next instruction. Line <strong>5</strong>, invokes <code>launch()</code>, which launches Chromium. You can specify launch options as an object parameter, like <code>puppeteer.launch({headless: false})</code>. See all the options in <a href=https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions>documentation</a> page. Line <strong>6</strong> creates a new tab with <code>newPage()</code> method. <code>goto()</code> method on line <strong>7</strong> navigates page to a URL. <code>waitUntil</code> ensures that page and its and related assets (js/images/css) are loaded, before promise is resolved.</p>
 <p>On line <strong>10-12</strong>, <code>screenshot()</code> method captures an image of output and stores it in <code>screenshot.png</code>. This looks plain and simple. And that is what made me like this API. It is clean and simple.</p>
 <p>You can run this with following command</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> node screenshot.js</span></span><br><span class="line"><span class="meta">$</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ node screenshot.js
+$
+</code></pre></div><p>This produces <code>screenshot.png</code> in the current directory.</p>
+<p><img src=screenshot.png alt></p>
+<h3 id=pdf>PDF</h3>
+<p>This is the single biggest reason for me to use Puppeteer. PDF generation is a breeze! Heres how you can do it.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#e6db74>&#34;use strict&#34;</span>;
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>puppeteer</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#34;puppeteer&#34;</span>);
 
-<p>This produces <code>screenshot.png</code> in the current directory.</p>
-<p><img src="screenshot.png" alt></p>
-<h3 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h3><p>This is the single biggest reason for me to use Puppeteer. PDF generation is a breeze! Heres how you can do it.</p>
-<figure class="highlight javascript"><figcaption><span>pdf.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">"puppeteer"</span>);</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch();</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">  <span class="keyword">await</span> page.goto(<span class="string">"https://news.ycombinator.com"</span>, &#123; <span class="attr">waitUntil</span>: <span class="string">"networkidle"</span> &#125;);</span><br><span class="line">  <span class="keyword">await</span> page.pdf(&#123;</span><br><span class="line">    path: <span class="string">"hn.pdf"</span>,</span><br><span class="line">    format: <span class="string">"A4"</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">await</span> browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+(<span style=color:#66d9ef>async</span> () =&gt; {
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>browser</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>puppeteer</span>.<span style=color:#a6e22e>launch</span>();
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>page</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>browser</span>.<span style=color:#a6e22e>newPage</span>();
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#66d9ef>goto</span>(<span style=color:#e6db74>&#34;https://news.ycombinator.com&#34;</span>, { <span style=color:#a6e22e>waitUntil</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;networkidle&#34;</span> });
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>pdf</span>({
+    <span style=color:#a6e22e>path</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;hn.pdf&#34;</span>,
+    <span style=color:#a6e22e>format</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;A4&#34;</span>,
+  });
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>browser</span>.<span style=color:#a6e22e>close</span>();
+})();
+</code></pre></div><p><a href=pdf.js>Source</a></p>
+<p>We will now generate PDF from hacker news landing page. Code is not very different from what we saw in screenshot example. Line <strong>20-23</strong> generates PDF instead of screenshot. And thats it. You can specify paper size for the PDF in the optional argument. Look at <a href=https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagepdfoptions>documentation</a> for more options. Its output would be identical to &ldquo;Print PDF&rdquo; function of Chrome or Chromium. It uses print media css.</p>
+<p><img src=hn.jpg alt>
+<a href=hn.pdf>Link to actual extracted PDF</a></p>
+<h3 id=web-scraping>Web Scraping</h3>
+<p>I have used Puppeteer most for this. In my work environment I have need for integration via web pages. There are case where I don&rsquo;t have access to a data API for integration. Puppeteer can make it possible for you to expose a &ldquo;web&rdquo; site as a JSON api.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#e6db74>`use strict`</span>;
 
-<p><a href="pdf.js">Source</a></p>
-<p>We will now generate PDF from hacker news landing page. Code is not very different from what we saw in screenshot example. Line <strong>20-23</strong> generates PDF instead of screenshot. And thats it. You can specify paper size for the PDF in the optional argument. Look at <a href="https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagepdfoptions" target="_blank" rel="noopener">documentation</a> for more options. Its output would be identical to “Print PDF” function of Chrome or Chromium. It uses print media css.</p>
-<p><img src="hn.jpg" alt><br><a href="hn.pdf">Link to actual extracted PDF</a></p>
-<h3 id="Web-Scraping"><a href="#Web-Scraping" class="headerlink" title="Web Scraping"></a>Web Scraping</h3><p>I have used Puppeteer most for this. In my work environment I have need for integration via web pages. There are case where I don’t have access to a data API for integration. Puppeteer can make it possible for you to expose a “web” site as a JSON api.</p>
-<figure class="highlight javascript"><figcaption><span>scrape.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`use strict`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> SELECTOR_BOOK_IMAGE =</span><br><span class="line">  <span class="string">"#default &gt; div &gt; div &gt; div &gt; div &gt; section &gt; div:nth-child(2) &gt; ol &gt; li:nth-child(1) &gt; article &gt; div.image_container &gt; a &gt; img"</span>;</span><br><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">"puppeteer"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> scrape = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123; <span class="attr">headless</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">  <span class="keyword">await</span> page.goto(<span class="string">"http://books.toscrape.com/"</span>);</span><br><span class="line">  <span class="keyword">await</span> page.waitFor(<span class="number">1000</span>);</span><br><span class="line">  <span class="keyword">await</span> page.click(SELECTOR_BOOK_IMAGE);</span><br><span class="line">  <span class="keyword">await</span> page.waitFor(<span class="number">2000</span>);</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> page.evaluate(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> title = <span class="built_in">document</span>.querySelector(<span class="string">"h1"</span>).innerText;</span><br><span class="line">    <span class="keyword">let</span> price = <span class="built_in">document</span>.querySelector(<span class="string">".price_color"</span>).innerText;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      title,</span><br><span class="line">      price,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">await</span> browser.close();</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line">scrape().then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value); <span class="comment">// Success!</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>SELECTOR_BOOK_IMAGE</span> <span style=color:#f92672>=</span>
+  <span style=color:#e6db74>&#34;#default &gt; div &gt; div &gt; div &gt; div &gt; section &gt; div:nth-child(2) &gt; ol &gt; li:nth-child(1) &gt; article &gt; div.image_container &gt; a &gt; img&#34;</span>;
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>puppeteer</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#34;puppeteer&#34;</span>);
 
-<p><a href="scrape.js">Source</a></p>
-<p>We first goto “books.toscrape.com” and click on first image (line 11) on the page. First image on page is referred via <code>SELECTOR_BOOK_IMAGE</code> css selector. This triggers a navigation to a details page.</p>
+<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>scrape</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>async</span> () =&gt; {
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>browser</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>puppeteer</span>.<span style=color:#a6e22e>launch</span>({ <span style=color:#a6e22e>headless</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>false</span> });
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>page</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>browser</span>.<span style=color:#a6e22e>newPage</span>();
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#66d9ef>goto</span>(<span style=color:#e6db74>&#34;http://books.toscrape.com/&#34;</span>);
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>waitFor</span>(<span style=color:#ae81ff>1000</span>);
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>click</span>(<span style=color:#a6e22e>SELECTOR_BOOK_IMAGE</span>);
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>waitFor</span>(<span style=color:#ae81ff>2000</span>);
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>result</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>evaluate</span>(() =&gt; {
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>title</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#34;h1&#34;</span>).<span style=color:#a6e22e>innerText</span>;
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>price</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#34;.price_color&#34;</span>).<span style=color:#a6e22e>innerText</span>;
+    <span style=color:#66d9ef>return</span> {
+      <span style=color:#a6e22e>title</span>,
+      <span style=color:#a6e22e>price</span>,
+    };
+  });
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>browser</span>.<span style=color:#a6e22e>close</span>();
+  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>result</span>;
+};
+<span style=color:#a6e22e>scrape</span>().<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>value</span>) =&gt; {
+  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>value</span>); <span style=color:#75715e>// Success!
+</span><span style=color:#75715e></span>});
+</code></pre></div><p><a href=scrape.js>Source</a></p>
+<p>We first goto &ldquo;books.toscrape.com&rdquo; and click on first image (line 11) on the page. First image on page is referred via <code>SELECTOR_BOOK_IMAGE</code> css selector. This triggers a navigation to a details page.</p>
 <p>On line 13, a function is dispatched for evaluation on the DOM. This function goes through DOM element (<code>h1</code> and element with class <code>price_color</code> ) and extracts text (<code>innerText</code>).</p>
 <p>You can simply run this with <code>node</code> command.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> node scrape.js</span></span><br><span class="line">&#123; title: 'A Light in the Attic', price: '£51.77' &#125;</span><br></pre></td></tr></table></figure>
-
-<p>You will see browser window for this example. This is because of line <strong>7</strong>, where I have opted for <code>{headless: false}</code>. This is to show scraping in action.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ node scrape.js
+<span style=color:#f92672>{</span> title: <span style=color:#e6db74>&#39;A Light in the Attic&#39;</span>, price: <span style=color:#e6db74>&#39;£51.77&#39;</span> <span style=color:#f92672>}</span>
+</code></pre></div><p>You will see browser window for this example. This is because of line <strong>7</strong>, where I have opted for <code>{headless: false}</code>. This is to show scraping in action.</p>
 <p><strong>Disclaimer:</strong> Be very careful what you scrape. You can/will run into legal and licensing issues very quickly.</p>
-<h2 id="Final-Thoughts"><a href="#Final-Thoughts" class="headerlink" title="Final Thoughts"></a>Final Thoughts</h2><p>Puppeteer is a very promising project. In a very short period (&lt; 6 month) it has gotten great support from community. I have read many posts covering this API. I am confident about the future of this project. I am looking forward to a growing and thriving community for this.</p>
+<h2 id=final-thoughts>Final Thoughts</h2>
+<p>Puppeteer is a very promising project. In a very short period (&lt; 6 month) it has gotten great support from community. I have read many posts covering this API. I am confident about the future of this project. I am looking forward to a growing and thriving community for this.</p>
 <p>It is a very good replacement for PhantomJS. However, my key concern as at the moment are:</p>
 <ul>
 <li>Google Cloud Function (GCF) does not support Node JS 6.4+. So, you have to use cloud VM or Container service to run this in cloud. Hopefully next version of LTS will be 8+, and will bring all the goodness of async/await into the mix</li>
 <li>Lack of support for non-Chrome based browser could be discouraging for many developers. We all want to keep tool/library dependency low and single codebase for testing. If you project demands multi-browser testing, you will end up in a fractured state. Better stick with WebDriver/Selenium. May be WebDriver will adopt some part of Puppeteer API.</li>
 </ul>
 <p>I also found the e2e testing support very <em>unclean</em>. Its possible, workable, but now readable. I would like to see a very clean integration with likes of cucumber, mocha, chai, etc.</p>
-<h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3><p>Here are some links that I used for preparing my presentation.</p>
+<h3 id=links>Links</h3>
+<p>Here are some links that I used for preparing my presentation.</p>
 <ul>
-<li><a href="https://github.com/GoogleChrome/puppeteer" target="_blank" rel="noopener">Puppeteer Home</a></li>
-<li><a href="https://try-puppeteer.appspot.com/" target="_blank" rel="noopener">Try Puppeteer in Browser</a></li>
-<li><a href="https://puppetron.now.sh/" target="_blank" rel="noopener">Puppetron</a> (<a href="https://www.youtube.com/watch?v=n4sRp3qe_1Y" target="_blank" rel="noopener">Demo</a>)</li>
-<li><a href="https://developers.google.com/web/updates/2017/04/headless-chrome" target="_blank" rel="noopener">Getting Started with Headless Chrome - Eric Bidelman</a></li>
-<li><a href="https://medium.com/@e_mad_ehsan/getting-started-with-puppeteer-and-chrome-headless-for-web-scrapping-6bf5979dee3e" target="_blank" rel="noopener">Getting Started with Puppeteer and Headless Chrome Web Scraping - Emad Ehsan</a></li>
-<li><a href="https://codeburst.io/a-guide-to-automating-scraping-the-web-with-javascript-chrome-puppeteer-node-js-b18efb9e9921" target="_blank" rel="noopener">A Guide to Automating and Scraping - Brandon Morelli</a></li>
+<li><a href=https://github.com/GoogleChrome/puppeteer>Puppeteer Home</a></li>
+<li><a href=https://try-puppeteer.appspot.com/>Try Puppeteer in Browser</a></li>
+<li><a href=https://puppetron.now.sh/>Puppetron</a> (<a href="https://www.youtube.com/watch?v=n4sRp3qe_1Y">Demo</a>)</li>
+<li><a href=https://developers.google.com/web/updates/2017/04/headless-chrome>Getting Started with Headless Chrome - Eric Bidelman</a></li>
+<li><a href=https://medium.com/@e_mad_ehsan/getting-started-with-puppeteer-and-chrome-headless-for-web-scrapping-6bf5979dee3e>Getting Started with Puppeteer and Headless Chrome Web Scraping - Emad Ehsan</a></li>
+<li><a href=https://codeburst.io/a-guide-to-automating-scraping-the-web-with-javascript-chrome-puppeteer-node-js-b18efb9e9921>A Guide to Automating and Scraping - Brandon Morelli</a></li>
 </ul>
-<h3 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h3><p><strong>Can I use Puppeteer for extracting data and localizing?</strong><br>Technically, Yes. You can setup data pipeline to crawl and extract data. You case store it in database or some other persistent store. You can use a workflow to review, edit and publish. Be very careful about licensing. Don’t crawl/scrape data without author’s consent.</p>
-<p><strong>Can you run multiple tabs simultaneously?</strong><br>Yes. You can use <code>newPage()</code> method to create multiple tabs. And for each tab you can have a different execution code. I have tried it with 2 tabs. Here is a code sample for the last example (scraping) that does same thing but five times, concurrently.</p>
-<figure class="highlight javascript"><figcaption><span>scrape-multi.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> SELECTOR_BOOK_IMAGE =</span><br><span class="line">  <span class="string">"#default &gt; div &gt; div &gt; div &gt; div &gt; section &gt; div:nth-child(2) &gt; ol &gt; li:nth-child(1) &gt; article &gt; div.image_container &gt; a &gt; img"</span>;</span><br><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">"puppeteer"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> scrapeSite = <span class="keyword">async</span> (browser) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">  <span class="keyword">await</span> page.goto(<span class="string">"http://books.toscrape.com/"</span>);</span><br><span class="line">  <span class="keyword">await</span> page.waitFor(<span class="number">1000</span>);</span><br><span class="line">  <span class="keyword">await</span> page.click(SELECTOR_BOOK_IMAGE);</span><br><span class="line">  <span class="keyword">await</span> page.waitFor(<span class="number">2000</span>);</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> page.evaluate(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> title = <span class="built_in">document</span>.querySelector(<span class="string">"h1"</span>).innerText;</span><br><span class="line">    <span class="keyword">let</span> price = <span class="built_in">document</span>.querySelector(<span class="string">".price_color"</span>).innerText;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      title,</span><br><span class="line">      price,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> scrape = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123; <span class="attr">headless</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> <span class="built_in">Promise</span>.all([</span><br><span class="line">    scrapeSite(browser),</span><br><span class="line">    scrapeSite(browser),</span><br><span class="line">    scrapeSite(browser),</span><br><span class="line">    scrapeSite(browser),</span><br><span class="line">    scrapeSite(browser),</span><br><span class="line">  ]);</span><br><span class="line">  <span class="keyword">await</span> browser.close();</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line">scrape().then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value); <span class="comment">// Success!</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id=questions>Questions</h3>
+<p><strong>Can I use Puppeteer for extracting data and localizing?</strong>
+Technically, Yes. You can setup data pipeline to crawl and extract data. You case store it in database or some other persistent store. You can use a workflow to review, edit and publish. Be very careful about licensing. Don&rsquo;t crawl/scrape data without author&rsquo;s consent.</p>
+<p><strong>Can you run multiple tabs simultaneously?</strong>
+Yes. You can use <code>newPage()</code> method to create multiple tabs. And for each tab you can have a different execution code. I have tried it with 2 tabs. Here is a code sample for the last example (scraping) that does same thing but five times, concurrently.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>SELECTOR_BOOK_IMAGE</span> <span style=color:#f92672>=</span>
+  <span style=color:#e6db74>&#34;#default &gt; div &gt; div &gt; div &gt; div &gt; section &gt; div:nth-child(2) &gt; ol &gt; li:nth-child(1) &gt; article &gt; div.image_container &gt; a &gt; img&#34;</span>;
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>puppeteer</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#34;puppeteer&#34;</span>);
 
-<p><a href="scrape-multi.js">Source</a></p>
-<p><strong>Can I extract CSS from the pages with this?</strong><br>I have not tried it, but as you can evaluate any valid javascript code using API, you should be able to extract that.</p>
+<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>scrapeSite</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>async</span> (<span style=color:#a6e22e>browser</span>) =&gt; {
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>page</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>browser</span>.<span style=color:#a6e22e>newPage</span>();
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#66d9ef>goto</span>(<span style=color:#e6db74>&#34;http://books.toscrape.com/&#34;</span>);
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>waitFor</span>(<span style=color:#ae81ff>1000</span>);
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>click</span>(<span style=color:#a6e22e>SELECTOR_BOOK_IMAGE</span>);
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>waitFor</span>(<span style=color:#ae81ff>2000</span>);
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>result</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>evaluate</span>(() =&gt; {
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>title</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#34;h1&#34;</span>).<span style=color:#a6e22e>innerText</span>;
+    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>price</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#34;.price_color&#34;</span>).<span style=color:#a6e22e>innerText</span>;
+
+    <span style=color:#66d9ef>return</span> {
+      <span style=color:#a6e22e>title</span>,
+      <span style=color:#a6e22e>price</span>,
+    };
+  });
+  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>result</span>;
+};
+<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>scrape</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>async</span> () =&gt; {
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>browser</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>puppeteer</span>.<span style=color:#a6e22e>launch</span>({ <span style=color:#a6e22e>headless</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>false</span> });
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>result</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> Promise.<span style=color:#a6e22e>all</span>([
+    <span style=color:#a6e22e>scrapeSite</span>(<span style=color:#a6e22e>browser</span>),
+    <span style=color:#a6e22e>scrapeSite</span>(<span style=color:#a6e22e>browser</span>),
+    <span style=color:#a6e22e>scrapeSite</span>(<span style=color:#a6e22e>browser</span>),
+    <span style=color:#a6e22e>scrapeSite</span>(<span style=color:#a6e22e>browser</span>),
+    <span style=color:#a6e22e>scrapeSite</span>(<span style=color:#a6e22e>browser</span>),
+  ]);
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>browser</span>.<span style=color:#a6e22e>close</span>();
+  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>result</span>;
+};
+<span style=color:#a6e22e>scrape</span>().<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>value</span>) =&gt; {
+  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>value</span>); <span style=color:#75715e>// Success!
+</span><span style=color:#75715e></span>});
+</code></pre></div><p><a href=scrape-multi.js>Source</a></p>
+<p><strong>Can I extract CSS from the pages with this?</strong>
+I have not tried it, but as you can evaluate any valid javascript code using API, you should be able to extract that.</p>
 <p>Below is a code that dumps each css being accessed by the page.</p>
-<figure class="highlight javascript"><figcaption><span>scrape-dump-css.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">"puppeteer"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> scrape = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123; <span class="attr">headless</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">await</span> page.setRequestInterceptionEnabled(<span class="literal">true</span>);</span><br><span class="line">  page.on(<span class="string">"request"</span>, (r) =&gt; &#123;</span><br><span class="line">    r.continue();</span><br><span class="line">  &#125;);</span><br><span class="line">  page.on(<span class="string">"response"</span>, (r) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> url = r.url;</span><br><span class="line">    <span class="keyword">if</span> (url.endsWith(<span class="string">"css"</span>)) &#123;</span><br><span class="line">      r.text().then(<span class="function">(<span class="params">s</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"// Source:"</span> + url);</span><br><span class="line">        <span class="built_in">console</span>.log(s);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">await</span> page.goto(<span class="string">"http://books.toscrape.com/"</span>);</span><br><span class="line">  <span class="keyword">await</span> browser.close();</span><br><span class="line">&#125;;</span><br><span class="line">scrape();</span><br></pre></td></tr></table></figure>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>puppeteer</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#34;puppeteer&#34;</span>);
 
-<p><a href="scrape-dump-css.js">Source</a></p>
-<h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><p>My father (<a href="https://twitter.com/nmrampuria" target="_blank" rel="noopener">Shri. Noratan Rampuria</a>) has always been very supportive of my life and career choices. And he showed his support once again. He was there for my talk and had looked happy. Thanks papa 🙏!<br><img src="special-thanks.jpg" alt></p>
+<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>scrape</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>async</span> () =&gt; {
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>browser</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>puppeteer</span>.<span style=color:#a6e22e>launch</span>({ <span style=color:#a6e22e>headless</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>false</span> });
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>page</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>browser</span>.<span style=color:#a6e22e>newPage</span>();
+
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>setRequestInterceptionEnabled</span>(<span style=color:#66d9ef>true</span>);
+  <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>on</span>(<span style=color:#e6db74>&#34;request&#34;</span>, (<span style=color:#a6e22e>r</span>) =&gt; {
+    <span style=color:#a6e22e>r</span>.<span style=color:#66d9ef>continue</span>();
+  });
+  <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>on</span>(<span style=color:#e6db74>&#34;response&#34;</span>, (<span style=color:#a6e22e>r</span>) =&gt; {
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>url</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>r</span>.<span style=color:#a6e22e>url</span>;
+    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>url</span>.<span style=color:#a6e22e>endsWith</span>(<span style=color:#e6db74>&#34;css&#34;</span>)) {
+      <span style=color:#a6e22e>r</span>.<span style=color:#a6e22e>text</span>().<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>s</span>) =&gt; {
+        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;// Source:&#34;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>url</span>);
+        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>s</span>);
+      });
+    }
+  });
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#66d9ef>goto</span>(<span style=color:#e6db74>&#34;http://books.toscrape.com/&#34;</span>);
+  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>browser</span>.<span style=color:#a6e22e>close</span>();
+};
+<span style=color:#a6e22e>scrape</span>();
+</code></pre></div><p><a href=scrape-dump-css.js>Source</a></p>
+<h2 id=thanks>Thanks</h2>
+<p>My father (<a href=https://twitter.com/nmrampuria>Shri. Noratan Rampuria</a>) has always been very supportive of my life and career choices. And he showed his support once again. He was there for my talk and had looked happy. Thanks papa 🙏!
+<img src=special-thanks.jpg alt></p>
 <p>Many ex and current colleagues were also at the event and showed their support. Thanks folks🤝!</p>
-<p>Thanks to <a href="https://www.facebook.com/bharathi.subramanian.73" target="_blank" rel="noopener">Bharathi</a> and <a href="https://www.facebook.com/hari1prasath" target="_blank" rel="noopener">Hari</a> (GDG Mangement team) for the opportunity to speak. Well, it was more like <em>push</em> to speak 😀. <a href="https://www.facebook.com/manikantan.krish" target="_blank" rel="noopener">Manikantan K</a>, <a href="https://twitter.com/heliumlif" target="_blank" rel="noopener">Hui Yi</a>, <a href="https://twitter.com/dirkprimbs" target="_blank" rel="noopener">Dirk Primbs</a> and David from Google Developer Relations for supporting GDG-SG - “Thank you”. And <a href="https://twitter.com/perfinion" target="_blank" rel="noopener">Jason Zaman</a> for incepting the idea “Want to be at a conference? Just speak on something”.</p>
-
-            
-
-
-        </div>
-    </div>
-    <div id="post-footer" class="post-footer main-content-wrap">
-        
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br/>
-                
-    <a class="tag tag--primary tag--small t-link" href="/tags/gdg/">gdg</a> <a class="tag tag--primary tag--small t-link" href="/tags/testing/">testing</a>
-
-            </div>
-        
-        
-            <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    
-                <a
-                    class="post-action-btn btn btn--default tooltip--top"
-                    href="/2018/01/25/mobile-sites-certification/"
-                    data-tooltip="Mobile Sites Certification"
-                    aria-label="PREVIOUS: Mobile Sites Certification"
-                >
-                    
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                    </a>
-            </li>
-            <li class="post-action">
-                
-                    
-                <a
-                    class="post-action-btn btn btn--default tooltip--top"
-                    href="/2017/09/19/kotlin-baby-steps/"
-                    data-tooltip="Kotlin - Baby Steps"
-                    aria-label="NEXT: Kotlin - Baby Steps"
-                >
-                    
-                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a
-                class="post-action-btn btn btn--default btn-open-shareoptions"
-                href="#btn-open-shareoptions"
-                aria-label="Share this post"
-            >
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </a>
-        </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a
-                    class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/"
-                    title="Share on Facebook"
-                    aria-label="Share on Facebook"
-                >
-                    <i class="fab fa-facebook" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a
-                    class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/"
-                    title="Share on Twitter"
-                    aria-label="Share on Twitter"
-                >
-                    <i class="fab fa-twitter" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a
-                    class="post-action-btn btn btn--default"
-                    target="new" href="https://www.linkedin.com/shareArticle?url=http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/"
-                    title="global.share_on_linkedin"
-                    aria-label="global.share_on_linkedin"
-                >
-                    <i class="fab fa-linkedin" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-        
-            
-                <li class="post-action">
-                    <a
-                        class="post-action-btn btn btn--default"
-                        href="#disqus_thread"
-                        aria-label="Leave a comment"
-                    >
-                        <i class="fa fa-comment"></i>
-                    </a>
-                </li>
-            
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
-            
-                <i class="fa fa-list" aria-hidden="true"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-        
-        
-            
-                <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-            
-        
-    </div>
+<p>Thanks to <a href=https://www.facebook.com/bharathi.subramanian.73>Bharathi</a> and <a href=https://www.facebook.com/hari1prasath>Hari</a> (GDG Mangement team) for the opportunity to speak. Well, it was more like <em>push</em> to speak 😀. <a href=https://www.facebook.com/manikantan.krish>Manikantan K</a>, <a href=https://twitter.com/heliumlif>Hui Yi</a>, <a href=https://twitter.com/dirkprimbs>Dirk Primbs</a> and David from Google Developer Relations for supporting GDG-SG - &ldquo;Thank you&rdquo;. And <a href=https://twitter.com/perfinion>Jason Zaman</a> for incepting the idea &ldquo;Want to be at a conference? Just speak on something&rdquo;.</p>
 </article>
-
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2020 Yogendra Rampuria. All Rights Reserved.
-    </span>
+<aside class=sidebar>
+<section class=sidebar_inner>
+<div class=author_header>
+<img src=https://yogendra.github.io/images/authors/yogi.jpg alt="Yogi photo">
+<h2>Yogi</h2>
+</div>
+<div class=author_bio>
+Software Engineer | OSS Advocate, User, Buyer and Seller
+</div>
+<a href=https://yogendra.github.io/about/ class="button mt-1" role=button title="Read More">Read More</a>
+<h2 class=mt-4>Recent Posts</h2>
+<ul class=flex-column>
+<li>
+<a href=https://yogendra.github.io/2021/09/07/migration-guide/ class=nav-link title="Migration Guide">Migration Guide</a>
+</li>
+<li>
+<a href=https://yogendra.github.io/2019/03/15/right-abstraction/ class=nav-link title="Right Abstraction">Right Abstraction</a>
+</li>
+<li>
+<a href=https://yogendra.github.io/2018/04/14/idd-dialer-my-first-app/ class=nav-link title="IDD Dialer - My First App">IDD Dialer - My First App</a>
+</li>
+<li>
+<a href=https://yogendra.github.io/2018/01/26/mobile-sites-certification/ class=nav-link title="Mobile Sites Certification">Mobile Sites Certification</a>
+</li>
+<li>
+<a href=https://yogendra.github.io/2017/09/19/kotlin-baby-steps/ class=nav-link title="Kotlin - Baby Steps">Kotlin - Baby Steps</a>
+</li>
+<li>
+<a href=https://yogendra.github.io/2017/07/21/diagrams-in-blog/ class=nav-link title="Diagrams In Blog">Diagrams In Blog</a>
+</li>
+<li>
+<a href=https://yogendra.github.io/2017/07/20/migration-mania/ class=nav-link title="Migration Mania">Migration Mania</a>
+</li>
+<li>
+<a href=https://yogendra.github.io/2017/07/19/the-new-begining/ class=nav-link title="The New Begining">The New Begining</a>
+</li>
+</ul>
+<div>
+<h2 class="mt-4 taxonomy" id=categories-section>Categories</h2>
+<nav class=tags_nav>
+<a href=https://yogendra.github.io/categories/technology/ class="post_tag button button_translucent" title=technology>
+TECHNOLOGY
+<span class=button_tally>13</span>
+</a>
+<a href=https://yogendra.github.io/categories/inspirational/ class="post_tag button button_translucent" title=inspirational>
+INSPIRATIONAL
+<span class=button_tally>9</span>
+</a>
+<a href=https://yogendra.github.io/categories/personal/ class="post_tag button button_translucent" title=personal>
+PERSONAL
+<span class=button_tally>9</span>
+</a>
+<a href=https://yogendra.github.io/categories/programming/ class="post_tag button button_translucent" title=programming>
+PROGRAMMING
+<span class=button_tally>5</span>
+</a>
+<a href=https://yogendra.github.io/categories/project/ class="post_tag button button_translucent" title=project>
+PROJECT
+<span class=button_tally>5</span>
+</a>
+<a href=https://yogendra.github.io/categories/productivity/ class="post_tag button button_translucent" title=productivity>
+PRODUCTIVITY
+<span class=button_tally>2</span>
+</a>
+<a href=https://yogendra.github.io/categories/announcement/ class="post_tag button button_translucent" title=announcement>
+ANNOUNCEMENT
+<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/categories/devops/ class="post_tag button button_translucent" title=devops>
+DEVOPS
+<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/categories/jokes/ class="post_tag button button_translucent" title=jokes>
+JOKES
+<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/categories/philanthrophy/ class="post_tag button button_translucent" title=philanthrophy>
+PHILANTHROPHY
+<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/categories/talk/ class="post_tag button button_translucent" title=talk>
+TALK
+<span class=button_tally>1</span>
+</a>
+</nav>
+</div>
+<div>
+<h2 class="mt-4 taxonomy" id=tags-section>Tags</h2>
+<nav class=tags_nav>
+<a href=https://yogendra.github.io/tags/greeting/ class="post_tag button button_translucent" title=greeting>
+GREETING
+<span class=button_tally>6</span>
+</a>
+<a href=https://yogendra.github.io/tags/%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80/ class="post_tag button button_translucent" title=हिंदी>
+हिंदी
+<span class=button_tally>5</span>
+</a>
+<a href=https://yogendra.github.io/tags/android/ class="post_tag button button_translucent" title=android>
+ANDROID
+<span class=button_tally>2</span>
+</a>
+<a href=https://yogendra.github.io/tags/java/ class="post_tag button button_translucent" title=java>
+JAVA
+<span class=button_tally>2</span>
+</a>
+<a href=https://yogendra.github.io/tags/vagrant/ class="post_tag button button_translucent" title=vagrant>
+VAGRANT
+<span class=button_tally>2</span>
+</a>
+<a href=https://yogendra.github.io/tags/web/ class="post_tag button button_translucent" title=web>
+WEB
+<span class=button_tally>2</span>
+</a>
+<a href=https://yogendra.github.io/tags/app/ class="post_tag button button_translucent" title=app>
+APP
+<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/appengine/ class="post_tag button button_translucent" title=appengine>
+APPENGINE
+<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/blog/ class="post_tag button button_translucent" title=blog>
+BLOG
+<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/blogging/ class="post_tag button button_translucent" title=blogging>
+BLOGGING
+<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/bookmarklet/ class="post_tag button button_translucent" title=bookmarklet>
+BOOKMARKLET
+<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/books/ class="post_tag button button_translucent" title=books>
+BOOKS
+<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/caas/ class="post_tag button button_translucent" title=caas>
+CAAS
+<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/cambodia/ class="post_tag button button_translucent" title=cambodia>
+CAMBODIA
+<span class=button_tally>1</span>
+</a>
+<br>
+<div class="post_tags_toggle button">All Tags</div>
+<div class=post_tags>
+<div class=tags_list>
+<a href=https://yogendra.github.io/tags/android/ class="post_tag button button_translucent" data-position=2 title=android>ANDROID<span class=button_tally>2</span>
+</a>
+<a href=https://yogendra.github.io/tags/app/ class="post_tag button button_translucent" data-position=1 title=app>APP<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/appengine/ class="post_tag button button_translucent" data-position=1 title=appengine>APPENGINE<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/blog/ class="post_tag button button_translucent" data-position=1 title=blog>BLOG<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/blogging/ class="post_tag button button_translucent" data-position=1 title=blogging>BLOGGING<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/bookmarklet/ class="post_tag button button_translucent" data-position=1 title=bookmarklet>BOOKMARKLET<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/books/ class="post_tag button button_translucent" data-position=1 title=books>BOOKS<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/caas/ class="post_tag button button_translucent" data-position=1 title=caas>CAAS<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/cambodia/ class="post_tag button button_translucent" data-position=1 title=cambodia>CAMBODIA<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/cd/ci/ class="post_tag button button_translucent" data-position=1 title=cd/ci>CD/CI<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/celebration/ class="post_tag button button_translucent" data-position=1 title=celebration>CELEBRATION<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/cf/ class="post_tag button button_translucent" data-position=1 title=cf>CF<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/chrome/ class="post_tag button button_translucent" data-position=1 title=chrome>CHROME<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/cloud/ class="post_tag button button_translucent" data-position=1 title=cloud>CLOUD<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/cloud-native/ class="post_tag button button_translucent" data-position=1 title=cloud-native>CLOUD-NATIVE<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/containers/ class="post_tag button button_translucent" data-position=1 title=containers>CONTAINERS<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/data-strucrures/ class="post_tag button button_translucent" data-position=1 title=data-strucrures>DATA-STRUCRURES<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/development/ class="post_tag button button_translucent" data-position=1 title=development>DEVELOPMENT<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/devops/ class="post_tag button button_translucent" data-position=1 title=devops>DEVOPS<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/docker/ class="post_tag button button_translucent" data-position=1 title=docker>DOCKER<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/firefox/ class="post_tag button button_translucent" data-position=1 title=firefox>FIREFOX<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/fix/ class="post_tag button button_translucent" data-position=1 title=fix>FIX<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/fixme/ class="post_tag button button_translucent" data-position=1 title=fixme>FIXME<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/gdg/ class="post_tag button button_translucent" data-position=1 title=gdg>GDG<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/git/ class="post_tag button button_translucent" data-position=1 title=git>GIT<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/greeting/ class="post_tag button button_translucent" data-position=6 title=greeting>GREETING<span class=button_tally>6</span>
+</a>
+<a href=https://yogendra.github.io/tags/india/ class="post_tag button button_translucent" data-position=1 title=india>INDIA<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/java/ class="post_tag button button_translucent" data-position=2 title=java>JAVA<span class=button_tally>2</span>
+</a>
+<a href=https://yogendra.github.io/tags/javascript/ class="post_tag button button_translucent" data-position=1 title=javascript>JAVASCRIPT<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/kotlin/ class="post_tag button button_translucent" data-position=1 title=kotlin>KOTLIN<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/linux/ class="post_tag button button_translucent" data-position=1 title=linux>LINUX<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/lion/ class="post_tag button button_translucent" data-position=1 title=lion>LION<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/maven/ class="post_tag button button_translucent" data-position=1 title=maven>MAVEN<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/mobile/ class="post_tag button button_translucent" data-position=1 title=mobile>MOBILE<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/openvpn/ class="post_tag button button_translucent" data-position=1 title=openvpn>OPENVPN<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/opera/ class="post_tag button button_translucent" data-position=1 title=opera>OPERA<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/paas/ class="post_tag button button_translucent" data-position=1 title=paas>PAAS<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/parenting/ class="post_tag button button_translucent" data-position=1 title=parenting>PARENTING<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/pas/ class="post_tag button button_translucent" data-position=1 title=pas>PAS<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/pcf/ class="post_tag button button_translucent" data-position=1 title=pcf>PCF<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/poem/ class="post_tag button button_translucent" data-position=1 title=poem>POEM<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/remote/ class="post_tag button button_translucent" data-position=1 title=remote>REMOTE<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/s2/ class="post_tag button button_translucent" data-position=1 title=s2>S2<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/safari/ class="post_tag button button_translucent" data-position=1 title=safari>SAFARI<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/self-help/ class="post_tag button button_translucent" data-position=1 title=self-help>SELF-HELP<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/sgs2/ class="post_tag button button_translucent" data-position=1 title=sgs2>SGS2<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/shell/ class="post_tag button button_translucent" data-position=1 title=shell>SHELL<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/spring/ class="post_tag button button_translucent" data-position=1 title=spring>SPRING<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/spring-data-cloud-flow/ class="post_tag button button_translucent" data-position=1 title=spring-data-cloud-flow>SPRING-DATA-CLOUD-FLOW<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/story/ class="post_tag button button_translucent" data-position=1 title=story>STORY<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/technology/ class="post_tag button button_translucent" data-position=1 title=technology>TECHNOLOGY<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/testing/ class="post_tag button button_translucent" data-position=1 title=testing>TESTING<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/training/ class="post_tag button button_translucent" data-position=1 title=training>TRAINING<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/travel/ class="post_tag button button_translucent" data-position=1 title=travel>TRAVEL<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/tun.ko/ class="post_tag button button_translucent" data-position=1 title=tun.ko>TUN.KO<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/uob/ class="post_tag button button_translucent" data-position=1 title=uob>UOB<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/vagrant/ class="post_tag button button_translucent" data-position=2 title=vagrant>VAGRANT<span class=button_tally>2</span>
+</a>
+<a href=https://yogendra.github.io/tags/vm/ class="post_tag button button_translucent" data-position=1 title=vm>VM<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/vmware/ class="post_tag button button_translucent" data-position=1 title=vmware>VMWARE<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/vpn/ class="post_tag button button_translucent" data-position=1 title=vpn>VPN<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/web/ class="post_tag button button_translucent" data-position=2 title=web>WEB<span class=button_tally>2</span>
+</a>
+<a href=https://yogendra.github.io/tags/windows/ class="post_tag button button_translucent" data-position=1 title=windows>WINDOWS<span class=button_tally>1</span>
+</a>
+<a href=https://yogendra.github.io/tags/%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80/ class="post_tag button button_translucent" data-position=5 title=हिंदी>हिंदी<span class=button_tally>5</span>
+</a>
+<div class=tags_sort><span title="sort alphabetically">[A~Z]</span><span title="sort by count">[0~9]</span>
+</div>
+<span class=tags_hide><svg class="icon"><use xlink:href="#closeme"/></svg></span>
+</div>
+</div>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+</main><svg width="0" height="0" class="hidden"><symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook"><path d="M437 0H75C33.648.0.0 33.648.0 75v362c0 41.352 33.648 75 75 75h151V331h-60v-90h60v-61c0-49.629 40.371-90 90-90h91v90h-91v61h91l-15 90h-76v181h121c41.352.0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zm0 0"/></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.001 18.001" id="twitter"><path d="M15.891 4.013c.808-.496 1.343-1.173 1.605-2.034a8.68 8.68.0 01-2.351.861c-.703-.756-1.593-1.14-2.66-1.14-1.043.0-1.924.366-2.643 1.078A3.56 3.56.0 008.766 5.383c0 .309.039.585.117.819-3.076-.105-5.622-1.381-7.628-3.837-.34.601-.51 1.213-.51 1.846.0 1.301.549 2.332 1.645 3.089-.625-.053-1.176-.211-1.645-.47.0.929.273 1.705.82 2.388a3.623 3.623.0 002.115 1.291c-.312.08-.641.118-.979.118-.312.0-.533-.026-.664-.083.23.757.664 1.371 1.291 1.841a3.652 3.652.0 002.152.743C4.148 14.173 2.625 14.69.902 14.69c-.422.0-.721-.006-.902-.038 1.697 1.102 3.586 1.649 5.676 1.649 2.139.0 4.029-.542 5.674-1.626 1.645-1.078 2.859-2.408 3.639-3.974a10.77 10.77.0 001.172-4.892v-.468a7.788 7.788.0 001.84-1.921 8.142 8.142.0 01-2.11.593z"/></symbol><symbol aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="mail"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V4e2c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5.0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="calendar"><path d="M452 40h-24V0h-40v40H124V0H84v40H60C26.916 40 0 66.916.0 1e2v352c0 33.084 26.916 60 60 60h392c33.084.0 60-26.916 60-60V1e2c0-33.084-26.916-60-60-60zm20 412c0 11.028-8.972 20-20 20H60c-11.028.0-20-8.972-20-20V188h432v264zm0-304H40v-48c0-11.028 8.972-20 20-20h24v40h40V80h264v40h40V80h24c11.028.0 20 8.972 20 20v48z"/><path d="M76 230h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 310h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 390h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80-80h40v40h-40z"/></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="github"><path d="M255.968 5.329C114.624 5.329.0 120.401.0 262.353c0 113.536 73.344 209.856 175.104 243.872 12.8 2.368 17.472-5.568 17.472-12.384.0-6.112-.224-22.272-.352-43.712-71.2 15.52-86.24-34.464-86.24-34.464-11.616-29.696-28.416-37.6-28.416-37.6-23.264-15.936 1.728-15.616 1.728-15.616 25.696 1.824 39.2 26.496 39.2 26.496 22.848 39.264 59.936 27.936 74.528 21.344 2.304-16.608 8.928-27.936 16.256-34.368-56.832-6.496-116.608-28.544-116.608-127.008.0-28.064 9.984-51.008 26.368-68.992-2.656-6.496-11.424-32.64 2.496-68 0 0 21.504-6.912 70.4 26.336 20.416-5.696 42.304-8.544 64.096-8.64 21.728.128 43.648 2.944 64.096 8.672 48.864-33.248 70.336-26.336 70.336-26.336 13.952 35.392 5.184 61.504 2.56 68 16.416 17.984 26.304 40.928 26.304 68.992.0 98.72-59.84 120.448-116.864 126.816 9.184 7.936 17.376 23.616 17.376 47.584.0 34.368-.32 62.08-.32 70.496.0 6.88 4.608 14.88 17.6 12.352C438.72 472.145 512 375.857 512 262.353 512 120.401 397.376 5.329 255.968 5.329z"/></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 212" id="gitlab"><path d="M12.3 74.7h54L43.3 3c-1-3.6-6.4-3.6-7.6.0L12.3 74.8z"/><path d="M12.3 74.7.5 111c-1 3.2.0 6.8 3 8.8l101.6 74-92.5-119z"/><path d="M105 193.7l-38.6-119h-54l92.7 119z"/><path d="M105 193.7l38.7-119H66.4l38.7 119z"/><path d="M105 193.7l38.7-119H198l-93 119z"/><path d="M198 74.7l11.6 36.2c1 3 0 6.6-3 8.6l-101.5 74 93-119z"/><path d="M198 74.7h-54.3L167 3c1.2-3.6 6.4-3.6 7.6.0L198 74.8z"/></symbol><symbol viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="rss"><circle cx="3.429" cy="20.571" r="3.429"/><path d="M11.429 24h4.57C15.999 15.179 8.821 8.001.0 8v4.572c6.302.001 11.429 5.126 11.429 11.428z"/><path d="M24 24C24 10.766 13.234.0.0.0v4.571c10.714.0 19.43 8.714 19.43 19.429z"/></symbol><symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="linkedin"><path d="M437 0H75C33.648.0.0 33.648.0 75v362c0 41.352 33.648 75 75 75h362c41.352.0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zM181 406h-60V196h60zm0-240h-60v-60h60zm210 240h-60V286c0-16.54-13.46-30-30-30s-30 13.46-30 30v120h-60V196h60v11.309C286.719 202.422 296.93 196 316 196c40.691.043 75 36.547 75 79.688zm0 0"/></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612" id="arrow"><path d="M604.501 440.509 325.398 134.956c-5.331-5.357-12.423-7.627-19.386-7.27-6.989-.357-14.056 1.913-19.387 7.27L7.499 440.509c-9.999 10.024-9.999 26.298.0 36.323s26.223 10.024 36.222.0l262.293-287.164L568.28 476.832c9.999 10.024 26.222 10.024 36.221.0 9.999-10.023 9.999-26.298.0-36.323z"/></symbol><symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="carly"><path d="M504.971 239.029 448 182.059V84c0-46.317-37.682-84-84-84h-44c-13.255.0-24 10.745-24 24s10.745 24 24 24h44c19.851.0 36 16.149 36 36v108c0 6.365 2.529 12.47 7.029 16.971L454.059 256l-47.029 47.029A24.002 24.002.0 004e2 320v108c0 19.851-16.149 36-36 36h-44c-13.255.0-24 10.745-24 24s10.745 24 24 24h44c46.318.0 84-37.683 84-84v-98.059l56.971-56.971c9.372-9.372 9.372-24.568.0-33.941zM112 192V84c0-19.851 16.149-36 36-36h44c13.255.0 24-10.745 24-24S205.255.0 192 0h-44c-46.318.0-84 37.683-84 84v98.059l-56.971 56.97c-9.373 9.373-9.373 24.568.0 33.941L64 329.941V428c0 46.317 37.682 84 84 84h44c13.255.0 24-10.745 24-24s-10.745-24-24-24h-44c-19.851.0-36-16.149-36-36V320c0-6.365-2.529-12.47-7.029-16.971L57.941 256l47.029-47.029A24.002 24.002.0 00112 192z"/></symbol><symbol viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="copy"><path d="M23 2.75A2.75 2.75.0 0020.25.0H8.75A2.75 2.75.0 006 2.75v13.5A2.75 2.75.0 008.75 19h11.5A2.75 2.75.0 0023 16.25zM18.25 14.5h-7.5a.75.75.0 010-1.5h7.5a.75.75.0 010 1.5zm0-3h-7.5a.75.75.0 010-1.5h7.5a.75.75.0 010 1.5zm0-3h-7.5a.75.75.0 010-1.5h7.5a.75.75.0 010 1.5z"/><path d="M8.75 20.5A4.255 4.255.0 014.5 16.25V2.75c0-.086.02-.166.025-.25H3.75A2.752 2.752.0 001 5.25v16A2.752 2.752.0 003.75 24h12a2.752 2.752.0 002.75-2.75v-.75z"/></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.001 512.001" id="closeme"><path d="M284.286 256.002 506.143 34.144c7.811-7.811 7.811-20.475.0-28.285-7.811-7.81-20.475-7.811-28.285.0L256 227.717 34.143 5.859c-7.811-7.811-20.475-7.811-28.285.0-7.81 7.811-7.811 20.475.0 28.285l221.857 221.857L5.858 477.859c-7.811 7.811-7.811 20.475.0 28.285a19.938 19.938.0 0014.143 5.857 19.94 19.94.0 0014.143-5.857L256 284.287l221.857 221.857c3.905 3.905 9.024 5.857 14.143 5.857s10.237-1.952 14.143-5.857c7.811-7.811 7.811-20.475.0-28.285L284.286 256.002z"/></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="open-menu"><path d="M492 236H20c-11.046.0-20 8.954-20 20s8.954 20 20 20h472c11.046.0 20-8.954 20-20s-8.954-20-20-20zm0-160H20C8.954 76 0 84.954.0 96s8.954 20 20 20h472c11.046.0 20-8.954 20-20s-8.954-20-20-20zm0 320H20c-11.046.0-20 8.954-20 20s8.954 20 20 20h472c11.046.0 20-8.954 20-20s-8.954-20-20-20z"/></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="instagram"><path d="M12 2.163c3.204.0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849.0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204.0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849.0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741.0 8.333.014 7.053.072c-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403.0-6.162 2.759-6.162 6.162S8.597 18.163 12 18.163s6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zM12 16c-2.209.0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796.0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795.0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="youtube"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23.0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23.0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 3.993L9 16z"/></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="stackoverflow"><path d="M21 27v-8h3v11H0V19h3v8h18z"/><path d="M17.1.2 15 1.8l7.9 10.6 2.1-1.6L17.1.2zm3.7 14.7L10.6 6.4l1.7-2 10.2 8.5-1.7 2zM7.2 12.3l12 5.6 1.1-2.4-12-5.6-1.1 2.4zm-1.8 6.8 13.56 1.96.17-2.38-13.26-2.55-.47 2.97zM19 25H5v-3h14v3z"/></symbol></svg>
+<footer class=footer>
+<div class="footer_inner wrap pale">
+<img src=https://yogendra.github.io/icons/apple-touch-icon.png class="icon icon_2 transparent" alt="Yogendra Rampuria">
+<p>Copyright&nbsp;2012-&nbsp;<span class=year></span>&nbsp;YOGENDRA RAMPURIA. All Rights Reserved</p><a class=to_top href=#documentTop><svg class="icon"><use xlink:href="#arrow"/></svg>
+</a>
+</div>
 </footer>
-
-            </div>
-            
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    
-                <a
-                    class="post-action-btn btn btn--default tooltip--top"
-                    href="/2018/01/25/mobile-sites-certification/"
-                    data-tooltip="Mobile Sites Certification"
-                    aria-label="PREVIOUS: Mobile Sites Certification"
-                >
-                    
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                    </a>
-            </li>
-            <li class="post-action">
-                
-                    
-                <a
-                    class="post-action-btn btn btn--default tooltip--top"
-                    href="/2017/09/19/kotlin-baby-steps/"
-                    data-tooltip="Kotlin - Baby Steps"
-                    aria-label="NEXT: Kotlin - Baby Steps"
-                >
-                    
-                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a
-                class="post-action-btn btn btn--default btn-open-shareoptions"
-                href="#btn-open-shareoptions"
-                aria-label="Share this post"
-            >
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </a>
-        </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a
-                    class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/"
-                    title="Share on Facebook"
-                    aria-label="Share on Facebook"
-                >
-                    <i class="fab fa-facebook" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a
-                    class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/"
-                    title="Share on Twitter"
-                    aria-label="Share on Twitter"
-                >
-                    <i class="fab fa-twitter" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a
-                    class="post-action-btn btn btn--default"
-                    target="new" href="https://www.linkedin.com/shareArticle?url=http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/"
-                    title="global.share_on_linkedin"
-                    aria-label="global.share_on_linkedin"
-                >
-                    <i class="fab fa-linkedin" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-        
-            
-                <li class="post-action">
-                    <a
-                        class="post-action-btn btn btn--default"
-                        href="#disqus_thread"
-                        aria-label="Leave a comment"
-                    >
-                        <i class="fa fa-comment"></i>
-                    </a>
-                </li>
-            
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
-            
-                <i class="fa fa-list" aria-hidden="true"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-                </div>
-                
-    <div id="share-options-bar" class="share-options-bar" data-behavior="4">
-        <i id="btn-close-shareoptions" class="fa fa-times"></i>
-        <ul class="share-options">
-            
-                
-                
-                <li class="share-option">
-                    <a
-                        class="share-option-btn"
-                        target="new"
-                        href="https://www.facebook.com/sharer/sharer.php?u=http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/"
-                        aria-label="Share on Facebook"
-                    >
-                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
-                    </a>
-                </li>
-            
-                
-                
-                <li class="share-option">
-                    <a
-                        class="share-option-btn"
-                        target="new"
-                        href="https://twitter.com/intent/tweet?text=http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/"
-                        aria-label="Share on Twitter"
-                    >
-                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
-                    </a>
-                </li>
-            
-                
-                
-                <li class="share-option">
-                    <a
-                        class="share-option-btn"
-                        target="new"
-                        href="https://www.linkedin.com/shareArticle?url=http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/"
-                        aria-label="global.share_on_linkedin"
-                    >
-                        <i class="fab fa-linkedin" aria-hidden="true"></i><span>global.share_on_linkedin</span>
-                    </a>
-                </li>
-            
-        </ul>
-    </div>
-
-
-            
-        </div>
-        
-
-
-    
-
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-times"></i>
-        </div>
-        
-            <img id="about-card-picture" src="https://www.gravatar.com/avatar/7ce74aebb97274e10ea8c5f2d9685abc?s=110" alt="Author&#39;s picture"/>
-        
-            <h4 id="about-card-name">Yogendra Rampuria</h4>
-        
-            <div id="about-card-bio"><p>Software Engineer<br>OSS Advocate, User, Buyer and Seller.<br>GPG: 019ECB5CDC6D59B7 </p>
-</div>
-        
-        
-            <div id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br/>
-                <p>Senior Platform Architect<br>VMware / Pivotal</p>
-
-            </div>
-        
-        
-            <div id="about-card-location">
-                <i class="fa fa-map-marker-alt"></i>
-                <br/>
-                Singapore
-            </div>
-        
-    </div>
-</div>
-
-        
-        
-<div id="cover" style="background-image:url('/assets/images/cover-yogi.jpg');"></div>
-        <!--SCRIPTS-->
-<script src="/assets/js/script-sotevtnmobtyf1n4d3atbcsz9tjfnegyx7rivsk6hkdbzqltswlndxacw0um.min.js"></script>
-<!--SCRIPTS END-->
-
-
-    
-        <script>
-          var disqus_config = function() {
-            this.page.url = 'http://yogendra.github.io/2017/10/28/puppeteer-no-strings-attached/';
-              
-            this.page.identifier = '2017/10/28/puppeteer-no-strings-attached/';
-              
-          };
-          (function() {
-            var d = document, s = d.createElement('script');
-            var disqus_shortname = 'yogendrarampuria';
-            s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-          })();
-        </script>
-    
-
-
-
-
-    </body>
+<script type=text/javascript src=https://yogendra.github.io/js/bundle.min.14825dc619648aeca2e4e66c65ef7d06ea216e6a64cd503f64d2fe77950ee425c47fc0f2cf993c2d656f534914619a2c47c8313438a810ed5008db38a46a812d.js integrity="sha512-FIJdxhlkiuyi5OZsZe99BuohbmpkzVA/ZNL+d5UO5CXEf8Dyz5k8LWVvU0kUYZosR8gxNDioEO1QCNs4pGqBLQ==" crossorigin=anonymous></script>
+</body>
 </html>
