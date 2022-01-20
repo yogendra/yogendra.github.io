@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Yogendra Rampuria</title><link>https://yogendra.github.io/posts/</link><description>Recent content in Posts on Yogendra Rampuria</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2012–2021, Yogendra Rampuria; all rights reserved.</copyright><lastBuildDate>Tue, 07 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yogendra.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Migration Guide</title><link>https://yogendra.github.io/2021/09/07/migration-guide/</link><pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate><guid>https://yogendra.github.io/2021/09/07/migration-guide/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Yogendra Rampuria</title><link>https://yogendra.github.io/posts/</link><description>Recent content in Posts on Yogendra Rampuria</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2012–2021, Yogendra Rampuria; all rights reserved.</copyright><lastBuildDate>Thu, 20 Jan 2022 03:43:49 +0000</lastBuildDate><atom:link href="https://yogendra.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Sudo With Touch ID</title><link>https://yogendra.github.io/2022/01/20/sudo-with-touch-id/</link><pubDate>Thu, 20 Jan 2022 03:43:49 +0000</pubDate><guid>https://yogendra.github.io/2022/01/20/sudo-with-touch-id/</guid><description>
+&lt;p>Security and convinience are not best of the friends. Good password/pin practices are not convinient (long, different for each system, random). Biometric authentication is somewhat a good compromise.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>Logging into your machine is a very repeatative task. I do it enough time is a day to be annoyed of long passwords. Additionally, I work a lot on command line so I do find myself running commands with &lt;code>sudo&lt;/code> a lot. Here is something that help me reduce some annoyance out of these.&lt;/p>
+&lt;p>You can setup your mac (may be other fingerprint enabled linux system) to use fingerprint based authentication. Most Mac users use this for login purpose. But till today I did not think about useing fingerprint for &lt;code>sudo&lt;/code> commands. After a quick search I stumbled on the original port on iMore.&lt;/p>
+&lt;p>&lt;em>Original Post&lt;/em>
+&lt;a href="https://www.imore.com/how-use-sudo-your-mac-touch-id">https://www.imore.com/how-use-sudo-your-mac-touch-id&lt;/a>&lt;/p>
+&lt;h2 id="alternative-method-1-via-vi">Alternative Method 1: Via vi&lt;/h2>
+&lt;p>If you are like me, and prefer using Terminal and vi, here is the method&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Open &lt;code>/private/etc/pam.d/sudo&lt;/code> in vi&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo vi /private/etc/pam.d/sudo
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>Goto line 2 and start a new line (&lt;code>2Go&lt;/code> - [2] + [Shift + G] + [o])&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Paste this line&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-text" data-lang="text">auth sufficient pam_tid.so
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>Exit edit mode - [Esc]&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Save and quit (&lt;code>:wq!&lt;/code> - [:] +[w] + [q] + [!] + [Enter])&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="alternative-method-2-one-liner">Alternative Method 2: One Liner&lt;/h2>
+&lt;p>Just run this command&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo sed -ie &lt;span style="color:#e6db74">&amp;#39;1 a\
+&lt;/span>&lt;span style="color:#e6db74">auth sufficient pam_tid.so
+&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&lt;/span> /private/etc/pam.d/sudo
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Or this if you have gnu-sed on your mac&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo gsed -i &lt;span style="color:#e6db74">&amp;#39;1 a auth sufficient pam_tid.so&amp;#39;&lt;/span> /private/etc/pam.d/sudo
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="but-why">But Why&lt;/h2>
+&lt;p>Its very common for enterprises to sync local password with your IDP (Example: Okta).
+I use a very long and different (for every system) passwords.
+I can get away with the hassle by using a password manager.
+My personal favorite is &lt;a href="https://www.safe-in-cloud.com">Safe In Cloud&lt;/a>.&lt;/p>
+&lt;p>So, there is no way I can type it over and over again, every time I lock my machine
+or run commands with &lt;code>sudo&lt;/code>. Additionally, I didnot want to put &lt;code>NOPASSWD&lt;/code> in
+&lt;code>sudoers&lt;/code> config. I find that risky, as I run all sorts of random scripts on my
+machine. So, using TouchID instead of password seems like a safe thing.&lt;/p>
+&lt;p>I have also used the PIV function of Yubikey for PIN based login, instead of
+password. That works too. But since I do find myself in public places with really smart people, giving away PIN is a big possibility. So, biometric lock seems safer.&lt;/p></description></item><item><title>Migration Guide</title><link>https://yogendra.github.io/2021/09/07/migration-guide/</link><pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate><guid>https://yogendra.github.io/2021/09/07/migration-guide/</guid><description>
 &lt;h2 id="from-hexo-to-hugo">From Hexo to Hugo&lt;/h2>
 &lt;ol>
 &lt;li>
