@@ -1,27 +1,3 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kotlin on Yogendra Rampuria</title><link>https://yogendra.github.io/tags/kotlin/</link><description>Recent content in kotlin on Yogendra Rampuria</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2012–2021, Yogendra Rampuria; all rights reserved.</copyright><lastBuildDate>Tue, 19 Sep 2017 22:49:47 +0000</lastBuildDate><atom:link href="https://yogendra.github.io/tags/kotlin/index.xml" rel="self" type="application/rss+xml"/><item><title>Kotlin - Baby Steps</title><link>https://yogendra.github.io/2017/09/19/kotlin-baby-steps/</link><pubDate>Tue, 19 Sep 2017 22:49:47 +0000</pubDate><guid>https://yogendra.github.io/2017/09/19/kotlin-baby-steps/</guid><description>
 &lt;p>I was at &lt;a href="https://www.meetup.com/kotlinsg/events/243293562/">Kotlin SG Meetup&lt;/a> tonight. It had a lot of content. I will post more about that later.&lt;/p>
-&lt;p>On my way back home (now), I started reading Kotlin website about various features (&lt;a href="https://kotlinlang.org/docs/tutorials/">here&lt;/a>).&lt;/p>
-&lt;p>&lt;a href="https://kotlinlang.org/">&lt;img src="https://kotlinlang.org/assets/images/twitter-card/kotlin_800x320.png" alt="Kotlin">&lt;/a>&lt;/p>
-&lt;p>I was curious about command line usage of Kotlin. How will I complile kotlin classes outside an IDE? How to run this? What about the runtime libraries? etc.&lt;/p>
-&lt;p>It turns out to be very straight forward. No surprises.&lt;/p>
-&lt;ol>
-&lt;li>Just write your code in a &lt;code>.kt&lt;/code> file&lt;/li>
-&lt;li>Run kotlin compiler
-a. For Apps, use &lt;code>-include-runtime&lt;/code> flag
-b. For libraries, &lt;strong>DON&amp;rsquo;T&lt;/strong> include runtime&lt;/li>
-&lt;li>Run app with &lt;code>java&lt;/code>&lt;/li>
-&lt;/ol>
-&lt;h2 id="but-i-want-moar">But I want &lt;em>moar&lt;/em>&lt;/h2>
-&lt;p>I have Kotlin installed via &lt;a href="https://sdkman.io">SDKMAN&lt;/a>. So, on the &lt;a href="https://kotlinlang.org/docs/tutorials/command-line.html">&amp;ldquo;Command Line&amp;rdquo; Tutorial&lt;/a> page I saw (&lt;a href="https://kotlinlang.org/docs/tutorials/command-line.html#using-the-command-line-to-run-scripts">here&lt;/a>) how to run kotlin as a script. Cool!&lt;/p>
-&lt;p>Now, I was more curious. I wanted to see if I could do one better. Can I write a script and execute it directly by filename? Lets try. Created a file &lt;code>list_folders.kts&lt;/code>, as below.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span>!/usr/bin/env kotlinc -script
-&lt;span style="color:#66d9ef">import&lt;/span> java.io.File
-&lt;span style="color:#66d9ef">val&lt;/span> folders = File(args[&lt;span style="color:#ae81ff">0&lt;/span>]).listFiles { &lt;span style="color:#66d9ef">file&lt;/span> &lt;span style="color:#f92672">-&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">file&lt;/span>.isDirectory() }
-folders&lt;span style="color:#f92672">?.&lt;/span>forEach { folder &lt;span style="color:#f92672">-&amp;gt;&lt;/span> println(folder) }
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>And, run this.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ chmod a+x ./list_folders.kts
-$ ./list_folders.kts .
-./kotlin-koans
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Wow! that worked. Trick is in the first line&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#75715e">#!/usr/bin/env kotlinc -script
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This causes shell the use &lt;code>kotlinc&lt;/code> interpreter for this script.&lt;/p></description></item></channel></rss>
+&lt;p>On my way back home (now), I started reading Kotlin website about various features (&lt;a href="https://kotlinlang.org/docs/tutorials/">here&lt;/a>).&lt;/p></description></item></channel></rss>
