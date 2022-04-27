@@ -15,7 +15,7 @@ Add Menus / Links / Social links Change author name Page migration
 Post Migration
 Copy &amp;lt;hexo_site&amp;gt;/source/_posts/* to &amp;lt;hugo_site&amp;gt;/content/posts
 Delete all the non Markdown files</description></item><item><title>Right Abstraction</title><link>https://yogendra.github.io/2019/03/15/right-abstraction/</link><pubDate>Fri, 15 Mar 2019 22:25:31 +0000</pubDate><guid>https://yogendra.github.io/2019/03/15/right-abstraction/</guid><description>
-Process of abstraction is as old as the mankind themself. Whenever I brain looks at a problem, it tries to simplify by abstracting all the non-contextual aspect. In computer science as well, we follow the same process of hiding details through layering.
+Process of abstraction is as old as the mankind themselves. Whenever I brain looks at a problem, it tries to simplify by abstracting all the non-contextual aspect. In computer science as well, we follow the same process of hiding details through layering.
 Get full Deck is here
 Today we are seeing an increasing number of enterprises opting to transform themselves into a &amp;quot;software driven business&amp;quot;. They are recognizing software and software based services as a unique differentiator.</description></item><item><title>IDD Dialer - My First App</title><link>https://yogendra.github.io/2018/04/14/idd-dialer-my-first-app/</link><pubDate>Sat, 14 Apr 2018 15:05:12 +0000</pubDate><guid>https://yogendra.github.io/2018/04/14/idd-dialer-my-first-app/</guid><description>
 A simple utility app to assist in international calling.
