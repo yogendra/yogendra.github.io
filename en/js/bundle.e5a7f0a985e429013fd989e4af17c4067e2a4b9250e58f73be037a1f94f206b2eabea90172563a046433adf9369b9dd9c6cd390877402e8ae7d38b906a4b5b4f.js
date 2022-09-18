@@ -8,10 +8,11 @@ const scaleImageClass = 'image-scale';
 const pageHasLoaded = 'DOMContentLoaded';
 const imageAltClass = 'img_alt'
 
-const rootURL = window.location.protocol + "//" + window.location.host;
+const baseURL = 'https://yogendra.github.io';
 const searchFieldClass = '.search_field';
 const searchClass = '.search';
 const goBackClass = 'button_back';
+const lineClass = '.line';
 
 // defined in i18n / translation files
 const quickLinks = 'Results';
@@ -25,7 +26,6 @@ const noMatchesFound = 'No results found';
 const doc = document.documentElement;
 const inline = ":inline";
 // variables read from your hugo configuration
-const parentURL = window.location.protocol + "//" + window.location.host + "/";
 let showImagePosition = "true";
 
 const showImagePositionLabel = 'Figure';
@@ -206,6 +206,19 @@ function parseBoolean(string) {
   }
 };
 
+function forEach(node, callback) {
+  node ? Array.prototype.forEach.call(node.childNodes, callback) : false;
+}
+
+function findQuery(query = 'query') {
+  const urlParams = new URLSearchParams(window.location.search);
+  if(urlParams.has(query)){
+    let c = urlParams.get(query);
+    return c;
+  }
+  return "";
+}
+
 function wrapText(text, context, wrapper = 'mark') {
   let open = `<${wrapper}>`;
   let close = `</${wrapper}>`;
@@ -293,6 +306,7 @@ function goBack(target) {
     pushClass(bodyElement, 'windows');
   }
 })();
+
 ;
 const codeActionButtons = [
   {
@@ -399,7 +413,7 @@ function restrainCodeBlockHeight(lines) {
 const blocks = codeBlocks();
 
 function collapseCodeBlock(block) {
-  const lines = elems('.ln', block);
+  const lines = elems(lineClass, block);
   const codeLines = lines.length;
   if (codeLines > maxLines) {
     const expandDot = createEl()
@@ -435,7 +449,7 @@ function actionPanel() {
     btn.className = `icon panel_icon panel_${button.id}`;
     button.show ? false : pushClass(btn, panelHide);
     // load icon inside button
-    btn.style.backgroundImage = `url(${parentURL}${iconsPath}${button.icon}.svg)`;
+    btn.style.backgroundImage = `url(${baseURL}${iconsPath}${button.icon}.svg)`;
     // append button on panel
     panel.appendChild(btn);
   });
@@ -454,7 +468,7 @@ function toggleLineNumbers(elems) {
 function toggleLineWrap(elem) {
   modifyClass(elem, 'pre_wrap');
   // retain max number of code lines on line wrap
-  const lines = elems('.ln', elem);
+  const lines = elems(lineClass, elem);
   restrainCodeBlockHeight(lines);
 }
 
@@ -473,7 +487,7 @@ function copyCode(codeElement) {
 }
 
 function disableCodeLineNumbers(block){
-  const lines = elems('.ln', block)
+  const lines = elems(lineClass, block)
   toggleLineNumbers(lines);
 }
 
@@ -529,7 +543,7 @@ function disableCodeLineNumbers(block){
       event.preventDefault();
       showActive(target, 'icon');
       const codeElement = target.closest(`.${highlightWrapId}`).firstElementChild.firstElementChild;
-      let lineNumbers = elems('.ln', codeElement);
+      let lineNumbers = elems(lineClass, codeElement);
 
       isWrapIcon ? toggleLineWrap(codeElement) : false;
 
@@ -648,7 +662,7 @@ function fileClosure(){
       Array.from(links).forEach(function(link){
         let target, rel, blank, noopener, attr1, attr2, url, isExternal;
         url = elemAttribute(link, 'href');
-        isExternal = (url && typeof url == 'string' && url.startsWith('http')) && !url.startsWith(parentURL) ? true : false;
+        isExternal = (url && typeof url == 'string' && url.startsWith('http')) && !url.startsWith(baseURL) ? true : false;
         if(isExternal) {
           target = 'target';
           rel = 'rel';
@@ -680,7 +694,6 @@ function fileClosure(){
   headingNodes.forEach(function(node){
     link = createEl('a');
     link.className = 'link icon';
-    link.style.backgroundImage = `url(${parentURL}${iconsPath}link.svg)`;
     id = node.getAttribute('id');
     if(id) {
       link.href = `${current}#${id}`;
@@ -801,7 +814,7 @@ function fileClosure(){
   }
 
   function populateAlt(images) {
-    let imagePosition = containsClass(images[0], featuredImageClass) ? -1 : 0;
+    let imagePosition = 0;
 
     images.forEach((image) => {
       let alt = image.alt;
@@ -833,30 +846,48 @@ function fileClosure(){
         modifyClass(figure, 'inline');
       }
 
-      // Figure numbering
-      let captionText = image.title.trim().length ? image.title.trim() : alt;
+      // Image captions
+      let addCaption = true
+      let captionText = ''
 
-      if (captionText.length && !containsClass(image, 'alt' && !isInline)) {
-        imagePosition += 1;
-        image.dataset.pos = imagePosition;
-        const showImagePosition = showingImagePosition();
+      if(image.title.trim().length) {
+        captionText = image.title.trim()
+      } else {
+        if(image.title === " ") {
+          addCaption = false
+        } else {
+          captionText = alt
+        }
+      }
 
+      // Don't add a caption for featured images, inline images, or empty text
+      if(
+        image.matches(`.${featuredImageClass}`) ||
+        containsClass(image, 'alt' && !isInline) ||
+        !captionText.length
+      ) {
+        addCaption = false
+      }
+
+      if (addCaption) {
         let desc = document.createElement('figcaption');
         desc.classList.add(imageAltClass);
 
+        // Add figure numbering
+        imagePosition += 1;
+        image.dataset.pos = imagePosition;
+        const showImagePosition = showingImagePosition();
         const thisImgPos = image.dataset.pos;
-        // modify image caption is necessary
         captionText = showImagePosition ? `${showImagePositionLabel} ${thisImgPos}: ${captionText}` : captionText;
         desc.textContent = captionText;
 
-        if(!image.matches(`.${featuredImageClass}`)) {
-          // add a caption below image only if the image isn't a featured image
-          if(image.nextElementSibling) {
-            // check if a caption exist already and remove it
-            image.nextElementSibling.remove();
-          }
-          image.insertAdjacentHTML('afterend', desc.outerHTML);
+        // If a caption exists, remove it
+        if(image.nextElementSibling) {
+          image.nextElementSibling.remove();
         }
+
+        // Insert caption
+        image.insertAdjacentHTML('afterend', desc.outerHTML);
       }
     });
 
