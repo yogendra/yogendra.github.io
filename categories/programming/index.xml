@@ -1,8 +1,61 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming on Yogendra Rampuria</title><link>https://yogendra.github.io/categories/programming/</link><description>Recent content in Programming on Yogendra Rampuria</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2012–2024, Yogendra Rampuria; all rights reserved.</copyright><lastBuildDate>Mon, 13 Apr 2015 00:58:00 +0000</lastBuildDate><atom:link href="https://yogendra.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml"/><item><title>Data Structure Operation</title><link>https://yogendra.github.io/2015/04/13/data-structure-operation/</link><pubDate>Mon, 13 Apr 2015 00:58:00 +0000</pubDate><guid>https://yogendra.github.io/2015/04/13/data-structure-operation/</guid><description>
-I always find myself pondering about this</description></item><item><title>JDK - No Install Needed</title><link>https://yogendra.github.io/2014/01/10/jdk-no-install-needed/</link><pubDate>Fri, 10 Jan 2014 10:09:46 +0000</pubDate><guid>https://yogendra.github.io/2014/01/10/jdk-no-install-needed/</guid><description>
-&lt;p>I don't like the whole concept of installers for my development tools like JDK, Eclipse, Netbeans, etc. I just keep a batch/shell script to setup my environment variables for JAVA_HOME, PATH and aliases.&lt;/p></description></item><item><title>C++ 11 Style : A Touch of Class</title><link>https://yogendra.github.io/2013/07/31/c-11-style-a-touch-of-class/</link><pubDate>Wed, 31 Jul 2013 14:41:38 +0000</pubDate><guid>https://yogendra.github.io/2013/07/31/c-11-style-a-touch-of-class/</guid><description>
-&lt;p>C++11 is the latest specification for C++. Have a look at some of the cool new features in it.&lt;/p></description></item><item><title>India by C</title><link>https://yogendra.github.io/2013/01/05/india-by-c/</link><pubDate>Sat, 05 Jan 2013 16:54:11 +0000</pubDate><guid>https://yogendra.github.io/2013/01/05/india-by-c/</guid><description>
-Map of India, drawn form C Code.
-Going through social networks, I stumbled upon this code. It didn't make much sense to me, except for the fact that there were 2 loops doing something with a large string. But when I compiled it (with a tiny modification), it gave a great result. Here's code and result.
-1 2// File: india.c 3// India by C 4#include &amp;#34;stdio.h&amp;#34; 5 6int main() 7{ 8 int a,b,c; 9 int count = 1; 10 printf(&amp;#34;\n \n \t\t Welcome India \n&amp;#34;); 11 for (b=c=10;a=&amp;#34;- FIGURE?</description></item><item><title>Development Books</title><link>https://yogendra.github.io/2012/01/29/development-books/</link><pubDate>Sun, 29 Jan 2012 00:57:18 +0000</pubDate><guid>https://yogendra.github.io/2012/01/29/development-books/</guid><description>
-&lt;p>List of Books that I have been recommended and I would recommend&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming on Chase Your Dreams</title><link>https://yogendra.github.io/categories/programming/</link><description>Recent content in Programming on Chase Your Dreams</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2012–2024, Yogendra Rampuria; all rights reserved.</copyright><lastBuildDate>Mon, 13 Apr 2015 00:58:00 +0000</lastBuildDate><atom:link href="https://yogendra.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml"/><item><title>Data Structure Operation</title><link>https://yogendra.github.io/2015/04/13/data-structure-operation/</link><pubDate>Mon, 13 Apr 2015 00:58:00 +0000</pubDate><guid>https://yogendra.github.io/2015/04/13/data-structure-operation/</guid><description>
+&lt;p&gt;I always find myself pondering about this&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;
+&lt;figure&gt;
+&lt;picture&gt;
+&lt;img
+loading="lazy"
+decoding="async"
+alt="Data Structure Operations"
+class="image_figure image_internal image_processed"
+width="1025"
+height="642"
+src="https://yogendra.github.io/2015/04/13/data-structure-operation/datastructures.png"
+/&gt;
+&lt;/picture&gt;
+&lt;/figure&gt;
+&lt;/p&gt;</description></item><item><title>JDK - No Install Needed</title><link>https://yogendra.github.io/2014/01/10/jdk-no-install-needed/</link><pubDate>Fri, 10 Jan 2014 10:09:46 +0000</pubDate><guid>https://yogendra.github.io/2014/01/10/jdk-no-install-needed/</guid><description>
+&lt;p&gt;I don't like the whole concept of installers for my development tools like JDK, Eclipse, Netbeans, etc. I just keep a batch/shell script to setup my environment variables for JAVA_HOME, PATH and aliases.&lt;/p&gt;</description></item><item><title>C++ 11 Style : A Touch of Class</title><link>https://yogendra.github.io/2013/07/31/c-11-style-a-touch-of-class/</link><pubDate>Wed, 31 Jul 2013 14:41:38 +0000</pubDate><guid>https://yogendra.github.io/2013/07/31/c-11-style-a-touch-of-class/</guid><description>
+&lt;p&gt;C++11 is the latest specification for C++. Have a look at some of the cool new features in it.&lt;/p&gt;</description></item><item><title>India by C</title><link>https://yogendra.github.io/2013/01/05/india-by-c/</link><pubDate>Sat, 05 Jan 2013 16:54:11 +0000</pubDate><guid>https://yogendra.github.io/2013/01/05/india-by-c/</guid><description>
+&lt;p&gt;Map of India, drawn form C Code.&lt;/p&gt;
+&lt;!--excerpt--&gt;
+&lt;p&gt;Going through social networks, I stumbled upon this code. It didn't make much sense to me, except for the fact that there were 2 loops doing something with a large string. But when I compiled it (with a tiny modification), it gave a great result. Here's code and result.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// File: india.c
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// India by C
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;#34;stdio.h&amp;#34;&lt;/span&gt;&lt;span class="cp"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nf"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="se"&gt;\t\t&lt;/span&gt;&lt;span class="s"&gt; Welcome India &lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;- FIGURE?, UMKC,XYZHello Folks,\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt; TFy!QJu ROo TNn(ROo)SLq SLq ULo+\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt; UHs UJq TNn*RPn/ QPbEWS_JSWQAIJO^ \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt; NBELPeHBFHT}TnA LVlBLOFAkHFOuFE Tp\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt; HCStHAUFAgcEAel clcn^r^r&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;tZvYx Xy\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;16&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt; T|S~Pn SPm SOn TNn ULo0ULo#ULo-W\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;17&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt; Hq!WFs XDt!&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;+++&lt;/span&gt;&lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;18&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;64&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;19&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nf"&gt;putchar&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="sc"&gt;&amp;#39;Z&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;20&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;21&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+&lt;figure&gt;
+&lt;picture&gt;
+&lt;img
+loading="lazy"
+decoding="async"
+alt="type-banner"
+class="image_figure image_internal image_processed"
+width="637"
+height="796"
+src="https://yogendra.github.io/2013/01/05/india-by-c/india-by-c.png"
+title="India by C - by an Indian Programmer"
+/&gt;
+&lt;figcaption class="caption_figure caption_internal"&gt;India by C - by an Indian Programmer&lt;/figcaption&gt;&lt;/picture&gt;
+&lt;/figure&gt;
+&lt;/p&gt;</description></item><item><title>Development Books</title><link>https://yogendra.github.io/2012/01/29/development-books/</link><pubDate>Sun, 29 Jan 2012 00:57:18 +0000</pubDate><guid>https://yogendra.github.io/2012/01/29/development-books/</guid><description>
+&lt;p&gt;List of Books that I have been recommended and I would recommend&lt;/p&gt;</description></item></channel></rss>
