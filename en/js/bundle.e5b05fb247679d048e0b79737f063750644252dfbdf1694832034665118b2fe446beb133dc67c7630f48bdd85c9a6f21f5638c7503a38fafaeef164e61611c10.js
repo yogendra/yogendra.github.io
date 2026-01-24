@@ -9,7 +9,7 @@ const pageHasLoaded = 'DOMContentLoaded';
 const imageAltClass = 'img_alt';
 
 
-const defaultSiteLanguage = 'en-us';
+const defaultSiteLanguage = 'en';
 const baseURL = 'https://yogendra.github.io/';
 const searchFieldClass = '.search_field';
 const searchClass = '.search';
@@ -1095,3 +1095,4 @@ function fileClosure(){
 window.addEventListener(pageHasLoaded, fileClosure());
 
 ;
+// add custom js in this file
