@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Chase Your Dreams</title><link>https://yogendra.github.io/posts/</link><description>Recent content in Posts on Chase Your Dreams</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Yogendra Rampuria</copyright><lastBuildDate>Thu, 23 May 2024 00:28:38 +0800</lastBuildDate><atom:link href="https://yogendra.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>YugabyteDB ♥️ Vault: Fun Times</title><link>https://yogendra.github.io/2024/05/23/yugabytedb-and-vault-fun-times/</link><pubDate>Thu, 23 May 2024 00:28:38 +0800</pubDate><guid>https://yogendra.github.io/2024/05/23/yugabytedb-and-vault-fun-times/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Chase Your Dreams</title><link>https://yogendra.github.io/posts/</link><description>Recent content in Posts on Chase Your Dreams</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Yogendra Rampuria</copyright><lastBuildDate>Thu, 20 Aug 2026 17:29:52 +0800</lastBuildDate><atom:link href="https://yogendra.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>AI-Assisted Blogging: From Idea to Live Homelab Staging</title><link>https://yogendra.github.io/2026/08/20/ai-assisted-blogging-from-idea-to-live-homelab-staging/</link><pubDate>Thu, 20 Aug 2026 17:29:52 +0800</pubDate><guid>https://yogendra.github.io/2026/08/20/ai-assisted-blogging-from-idea-to-live-homelab-staging/</guid><description>
+&lt;p&gt;Technical blogging often comes with high cognitive friction: synthesizing deep research, formatting code blocks, hand-crafting architecture diagrams, and verifying layout fidelity across devices before hitting publish.&lt;/p&gt;
+&lt;p&gt;By pairing an &lt;strong&gt;AI pair-programmer/researcher&lt;/strong&gt; with a &lt;strong&gt;private Homelab staging environment&lt;/strong&gt;, we can turn rough ideas into well-structured, illustrated technical articles in minutes.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="the-workflow-architecture"&gt;The Workflow Architecture&lt;/h2&gt;
+&lt;p&gt;Here is how the end-to-end publishing pipeline is organized:&lt;/p&gt;
+&lt;pre class="mermaid"&gt;
+flowchart LR
+subgraph S1[&amp;#34;1. AI Research &amp;amp; Outline&amp;#34;]
+Idea[&amp;#34;Topic / RFC / Idea&amp;#34;] --&amp;gt; Agent[&amp;#34;AI Research Agent&amp;#34;]
+Agent --&amp;gt; Brief[&amp;#34;Structured Outline &amp;amp; Mermaid Specs&amp;#34;]
+end
+subgraph S2[&amp;#34;2. Drafting &amp;amp; Assets&amp;#34;]
+Brief --&amp;gt; Bundle[&amp;#34;Hugo Page Bundle&amp;lt;br/&amp;gt;&amp;lt;code&amp;gt;content/posts/YYYY/MM/...&amp;lt;/code&amp;gt;&amp;#34;]
+Bundle --&amp;gt; Diagrams[&amp;#34;Mermaid.js Architecture&amp;#34;]
+Bundle --&amp;gt; Code[&amp;#34;Code &amp;amp; CLI Snippets&amp;#34;]
+end
+subgraph S3[&amp;#34;3. Staging on Homelab&amp;#34;]
+Bundle --&amp;gt; Staging[&amp;#34;Homelab Live Server&amp;lt;br/&amp;gt;&amp;lt;code&amp;gt;blog.hs.yogendra.me&amp;lt;/code&amp;gt;&amp;#34;]
+end
+subgraph S4[&amp;#34;4. Production Publishing&amp;#34;]
+Staging --&amp;gt; Push[&amp;#34;Git Commit &amp;amp; Push&amp;#34;]
+Push --&amp;gt; CI[&amp;#34;GitHub Actions&amp;#34;]
+CI --&amp;gt; Prod[&amp;#34;yogendra.me&amp;#34;]
+end
+&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id="1-creating-the-post-bundle"&gt;1. Creating the Post Bundle&lt;/h2&gt;
+&lt;p&gt;Using go-task, initialize a new Hugo page bundle:&lt;/p&gt;</description></item><item><title>YugabyteDB ♥️ Vault: Fun Times</title><link>https://yogendra.github.io/2024/05/23/yugabytedb-and-vault-fun-times/</link><pubDate>Thu, 23 May 2024 00:28:38 +0800</pubDate><guid>https://yogendra.github.io/2024/05/23/yugabytedb-and-vault-fun-times/</guid><description>
 &lt;p&gt;I have been working with &lt;a href="https://yugabyte.com"&gt;YugabyteDB&lt;/a&gt; for a while now. I am always experimenting with YugabyteDB + (something). Today, its &lt;a href="https://www.vaultproject.io/"&gt;Vault&lt;/a&gt;.&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;p&gt;I have also worked on Vault for a bit and did a a &lt;a href="https://github.com/yogendra/vault-transform-demo"&gt;lightening talk&lt;/a&gt; earlier this year. That talks was primarily around the data masking. But today, I was exploring the database secret engine.&lt;/p&gt;
